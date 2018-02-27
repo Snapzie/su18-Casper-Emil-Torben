@@ -15,7 +15,7 @@
         <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
-              <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+              <caret line="84" column="29" lean-forward="false" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding>
                 <marker date="1519749654063" expanded="true" signature="6:353" ph="..." />
                 <marker date="1519749654063" expanded="true" signature="376:17357" ph="{...}" />
@@ -252,7 +252,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4352000" />
+    <option name="totallyTimeSpent" value="4971000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -565,7 +565,7 @@
     <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
-          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+          <caret line="84" column="29" lean-forward="false" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding>
             <marker date="1519749654063" expanded="true" signature="6:353" ph="..." />
             <marker date="1519749654063" expanded="true" signature="376:17357" ph="{...}" />
