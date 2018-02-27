@@ -73,6 +73,7 @@
       <e p="Galaga-Exercise-1" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Galaga-Exercise-1.csproj" t="IncludeRecursive" />
+        <e p="Game.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
