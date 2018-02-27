@@ -1,0 +1,10 @@
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/bin/Debug/Galaga_Exercise_1.exe
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/bin/Debug/Galaga_Exercise_1.pdb
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/bin/Debug/DIKUArcade.dll
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/bin/Debug/OpenTK.dll
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/bin/Debug/DIKUArcade.pdb
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/bin/Debug/OpenTK.xml
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga-Exercise-1.csprojResolveAssemblyReference.cache
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga-Exercise-1.csproj.CoreCompileInputs.cache
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.exe
+/Users/Casper/Uni/SU/SU18 DIKUArcade/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.pdb
