@@ -45,6 +45,9 @@ namespace Galaga_Exercise_1 {
                 while (gameTimer.ShouldUpdate()) {
                     win.PollEvents();
                     eventBus.ProcessEvents();
+                }
+
+                if (gameTimer.ShouldRender()) {
                     player.Shape.Move();
                     if (((DynamicShape) (player.Shape)).Position.X > 0.9) {
                         Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
@@ -53,9 +56,6 @@ namespace Galaga_Exercise_1 {
                         Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
                         ((DynamicShape) (player.Shape)).Position.X = 0.0f;
                     }
-                }
-
-                if (gameTimer.ShouldRender()) {
                     win.Clear();
                     player.RenderEntity();
                     win.SwapBuffers();
