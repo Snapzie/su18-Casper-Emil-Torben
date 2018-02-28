@@ -35,13 +35,16 @@ namespace Galaga_Exercise_1 {
         }
 
         public void GameLoop() {
+            float i = 0;
             while (win.IsRunning()) {
+                win.SetClearColor(new Vec3F((i % 1000) / 1000, 0, 0));
+                i++;
                 eventBus.ProcessEvents();
                 win.PollEvents();
                 win.Clear();
+                player.RenderEntity();
                 win.SwapBuffers();
                 player.Shape.Move(); 
-                player.RenderEntity();
             }
         }
 
