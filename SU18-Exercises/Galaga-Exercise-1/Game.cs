@@ -76,6 +76,11 @@ namespace Galaga_Exercise_1 {
         
         public void KeyPress(string key) {
             switch (key) {
+            case "KEY_ESCAPE":
+                eventBus.RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+                break;
             case "KEY_LEFT":
                 player.MoveLeft();
                 break;   
