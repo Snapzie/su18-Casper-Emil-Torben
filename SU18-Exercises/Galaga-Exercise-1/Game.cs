@@ -59,10 +59,6 @@ namespace Galaga_Exercise_1 {
                     ((DynamicShape) (player.Shape)).Direction.X = 0.0001f;
                     break;
             }
-
-            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            // TODO: use this method to start moving your player object
-            //((DynamicShape) (player.Shape)).Direction.X = 0.0001f; // choose a fittingly small number
         }
 
         public void KeyRelease(string key) {
