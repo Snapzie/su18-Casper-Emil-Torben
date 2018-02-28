@@ -15,6 +15,9 @@ namespace Galaga_Exercise_1 {
         private Entity player;
         private GameTimer gameTimer;
         private float movementSpeed = 0.005f;
+        private List<Image> enemyStrides;
+        private ImageStride enemyAnimation;
+        private EntityContainer enemies;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -36,6 +39,16 @@ namespace Galaga_Exercise_1 {
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)), 
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
             gameTimer = new GameTimer(60, 60);
+
+            enemyStrides =
+                ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
+            enemyAnimation = new ImageStride(80, enemyStrides);
+            enemies = new EntityContainer(4);
+            AddEnemies();
+        }
+
+        private void AddEnemies() {
+            enemies.AddDynamicEntity(new DynamicShape(new Vec2F(0.45f, 0.7f), new Vec2F(0.1f, 0.1f) ), enemyAnimation);
         }
 
         public void GameLoop() {
@@ -49,14 +62,15 @@ namespace Galaga_Exercise_1 {
                 if (gameTimer.ShouldRender()) {
                     player.Shape.Move();
                     if (((DynamicShape) (player.Shape)).Position.X > 0.9) {
-                        Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
+                        //Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
                         ((DynamicShape) (player.Shape)).Position.X = 0.9f;
                     }else if (((DynamicShape) (player.Shape)).Position.X < 0.0) {
-                        Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
+                        //Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
                         ((DynamicShape) (player.Shape)).Position.X = 0.0f;
                     }
                     win.Clear();
                     player.Shape.Move(); 
+                    enemies.RenderEntities();
                     player.RenderEntity();
                     win.SwapBuffers();
                 }
