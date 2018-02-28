@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Media;
+using System.IO;
+using System.Collections.Generic;
 using DIKUArcade;
 using DIKUArcade.EventBus;
+using DIKUArcade.Entities;
+using DIKUArcade.Graphics;
+using DIKUArcade.Math;
 
 namespace Galaga_Exercise_1 {
     public class Game : IGameEventProcessor<object> {
         private Window win;
         private GameEventBus<object> eventBus;
+        private Entity player;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -23,6 +27,10 @@ namespace Galaga_Exercise_1 {
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
+
+            player = new Entity(
+                new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)), 
+                new Image(Path.Combine("Assets", "Images", "Player.png")));
         }
 
         public void GameLoop() {
@@ -31,7 +39,8 @@ namespace Galaga_Exercise_1 {
                 win.PollEvents();
                 win.Clear();
                 win.SwapBuffers();
-                player.Move();
+                player.Shape.Move(); //Måske der ikke skal stå shape her?? Har selv tilføjet det for at det kunne compile
+                player.RenderEntity();
             }
         }
 
@@ -78,6 +87,7 @@ namespace Galaga_Exercise_1 {
                     KeyRelease(gameEvent.Message);
                     break;
                 }
+                player.RenderEntity();
             }
         }
     }
