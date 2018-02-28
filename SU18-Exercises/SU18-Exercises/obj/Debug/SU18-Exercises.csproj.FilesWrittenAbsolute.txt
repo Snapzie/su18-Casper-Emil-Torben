@@ -1,0 +1,5 @@
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/.NETFramework,Version=v4.5.1.AssemblyAttribute.cs
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/SU18_Exercises.exe.mdb
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/SU18_Exercises.exe
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.exe
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.exe.mdb

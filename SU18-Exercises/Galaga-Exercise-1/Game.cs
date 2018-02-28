@@ -47,6 +47,14 @@ namespace Galaga_Exercise_1 {
                 }
 
                 if (gameTimer.ShouldRender()) {
+                    player.Shape.Move();
+                    if (((DynamicShape) (player.Shape)).Position.X > 0.9) {
+                        Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
+                        ((DynamicShape) (player.Shape)).Position.X = 0.9f;
+                    }else if (((DynamicShape) (player.Shape)).Position.X < 0.0) {
+                        Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
+                        ((DynamicShape) (player.Shape)).Position.X = 0.0f;
+                    }
                     win.Clear();
                     player.Shape.Move(); 
                     player.RenderEntity();
@@ -68,10 +76,12 @@ namespace Galaga_Exercise_1 {
                                 GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                     break;
                 case "KEY_LEFT":
-                    ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
-                    break;
+                    if (((DynamicShape) (player.Shape)).Position.X > 0.0) {
+                        ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
+                    }
+                    break;   
                 case "KEY_RIGHT":
-                    ((DynamicShape) (player.Shape)).Direction.X = movementSpeed;
+                    ((DynamicShape) (player.Shape)).Direction.X = movementSpeed;   
                     break;
             }
         }
