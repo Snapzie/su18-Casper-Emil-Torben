@@ -6,12 +6,15 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
+using DIKUArcade.Timers;
 
 namespace Galaga_Exercise_1 {
     public class Game : IGameEventProcessor<object> {
         private Window win;
         private GameEventBus<object> eventBus;
         private Entity player;
+        private GameTimer gameTimer;
+        private float movementSpeed = 0.001f;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -32,19 +35,29 @@ namespace Galaga_Exercise_1 {
             player = new Entity(
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)), 
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
+            gameTimer = new GameTimer();
         }
 
         public void GameLoop() {
             float i = 0;
             while (win.IsRunning()) {
-                win.SetClearColor(new Vec3F((i % 1000) / 1000, 0, 0));
-                i++;
-                eventBus.ProcessEvents();
-                win.PollEvents();
-                win.Clear();
-                player.RenderEntity();
-                win.SwapBuffers();
-                player.Shape.Move(); 
+                gameTimer.MeasureTime();
+                while (gameTimer.ShouldUpdate()) {
+                    win.PollEvents();
+                    eventBus.ProcessEvents();
+                    player.Shape.Move(); 
+                }
+
+                if (gameTimer.ShouldRender()) {
+                    win.Clear();
+                    player.RenderEntity();
+                    win.SwapBuffers();
+                }
+
+                if (gameTimer.ShouldReset()) {
+                    win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates +
+                                ", FPS: " + gameTimer.CapturedFrames;
+                }
             }
         }
 
@@ -56,10 +69,10 @@ namespace Galaga_Exercise_1 {
                                 GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                     break;
                 case "KEY_LEFT":
-                    ((DynamicShape) (player.Shape)).Direction.X = -0.0001f;
+                    ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
                     break;
                 case "KEY_RIGHT":
-                    ((DynamicShape) (player.Shape)).Direction.X = 0.0001f;
+                    ((DynamicShape) (player.Shape)).Direction.X = movementSpeed;
                     break;
             }
         }
