@@ -94,9 +94,7 @@ namespace Galaga_Exercise_1 {
                                 GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                     break;
                 case "KEY_LEFT":
-                    if (((DynamicShape) (player.Shape)).Position.X > 0.0) {
-                        ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
-                    }
+                    ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
                     break;   
                 case "KEY_RIGHT":
                     ((DynamicShape) (player.Shape)).Direction.X = movementSpeed;   
