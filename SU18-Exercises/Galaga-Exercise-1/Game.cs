@@ -14,7 +14,7 @@ namespace Galaga_Exercise_1 {
         private GameEventBus<object> eventBus;
         private Entity player;
         private GameTimer gameTimer;
-        private float movementSpeed = 0.001f;
+        private float movementSpeed = 0.005f;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -35,7 +35,7 @@ namespace Galaga_Exercise_1 {
             player = new Entity(
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)), 
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
-            gameTimer = new GameTimer();
+            gameTimer = new GameTimer(60, 60);
         }
 
         public void GameLoop() {
