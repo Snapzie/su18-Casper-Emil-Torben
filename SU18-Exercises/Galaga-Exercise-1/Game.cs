@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Collections.Generic;
 using DIKUArcade;
@@ -39,7 +40,7 @@ namespace Galaga_Exercise_1 {
                 win.PollEvents();
                 win.Clear();
                 win.SwapBuffers();
-                player.Shape.Move(); //Måske der ikke skal stå shape her?? Har selv tilføjet det for at det kunne compile
+                player.Shape.Move(); 
                 player.RenderEntity();
             }
         }
@@ -52,21 +53,21 @@ namespace Galaga_Exercise_1 {
                                 GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                     break;
                 case "KEY_LEFT":
-                    player.Shape.Direction.X = -0.0001f;
+                    ((DynamicShape) (player.Shape)).Direction.X = -0.0001f;
                     break;
-                case "KEY_RIGTH":
-                    player.Shape.Direction.X = 0.0001f;
+                case "KEY_RIGHT":
+                    ((DynamicShape) (player.Shape)).Direction.X = 0.0001f;
                     break;
             }
 
             // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
             // TODO: use this method to start moving your player object
-            player.Shape.Direction.X = 0.0001f; // choose a fittingly small number
+            //((DynamicShape) (player.Shape)).Direction.X = 0.0001f; // choose a fittingly small number
         }
 
         public void KeyRelease(string key) {
             // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            player.Shape.Direction.X = 0.0f;
+            ((DynamicShape) (player.Shape)).Direction.X = 0.0f;
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
