@@ -14,7 +14,7 @@ namespace Galaga_Exercise_1 {
         private GameEventBus<object> eventBus;
         private Entity player;
         private GameTimer gameTimer;
-        private float movementSpeed = 0.005f;
+        private float movementSpeed = 0.01f;
         private List<Image> enemyStrides;
         private ImageStride enemyAnimation;
         private EntityContainer enemies;
@@ -73,7 +73,6 @@ namespace Galaga_Exercise_1 {
                         ((DynamicShape) (player.Shape)).Position.X = 0.0f;
                     }
                     win.Clear();
-                    player.Shape.Move(); 
                     enemies.RenderEntities();
                     player.RenderEntity();
                     win.SwapBuffers();
