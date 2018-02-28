@@ -39,17 +39,16 @@ namespace Galaga_Exercise_1 {
         }
 
         public void GameLoop() {
-            float i = 0;
             while (win.IsRunning()) {
                 gameTimer.MeasureTime();
                 while (gameTimer.ShouldUpdate()) {
                     win.PollEvents();
                     eventBus.ProcessEvents();
-                    player.Shape.Move(); 
                 }
 
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
+                    player.Shape.Move(); 
                     player.RenderEntity();
                     win.SwapBuffers();
                 }
