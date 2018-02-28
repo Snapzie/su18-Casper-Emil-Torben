@@ -45,7 +45,14 @@ namespace Galaga_Exercise_1 {
                 while (gameTimer.ShouldUpdate()) {
                     win.PollEvents();
                     eventBus.ProcessEvents();
-                    player.Shape.Move(); 
+                    player.Shape.Move();
+                    if (((DynamicShape) (player.Shape)).Position.X > 0.9) {
+                        Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
+                        ((DynamicShape) (player.Shape)).Position.X = 0.9f;
+                    }else if (((DynamicShape) (player.Shape)).Position.X < 0.0) {
+                        Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
+                        ((DynamicShape) (player.Shape)).Position.X = 0.0f;
+                    }
                 }
 
                 if (gameTimer.ShouldRender()) {
@@ -69,10 +76,12 @@ namespace Galaga_Exercise_1 {
                                 GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                     break;
                 case "KEY_LEFT":
-                    ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
-                    break;
+                    if (((DynamicShape) (player.Shape)).Position.X > 0.0) {
+                        ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
+                    }
+                    break;   
                 case "KEY_RIGHT":
-                    ((DynamicShape) (player.Shape)).Direction.X = movementSpeed;
+                    ((DynamicShape) (player.Shape)).Direction.X = movementSpeed;   
                     break;
             }
         }
