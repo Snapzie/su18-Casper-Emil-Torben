@@ -6,14 +6,10 @@ using DIKUArcade.Math;
 
 namespace Galaga_Exercise_1 {
     public class Player : IGameEventProcessor<object> {
-        private GameEventBus<object> eventBus;
         private Entity self;
         private float movementSpeed = 0.01f;
 
         public Player() {
-            eventBus = new GameEventBus<object>();
-            eventBus.Subscribe(GameEventType.PlayerEvent, this);
-            
             self = new Entity(
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)), 
                 new Image(Path.Combine("Assets", "Images", "Player.png")));

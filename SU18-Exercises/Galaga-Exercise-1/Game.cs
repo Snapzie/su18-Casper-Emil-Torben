@@ -16,7 +16,7 @@ namespace Galaga_Exercise_1 {
         private List<Image> enemyStrides;
         private ImageStride enemyAnimation;
         private EntityContainer enemies;
-        private int numOfEnemies = 3;
+        private int numOfEnemies = 8;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -35,6 +35,7 @@ namespace Galaga_Exercise_1 {
             eventBus.Subscribe(GameEventType.WindowEvent, this);
             
             player = new Player();
+            eventBus.Subscribe(GameEventType.PlayerEvent, player);
 
             gameTimer = new GameTimer(60, 60);
 
@@ -47,7 +48,8 @@ namespace Galaga_Exercise_1 {
 
         private void AddEnemies() {
             for (int i = 0; i < numOfEnemies; i++) {    
-                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f/numOfEnemies) * i, 0.9f), new Vec2F(0.1f, 0.1f) ), enemyAnimation);    
+                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f/numOfEnemies) * i, 0.9f), 
+                    new Vec2F(0.1f, 0.1f) ), enemyAnimation);    
             } 
         }
 
