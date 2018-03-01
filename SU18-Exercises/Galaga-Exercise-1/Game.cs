@@ -71,12 +71,12 @@ namespace Galaga_Exercise_1 {
 
         private void AddEnemies() {
             float height = 0.9f;
-            int index = 0;
+            //int index = 0;
             for (int i = 0; i < numOfEnemies; i++) {
-                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f / 8) * index, height), 
+                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f / 8) * (i % 8), height), 
                     new Vec2F(0.1f, 0.1f) ), enemyAnimation);  
-                index = (index + 1) % 8;
-                if (index == 0) {
+                //index = (index + 1) % 8;
+                if ((i + 1) % 8 == 0 && i != 0) {
                     height -= 0.1f;
                 }
             } 
