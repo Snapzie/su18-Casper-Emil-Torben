@@ -79,26 +79,24 @@ namespace Galaga_Exercise_1 {
                 shot.DeleteEntity();
             }
         }
+        
+        private void EnemyIterator(Entity enemy) {}
 
         private void IterateShots() {
-            //playerShots.Iterate(ShotIterator);
             foreach (Entity shot in playerShots) {
                 foreach (Entity enemy in enemies) {
                     if (CollisionDetection.Aabb((DynamicShape) shot.Shape, enemy.Shape).Collision) {
                         enemy.DeleteEntity();
                         shot.DeleteEntity();
                     }
-
-                    if (!enemy.IsDeleted()) {
-                        enemy.RenderEntity();
-                    }
                 }
 
                 if (!shot.IsDeleted()) {
                     shot.Shape.Move();
-                    shot.RenderEntity();
                 }
             }
+            playerShots.Iterate(ShotIterator);
+            enemies.Iterate(EnemyIterator);
         }
         
         public void GameLoop() {
@@ -112,7 +110,8 @@ namespace Galaga_Exercise_1 {
                 if (gameTimer.ShouldRender()) {
                     player.Move();
                     win.Clear();
-                    //enemies.RenderEntities();
+                    enemies.RenderEntities();
+                    playerShots.RenderEntities();
                     player.Render();
                     IterateShots();
                     win.SwapBuffers();
