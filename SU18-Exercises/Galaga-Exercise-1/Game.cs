@@ -1,5 +1,8 @@
+using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Runtime.ConstrainedExecution;
 using DIKUArcade;
 using DIKUArcade.EventBus;
 using DIKUArcade.Entities;
@@ -16,6 +19,8 @@ namespace Galaga_Exercise_1 {
         private List<Image> enemyStrides;
         private ImageStride enemyAnimation;
         private EntityContainer enemies;
+        private EntityContainer playerShots;
+        private Image laser;
         private int numOfEnemies = 24;
 
         public Game() {
@@ -43,6 +48,9 @@ namespace Galaga_Exercise_1 {
                 ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
             enemyAnimation = new ImageStride(80, enemyStrides);
             enemies = new EntityContainer(numOfEnemies);
+
+            playerShots = new EntityContainer();
+            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             AddEnemies();
         }
 
@@ -50,7 +58,7 @@ namespace Galaga_Exercise_1 {
             float height = 0.9f;
             int index = 0;
             for (int i = 0; i < numOfEnemies; i++) {
-                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f/8) * index, height), 
+                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f / 8) * index, height), 
                     new Vec2F(0.1f, 0.1f) ), enemyAnimation);  
                 
                 index++;
@@ -61,6 +69,23 @@ namespace Galaga_Exercise_1 {
             } 
         }
 
+        private void Shoot() {
+            DynamicShape shot = new DynamicShape(new Vec2F(0.5f, 0.5f), new Vec2F(0.008f, 0.027f));
+            //TODO: Change position to ship-position
+            shot.Direction = new Vec2F(0, 0.01f);
+            playerShots.AddDynamicEntity(shot, laser);
+        }
+
+        private void IterateShots() {
+            foreach (Entity shot in playerShots) {
+                shot.Shape.Move();
+                shot.RenderEntity();
+                foreach (var enemy in enemies) {
+                    //TODO: Collision check
+                }
+            }
+        }
+        
         public void GameLoop() {
             while (win.IsRunning()) {
                 gameTimer.MeasureTime();
@@ -74,6 +99,7 @@ namespace Galaga_Exercise_1 {
                     win.Clear();
                     enemies.RenderEntities();
                     player.Render();
+                    IterateShots();
                     win.SwapBuffers();
                 }
 
@@ -96,6 +122,9 @@ namespace Galaga_Exercise_1 {
                 break;   
             case "KEY_RIGHT":
                 player.MoveRight();  
+                break;
+            case "KEY_SPACE":
+                Shoot();
                 break;
             }
         }
