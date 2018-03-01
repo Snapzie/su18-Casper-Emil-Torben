@@ -23,6 +23,9 @@ namespace Galaga_Exercise_1 {
         private EntityContainer playerShots;
         private Image laser;
         private int numOfEnemies = 24;
+        private List<Image> explosionStrides;
+        private AnimationContainer explosions;
+        private int explosionLength = 500;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -49,10 +52,21 @@ namespace Galaga_Exercise_1 {
                 ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
             enemyAnimation = new ImageStride(80, enemyStrides);
             enemies = new EntityContainer(numOfEnemies);
+            AddEnemies();
 
             playerShots = new EntityContainer();
             laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
-            AddEnemies();
+            
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            explosions = new AnimationContainer(8);
+        }
+        
+        public void AddExplosion(float posX, float posY,
+            float extentX, float extentY) {
+            explosions.AddAnimation(
+                new StationaryShape(posX, posY, extentX, extentY), explosionLength,
+                new ImageStride(explosionLength / 8, explosionStrides));
         }
 
         private void AddEnemies() {
@@ -89,6 +103,8 @@ namespace Galaga_Exercise_1 {
                     if (CollisionDetection.Aabb((DynamicShape) shot.Shape, enemy.Shape).Collision) {
                         enemy.DeleteEntity();
                         shot.DeleteEntity();
+                        AddExplosion(enemy.Shape.Position.X, enemy.Shape.Position.Y, 
+                            enemy.Shape.Extent.X, enemy.Shape.Extent.Y);
                     }
                 }
 
@@ -112,6 +128,7 @@ namespace Galaga_Exercise_1 {
                     player.Move();
                     win.Clear();
                     enemies.RenderEntities();
+                    explosions.RenderAnimations();
                     playerShots.RenderEntities();
                     player.Render();
                     IterateShots();
