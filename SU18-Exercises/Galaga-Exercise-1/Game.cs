@@ -80,6 +80,7 @@ namespace Galaga_Exercise_1 {
             }
         }
         
+        //TODO: Somehow call this from ShotIterator would be nice
         private void EnemyIterator(Entity enemy) {}
 
         private void IterateShots() {
