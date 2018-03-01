@@ -1,24 +1,28 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Runtime.ConstrainedExecution;
 using DIKUArcade;
 using DIKUArcade.EventBus;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
+using DIKUArcade.Physics;
 
 namespace Galaga_Exercise_1 {
     public class Game : IGameEventProcessor<object> {
         private Window win;
         private GameEventBus<object> eventBus;
-        private Entity player;
+        private Player player;
         private GameTimer gameTimer;
-        private float movementSpeed = 0.01f;
         private List<Image> enemyStrides;
         private ImageStride enemyAnimation;
         private EntityContainer enemies;
-        private int numOfEnemies = 3;
+        private EntityContainer playerShots;
+        private Image laser;
+        private int numOfEnemies = 24;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -35,26 +39,67 @@ namespace Galaga_Exercise_1 {
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
+            
+            player = new Player();
+            eventBus.Subscribe(GameEventType.PlayerEvent, player);
 
-            player = new Entity(
-                new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)), 
-                new Image(Path.Combine("Assets", "Images", "Player.png")));
             gameTimer = new GameTimer(60, 60);
 
             enemyStrides =
                 ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
             enemyAnimation = new ImageStride(80, enemyStrides);
             enemies = new EntityContainer(numOfEnemies);
+
+            playerShots = new EntityContainer();
+            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             AddEnemies();
         }
 
         private void AddEnemies() {
-            for (int i = 0; i < numOfEnemies; i++) {    
-                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f/numOfEnemies) * i, 0.9f), new Vec2F(0.1f, 0.1f) ), enemyAnimation);    
-            }
-            
+            float height = 0.9f;
+            int index = 0;
+            for (int i = 0; i < numOfEnemies; i++) {
+                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f / 8) * index, height), 
+                    new Vec2F(0.1f, 0.1f) ), enemyAnimation);  
+                index = (index + 1) % 8;
+                if (index == 0) {
+                    height -= 0.1f;
+                }
+            } 
         }
 
+        private void Shoot() {
+            DynamicShape shot = new DynamicShape(new Vec2F(player.Self.Shape.Position.X + 0.05f, 0.2f),
+                new Vec2F(0.008f, 0.027f), new Vec2F(0, 0.01f));
+            playerShots.AddDynamicEntity(shot, laser);
+        }
+
+        private void ShotIterator(Entity shot) {
+            if (shot.Shape.Position.Y > 1.0f) {
+                shot.DeleteEntity();
+            }
+        }
+        
+        //TODO: Somehow call this from ShotIterator would be nice
+        private void EnemyIterator(Entity enemy) {}
+
+        private void IterateShots() {
+            foreach (Entity shot in playerShots) {
+                foreach (Entity enemy in enemies) {
+                    if (CollisionDetection.Aabb((DynamicShape) shot.Shape, enemy.Shape).Collision) {
+                        enemy.DeleteEntity();
+                        shot.DeleteEntity();
+                    }
+                }
+
+                if (!shot.IsDeleted()) {
+                    shot.Shape.Move();
+                }
+            }
+            playerShots.Iterate(ShotIterator);
+            enemies.Iterate(EnemyIterator);
+        }
+        
         public void GameLoop() {
             while (win.IsRunning()) {
                 gameTimer.MeasureTime();
@@ -64,17 +109,12 @@ namespace Galaga_Exercise_1 {
                 }
 
                 if (gameTimer.ShouldRender()) {
-                    player.Shape.Move();
-                    if (((DynamicShape) (player.Shape)).Position.X > 0.9) {
-                        //Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
-                        ((DynamicShape) (player.Shape)).Position.X = 0.9f;
-                    }else if (((DynamicShape) (player.Shape)).Position.X < 0.0) {
-                        //Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
-                        ((DynamicShape) (player.Shape)).Position.X = 0.0f;
-                    }
+                    player.Move();
                     win.Clear();
                     enemies.RenderEntities();
-                    player.RenderEntity();
+                    playerShots.RenderEntities();
+                    player.Render();
+                    IterateShots();
                     win.SwapBuffers();
                 }
 
@@ -84,28 +124,31 @@ namespace Galaga_Exercise_1 {
                 }
             }
         }
-
+        
         public void KeyPress(string key) {
             switch (key) {
-                case "KEY_ESCAPE":
-                    eventBus.RegisterEvent(
-                            GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
-                    break;
-                case "KEY_LEFT":
-                    ((DynamicShape) (player.Shape)).Direction.X = -movementSpeed;
-                    break;   
-                case "KEY_RIGHT":
-                    ((DynamicShape) (player.Shape)).Direction.X = movementSpeed;   
-                    break;
+            case "KEY_ESCAPE":
+                eventBus.RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+                break;
+            case "KEY_LEFT":
+                player.MoveLeft();
+                break;   
+            case "KEY_RIGHT":
+                player.MoveRight();  
+                break;
+            case "KEY_SPACE":
+                Shoot();
+                break;
             }
         }
 
         public void KeyRelease(string key) {
             // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            ((DynamicShape) (player.Shape)).Direction.X = 0.0f;
+            player.KeyRelease();
         }
-
+        
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
                 switch (gameEvent.Message) {
@@ -115,7 +158,7 @@ namespace Galaga_Exercise_1 {
                 default:
                     break;
                 }
-            } else if (eventType == GameEventType.InputEvent) {
+            }else if (eventType == GameEventType.InputEvent) {
                 switch (gameEvent.Parameter1) {
                 case "KEY_PRESS":
                     KeyPress(gameEvent.Message);
@@ -124,7 +167,7 @@ namespace Galaga_Exercise_1 {
                     KeyRelease(gameEvent.Message);
                     break;
                 }
-                player.RenderEntity();
+                player.Render();
             }
         }
     }
