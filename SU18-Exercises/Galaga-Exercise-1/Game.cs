@@ -9,6 +9,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
+using DIKUArcade.Physics;
 
 namespace Galaga_Exercise_1 {
     public class Game : IGameEventProcessor<object> {
@@ -60,28 +61,42 @@ namespace Galaga_Exercise_1 {
             for (int i = 0; i < numOfEnemies; i++) {
                 enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f / 8) * index, height), 
                     new Vec2F(0.1f, 0.1f) ), enemyAnimation);  
-                
-                index++;
-                if (index % 8 == 0) {
+                index = (index + 1) % 8;
+                if (index == 0) {
                     height -= 0.1f;
-                    index = 0;
                 }
             } 
         }
 
         private void Shoot() {
-            DynamicShape shot = new DynamicShape(new Vec2F(0.5f, 0.5f), new Vec2F(0.008f, 0.027f));
-            //TODO: Change position to ship-position
-            shot.Direction = new Vec2F(0, 0.01f);
+            DynamicShape shot = new DynamicShape(new Vec2F(player.Self.Shape.Position.X + 0.05f, 0.2f),
+                new Vec2F(0.008f, 0.027f), new Vec2F(0, 0.01f));
             playerShots.AddDynamicEntity(shot, laser);
         }
 
+        private void ShotIterator(Entity shot) {
+            if (shot.Shape.Position.Y > 1.0f) {
+                shot.DeleteEntity();
+            }
+        }
+
         private void IterateShots() {
+            //playerShots.Iterate(ShotIterator);
             foreach (Entity shot in playerShots) {
-                shot.Shape.Move();
-                shot.RenderEntity();
-                foreach (var enemy in enemies) {
-                    //TODO: Collision check
+                foreach (Entity enemy in enemies) {
+                    if (CollisionDetection.Aabb((DynamicShape) shot.Shape, enemy.Shape).Collision) {
+                        enemy.DeleteEntity();
+                        shot.DeleteEntity();
+                    }
+
+                    if (!enemy.IsDeleted()) {
+                        enemy.RenderEntity();
+                    }
+                }
+
+                if (!shot.IsDeleted()) {
+                    shot.Shape.Move();
+                    shot.RenderEntity();
                 }
             }
         }
@@ -97,7 +112,7 @@ namespace Galaga_Exercise_1 {
                 if (gameTimer.ShouldRender()) {
                     player.Move();
                     win.Clear();
-                    enemies.RenderEntities();
+                    //enemies.RenderEntities();
                     player.Render();
                     IterateShots();
                     win.SwapBuffers();
