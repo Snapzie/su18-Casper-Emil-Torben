@@ -18,10 +18,8 @@ namespace Galaga_Exercise_1 {
         public void Move() {
             self.Shape.Move();
             if (((DynamicShape) (self.Shape)).Position.X > 0.9) {
-                //Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
                 ((DynamicShape) (self.Shape)).Position.X = 0.9f;
             }else if (((DynamicShape) (self.Shape)).Position.X < 0.0) {
-                //Console.WriteLine((((DynamicShape) (player.Shape)).Position.X));
                 ((DynamicShape) (self.Shape)).Position.X = 0.0f;
             }
         }
