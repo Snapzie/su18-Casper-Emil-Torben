@@ -163,7 +163,8 @@ namespace Galaga_Exercise_1 {
 
         public void KeyRelease(string key) {
             // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            player.KeyRelease();
+            eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));
         }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
