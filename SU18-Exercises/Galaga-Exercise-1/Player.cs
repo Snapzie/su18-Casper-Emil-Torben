@@ -49,6 +49,9 @@ namespace Galaga_Exercise_1 {
                     case "MOVE_RIGHT":
                         MoveRight();
                         break;
+                    case "KEY_RELEASE":
+                        KeyRelease();
+                        break;
                     default:
                         break;
                 }
