@@ -165,8 +165,10 @@ namespace Galaga_Exercise_1 {
 
         public void KeyRelease(string key) {
             // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-                GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));
+            if (key == "KEY_LEFT" || key == "KEY_RIGHT") {
+                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));   
+            }
         }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
@@ -181,7 +183,6 @@ namespace Galaga_Exercise_1 {
             }else if (eventType == GameEventType.InputEvent) {
                 switch (gameEvent.Parameter1) {
                 case "KEY_PRESS":
-                    
                     KeyPress(gameEvent.Message);
                     break;
                 case "KEY_RELEASE":

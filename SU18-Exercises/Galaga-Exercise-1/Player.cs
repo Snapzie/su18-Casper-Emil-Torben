@@ -30,7 +30,6 @@ namespace Galaga_Exercise_1 {
         }
 
         public void MoveLeft() {
-            Console.WriteLine("Move left");
             ((DynamicShape) (Self.Shape)).Direction.X = -movementSpeed;
         }
         
@@ -45,14 +44,13 @@ namespace Galaga_Exercise_1 {
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.PlayerEvent) {
                 switch (gameEvent.Message) {
-                    case "MOVE_LEFT":
-                        Console.WriteLine("Move left called");
+                    case "MOVE LEFT":
                         MoveLeft();
                         break;
-                    case "MOVE_RIGHT":
+                    case "MOVE RIGHT":
                         MoveRight();
                         break;
-                    case "KEY_RELEASE":
+                    case "KEY RELEASE":
                         KeyRelease();
                         break;
                     default:
