@@ -151,7 +151,6 @@ namespace Galaga_Exercise_1 {
             case "KEY_LEFT":
                 eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
                     GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
-                Console.WriteLine("Move left");
                 break;   
             case "KEY_RIGHT":
                 eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
