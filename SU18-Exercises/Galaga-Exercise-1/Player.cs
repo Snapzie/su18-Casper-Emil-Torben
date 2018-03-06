@@ -43,6 +43,7 @@ namespace Galaga_Exercise_1 {
         }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
+            Console.WriteLine("Event");
             if (eventType == GameEventType.PlayerEvent) {
                 switch (gameEvent.Message) {
                     case "MOVE_LEFT":
