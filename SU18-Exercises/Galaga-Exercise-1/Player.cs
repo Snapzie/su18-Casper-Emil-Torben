@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DIKUArcade.EventBus;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
@@ -29,6 +30,7 @@ namespace Galaga_Exercise_1 {
         }
 
         public void MoveLeft() {
+            Console.WriteLine("Move left");
             ((DynamicShape) (Self.Shape)).Direction.X = -movementSpeed;
         }
         
@@ -44,6 +46,7 @@ namespace Galaga_Exercise_1 {
             if (eventType == GameEventType.PlayerEvent) {
                 switch (gameEvent.Message) {
                     case "MOVE_LEFT":
+                        Console.WriteLine("Move left called");
                         MoveLeft();
                         break;
                     case "MOVE_RIGHT":

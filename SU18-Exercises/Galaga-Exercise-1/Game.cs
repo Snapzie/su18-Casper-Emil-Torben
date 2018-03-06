@@ -52,7 +52,6 @@ namespace Galaga_Exercise_1 {
                 ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
-            AddEnemies();
             laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             
             enemies = new EntityContainer(numOfEnemies);
@@ -60,6 +59,8 @@ namespace Galaga_Exercise_1 {
             
             explosions = new AnimationContainer(8);
             enemyAnimation = new ImageStride(80, enemyStrides);
+            
+            AddEnemies();
         }
         
         public void AddExplosion(float posX, float posY,
@@ -150,6 +151,7 @@ namespace Galaga_Exercise_1 {
             case "KEY_LEFT":
                 eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
                     GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
+                Console.WriteLine("Move left");
                 break;   
             case "KEY_RIGHT":
                 eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
