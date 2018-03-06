@@ -41,7 +41,18 @@ namespace Galaga_Exercise_1 {
         }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
-            
+            if (eventType == GameEventType.PlayerEvent) {
+                switch (gameEvent.Message) {
+                    case "MOVE_LEFT":
+                        MoveLeft();
+                        break;
+                    case "MOVE_RIGHT":
+                        MoveRight();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
