@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DIKUArcade.EventBus;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
@@ -41,7 +42,21 @@ namespace Galaga_Exercise_1 {
         }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
-            
+            if (eventType == GameEventType.PlayerEvent) {
+                switch (gameEvent.Message) {
+                    case "MOVE LEFT":
+                        MoveLeft();
+                        break;
+                    case "MOVE RIGHT":
+                        MoveRight();
+                        break;
+                    case "KEY RELEASE":
+                        KeyRelease();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

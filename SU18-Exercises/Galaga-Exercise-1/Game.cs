@@ -32,6 +32,10 @@ namespace Galaga_Exercise_1 {
             // We recommend using 500 × 500 as window dimensions,
             // which is most easily done using a predefined aspect ratio.
             win = new Window("Cool Game", 500, 500);
+            gameTimer = new GameTimer(60, 60);
+            
+            player = new Player();
+            
             eventBus = new GameEventBus<object>();
             eventBus.InitializeEventBus(new List<GameEventType>() {
                 GameEventType.InputEvent, // key press / key release
@@ -42,24 +46,21 @@ namespace Galaga_Exercise_1 {
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
-            
-            player = new Player();
             eventBus.Subscribe(GameEventType.PlayerEvent, player);
-
-            gameTimer = new GameTimer(60, 60);
 
             enemyStrides =
                 ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
-            enemyAnimation = new ImageStride(80, enemyStrides);
-            enemies = new EntityContainer(numOfEnemies);
-            AddEnemies();
-
-            playerShots = new EntityContainer();
-            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
-            
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
+            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
+            
+            enemies = new EntityContainer(numOfEnemies);
+            playerShots = new EntityContainer();
+            
             explosions = new AnimationContainer(8);
+            enemyAnimation = new ImageStride(80, enemyStrides);
+            
+            AddEnemies();
         }
         
         public void AddExplosion(float posX, float posY,
@@ -148,10 +149,13 @@ namespace Galaga_Exercise_1 {
                         GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                 break;
             case "KEY_LEFT":
-                player.MoveLeft();
+                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
+                Console.WriteLine("Move left");
                 break;   
             case "KEY_RIGHT":
-                player.MoveRight();  
+                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
                 break;
             case "KEY_SPACE":
                 Shoot();
@@ -161,7 +165,10 @@ namespace Galaga_Exercise_1 {
 
         public void KeyRelease(string key) {
             // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            player.KeyRelease();
+            if (key == "KEY_LEFT" || key == "KEY_RIGHT") {
+                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));   
+            }
         }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
