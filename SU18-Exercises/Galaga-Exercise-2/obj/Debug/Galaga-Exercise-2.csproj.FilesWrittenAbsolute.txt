@@ -1,0 +1,9 @@
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/obj/Debug/.NETFramework,Version=v4.7.AssemblyAttribute.cs
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.exe
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/bin/Debug/DIKUArcade.dll
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/bin/Debug/DIKUArcade.dll.mdb
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/bin/Debug/OpenTK.dll
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/bin/Debug/Galaga_Exercise_2.exe.mdb
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/bin/Debug/Galaga_Exercise_2.exe
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.exe.mdb
