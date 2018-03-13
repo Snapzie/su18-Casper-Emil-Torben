@@ -10,6 +10,7 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
 using DIKUArcade.Physics;
+using Galaga_Exercise_2.Squadrons;
 
 namespace Galaga_Exercise_2 {
     public class Game : IGameEventProcessor<object> {
@@ -26,6 +27,7 @@ namespace Galaga_Exercise_2 {
         private List<Image> explosionStrides;
         private AnimationContainer explosions;
         private int explosionLength = 500;
+        private TriangleFormation eneFormation;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -54,13 +56,16 @@ namespace Galaga_Exercise_2 {
                 Path.Combine("Assets", "Images", "Explosion.png"));
             laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             
-            enemies = new EntityContainer(numOfEnemies);
+            // enemies = new EntityContainer(numOfEnemies);
             playerShots = new EntityContainer();
             
             explosions = new AnimationContainer(8);
-            enemyAnimation = new ImageStride(80, enemyStrides);
+           // enemyAnimation = new ImageStride(80, enemyStrides);
             
-            AddEnemies();
+            // AddEnemies();
+
+            eneFormation = new TriangleFormation(100);
+            eneFormation.CreateEnemies(enemyStrides);
         }
         
         public void AddExplosion(float posX, float posY,
@@ -98,7 +103,7 @@ namespace Galaga_Exercise_2 {
 
         private void IterateShots() {
             foreach (Entity shot in playerShots) {
-                foreach (Entity enemy in enemies) {
+                foreach (Entity enemy in eneFormation.Enemies) {
                     if (CollisionDetection.Aabb((DynamicShape) shot.Shape, enemy.Shape).Collision) {
                         enemy.DeleteEntity();
                         shot.DeleteEntity();
@@ -112,7 +117,7 @@ namespace Galaga_Exercise_2 {
                 }
             }
             playerShots.Iterate(ShotIterator);
-            enemies.Iterate(EnemyIterator);
+            eneFormation.Enemies.Iterate(EnemyIterator);
         }
         
         public void GameLoop() {
@@ -126,7 +131,8 @@ namespace Galaga_Exercise_2 {
                 if (gameTimer.ShouldRender()) {
                     player.Move();
                     win.Clear();
-                    enemies.RenderEntities();
+                    eneFormation.RenderFormation();
+                    //enemies.RenderEntities();
                     explosions.RenderAnimations();
                     playerShots.RenderEntities();
                     player.Render();
