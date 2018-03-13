@@ -43,8 +43,10 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Squadrons\IsoscelesTriangleFormation.cs" />
     <Compile Include="Squadrons\ISquadron.cs" />
-    <Compile Include="Squadrons\TriangleFormation.cs" />
+    <Compile Include="Squadrons\SquareFormation.cs" />
+    <Compile Include="Squadrons\RightTriangleFormation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">

@@ -10,6 +10,8 @@ namespace Galaga_Exercise_2.Squadrons {
         int MaxEnemies { get; }
         
         void CreateEnemies(List<Image> enemyStrides);
+
+        void RenderFormation();
     }
 }
     

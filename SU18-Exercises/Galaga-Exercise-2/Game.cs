@@ -27,7 +27,7 @@ namespace Galaga_Exercise_2 {
         private List<Image> explosionStrides;
         private AnimationContainer explosions;
         private int explosionLength = 500;
-        private TriangleFormation eneFormation;
+        private ISquadron eneFormation;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -64,7 +64,7 @@ namespace Galaga_Exercise_2 {
             
             // AddEnemies();
 
-            eneFormation = new TriangleFormation(21);
+            eneFormation = new IsoscelesTriangleFormation(21);
             eneFormation.CreateEnemies(enemyStrides);
         }
         
