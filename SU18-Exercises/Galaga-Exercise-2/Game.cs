@@ -63,6 +63,7 @@ namespace Galaga_Exercise_2 {
             
             moveStrat = new ZigZagDown();
             
+            //Instantiates exercise 2 week 6
             AddEnemies();
         }
         
