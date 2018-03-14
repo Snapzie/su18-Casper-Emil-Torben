@@ -10,6 +10,7 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
 using DIKUArcade.Physics;
+using Galaga_Exercise_2.MovementStrategy;
 using Galaga_Exercise_2.Squadrons;
 
 namespace Galaga_Exercise_2 {
@@ -28,6 +29,7 @@ namespace Galaga_Exercise_2 {
         private AnimationContainer explosions;
         private int explosionLength = 500;
         private ISquadron eneFormation;
+        private IMovementStrategy moveStrat;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -54,18 +56,18 @@ namespace Galaga_Exercise_2 {
                 ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
-            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
+            explosions = new AnimationContainer(8);
             
-            // enemies = new EntityContainer(numOfEnemies);
+            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             playerShots = new EntityContainer();
             
-            explosions = new AnimationContainer(8);
-           // enemyAnimation = new ImageStride(80, enemyStrides);
             
-            // AddEnemies();
-
-            eneFormation = new RightTriangleFormation(15);
-            eneFormation.CreateEnemies(enemyStrides);
+            
+            moveStrat = new ZigZagDown();
+            
+            AddEnemies();
+            
+            
         }
         
         public void AddExplosion(float posX, float posY,
@@ -76,14 +78,8 @@ namespace Galaga_Exercise_2 {
         }
 
         private void AddEnemies() {
-            float height = 0.9f;
-            for (int i = 0; i < numOfEnemies; i++) {
-                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f / 8) * (i % 8), height), 
-                    new Vec2F(0.1f, 0.1f) ), enemyAnimation);  
-                if ((i + 1) % 8 == 0 && i != 0) {
-                    height -= 0.1f;
-                }
-            } 
+            eneFormation = new IsoscelesTriangleFormation(15);
+            eneFormation.CreateEnemies(enemyStrides);
         }
 
         private void Shoot() {
@@ -131,8 +127,8 @@ namespace Galaga_Exercise_2 {
                 if (gameTimer.ShouldRender()) {
                     player.Move();
                     win.Clear();
+                    moveStrat.MoveEnemies(eneFormation.Enemies);
                     eneFormation.RenderFormation();
-                    //enemies.RenderEntities();
                     explosions.RenderAnimations();
                     playerShots.RenderEntities();
                     player.Render();
