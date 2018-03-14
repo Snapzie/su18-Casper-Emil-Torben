@@ -94,6 +94,9 @@
         </e>
         <e p="Squadrons" t="Include">
           <e p="ISquadron.cs" t="Include" />
+          <e p="IsoscelesTriangleFormation.cs" t="Include" />
+          <e p="RightTriangleFormation.cs" t="Include" />
+          <e p="SquareFormation.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
