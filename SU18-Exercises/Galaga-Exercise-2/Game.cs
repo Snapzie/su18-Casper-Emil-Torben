@@ -61,13 +61,9 @@ namespace Galaga_Exercise_2 {
             laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             playerShots = new EntityContainer();
             
-            
-            
             moveStrat = new ZigZagDown();
             
             AddEnemies();
-            
-            
         }
         
         public void AddExplosion(float posX, float posY,

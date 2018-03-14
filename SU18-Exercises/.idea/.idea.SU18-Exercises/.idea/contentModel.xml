@@ -90,6 +90,7 @@
         <e p="MovementStrategy" t="Include">
           <e p="Down.cs" t="Include" />
           <e p="IMovementStrategy.cs" t="Include" />
+          <e p="NoMove.cs" t="Include" />
           <e p="ZigZagDown.cs" t="Include" />
         </e>
         <e p="Player.cs" t="Include" />
