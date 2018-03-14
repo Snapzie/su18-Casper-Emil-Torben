@@ -10,6 +10,7 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
 using DIKUArcade.Physics;
+using Galaga_Exercise_2.MovementStrategy;
 using Galaga_Exercise_2.Squadrons;
 
 namespace Galaga_Exercise_2 {
@@ -28,6 +29,7 @@ namespace Galaga_Exercise_2 {
         private AnimationContainer explosions;
         private int explosionLength = 500;
         private ISquadron eneFormation;
+        private IMovementStrategy moveStrat;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -66,6 +68,10 @@ namespace Galaga_Exercise_2 {
 
             eneFormation = new IsoscelesTriangleFormation(21);
             eneFormation.CreateEnemies(enemyStrides);
+            
+            moveStrat = new ZigZagDown();
+            
+            
         }
         
         public void AddExplosion(float posX, float posY,
@@ -131,6 +137,7 @@ namespace Galaga_Exercise_2 {
                 if (gameTimer.ShouldRender()) {
                     player.Move();
                     win.Clear();
+                    moveStrat.MoveEnemies(eneFormation.Enemies);
                     eneFormation.RenderFormation();
                     //enemies.RenderEntities();
                     explosions.RenderAnimations();
