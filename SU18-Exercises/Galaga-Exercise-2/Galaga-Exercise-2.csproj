@@ -42,6 +42,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="MovementStrategy\Down.cs" />
     <Compile Include="MovementStrategy\IMovementStrategy.cs" />
+    <Compile Include="MovementStrategy\NoMove.cs" />
     <Compile Include="MovementStrategy\ZigZagDown.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

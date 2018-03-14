@@ -68,10 +68,10 @@ namespace Galaga_Exercise_2 {
 
             eneFormation = new IsoscelesTriangleFormation(21);
             eneFormation.CreateEnemies(enemyStrides);
-            
+
             moveStrat = new ZigZagDown();
-            
-            
+
+
         }
         
         public void AddExplosion(float posX, float posY,
