@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AE4812E7-F0D1-44E0-ADD1-2E57AA0A6830}</ProjectGuid>
+    <ProjectGuid>{F8C2B903-2AB8-4DE9-83C7-B294BB6BD9A5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Galaga_Exercise_3</RootNamespace>
-    <AssemblyName>Galaga_Exercise_3</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Galaga_Exercise_3._1</RootNamespace>
+    <AssemblyName>Galaga_Exercise_3._1</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -51,8 +51,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Squadrons\IsoscelesTriangleFormation.cs" />
     <Compile Include="Squadrons\ISquadron.cs" />
-    <Compile Include="Squadrons\SquareFormation.cs" />
     <Compile Include="Squadrons\RightTriangleFormation.cs" />
+    <Compile Include="Squadrons\SquareFormation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
