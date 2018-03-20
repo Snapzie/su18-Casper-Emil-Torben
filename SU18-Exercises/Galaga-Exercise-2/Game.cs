@@ -63,6 +63,7 @@ namespace Galaga_Exercise_2 {
             
             moveStrat = new ZigZagDown();
             
+            //Instantiates exercise 2 week 6
             AddEnemies();
         }
         
@@ -74,7 +75,7 @@ namespace Galaga_Exercise_2 {
         }
 
         private void AddEnemies() {
-            eneFormation = new IsoscelesTriangleFormation(15);
+            eneFormation = new RightTriangleFormation(15);
             eneFormation.CreateEnemies(enemyStrides);
         }
 
