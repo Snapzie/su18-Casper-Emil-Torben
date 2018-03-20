@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
-using Galaga_Exercise_2.GalagaEntities;
+using Galaga_Exercise_3.GalagaEntities;
 
-namespace Galaga_Exercise_2.Squadrons {
+namespace Galaga_Exercise_3.Squadrons {
     public class RightTriangleFormation : ISquadron {
         public EntityContainer<Enemy> Enemies { get; }
         public int MaxEnemies { get; }

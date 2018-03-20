@@ -2,7 +2,7 @@
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
-namespace Galaga_Exercise_2.GalagaEntities {
+namespace Galaga_Exercise_3.GalagaEntities {
     public class Enemy : DIKUArcade.Entities.Entity {
         public Vec2F Position {get; private set;}
         public Vec2F InitPosition { get; private set; }

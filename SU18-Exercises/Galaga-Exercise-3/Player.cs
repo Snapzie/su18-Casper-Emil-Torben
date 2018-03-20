@@ -5,7 +5,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
-namespace Galaga_Exercise_2 {
+namespace Galaga_Exercise_3 {
     public class Player : IGameEventProcessor<object> {
         public Entity Self { get; private set; }
         private float movementSpeed = 0.01f;
