@@ -75,7 +75,7 @@ namespace Galaga_Exercise_2 {
         }
 
         private void AddEnemies() {
-            eneFormation = new RightTriangleFormation(15);
+            eneFormation = new SquareFormation(150);
             eneFormation.CreateEnemies(enemyStrides);
         }
 
