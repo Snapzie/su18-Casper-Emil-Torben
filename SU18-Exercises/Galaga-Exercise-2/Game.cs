@@ -56,22 +56,14 @@ namespace Galaga_Exercise_2 {
                 ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
-            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
-            
-            // enemies = new EntityContainer(numOfEnemies);
-            playerShots = new EntityContainer();
-            
             explosions = new AnimationContainer(8);
-           // enemyAnimation = new ImageStride(80, enemyStrides);
             
-            // AddEnemies();
-
-            eneFormation = new IsoscelesTriangleFormation(15);
-            eneFormation.CreateEnemies(enemyStrides);
+            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
+            playerShots = new EntityContainer();
             
             moveStrat = new ZigZagDown();
             
-            
+            AddEnemies();
         }
         
         public void AddExplosion(float posX, float posY,
@@ -82,14 +74,8 @@ namespace Galaga_Exercise_2 {
         }
 
         private void AddEnemies() {
-            float height = 0.9f;
-            for (int i = 0; i < numOfEnemies; i++) {
-                enemies.AddDynamicEntity(new DynamicShape(new Vec2F((1.0f / 8) * (i % 8), height), 
-                    new Vec2F(0.1f, 0.1f) ), enemyAnimation);  
-                if ((i + 1) % 8 == 0 && i != 0) {
-                    height -= 0.1f;
-                }
-            } 
+            eneFormation = new IsoscelesTriangleFormation(15);
+            eneFormation.CreateEnemies(enemyStrides);
         }
 
         private void Shoot() {
@@ -139,7 +125,6 @@ namespace Galaga_Exercise_2 {
                     win.Clear();
                     moveStrat.MoveEnemies(eneFormation.Enemies);
                     eneFormation.RenderFormation();
-                    //enemies.RenderEntities();
                     explosions.RenderAnimations();
                     playerShots.RenderEntities();
                     player.Render();
