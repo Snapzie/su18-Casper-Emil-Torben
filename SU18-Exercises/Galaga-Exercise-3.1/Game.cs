@@ -71,7 +71,7 @@ namespace Galaga_Exercise_3._1 {
                 }
             }
         }
-        
+          //Tror disse to kan slettes
 //        public void KeyPress(string key) {
 //            switch (key) {
 //            case "KEY_ESCAPE":
