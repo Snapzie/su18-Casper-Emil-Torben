@@ -1,10 +1,10 @@
 ﻿using DIKUArcade.Entities;
-using Galaga_Exercise_2.GalagaEntities;
+using Galaga_Exercise_3.GalagaEntities;
 using System.Collections.Generic;
 using DIKUArcade.Graphics;
 
 
-namespace Galaga_Exercise_2.Squadrons {
+namespace Galaga_Exercise_3.Squadrons {
     public interface ISquadron {
         EntityContainer<Enemy> Enemies { get; }
         int MaxEnemies { get; }

@@ -10,10 +10,10 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
 using DIKUArcade.Physics;
-using Galaga_Exercise_2.MovementStrategy;
-using Galaga_Exercise_2.Squadrons;
+using Galaga_Exercise_3.MovementStrategy;
+using Galaga_Exercise_3.Squadrons;
 
-namespace Galaga_Exercise_2 {
+namespace Galaga_Exercise_3 {
     public class Game : IGameEventProcessor<object> {
         private Window win;
         private GameEventBus<object> eventBus;
