@@ -18,7 +18,7 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         private int maxMenuButtons;
 
         private MainMenu() {
-            backGroundImage = new Entity(new StationaryShape(0.5f, 0.5f, 1, 1), 
+            backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1, 1), 
                 new Image("Assets/Images/TitleImage.png"));
             menuButtons = new Text[] {
                 new Text("New Game", new Vec2F(0.4f, 0.2f), new Vec2F(0.1f, 0.1f)),
