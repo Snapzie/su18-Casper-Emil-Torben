@@ -18,11 +18,12 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         private int maxMenuButtons;
 
         private MainMenu() {
+
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1, 1), 
                 new Image("Assets/Images/TitleImage.png"));
             menuButtons = new Text[] {
-                new Text("New Game", new Vec2F(0.4f, 0.2f), new Vec2F(0.1f, 0.1f)),
-                new Text("Gameover", new Vec2F(0.4f, 0.4f), new Vec2F(0.1f, 0.1f))
+                new Text("New Game", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
+                new Text("Quit", new Vec2F(0.4f, 0.2f), new Vec2F(0.3f, 0.3f))
             };
             activeMenuButton = 0;
             maxMenuButtons = 2;
@@ -46,17 +47,18 @@ namespace Galaga_Exercise_3._1.GalagaStates {
 
         public void RenderState() {
             this.backGroundImage.RenderEntity();
-            
             foreach (Text text in this.menuButtons) {
                 text.SetColor(Color.Blue);
+                this.menuButtons[activeMenuButton].SetColor(Color.Red);
                 text.RenderText();
             }
             
-            this.menuButtons[activeMenuButton].SetColor(Color.Red);
+            
+            
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-            if (keyAction == "KEY_RELEASE") {
+            if (keyAction == "KEY_PRESS") {
                 switch (keyValue) {
                     case "KEY_ENTER" :
                         if (activeMenuButton == 0) {
@@ -76,8 +78,6 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                     case "KEY_DOWN" :
                         activeMenuButton += 1;
                         break;
-                    default:
-                        throw new ArgumentException();
                 }   
             }
         }

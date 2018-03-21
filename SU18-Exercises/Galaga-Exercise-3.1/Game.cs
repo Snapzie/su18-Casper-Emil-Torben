@@ -118,7 +118,7 @@ namespace Galaga_Exercise_3._1 {
                     break;
                 }
             }else if (eventType == GameEventType.InputEvent) {
-                stateMachine.ActiveState.HandleKeyEvent(gameEvent.Parameter1, gameEvent.Parameter2);
+                stateMachine.ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
             }
         }
     }

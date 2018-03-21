@@ -22,7 +22,7 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
-            
+            throw new NotImplementedException();
         }
     }
 }
