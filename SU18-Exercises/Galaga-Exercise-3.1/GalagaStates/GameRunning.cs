@@ -99,9 +99,7 @@ namespace Galaga_Exercise_3._1 {
         }
 
         public void InitializeGameState() {
-            //Kommer måske til at give problemer, hvis vi kommer til at indsætte flere enemies eller noget
-            //Det må vi teste
-            GameRunning.instance = new GameRunning();
+            throw new System.NotImplementedException();
         }
 
         public void UpdateGameLogic() {
