@@ -107,13 +107,16 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
       </e>
-      <e p="Galaga-Exercise-3" t="IncludeRecursive">
-        <e p="Galaga-Exercise-3.csproj" t="IncludeRecursive" />
+      <e p="Galaga-Exercise-3.1" t="IncludeRecursive">
+        <e p="Galaga-Exercise-3.1.csproj" t="IncludeRecursive" />
         <e p="GalagaEntities" t="Include">
           <e p="Enemy.cs" t="Include" />
         </e>
         <e p="GalagaGame" t="Include">
           <e p="GalagaBus.cs" t="Include" />
+        </e>
+        <e p="GalagaStates" t="Include">
+          <e p="GameStateType.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
         <e p="MovementStrategy" t="Include">
