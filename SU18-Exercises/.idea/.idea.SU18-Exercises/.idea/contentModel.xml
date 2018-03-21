@@ -116,12 +116,12 @@
           <e p="GalagaBus.cs" t="Include" />
         </e>
         <e p="GalagaStates" t="Include">
+          <e p="GameRunning.cs" t="Include" />
           <e p="GameStateType.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="StateMachine.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
-        <e p="GameRunning.cs" t="Include" />
         <e p="MovementStrategy" t="Include">
           <e p="Down.cs" t="Include" />
           <e p="IMovementStrategy.cs" t="Include" />
