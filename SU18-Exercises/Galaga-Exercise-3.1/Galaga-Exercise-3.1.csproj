@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Galaga_Exercise_3._1</RootNamespace>
     <AssemblyName>Galaga_Exercise_3._1</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,7 @@
     <Compile Include="GalagaStates\MainMenu.cs" />
     <Compile Include="GalagaStates\StateMachine.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameRunning.cs" />
     <Compile Include="MovementStrategy\Down.cs" />
     <Compile Include="MovementStrategy\IMovementStrategy.cs" />
     <Compile Include="MovementStrategy\NoMove.cs" />

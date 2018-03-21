@@ -16,20 +16,21 @@ using Galaga_Exercise_3._1.Squadrons;
 namespace Galaga_Exercise_3._1 {
     public class Game : IGameEventProcessor<object> {
         private Window win;
+        private GameTimer gameTimer; 
         private GameEventBus<object> eventBus;
-        private Player player;
-        private GameTimer gameTimer;
-        private List<Image> enemyStrides;
-        private ImageStride enemyAnimation;
-        private EntityContainer enemies;
-        private EntityContainer playerShots;
-        private Image laser;
-        private int numOfEnemies = 24;
-        private List<Image> explosionStrides;
-        private AnimationContainer explosions;
-        private int explosionLength = 500;
-        private ISquadron eneFormation;
-        private IMovementStrategy moveStrat;
+//        private Player player; //Flyttet til gameRunning
+//        private List<Image> enemyStrides; //Flyttet sammen med alt nedenstående
+//        private ImageStride enemyAnimation;
+//        private EntityContainer enemies;
+//        private EntityContainer playerShots;
+//        private Image laser;
+//        private int numOfEnemies = 24;
+//        private List<Image> explosionStrides;
+//        private AnimationContainer explosions;
+//        private int explosionLength = 500;
+//        private ISquadron eneFormation;
+//        private IMovementStrategy moveStrat;
+        private StateMachine stateMachine;
         
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -38,10 +39,9 @@ namespace Galaga_Exercise_3._1 {
             win = new Window("Cool Game", 500, 500);
             gameTimer = new GameTimer(60, 60);
             
-            player = new Player();
-            
             eventBus = GalagaBus.GetBus();
             eventBus.InitializeEventBus(new List<GameEventType>() {
+                GameEventType.GameStateEvent,
                 GameEventType.InputEvent, // key press / key release
                 GameEventType.WindowEvent, // messages to the window
                 GameEventType.PlayerEvent // commands issued to the player object,
@@ -50,68 +50,12 @@ namespace Galaga_Exercise_3._1 {
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
-            eventBus.Subscribe(GameEventType.PlayerEvent, player);
-
-            enemyStrides =
-                ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
-            explosionStrides = ImageStride.CreateStrides(8,
-                Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(8);
             
-            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
-            playerShots = new EntityContainer();
+            stateMachine = new StateMachine();
             
-            moveStrat = new ZigZagDown();
-            
-            //Instantiates exercise 2 week 6
-            AddEnemies();
         }
         
-        public void AddExplosion(float posX, float posY,
-            float extentX, float extentY) {
-            explosions.AddAnimation(
-                new StationaryShape(posX, posY, extentX, extentY), explosionLength,
-                new ImageStride(explosionLength / 8, explosionStrides));
-        }
-
-        private void AddEnemies() {
-            eneFormation = new RightTriangleFormation(15);
-            eneFormation.CreateEnemies(enemyStrides);
-        }
-
-        private void Shoot() {
-            DynamicShape shot = new DynamicShape(new Vec2F(player.Self.Shape.Position.X + 0.05f, 0.2f),
-                new Vec2F(0.008f, 0.027f), new Vec2F(0, 0.01f));
-            playerShots.AddDynamicEntity(shot, laser);
-        }
-
-        private void ShotIterator(Entity shot) {
-            if (shot.Shape.Position.Y > 1.0f) {
-                shot.DeleteEntity();
-            }
-        }
         
-        //TODO: Somehow call this from ShotIterator would be nice
-        private void EnemyIterator(Entity enemy) {}
-
-        private void IterateShots() {
-            foreach (Entity shot in playerShots) {
-                foreach (Entity enemy in eneFormation.Enemies) {
-                    if (CollisionDetection.Aabb((DynamicShape) shot.Shape, enemy.Shape).Collision) {
-                        enemy.DeleteEntity();
-                        shot.DeleteEntity();
-                        AddExplosion(enemy.Shape.Position.X, enemy.Shape.Position.Y, 
-                            enemy.Shape.Extent.X, enemy.Shape.Extent.Y);
-                    }
-                }
-
-                if (!shot.IsDeleted()) {
-                    shot.Shape.Move();
-                }
-            }
-            playerShots.Iterate(ShotIterator);
-            eneFormation.Enemies.Iterate(EnemyIterator);
-        }
         
         public void GameLoop() {
             while (win.IsRunning()) {
@@ -122,14 +66,8 @@ namespace Galaga_Exercise_3._1 {
                 }
 
                 if (gameTimer.ShouldRender()) {
-                    player.Move();
                     win.Clear();
-                    moveStrat.MoveEnemies(eneFormation.Enemies);
-                    eneFormation.RenderFormation();
-                    explosions.RenderAnimations();
-                    playerShots.RenderEntities();
-                    player.Render();
-                    IterateShots();
+                    stateMachine.ActiveState.RenderState();
                     win.SwapBuffers();
                 }
 
@@ -141,34 +79,34 @@ namespace Galaga_Exercise_3._1 {
             
         }
         
-        public void KeyPress(string key) {
-            switch (key) {
-            case "KEY_ESCAPE":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
-                break;
-            case "KEY_LEFT":
-                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
-                break;   
-            case "KEY_RIGHT":
-                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
-                break;
-            case "KEY_SPACE":
-                Shoot();
-                break;
-            }
-        }
-
-        public void KeyRelease(string key) {
-            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            if (key == "KEY_LEFT" || key == "KEY_RIGHT") {
-                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));   
-            }
-        }
+//        public void KeyPress(string key) {
+//            switch (key) {
+//            case "KEY_ESCAPE":
+//                eventBus.RegisterEvent(
+//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+//                break;
+//            case "KEY_LEFT":
+//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                    GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
+//                break;   
+//            case "KEY_RIGHT":
+//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                    GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
+//                break;
+//            case "KEY_SPACE":
+//                Shoot();
+//                break;
+//            }
+//        }
+//
+//        public void KeyRelease(string key) {
+//            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
+//            if (key == "KEY_LEFT" || key == "KEY_RIGHT") {
+//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                    GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));   
+//            }
+//        }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
@@ -180,15 +118,7 @@ namespace Galaga_Exercise_3._1 {
                     break;
                 }
             }else if (eventType == GameEventType.InputEvent) {
-                switch (gameEvent.Parameter1) {
-                case "KEY_PRESS":
-                    KeyPress(gameEvent.Message);
-                    break;
-                case "KEY_RELEASE":
-                    KeyRelease(gameEvent.Message);
-                    break;
-                }
-                player.Render();
+                stateMachine.ActiveState.HandleKeyEvent(gameEvent.Parameter1, gameEvent.Parameter2);
             }
         }
     }
