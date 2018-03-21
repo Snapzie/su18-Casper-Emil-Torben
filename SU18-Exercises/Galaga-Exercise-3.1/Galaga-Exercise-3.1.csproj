@@ -36,12 +36,17 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Mono.framework\Versions\5.4.1\lib\mono\4.5-api\System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GalagaEntities\Enemy.cs" />
     <Compile Include="GalagaGame\GalagaBus.cs" />
     <Compile Include="GalagaStates\GameStateType.cs" />
+    <Compile Include="GalagaStates\MainMenu.cs" />
+    <Compile Include="GalagaStates\StateMachine.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameRunning.cs" />
     <Compile Include="MovementStrategy\Down.cs" />

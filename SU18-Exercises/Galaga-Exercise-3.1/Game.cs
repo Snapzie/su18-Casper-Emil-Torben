@@ -6,8 +6,10 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
+using DIKUArcade.State;
 using DIKUArcade.Timers;
 using Galaga_Exercise_3._1.GalagaGame;
+using Galaga_Exercise_3._1.GalagaStates;
 using Galaga_Exercise_3._1.MovementStrategy;
 using Galaga_Exercise_3._1.Squadrons;
 
@@ -28,7 +30,7 @@ namespace Galaga_Exercise_3._1 {
         private int explosionLength = 500;
         private ISquadron eneFormation;
         private IMovementStrategy moveStrat;
-
+        
         public Game() {
             // look at the Window.cs file for possible constructors.
             // We recommend using 500 × 500 as window dimensions,
@@ -70,6 +72,7 @@ namespace Galaga_Exercise_3._1 {
                                 ", FPS: " + gameTimer.CapturedFrames;
                 }
             }
+            
         }
         
 //        public void KeyPress(string key) {

@@ -117,6 +117,8 @@
         </e>
         <e p="GalagaStates" t="Include">
           <e p="GameStateType.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+          <e p="StateMachine.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
         <e p="GameRunning.cs" t="Include" />
