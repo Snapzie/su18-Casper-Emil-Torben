@@ -34,6 +34,9 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                     case GameStateType.MainMenu:
                         ActiveState = MainMenu.GetInstance();
                         break;
+                    case GameStateType.GamePaused:
+                    ActiveState = GamePause.GetInstance();
+                    break;
                     //TODO: Add pause state
                 }
 

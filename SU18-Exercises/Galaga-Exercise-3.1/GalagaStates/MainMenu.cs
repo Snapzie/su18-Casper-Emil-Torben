@@ -75,7 +75,6 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                                 GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                         }
                         break;
-                    //TODO: Wrapping modulu
                     case "KEY_UP" :
                         activeMenuButton = Math.Abs(activeMenuButton - 1);
                         break;
