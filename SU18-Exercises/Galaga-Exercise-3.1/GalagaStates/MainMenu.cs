@@ -68,6 +68,8 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                                     "CHANGE_STATE", 
                                     "GameRunning", 
                                     ""));
+                        } else {
+                            
                         }
                         break;
                     //TODO: Wrapping modulu
@@ -77,8 +79,6 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                     case "KEY_DOWN" :
                         activeMenuButton += 1;
                         break;
-                    default:
-                        throw new ArgumentException();
                 }   
             }
         }
