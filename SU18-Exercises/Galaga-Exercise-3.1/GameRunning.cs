@@ -6,6 +6,7 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
+using Galaga_Exercise_3._1.GalagaGame;
 using Galaga_Exercise_3._1.MovementStrategy;
 using Galaga_Exercise_3._1.Squadrons;
 
@@ -37,6 +38,7 @@ namespace Galaga_Exercise_3._1 {
             playerShots = new EntityContainer();
             
             moveStrat = new ZigZagDown();
+            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             
             //Instantiates exercise 2 week 6
             AddEnemies();

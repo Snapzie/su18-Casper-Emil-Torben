@@ -16,20 +16,21 @@ using Galaga_Exercise_3._1.Squadrons;
 namespace Galaga_Exercise_3._1 {
     public class Game : IGameEventProcessor<object> {
         private Window win;
-        private GameEventBus<object> eventBus;
-        private Player player; //Flyttet til gameRunning
         private GameTimer gameTimer; 
-        private List<Image> enemyStrides; //Flyttet sammen med alt nedenstående
-        private ImageStride enemyAnimation;
-        private EntityContainer enemies;
-        private EntityContainer playerShots;
-        private Image laser;
-        private int numOfEnemies = 24;
-        private List<Image> explosionStrides;
-        private AnimationContainer explosions;
-        private int explosionLength = 500;
-        private ISquadron eneFormation;
-        private IMovementStrategy moveStrat;
+        private GameEventBus<object> eventBus;
+//        private Player player; //Flyttet til gameRunning
+//        private List<Image> enemyStrides; //Flyttet sammen med alt nedenstående
+//        private ImageStride enemyAnimation;
+//        private EntityContainer enemies;
+//        private EntityContainer playerShots;
+//        private Image laser;
+//        private int numOfEnemies = 24;
+//        private List<Image> explosionStrides;
+//        private AnimationContainer explosions;
+//        private int explosionLength = 500;
+//        private ISquadron eneFormation;
+//        private IMovementStrategy moveStrat;
+        private StateMachine stateMachine;
         
         public Game() {
             // look at the Window.cs file for possible constructors.
@@ -48,7 +49,9 @@ namespace Galaga_Exercise_3._1 {
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
-            eventBus.Subscribe(GameEventType.PlayerEvent, player);
+            
+            stateMachine = new StateMachine();
+            
         }
         
         
@@ -63,7 +66,7 @@ namespace Galaga_Exercise_3._1 {
 
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
-                    //stateMachine.ActiveState.RenderState();
+                    stateMachine.ActiveState.RenderState();
                     win.SwapBuffers();
                 }
 
@@ -114,8 +117,7 @@ namespace Galaga_Exercise_3._1 {
                     break;
                 }
             }else if (eventType == GameEventType.InputEvent) {
-                //stateMachine.ActiveState.HandleKeyEvent(gameEvent.Parameter1, gameEvent.Parameter2);
-                player.Render();
+                stateMachine.ActiveState.HandleKeyEvent(gameEvent.Parameter1, gameEvent.Parameter2);
             }
         }
     }
