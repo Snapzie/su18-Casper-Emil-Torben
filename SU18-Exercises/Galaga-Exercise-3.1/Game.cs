@@ -41,6 +41,7 @@ namespace Galaga_Exercise_3._1 {
             
             eventBus = GalagaBus.GetBus();
             eventBus.InitializeEventBus(new List<GameEventType>() {
+                GameEventType.GameStateEvent,
                 GameEventType.InputEvent, // key press / key release
                 GameEventType.WindowEvent, // messages to the window
                 GameEventType.PlayerEvent // commands issued to the player object,
