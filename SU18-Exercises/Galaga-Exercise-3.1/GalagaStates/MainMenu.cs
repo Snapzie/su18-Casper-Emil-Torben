@@ -58,7 +58,7 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-            if (keyAction == "KEY_PRESS") {
+            if (keyAction == "KEY_RELEASE") {
                 switch (keyValue) {
                     case "KEY_ENTER" :
                         if (activeMenuButton == 0) {
@@ -69,14 +69,17 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                                     "CHANGE_STATE", 
                                     "GameRunning", 
                                     ""));
+                        } else {
+                            GalagaBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                         }
                         break;
-                    //TODO: Wrapping modulu
                     case "KEY_UP" :
-                        activeMenuButton -= 1;
+                        activeMenuButton = Math.Abs(activeMenuButton - 1);
                         break;
                     case "KEY_DOWN" :
-                        activeMenuButton += 1;
+                        activeMenuButton = (activeMenuButton + 1) % 2;
                         break;
                 }   
             }

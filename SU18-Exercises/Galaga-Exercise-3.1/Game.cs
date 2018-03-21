@@ -18,18 +18,6 @@ namespace Galaga_Exercise_3._1 {
         private Window win;
         private GameTimer gameTimer; 
         private GameEventBus<object> eventBus;
-//        private Player player; //Flyttet til gameRunning
-//        private List<Image> enemyStrides; //Flyttet sammen med alt nedenstående
-//        private ImageStride enemyAnimation;
-//        private EntityContainer enemies;
-//        private EntityContainer playerShots;
-//        private Image laser;
-//        private int numOfEnemies = 24;
-//        private List<Image> explosionStrides;
-//        private AnimationContainer explosions;
-//        private int explosionLength = 500;
-//        private ISquadron eneFormation;
-//        private IMovementStrategy moveStrat;
         private StateMachine stateMachine;
         
         public Game() {
@@ -79,34 +67,6 @@ namespace Galaga_Exercise_3._1 {
             
         }
         
-//        public void KeyPress(string key) {
-//            switch (key) {
-//            case "KEY_ESCAPE":
-//                eventBus.RegisterEvent(
-//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                        GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
-//                break;
-//            case "KEY_LEFT":
-//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                    GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
-//                break;   
-//            case "KEY_RIGHT":
-//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                    GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
-//                break;
-//            case "KEY_SPACE":
-//                Shoot();
-//                break;
-//            }
-//        }
-//
-//        public void KeyRelease(string key) {
-//            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-//            if (key == "KEY_LEFT" || key == "KEY_RIGHT") {
-//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                    GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));   
-//            }
-//        }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
@@ -117,8 +77,6 @@ namespace Galaga_Exercise_3._1 {
                 default:
                     break;
                 }
-            }else if (eventType == GameEventType.InputEvent) {
-                stateMachine.ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
             }
         }
     }
