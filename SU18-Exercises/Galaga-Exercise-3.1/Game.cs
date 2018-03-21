@@ -18,18 +18,6 @@ namespace Galaga_Exercise_3._1 {
         private Window win;
         private GameTimer gameTimer; 
         private GameEventBus<object> eventBus;
-//        private Player player; //Flyttet til gameRunning
-//        private List<Image> enemyStrides; //Flyttet sammen med alt nedenstående
-//        private ImageStride enemyAnimation;
-//        private EntityContainer enemies;
-//        private EntityContainer playerShots;
-//        private Image laser;
-//        private int numOfEnemies = 24;
-//        private List<Image> explosionStrides;
-//        private AnimationContainer explosions;
-//        private int explosionLength = 500;
-//        private ISquadron eneFormation;
-//        private IMovementStrategy moveStrat;
         private StateMachine stateMachine;
         
         public Game() {
@@ -117,8 +105,6 @@ namespace Galaga_Exercise_3._1 {
                 default:
                     break;
                 }
-            }else if (eventType == GameEventType.InputEvent) {
-                stateMachine.ActiveState.HandleKeyEvent(gameEvent.Parameter2, gameEvent.Parameter1);
             }
         }
     }

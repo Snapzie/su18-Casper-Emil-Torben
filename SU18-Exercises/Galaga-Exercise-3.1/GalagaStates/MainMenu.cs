@@ -18,7 +18,8 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         private int maxMenuButtons;
 
         private MainMenu() {
-            backGroundImage = new Entity(new StationaryShape(0, 0, 1, 1), 
+
+            backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1, 1), 
                 new Image("Assets/Images/TitleImage.png"));
             menuButtons = new Text[] {
                 new Text("New Game", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
@@ -69,15 +70,17 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                                     "GameRunning", 
                                     ""));
                         } else {
-                            
+                            GalagaBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                         }
                         break;
                     //TODO: Wrapping modulu
                     case "KEY_UP" :
-                        activeMenuButton -= 1;
+                        activeMenuButton = Math.Abs(activeMenuButton - 1);
                         break;
                     case "KEY_DOWN" :
-                        activeMenuButton += 1;
+                        activeMenuButton = (activeMenuButton + 1) % 2;
                         break;
                 }   
             }
