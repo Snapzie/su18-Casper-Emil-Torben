@@ -4,7 +4,9 @@ namespace Galaga_Exercise_3._1.GalagaStates {
     public enum GameStateType {
         GameRunning,
         GamePaused,
-        MainMenu
+        MainMenu,
+        GameWon,
+        GameLost
     }
 
     public class StateTransformer {
@@ -16,6 +18,10 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                     return GameStateType.GamePaused;
                 case "MainMenu" :
                     return GameStateType.MainMenu;
+                case "GameWon" :
+                    return GameStateType.GameWon;
+                case "GameLost" :
+                    return GameStateType.GameLost;
                 default:
                     throw new ArgumentException("Argument thrown in TransformStringToState");
             }
@@ -29,6 +35,10 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                     return "GamePaused";
                 case GameStateType.MainMenu :
                     return "MainMenu";
+                case GameStateType.GameWon :
+                    return "GameWon";
+                case GameStateType.GameLost :
+                    return "GameLost";
                 default:
                     throw new ArgumentException("Argument thrown in TransformStateToString");
             }

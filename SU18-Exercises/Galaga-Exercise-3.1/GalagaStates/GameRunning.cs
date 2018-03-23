@@ -27,21 +27,7 @@ namespace Galaga_Exercise_3._1 {
         private IMovementStrategy moveStrat;
 
         private GameRunning() {
-            player = new Player();
-            enemyStrides =
-                ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
-            explosionStrides = ImageStride.CreateStrides(8,
-                Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(8);
-            
-            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
-            playerShots = new EntityContainer();
-            
-            moveStrat = new ZigZagDown();
-            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-            
-            //Instantiates exercise 2 week 6
-            AddEnemies();
+            InitializeGameState();
         }
 
         public static GameRunning GetInstance() {
@@ -49,7 +35,8 @@ namespace Galaga_Exercise_3._1 {
         }
         
         public void GameLoop() {
-            
+            this.IterateShots();
+            this.RenderState();
         }
         
         public void AddExplosion(float posX, float posY,
@@ -60,12 +47,12 @@ namespace Galaga_Exercise_3._1 {
         }
 
         private void AddEnemies() {
-            eneFormation = new RightTriangleFormation(15);
+            eneFormation = new SquareFormation(32);
             eneFormation.CreateEnemies(enemyStrides);
         }
 
         private void Shoot() {
-            DynamicShape shot = new DynamicShape(new Vec2F(player.Self.Shape.Position.X + 0.05f, 0.2f),
+            DynamicShape shot = new DynamicShape(new Vec2F(player.PlayerEntity.Shape.Position.X + 0.05f, 0.2f),
                 new Vec2F(0.008f, 0.027f), new Vec2F(0, 0.01f));
             playerShots.AddDynamicEntity(shot, laser);
         }
@@ -76,8 +63,21 @@ namespace Galaga_Exercise_3._1 {
             }
         }
         
-        //TODO: Somehow call this from ShotIterator would be nice
-        private void EnemyIterator(Entity enemy) {}
+        private void EnemyIterator(Entity enemy) {
+            if (enemy.Shape.Position.Y < 0.1f) {
+                GalagaBus.GetBus().RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+            }
+            
+            //Collision is not detected
+            if (CollisionDetection.Aabb( (DynamicShape) enemy.Shape, 
+                (Shape) player.PlayerEntity.Shape).Collision) {
+                GalagaBus.GetBus().RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+            }
+        }
 
         private void IterateShots() {
             foreach (Entity shot in playerShots) {
@@ -96,10 +96,31 @@ namespace Galaga_Exercise_3._1 {
             }
             playerShots.Iterate(ShotIterator);
             eneFormation.Enemies.Iterate(EnemyIterator);
+            
+            if (eneFormation.Enemies.CountEntities() == 0) {
+                GalagaBus.GetBus().RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameWon", ""));
+            }
         }
 
         public void InitializeGameState() {
-            throw new System.NotImplementedException();
+            player = new Player();
+            
+            enemyStrides =
+                ImageStride.CreateStrides(4, Path.Combine("Assets", "Images", "BlueMonster.png"));
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            explosions = new AnimationContainer(8);
+            
+            laser = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
+            playerShots = new EntityContainer();
+            
+            moveStrat = new ZigZagDown();
+            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+            
+            //Instantiates exercise 2 week 6
+            AddEnemies();
         }
 
         public void UpdateGameLogic() {
@@ -113,7 +134,6 @@ namespace Galaga_Exercise_3._1 {
             explosions.RenderAnimations();
             playerShots.RenderEntities();
             player.Render();
-            IterateShots();
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
@@ -123,11 +143,13 @@ namespace Galaga_Exercise_3._1 {
                     Shoot();
                     break;
                 case "KEY_LEFT":
-                    GalagaGame.GalagaBus.GetBus().RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GalagaGame.GalagaBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
                     break;   
                 case "KEY_RIGHT":
-                    GalagaGame.GalagaBus.GetBus().RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GalagaGame.GalagaBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
                     break;
                 case "KEY_ESCAPE":
