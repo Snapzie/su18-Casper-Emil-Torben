@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.13)  23 MAR 2018 12:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.13)  23 MAR 2018 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1469,7 +1469,7 @@ Type  H <return>  for immediate help.
 l.7 \begin{document}
                     
 ? 
-No file master.aux.
+(./master.aux)
 \openout1 = `master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1487,7 +1487,7 @@ LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Try loading font information for T1+ppl on input line 7.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 runsystem(pygmentize -S default -f latex -P commandprefix=PYG > "_minted-master
@@ -1548,6 +1548,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
 LaTeX Info: Redefining \nameref on input line 7.
+
+(./master.out) (./master.out)
 \@outlinefile=\write7
 \openout7 = `master.out'.
 
@@ -1556,24 +1558,16 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             ! on input line 7.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-
-ABD: EveryShipout initializing macros
+ ABD: EveryShipout initializing macros
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 9.
-
-
-LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 11.
-
-[1
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./latex/indledning.tex
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 3.
 
-
-LaTeX Warning: Reference `fig:gameplay' on page 2 undefined on input line 4.
-
-<latex/GamePlay.jpg, id=39, 501.875pt x 501.875pt>
+<latex/GamePlay.jpg, id=60, 501.875pt x 501.875pt>
 File: latex/GamePlay.jpg Graphic file (type jpg)
  <use latex/GamePlay.jpg>
 Package pdftex.def Info: latex/GamePlay.jpg used on input line 7.
@@ -1589,49 +1583,33 @@ s mange grafiske
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <8> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 4.
-
-LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 4.
-
 [2 <./latex/GamePlay.jpg>]) (./latex/Implementation.tex) (./latex/design.tex
-
-LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 1.
-
-[3])
-
-Package lastpage Warning: Rerun to get the references right on input line 17.
-
-
+[3]) 
 AED: lastpage setting LastPage
 
-LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 17.
+Overfull \hbox (1.20609pt too wide) in paragraph at lines 3--17
+\T1/ppl/m/n/10 dermed hvilke events, der ud-føres). De-signet af play-eren og f
+jen-derne er udlev-
+ []
 
-[4]
+[4] [5]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 17.
  (./master.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 17.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17.
-
-
-Package rerunfilecheck Warning: File `master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `master.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  100901C38E5F683D5E519FF2CD02B705;230.
-
-LaTeX Warning: There were undefined references.
+Package rerunfilecheck Info: File `master.out' has not changed.
+(rerunfilecheck)             Checksum: 100901C38E5F683D5E519FF2CD02B705;230.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 30813 strings out of 493029
- 575571 string characters out of 6136234
- 691494 words of memory out of 5000000
- 33824 multiletter control sequences out of 15000+600000
+ 30829 strings out of 493029
+ 575736 string characters out of 6136234
+ 691738 words of memory out of 5000000
+ 33834 multiletter control sequences out of 15000+600000
  20838 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,11n,86p,10384b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1639,10 +1617,10 @@ Here is how much of TeX's memory you used:
 fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/c
 m-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up
 lb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on master.pdf (4 pages, 93043 bytes).
+Output written on master.pdf (5 pages, 93883 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
