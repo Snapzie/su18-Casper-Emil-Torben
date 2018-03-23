@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="SU18-Exercises/SU18-Exercises.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Galaga-Exercise-3.1/Game.cs">
+    <Files>
+      <File FileName="Galaga-Exercise-3.1/Game.cs" Line="15" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
