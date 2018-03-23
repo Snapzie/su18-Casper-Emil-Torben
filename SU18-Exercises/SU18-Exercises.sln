@@ -6,9 +6,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcade", "..\DIKUArcade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-1", "Galaga-Exercise-1\Galaga-Exercise-1.csproj", "{F1CB8D32-AC73-434E-A3DE-AAE80CB3E0BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-2", "Galaga-Exercise-2\Galaga-Exercise-2.csproj", "{AE4812E7-F0D1-44E0-ADD1-2E57AA0A6830}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-3.1", "Galaga-Exercise-3.1\Galaga-Exercise-3.1.csproj", "{F8C2B903-2AB8-4DE9-83C7-B294BB6BD9A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-2", "Galaga-Exercise-2\Galaga-Exercise-2.csproj", "{AE4812E7-F0D1-44E0-ADD1-2E57AA0A6830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

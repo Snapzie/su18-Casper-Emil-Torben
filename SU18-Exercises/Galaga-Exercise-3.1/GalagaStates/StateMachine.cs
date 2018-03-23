@@ -29,15 +29,26 @@ namespace Galaga_Exercise_3._1.GalagaStates {
             } else if (eventType == GameEventType.GameStateEvent) {
                 switch (transformer.TransformStringToState(gameEvent.Parameter1)) {
                     case GameStateType.GameRunning:
-                        ActiveState = GameRunning.GetInstance();
+                        if (ActiveState == MainMenu.GetInstance()) {
+                            GameRunning.GetInstance().InitializeGameState();
+                            ActiveState = GameRunning.GetInstance();
+                            break;
+                        } else {
+                            ActiveState = GameRunning.GetInstance();
+                            break;   
+                        }
+                    case GameStateType.GamePaused:
+                        ActiveState = GamePause.GetInstance();
                         break;
                     case GameStateType.MainMenu:
                         ActiveState = MainMenu.GetInstance();
                         break;
-                    case GameStateType.GamePaused:
-                    ActiveState = GamePause.GetInstance();
-                    break;
-                    //TODO: Add pause state
+                    case GameStateType.GameWon :
+                        ActiveState = GameWon.GetInstance();
+                        break;
+                    case GameStateType.GameLost :
+                        ActiveState = GameLost.GetInstance();
+                        break;
                 }
 
                 

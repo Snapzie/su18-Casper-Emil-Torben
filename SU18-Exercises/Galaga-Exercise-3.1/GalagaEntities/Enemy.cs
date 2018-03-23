@@ -7,7 +7,7 @@ namespace Galaga_Exercise_3._1.GalagaEntities {
         public Vec2F Position {get; private set;}
         public Vec2F InitPosition { get; private set; }
 
-        public Enemy(StationaryShape shape, IBaseImage image) : base(shape, image) {
+        public Enemy(DynamicShape shape, IBaseImage image) : base(shape, image) {
             this.Position = Shape.Position; 
             this.InitPosition = Shape.Position; 
         }

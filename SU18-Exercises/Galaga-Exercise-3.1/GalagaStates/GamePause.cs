@@ -19,7 +19,7 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         private GamePause() {
             menuButtons = new Text[] {
                 new Text("Continue", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
-                new Text("Quit", new Vec2F(0.4f, 0.2f), new Vec2F(0.3f, 0.3f))
+                new Text("Main Menu", new Vec2F(0.4f, 0.3f), new Vec2F(0.3f, 0.3f))
             };
             activeMenuButton = 0;
             maxMenuButtons = 2;
@@ -30,7 +30,7 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         }
         
         public void GameLoop() {
-            throw new System.NotImplementedException();
+            this.RenderState();
         }
 
         public void InitializeGameState() {
@@ -64,7 +64,11 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                     } else {
                         GalagaBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+                                GameEventType.GameStateEvent, 
+                                this, 
+                                "CHANGE_STATE", 
+                                "MainMenu", 
+                                ""));
                     }
                     break;
                 case "KEY_UP" :

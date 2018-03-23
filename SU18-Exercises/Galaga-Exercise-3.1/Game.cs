@@ -40,10 +40,7 @@ namespace Galaga_Exercise_3._1 {
             eventBus.Subscribe(GameEventType.WindowEvent, this);
             
             stateMachine = new StateMachine();
-            
         }
-        
-        
         
         public void GameLoop() {
             while (win.IsRunning()) {
@@ -55,7 +52,7 @@ namespace Galaga_Exercise_3._1 {
 
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
-                    stateMachine.ActiveState.RenderState();
+                    stateMachine.ActiveState.GameLoop();
                     win.SwapBuffers();
                 }
 
@@ -64,17 +61,13 @@ namespace Galaga_Exercise_3._1 {
                                 ", FPS: " + gameTimer.CapturedFrames;
                 }
             }
-            
         }
-        
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
                 switch (gameEvent.Message) {
                 case "CLOSE_WINDOW":
                     win.CloseWindow();
-                    break;
-                default:
                     break;
                 }
             }

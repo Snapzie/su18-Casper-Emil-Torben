@@ -18,12 +18,11 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         private int maxMenuButtons;
 
         private MainMenu() {
-
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1, 1), 
                 new Image("Assets/Images/TitleImage.png"));
             menuButtons = new Text[] {
                 new Text("New Game", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
-                new Text("Quit", new Vec2F(0.4f, 0.2f), new Vec2F(0.3f, 0.3f))
+                new Text("Quit", new Vec2F(0.4f, 0.3f), new Vec2F(0.3f, 0.3f))
             };
             activeMenuButton = 0;
             maxMenuButtons = 2;
@@ -34,7 +33,7 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         }
         
         public void GameLoop() {
-            throw new System.NotImplementedException();
+            this.RenderState();
         }
 
         public void InitializeGameState() {
@@ -52,9 +51,6 @@ namespace Galaga_Exercise_3._1.GalagaStates {
                 this.menuButtons[activeMenuButton].SetColor(Color.Red);
                 text.RenderText();
             }
-            
-            
-            
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {

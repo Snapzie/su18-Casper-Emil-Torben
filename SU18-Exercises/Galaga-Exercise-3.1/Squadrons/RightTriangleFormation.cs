@@ -27,7 +27,7 @@ namespace Galaga_Exercise_3._1.Squadrons {
                 for (int j = 0; j < currentLayer; j++) {
                     float x = 0.75f - (layers * (0.1f)) + (0.1f) * j;
                     float y = 0.9f - ((currentLayer - 1) * 0.1f);
-                    Enemy enemy = new Enemy(new StationaryShape(x, y, 0.1f, 0.1f), 
+                    Enemy enemy = new Enemy(new DynamicShape(x, y, 0.1f, 0.1f), 
                         new ImageStride(80, enemyStrides));
                     Enemies.AddDynamicEntity(enemy);
                 }
