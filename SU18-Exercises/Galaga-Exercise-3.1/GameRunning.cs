@@ -6,7 +6,6 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
-using Galaga_Exercise_3._1.GalagaGame;
 using Galaga_Exercise_3._1.MovementStrategy;
 using Galaga_Exercise_3._1.Squadrons;
 
@@ -38,7 +37,6 @@ namespace Galaga_Exercise_3._1 {
             playerShots = new EntityContainer();
             
             moveStrat = new ZigZagDown();
-            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             
             //Instantiates exercise 2 week 6
             AddEnemies();
@@ -99,7 +97,9 @@ namespace Galaga_Exercise_3._1 {
         }
 
         public void InitializeGameState() {
-            throw new System.NotImplementedException();
+            //Kommer måske til at give problemer, hvis vi kommer til at indsætte flere enemies eller noget
+            //Det må vi teste
+            GameRunning.instance = new GameRunning();
         }
 
         public void UpdateGameLogic() {
@@ -117,33 +117,25 @@ namespace Galaga_Exercise_3._1 {
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-            if (keyAction == "KEY_PRESS") {
+            if (keyAction == "KEY_RELEASE") {
                 switch (keyValue) {
                 case "KEY_SPACE":
                     Shoot();
                     break;
-                case "KEY_LEFT":
-                    GalagaGame.GalagaBus.GetBus().RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
-                    break;   
-                case "KEY_RIGHT":
-                    GalagaGame.GalagaBus.GetBus().RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
-                    break;
-                case "KEY_ESCAPE":
-                    GalagaGame.GalagaBus.GetBus().RegisterEvent(
-                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GamePaused", ""));
-                    break;
-                }
-            } else {
-                switch (keyValue) {
-                case "KEY_LEFT":
-                    player.KeyRelease();
-                    break;
-                case "KEY_RIGHT":
-                    player.KeyRelease();
-                    break;
+                //Following should work after merge
+//                case "KEY_LEFT":
+//                    GalagaGame.GalagaBus.GetInstance.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
+//                    break;   
+//                case "KEY_RIGHT":
+//                    GalagaGame.GalagaBus.GetInstance.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
+//                    break;
+//                case "KEY_ESCAPE":
+//                    GalagaGame.GalagaBus.GetInstance.RegisterEvent(
+//                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                            GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+//                    break;
                 }
             }
         }

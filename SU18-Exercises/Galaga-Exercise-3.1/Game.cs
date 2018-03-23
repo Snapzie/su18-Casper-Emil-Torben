@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+    using System.Collections.Generic;
 using System.IO;
 using DIKUArcade;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
-using DIKUArcade.Graphics;
+using DIKUArcade.Graphics;    
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
@@ -67,34 +67,6 @@ namespace Galaga_Exercise_3._1 {
             
         }
         
-//        public void KeyPress(string key) {
-//            switch (key) {
-//            case "KEY_ESCAPE":
-//                eventBus.RegisterEvent(
-//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                        GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
-//                break;
-//            case "KEY_LEFT":
-//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                    GameEventType.PlayerEvent, this, "MOVE LEFT", "", ""));
-//                break;   
-//            case "KEY_RIGHT":
-//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                    GameEventType.PlayerEvent, this, "MOVE RIGHT", "", ""));
-//                break;
-//            case "KEY_SPACE":
-//                Shoot();
-//                break;
-//            }
-//        }
-//
-//        public void KeyRelease(string key) {
-//            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-//            if (key == "KEY_LEFT" || key == "KEY_RIGHT") {
-//                eventBus.RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                    GameEventType.PlayerEvent, this, "KEY RELEASE", "", ""));   
-//            }
-//        }
         
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
