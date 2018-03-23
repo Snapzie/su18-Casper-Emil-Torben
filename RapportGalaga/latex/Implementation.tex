@@ -1,6 +1,7 @@
+\documentclass{article}    
+\begin{document}
 \section{Implementation}
-
-Vores spil er skrevet i C#, hvor at der skabes et projekt til hver class. 
+Vores spil er skrevet i C\#, hvor at der skabes et projekt til hver class. 
 Spillet fungerer ved, at der i vores main-funktion instantieres et objekt af klassen "Game", hvorefter der kaldes en metode til denne kaldet "gameLoop".
 Denne method gameLoop kører spillet i et loop, ved konstant at kalde eventBus, hvilket er en instans af Galagabus, såfremt spillet fortsat skal køre. Det er i denne eventbus, at de forskellige classes og method
 i spillet kaldes således, at spillet fungerer. Idet eventBus initialiseres, da bliver en liste af de forskellige GameEvents ligeså initialiseret og tilføjet til methoden InitializeEventBus.
@@ -9,3 +10,4 @@ Disse methods, der bliver kaldt, som f.eks. MoveRight, vil så selv kalde en met
 Som fremgår i ovenstående eksempel fungerer spillet altså ved, at mange classes kalder hinandens methods og udfører handlinger således, at spillet virker som forventet.
 Spillet er i praktisk forstand blevet implementeres ved, at det givne directory DIKUArcade indeholder mange forskellige interfaces (eksempelvis IGameState), der giver et krav til, hvilke forskellige methods, alle de objekter som instantieres udfra pågældende interface, skal agere. 
 Disse interfaces er i vores kode blevet implementeret på passende måder.
+\end{document}

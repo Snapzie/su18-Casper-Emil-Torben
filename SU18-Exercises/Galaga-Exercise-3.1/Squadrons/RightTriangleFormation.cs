@@ -21,8 +21,7 @@ namespace Galaga_Exercise_3._1.Squadrons {
             //Finder højeste antal lag i en trekant der kan laves med MaxEnemies elementer
             int layers = (int) Math.Floor(0.5 * (Math.Sqrt(8 * MaxEnemies + 1) - 1));
             int currentLayer = 1;
-            //Mellemrum mellem hver enemy
-            const float space = 1.0f / 8.0f; 
+            
             for (int i = 0; i < layers; i++) {
                 for (int j = 0; j < currentLayer; j++) {
                     float x = 0.75f - (layers * (0.1f)) + (0.1f) * j;
