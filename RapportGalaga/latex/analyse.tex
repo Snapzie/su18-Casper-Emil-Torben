@@ -2,9 +2,11 @@
 Dette projekt skal gøre brug af DIKUArcade idet der skal bruges mange grafiske elementer. Udover grafiske elementer skal vi bruge mange event-listeners og collision-detecting. Disse er også en del af DIKUArcade. Et spil skal bestå af følgende interaktioner:
 \begin{enumerate}
   \item Start-menu med 2 valg, start eller afslut
-  \item Der tjekkes for keyboard input, når der trykkes enter vælges den mulighed der nu er aktiv, trykkes der pil op eller ned, skifter den aktive valgmulighed.
-  \item Spillet starter og der tjekkes igen for input, denne gang for at rykke og skyde.
+  \item Der tjekkes for keyboard input, når der trykkes \texttt{enter} vælges den mulighed der nu er aktiv, trykkes der pil op eller ned, skifter den aktive valgmulighed.
+  \item Spillet starter og der tjekkes igen for input, denne gang for at rykke og skyde, på henholdsvis piletasterne og \texttt{spacebar}.
   \item Når der er skudt skud af skal disse tjekkes for kollisioner med rum\-væsnerne, hvis der rammes skal skuddet og det ramte rumvæsen fjernes.
   \item Når man er i spillet skal man have mulighed for at sætte det på pause ved at trykke \texttt{ESC}, når man gør det skal der komme en menu hvor man har mulighed for at forsætte eller gå tilbage til start-menuen. Valget af dette fungerer ligesom på start-menu.
-  \item Når der ikke er flere rumvæsener tilbage skal der stå at man har vundet, og herfra skal man have mulighed for at gå tilbage til start-menuen. Hvis der er rumvæsener der når bunden har man tabt og herfra kan man også gå tilbage til start-menuen
+  \item Når der ikke er flere rumvæsener tilbage skal der stå at man har vundet, og herfra skal man have mulighed for at gå tilbage til start-menuen. Hvis der er rumvæsener der når bunden har man tabt dette vil der ogås gives besked om, og herfra kan man også gå tilbage til start-menuen
 \end{enumerate}
+Afhensyn til teknologi har vi de krav at koden skal skrives i C\# da det er det sprog der bruges på kurset og det er det sprog DIKUArcade er skrevet i. Derudover vil vi bruge IDE'en JetBrains Rider og git til version control.\\
+Vi vil skrive programmet objekt-orienteret da det er oplagt til sådan en opgave. Fordi vi har en masse koncepter fra virkeligheden, eksempelvis et skib der skal styres, som vi kan skrive ned som klasser. Dette indebærer at vi vil overholde forskellige objekt-orienterede design-principper. Det vil sige at vi eksempelvis vil sørge for at dele programmet op i forskellige units som hver er så selvstændige som muligt og hver har deres eget ansvar. Vi vil også sørge for at alle variabler og metoder har mindst muligt scope. Altsammen for at formindske kompleksiteten af den resulterende kode.
