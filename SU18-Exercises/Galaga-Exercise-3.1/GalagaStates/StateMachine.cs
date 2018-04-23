@@ -15,11 +15,27 @@ namespace Galaga_Exercise_3._1.GalagaStates {
         }
         private void SwitchState(GameStateType stateType) {
             switch (stateType) {
-                case GameStateType.MainMenu :
-                    ActiveState = MainMenu.GetInstance();
+            case GameStateType.GameRunning:
+                if (ActiveState == MainMenu.GetInstance()) {
+                    GameRunning.GetInstance().InitializeGameState();
+                    ActiveState = GameRunning.GetInstance();
                     break;
-                default:
-                    throw new ArgumentException();
+                } else {
+                    ActiveState = GameRunning.GetInstance();
+                    break;   
+                }
+            case GameStateType.GamePaused:
+                ActiveState = GamePause.GetInstance();
+                break;
+            case GameStateType.MainMenu:
+                ActiveState = MainMenu.GetInstance();
+                break;
+            case GameStateType.GameWon :
+                ActiveState = GameWon.GetInstance();
+                break;
+            case GameStateType.GameLost :
+                ActiveState = GameLost.GetInstance();
+                break;
             }
         }
 
@@ -27,31 +43,7 @@ namespace Galaga_Exercise_3._1.GalagaStates {
             if (eventType == GameEventType.InputEvent) {
                 ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
             } else if (eventType == GameEventType.GameStateEvent) {
-                switch (transformer.TransformStringToState(gameEvent.Parameter1)) {
-                    case GameStateType.GameRunning:
-                        if (ActiveState == MainMenu.GetInstance()) {
-                            GameRunning.GetInstance().InitializeGameState();
-                            ActiveState = GameRunning.GetInstance();
-                            break;
-                        } else {
-                            ActiveState = GameRunning.GetInstance();
-                            break;   
-                        }
-                    case GameStateType.GamePaused:
-                        ActiveState = GamePause.GetInstance();
-                        break;
-                    case GameStateType.MainMenu:
-                        ActiveState = MainMenu.GetInstance();
-                        break;
-                    case GameStateType.GameWon :
-                        ActiveState = GameWon.GetInstance();
-                        break;
-                    case GameStateType.GameLost :
-                        ActiveState = GameLost.GetInstance();
-                        break;
-                }
-
-                
+                SwitchState(transformer.TransformStringToState(gameEvent.Parameter1));
             }
         }
     }
