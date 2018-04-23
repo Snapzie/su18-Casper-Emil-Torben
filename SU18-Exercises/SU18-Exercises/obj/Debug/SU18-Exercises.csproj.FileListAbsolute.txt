@@ -18,3 +18,4 @@ D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\SU18-Exercises\obj\Debug\SU18_Exer
 D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\SU18-Exercises\bin\Debug\OpenTK.dll
 D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\SU18-Exercises\bin\Debug\OpenTK.xml
 D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\SU18-Exercises\obj\Debug\SU18-Exercises.csproj.CopyComplete
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\SU18-Exercises\obj\Debug\SU18-Exercises.csprojResolveAssemblyReference.cache
