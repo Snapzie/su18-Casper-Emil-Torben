@@ -15,8 +15,12 @@ namespace SpaceTaxi_1 {
         private static Dictionary<string, string> pictureDic = new Dictionary<string, string>();
         private static List<string> customerList = new List<string>();
 
-        public static void ReadLine() {
-            StreamReader sr = File.OpenText(Path.Combine("..", "..", "Levels", "the-beach.txt"));
+        /// <summary>
+        /// Reads the specified level creation file and extracts the relevant information
+        /// </summary>
+        /// <param name="path">The path to the .txt file for the level creation</param>
+        public static void ReadFile(string path) {
+            StreamReader sr = File.OpenText(path);
 
             //FileReader.levelString
             string s = "";
