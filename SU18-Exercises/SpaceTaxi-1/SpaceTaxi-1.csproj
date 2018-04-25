@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="LevelParsing\FileReader.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="LevelParsing\Level.cs" />
+    <Compile Include="LevelParsing\LevelLoader.cs" />
+    <Compile Include="LevelParsing\LevelsKeeper.cs" />
     <Compile Include="Orientation.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

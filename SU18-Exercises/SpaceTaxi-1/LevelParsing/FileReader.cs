@@ -7,83 +7,90 @@ using System.IO;
 
 using System.Diagnostics;
 
-namespace SpaceTaxi_1.LevelParser {
+namespace SpaceTaxi_1.LevelParsing {
     static class FileReader {
-        private static string levelString;
-        private static string name;
-        private static string platforms;
-        private static Dictionary<string, string> pictureDic = new Dictionary<string, string>();
-        private static List<string> customerList = new List<string>();
 
         /// <summary>
-        /// Reads the specified level creation file and extracts the relevant information
+        /// Reads a level file and creates a level object with the information
         /// </summary>
-        /// <param name="path">The path to the .txt file for the level creation</param>
-        public static void ReadFile(string path) {
+        /// <param name="path">The file path to the level file</param>
+        /// <returns>A level object containing the extracted information</returns>
+        public static Level ReadFile(string path) {
             StreamReader sr = File.OpenText(path);
 
-            //FileReader.levelString
-            char[][] levelArray = new char[23][];
-            char[] charArray; 
+            //levelArray
+            char[][] levelArray = new char[24][];
             int index = 0;
             string s = "";
             do {
                 s = sr.ReadLine();
-                charArray = s.ToCharArray();
-                levelArray[index] = charArray;
+                levelArray[index] = s.ToCharArray();
                 index++;
             } while (s != null && s != "");
 
-            Debug.WriteLine(FileReader.levelString);
+            for (int i = 0; i < levelArray.Length - 1; i++) {
+                for (int j = 0; j < levelArray[0].Length; j++) {
+                    Debug.Write(levelArray[i][j]);
+                }
+                Debug.WriteLine("");
+            }
 
-            //FileReader.name
+            //name
             while (s == "") {
                 s = sr.ReadLine();
             }
 
             int startIndex = s.IndexOf(" ");
-            FileReader.name = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
+            string name = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
 
-            Debug.WriteLine(FileReader.name);
-            List<char> platformsList = new List<char>();
+            Debug.WriteLine(name);
             
-            //FileReader.platforms
+            //platformList
             s = sr.ReadLine();
-            startIndex = s.IndexOf(" ");
-            index = startIndex + 1;
-            while (s[index] != ' ') {
-                platformsList.Add(s[index]);
-                index = index + 3;
+            List<char> platformList = new List<char>();
+            string[] splitArray = new string[1];
+            splitArray = s.Split(new char[] { });
+
+            for (int i = 1; i < splitArray.Length; i++) {
+                platformList.Add(splitArray[i].ToCharArray()[0]);
             }
-            // charListOfPlatforms.Add(Convert.ToChar(s.Substring(startIndex + 1, (s.Length - 1) - startIndex)));
-            // FileReader.platforms = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
 
-            Debug.WriteLine(FileReader.platforms);
+            foreach (char c in platformList) {
+                Debug.Write(c + " ");
+            }
 
-            //FileReader.pictureDic
+            Debug.WriteLine("");
+
+            //decoder
+            Dictionary<char, string> decoder = new Dictionary<char, string>();
+
             while ((s = sr.ReadLine()) == "" || s.Contains(")")) {
                 if (s == "") {
                     continue;
                 } else {
                     startIndex = s.IndexOf(" ");
-                    FileReader.pictureDic.Add(s[0].ToString(), s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
+                    decoder.Add(s[0], s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
                 }
             }
 
-            foreach (KeyValuePair<string, string> kvp in FileReader.pictureDic) {
+            foreach (KeyValuePair<char, string> kvp in decoder) {
                 Debug.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
             }
 
-            //FileReader.customerList
+            //customerList
+            List<string> customerList = new List<string>();
+
             while (s != null) {
                 startIndex = s.IndexOf(" ");
-                FileReader.customerList.Add(s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
+                customerList.Add(s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
                 s = sr.ReadLine();
             }
 
-            foreach (string customer in FileReader.customerList) {
+            foreach (string customer in customerList) {
                 Debug.WriteLine(customer);
             }
+
+            return new Level(levelArray, name, platformList, decoder, customerList);
         }
     }
 }
