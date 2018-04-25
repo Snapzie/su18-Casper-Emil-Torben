@@ -7,7 +7,7 @@ using System.IO;
 
 using System.Diagnostics;
 
-namespace SpaceTaxi_1 {
+namespace SpaceTaxi_1.LevelParser {
     static class FileReader {
         private static string levelString;
         private static string name;
