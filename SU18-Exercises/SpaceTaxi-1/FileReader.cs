@@ -19,10 +19,15 @@ namespace SpaceTaxi_1 {
             StreamReader sr = File.OpenText(Path.Combine("..", "..", "Levels", "the-beach.txt"));
 
             //FileReader.levelString
+            char[][] levelArray = new char[23][];
+            char[] charArray; 
+            int index = 0;
             string s = "";
             do {
                 s = sr.ReadLine();
-                FileReader.levelString += s;
+                charArray = s.ToCharArray();
+                levelArray[index] = charArray;
+                index++;
             } while (s != null && s != "");
 
             Debug.WriteLine(FileReader.levelString);
@@ -36,11 +41,18 @@ namespace SpaceTaxi_1 {
             FileReader.name = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
 
             Debug.WriteLine(FileReader.name);
-
+            List<char> charListOfPlatforms = new List<char>();
+            
             //FileReader.platforms
             s = sr.ReadLine();
             startIndex = s.IndexOf(" ");
-            FileReader.platforms = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
+            index = startIndex + 1;
+            while (s[index] != ' ') {
+                charListOfPlatforms.Add(s[index]);
+                index = index + 3;
+            }
+            // charListOfPlatforms.Add(Convert.ToChar(s.Substring(startIndex + 1, (s.Length - 1) - startIndex)));
+            // FileReader.platforms = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
 
             Debug.WriteLine(FileReader.platforms);
 
