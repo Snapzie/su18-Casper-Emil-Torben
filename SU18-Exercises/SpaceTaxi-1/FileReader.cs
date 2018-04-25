@@ -15,8 +15,12 @@ namespace SpaceTaxi_1 {
         private static Dictionary<string, string> pictureDic = new Dictionary<string, string>();
         private static List<string> customerList = new List<string>();
 
-        public static void ReadLine() {
-            StreamReader sr = File.OpenText(Path.Combine("..", "..", "Levels", "the-beach.txt"));
+        /// <summary>
+        /// Reads the specified level creation file and extracts the relevant information
+        /// </summary>
+        /// <param name="path">The path to the .txt file for the level creation</param>
+        public static void ReadFile(string path) {
+            StreamReader sr = File.OpenText(path);
 
             //FileReader.levelString
             char[][] levelArray = new char[23][];
@@ -41,14 +45,14 @@ namespace SpaceTaxi_1 {
             FileReader.name = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
 
             Debug.WriteLine(FileReader.name);
-            List<char> charListOfPlatforms = new List<char>();
+            List<char> platformsList = new List<char>();
             
             //FileReader.platforms
             s = sr.ReadLine();
             startIndex = s.IndexOf(" ");
             index = startIndex + 1;
             while (s[index] != ' ') {
-                charListOfPlatforms.Add(s[index]);
+                platformsList.Add(s[index]);
                 index = index + 3;
             }
             // charListOfPlatforms.Add(Convert.ToChar(s.Substring(startIndex + 1, (s.Length - 1) - startIndex)));
