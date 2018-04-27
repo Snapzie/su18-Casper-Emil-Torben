@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityCreator.cs" />
     <Compile Include="LevelParsing\FileReader.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="LevelParsing\Level.cs" />

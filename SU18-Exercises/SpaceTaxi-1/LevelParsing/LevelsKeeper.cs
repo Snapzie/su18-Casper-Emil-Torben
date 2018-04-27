@@ -46,6 +46,7 @@ namespace SpaceTaxi_1.LevelParsing {
         /// </summary>
         /// <param name="level">The level number</param>
         /// <returns>Returns the specified level object</returns>
+        /// <remarks>Maybe this could be indexer method instead?</remarks>
         public Level GetLevel(int level) {
             return this.levelDic[level];
         }
