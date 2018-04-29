@@ -3,7 +3,7 @@ using NUnit.Framework;
 using DIKUArcade;
 using DIKUArcade.Entities;
 using DIKUArcade.Math;
-using SpaceTaxi_1;
+using SpaceTaxi_1.LevelParsing;
 
 namespace Tests {
     [TestFixture]
