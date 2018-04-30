@@ -13,6 +13,10 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <summary>
         /// Reads a level file and creates a level object with the information
         /// </summary>
+        /// <remarks>
+        /// Assumes the file given consists of a level layout, name, a list of platform chars,
+        /// a list of chars which correspond to an image, and one or more customers
+        /// </remarks>
         /// <param name="path">The file path to the level file</param>
         /// <returns>A level object containing the extracted information</returns>
         public static Level ReadFile(string path) {
