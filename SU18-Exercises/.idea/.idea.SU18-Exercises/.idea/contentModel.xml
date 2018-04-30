@@ -376,6 +376,8 @@
           </e>
         </e>
         <e p="EntityCreatorTests.cs" t="Include" />
+        <e p="FileReaderTests.cs" t="Include" />
+        <e p="IntegrationFileToLevel.cs" t="Include" />
         <e p="Levels" t="Include">
           <e p="short-n-sweet.txt" t="Include" />
           <e p="the-beach.txt" t="Include" />

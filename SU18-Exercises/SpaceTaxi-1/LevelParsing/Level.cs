@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SpaceTaxi_1.LevelParsing {
-    class Level {
+    public class Level {
         public char[][] LevelLayout { get; }
         public string Name { get; }
         public List<char> Platforms { get; }
