@@ -1,0 +1,28 @@
+title Sequence Diagram 
+participant Program
+participant LevelLoader
+participant FileReader
+participant Level
+participant Game
+participant LevelCreator
+participant EntityCreator
+participant LevelKeeper
+
+
+Program->LevelLoader: LoadLevels()
+loop #ff00ff info 1234567890
+LevelLoader->FileReader:ReadFile()
+FileReader->Level: Level()
+Level-->FileReader: newLevel()
+FileReader-->LevelLoader: Level
+LevelLoader->LevelKeeper: LevelsKeeper.Instance()
+LevelKeeper-->LevelLoader: LevelsKeeper
+end
+Program->Game: GameLoop()
+Game->LevelCreator: WriteSomething
+LevelCreator->LevelKeeper: EntityCreator
+LevelKeeper-->LevelCreator: GetLevel()
+LevelCreator->EntityCreator: W
+EntityCreator-->LevelCreator: W
+LevelCreator-->Game: Wafsadsa
+
