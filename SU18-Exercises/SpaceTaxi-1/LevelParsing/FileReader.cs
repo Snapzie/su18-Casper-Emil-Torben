@@ -24,19 +24,17 @@ namespace SpaceTaxi_1.LevelParsing {
 
             //levelArray
             char[][] levelArray = new char[24][];
-            int index = 0;
             string s = "";
-            do {
-                s = sr.ReadLine();
-                levelArray[index] = s.ToCharArray();
-                index++;
-            } while (s != null && s != "");
+            for (int i = 0; i < levelArray.Length; i++) {
+                s = sr.ReadLine();                
+                levelArray[i] = s.ToCharArray();
+            }
 
             for (int i = 0; i < levelArray.Length - 1; i++) {
                 for (int j = 0; j < levelArray[0].Length; j++) {
-                    Debug.Write(levelArray[i][j]);
+                    Console.Write(levelArray[i][j]);
                 }
-                Debug.WriteLine("");
+                Console.WriteLine("");
             }
 
             //name
@@ -78,7 +76,7 @@ namespace SpaceTaxi_1.LevelParsing {
             }
 
             foreach (KeyValuePair<char, string> kvp in decoder) {
-                Debug.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+                Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
             }
 
             //customerList
