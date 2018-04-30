@@ -165,8 +165,14 @@
       <e p="SU18-Exercises.sln" t="IncludeFlat" />
       <e p="SpaceTaxi-1" t="IncludeRecursive">
         <e p="App.config" t="Include" />
-        <e p="FileReader.cs" t="Include" />
         <e p="Game.cs" t="Include" />
+        <e p="LevelParsing" t="Include">
+          <e p="FileReader.cs" t="Include" />
+          <e p="Level.cs" t="Include" />
+          <e p="LevelCreator.cs" t="Include" />
+          <e p="LevelLoader.cs" t="Include" />
+          <e p="LevelsKeeper.cs" t="Include" />
+        </e>
         <e p="Orientation.cs" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
