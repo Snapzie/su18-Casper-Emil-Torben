@@ -8,7 +8,7 @@ using System.IO;
 using System.Diagnostics;
 
 namespace SpaceTaxi_1.LevelParsing {
-    static class LevelLoader {
+    public static class LevelLoader {
         private static List<string> levelList = new List<string> { Path.Combine("..", "..", "Levels", "short-n-sweet.txt"),
                                                                    Path.Combine("..", "..", "Levels", "the-beach.txt")};
 

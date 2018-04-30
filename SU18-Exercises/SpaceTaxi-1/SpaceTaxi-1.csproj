@@ -66,5 +66,25 @@
       <Name>DIKUArcade</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Assets\Images\BlueMonster.png" />
+    <Content Include="..\Assets\Images\BombPickUp.png" />
+    <Content Include="..\Assets\Images\BulletRed2.png" />
+    <Content Include="..\Assets\Images\DamagePickUp.png" />
+    <Content Include="..\Assets\Images\Explosion.png" />
+    <Content Include="..\Assets\Images\GreenMonster.png" />
+    <Content Include="..\Assets\Images\LifePickUp.png" />
+    <Content Include="..\Assets\Images\Player.png" />
+    <Content Include="..\Assets\Images\PlayerBooster.png" />
+    <Content Include="..\Assets\Images\PuffOfSmoke.png" />
+    <Content Include="..\Assets\Images\RedMonster.png" />
+    <Content Include="..\Assets\Images\Rocket.png" />
+    <Content Include="..\Assets\Images\RocketPickUp.png" />
+    <Content Include="..\Assets\Images\ShieldPickUp.png" />
+    <Content Include="..\Assets\Images\SpaceBackground.png" />
+    <Content Include="..\Assets\Images\SpeedPickUp.png" />
+    <Content Include="..\Assets\Images\SpreadPickUp.png" />
+    <Content Include="..\Assets\Images\TitleImage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
