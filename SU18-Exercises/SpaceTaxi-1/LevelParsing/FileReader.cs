@@ -8,7 +8,7 @@ using System.IO;
 using System.Diagnostics;
 
 namespace SpaceTaxi_1.LevelParsing {
-    static class FileReader {
+    public static class FileReader {
 
         /// <summary>
         /// Reads a level file and creates a level object with the information

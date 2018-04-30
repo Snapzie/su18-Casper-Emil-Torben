@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityCreatorTests.cs" />
+    <Compile Include="FileReaderTests.cs" />
+    <Compile Include="IntegrationFileToLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
