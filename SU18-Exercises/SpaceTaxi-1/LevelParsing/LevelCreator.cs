@@ -11,7 +11,6 @@ namespace SpaceTaxi_1.LevelParsing {
         /// </summary>
         private static LevelsKeeper levelKeeper = LevelsKeeper.Instance;
         
-<<<<<<< HEAD
         /// <summary>
         /// This method creates a new level
         /// </summary>
@@ -23,8 +22,6 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <returns> This method returns the EntityContainer named object, which has all 
         /// the different entities needed to create the given levell
         ///</returns>
-=======
->>>>>>> fa0acc48b804df09079fd4054ab35643b5fe302a
         public static EntityContainer CreateLevel(int levelNumber) {
             Level level = levelKeeper[levelNumber];
             EntityContainer objects = new EntityContainer();
