@@ -8,7 +8,7 @@ namespace SpaceTaxi_1.LevelParsing {
     public static class LevelCreator {
         private static LevelsKeeper levelKeeper = LevelsKeeper.Instance;
         
-
+        
         public static EntityContainer CreateLevel(int levelNumber) {
             Level level = levelKeeper[levelNumber];
             EntityContainer objects = new EntityContainer();
