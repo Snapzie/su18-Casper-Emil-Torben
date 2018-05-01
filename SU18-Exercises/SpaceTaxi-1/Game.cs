@@ -7,6 +7,8 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
+using SpaceTaxi_1.LevelParsing;
+
 
 namespace SpaceTaxi_1
 {
@@ -18,6 +20,8 @@ namespace SpaceTaxi_1
 
         private Entity _backGroundImage;
         private Player _player;
+
+        private EntityContainer levelContainer;
 
         public Game()
         {
@@ -52,6 +56,8 @@ namespace SpaceTaxi_1
             _eventBus.Subscribe(GameEventType.InputEvent, this);
             _eventBus.Subscribe(GameEventType.WindowEvent, this);
             _eventBus.Subscribe(GameEventType.PlayerEvent, _player);
+
+            levelContainer = LevelCreator.CreateLevel(2);
         }
 
         public void GameLoop()
@@ -71,7 +77,7 @@ namespace SpaceTaxi_1
                     _win.Clear();
                     _backGroundImage.RenderEntity();
                     _player.RenderPlayer();
-                   
+                    levelContainer.RenderEntities();
                     _win.SwapBuffers();
                 }
 

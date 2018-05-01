@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercises.1350551396.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercises.1238237404.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$/../DIKUArcade/DIKUArcade" t="IncludeRecursive">
       <e p="DIKUArcade.csproj" t="IncludeRecursive" />
       <e p="Entities" t="Include">
@@ -70,6 +70,26 @@
       <e p="packages.config" t="Include" />
     </e>
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Assets/Images" t="Include">
+        <e p="BlueMonster.png" t="Include" />
+        <e p="BombPickUp.png" t="Include" />
+        <e p="BulletRed2.png" t="Include" />
+        <e p="DamagePickUp.png" t="Include" />
+        <e p="Explosion.png" t="Include" />
+        <e p="GreenMonster.png" t="Include" />
+        <e p="LifePickUp.png" t="Include" />
+        <e p="Player.png" t="Include" />
+        <e p="PlayerBooster.png" t="Include" />
+        <e p="PuffOfSmoke.png" t="Include" />
+        <e p="RedMonster.png" t="Include" />
+        <e p="Rocket.png" t="Include" />
+        <e p="RocketPickUp.png" t="Include" />
+        <e p="ShieldPickUp.png" t="Include" />
+        <e p="SpaceBackground.png" t="Include" />
+        <e p="SpeedPickUp.png" t="Include" />
+        <e p="SpreadPickUp.png" t="Include" />
+        <e p="TitleImage.png" t="Include" />
+      </e>
       <e p="Galaga-Exercise-1" t="IncludeRecursive">
         <e p="Galaga-Exercise-1.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
@@ -165,11 +185,12 @@
       <e p="SU18-Exercises.sln" t="IncludeFlat" />
       <e p="SpaceTaxi-1" t="IncludeRecursive">
         <e p="App.config" t="Include" />
-        <e p="EntityCreator.cs" t="Include" />
         <e p="Game.cs" t="Include" />
         <e p="LevelParsing" t="Include">
+          <e p="EntityCreator.cs" t="Include" />
           <e p="FileReader.cs" t="Include" />
           <e p="Level.cs" t="Include" />
+          <e p="LevelCreator.cs" t="Include" />
           <e p="LevelLoader.cs" t="Include" />
           <e p="LevelsKeeper.cs" t="Include" />
         </e>
@@ -184,13 +205,191 @@
         <e p="obj" t="ExcludeRecursive" />
       </e>
       <e p="Tests" t="IncludeRecursive">
+        <e p="Assets" t="Include">
+          <e p="Images" t="Include">
+            <e p="CustomerStandLeft.png" t="Include" />
+            <e p="CustomerStandRight.png" t="Include" />
+            <e p="CustomerWalkLeft.png" t="Include" />
+            <e p="CustomerWalkRight.png" t="Include" />
+            <e p="SpaceBackground.png" t="Include" />
+            <e p="Taxi_Thrust_Back.png" t="Include" />
+            <e p="Taxi_Thrust_Back_Right.png" t="Include" />
+            <e p="Taxi_Thrust_Bottom.png" t="Include" />
+            <e p="Taxi_Thrust_Bottom_Back.png" t="Include" />
+            <e p="Taxi_Thrust_Bottom_Back_Right.png" t="Include" />
+            <e p="Taxi_Thrust_Bottom_Right.png" t="Include" />
+            <e p="Taxi_Thrust_None.png" t="Include" />
+            <e p="Taxi_Thrust_None_Right.png" t="Include" />
+            <e p="aspargus-edge-bottom.png" t="Include" />
+            <e p="aspargus-edge-left.png" t="Include" />
+            <e p="aspargus-edge-right.png" t="Include" />
+            <e p="aspargus-edge-top-left.png" t="Include" />
+            <e p="aspargus-edge-top-right.png" t="Include" />
+            <e p="aspargus-edge-top.png" t="Include" />
+            <e p="aspargus-passage.png" t="Include" />
+            <e p="aspargus-passage1.png" t="Include" />
+            <e p="aspargus-passage2.png" t="Include" />
+            <e p="deep-bronze-left-half-circle.png" t="Include" />
+            <e p="deep-bronze-right-half-circle.png" t="Include" />
+            <e p="deep-bronze-square.png" t="Include" />
+            <e p="emperor-lower-left.png" t="Include" />
+            <e p="emperor-lower-right.png" t="Include" />
+            <e p="emperor-square.png" t="Include" />
+            <e p="emperor-upper-left.png" t="Include" />
+            <e p="emperor-upper-right.png" t="Include" />
+            <e p="generate-images.sh" t="Include" />
+            <e p="green-lower-left.png" t="Include" />
+            <e p="green-lower-right.png" t="Include" />
+            <e p="green-square.png" t="Include" />
+            <e p="green-upper-left.png" t="Include" />
+            <e p="green-upper-right.png" t="Include" />
+            <e p="ironstone-lower-left.png" t="Include" />
+            <e p="ironstone-lower-right.png" t="Include" />
+            <e p="ironstone-square.png" t="Include" />
+            <e p="ironstone-upper-left.png" t="Include" />
+            <e p="ironstone-upper-right.png" t="Include" />
+            <e p="minsk-square.png" t="Include" />
+            <e p="nandor-square.png" t="Include" />
+            <e p="neptune-lower-left.png" t="Include" />
+            <e p="neptune-lower-right.png" t="Include" />
+            <e p="neptune-square.png" t="Include" />
+            <e p="neptune-upper-left.png" t="Include" />
+            <e p="neptune-upper-right.png" t="Include" />
+            <e p="obstacle.png" t="Include" />
+            <e p="olive-green-square.png" t="Include" />
+            <e p="platform.png" t="Include" />
+            <e p="purple-circle.png" t="Include" />
+            <e p="salt-box-square.png" t="Include" />
+            <e p="sanguine-brown-lower-left.png" t="Include" />
+            <e p="sanguine-brown-lower-right.png" t="Include" />
+            <e p="sanguine-brown-square.png" t="Include" />
+            <e p="sanguine-brown-upper-left.png" t="Include" />
+            <e p="sanguine-brown-upper-right.png" t="Include" />
+            <e p="sanguine_brown-lower-left.png" t="Include" />
+            <e p="sanguine_brown-lower-right.png" t="Include" />
+            <e p="sanguine_brown-square.png" t="Include" />
+            <e p="sanguine_brown-upper-left.png" t="Include" />
+            <e p="sanguine_brown-upper-right.png" t="Include" />
+            <e p="studio-lower-left.png" t="Include" />
+            <e p="studio-lower-right.png" t="Include" />
+            <e p="studio-square.png" t="Include" />
+            <e p="studio-upper-left.png" t="Include" />
+            <e p="studio-upper-right.png" t="Include" />
+            <e p="tacha-square.png" t="Include" />
+            <e p="tacha-upper-right.png" t="Include" />
+            <e p="white-left-half-circle.png" t="Include" />
+            <e p="white-lower-left.png" t="Include" />
+            <e p="white-lower-right.png" t="Include" />
+            <e p="white-right-half-circle.png" t="Include" />
+            <e p="white-square.png" t="Include" />
+            <e p="white-upper-left.png" t="Include" />
+            <e p="white-upper-right.png" t="Include" />
+            <e p="yellow-stick.png" t="Include" />
+          </e>
+          <e p="__MACOSX" t="Include">
+            <e p="._Assets" t="Include" />
+            <e p="Assets" t="Include">
+              <e p="._.DS_Store" t="Include" />
+              <e p="._Images" t="Include" />
+              <e p="Images" t="Include">
+                <e p="._.DS_Store" t="Include" />
+                <e p="._CustomerStandLeft.png" t="Include" />
+                <e p="._CustomerStandRight.png" t="Include" />
+                <e p="._CustomerWalkLeft.png" t="Include" />
+                <e p="._CustomerWalkRight.png" t="Include" />
+                <e p="._SpaceBackground.png" t="Include" />
+                <e p="._Taxi_Thrust_Back.png" t="Include" />
+                <e p="._Taxi_Thrust_Back_Right.png" t="Include" />
+                <e p="._Taxi_Thrust_Bottom.png" t="Include" />
+                <e p="._Taxi_Thrust_Bottom_Back.png" t="Include" />
+                <e p="._Taxi_Thrust_Bottom_Back_Right.png" t="Include" />
+                <e p="._Taxi_Thrust_Bottom_Right.png" t="Include" />
+                <e p="._Taxi_Thrust_None.png" t="Include" />
+                <e p="._Taxi_Thrust_None_Right.png" t="Include" />
+                <e p="._aspargus-edge-bottom.png" t="Include" />
+                <e p="._aspargus-edge-left.png" t="Include" />
+                <e p="._aspargus-edge-right.png" t="Include" />
+                <e p="._aspargus-edge-top-left.png" t="Include" />
+                <e p="._aspargus-edge-top-right.png" t="Include" />
+                <e p="._aspargus-edge-top.png" t="Include" />
+                <e p="._aspargus-passage.png" t="Include" />
+                <e p="._aspargus-passage1.png" t="Include" />
+                <e p="._aspargus-passage2.png" t="Include" />
+                <e p="._deep-bronze-left-half-circle.png" t="Include" />
+                <e p="._deep-bronze-right-half-circle.png" t="Include" />
+                <e p="._deep-bronze-square.png" t="Include" />
+                <e p="._emperor-lower-left.png" t="Include" />
+                <e p="._emperor-lower-right.png" t="Include" />
+                <e p="._emperor-square.png" t="Include" />
+                <e p="._emperor-upper-left.png" t="Include" />
+                <e p="._emperor-upper-right.png" t="Include" />
+                <e p="._generate-images.sh" t="Include" />
+                <e p="._green-lower-left.png" t="Include" />
+                <e p="._green-lower-right.png" t="Include" />
+                <e p="._green-square.png" t="Include" />
+                <e p="._green-upper-left.png" t="Include" />
+                <e p="._green-upper-right.png" t="Include" />
+                <e p="._ironstone-lower-left.png" t="Include" />
+                <e p="._ironstone-lower-right.png" t="Include" />
+                <e p="._ironstone-square.png" t="Include" />
+                <e p="._ironstone-upper-left.png" t="Include" />
+                <e p="._ironstone-upper-right.png" t="Include" />
+                <e p="._minsk-square.png" t="Include" />
+                <e p="._nandor-square.png" t="Include" />
+                <e p="._neptune-lower-left.png" t="Include" />
+                <e p="._neptune-lower-right.png" t="Include" />
+                <e p="._neptune-square.png" t="Include" />
+                <e p="._neptune-upper-left.png" t="Include" />
+                <e p="._neptune-upper-right.png" t="Include" />
+                <e p="._obstacle.png" t="Include" />
+                <e p="._olive-green-square.png" t="Include" />
+                <e p="._platform.png" t="Include" />
+                <e p="._purple-circle.png" t="Include" />
+                <e p="._salt-box-square.png" t="Include" />
+                <e p="._sanguine-brown-lower-left.png" t="Include" />
+                <e p="._sanguine-brown-lower-right.png" t="Include" />
+                <e p="._sanguine-brown-square.png" t="Include" />
+                <e p="._sanguine-brown-upper-left.png" t="Include" />
+                <e p="._sanguine-brown-upper-right.png" t="Include" />
+                <e p="._sanguine_brown-lower-left.png" t="Include" />
+                <e p="._sanguine_brown-lower-right.png" t="Include" />
+                <e p="._sanguine_brown-square.png" t="Include" />
+                <e p="._sanguine_brown-upper-left.png" t="Include" />
+                <e p="._sanguine_brown-upper-right.png" t="Include" />
+                <e p="._studio-lower-left.png" t="Include" />
+                <e p="._studio-lower-right.png" t="Include" />
+                <e p="._studio-square.png" t="Include" />
+                <e p="._studio-upper-left.png" t="Include" />
+                <e p="._studio-upper-right.png" t="Include" />
+                <e p="._tacha-square.png" t="Include" />
+                <e p="._tacha-upper-right.png" t="Include" />
+                <e p="._white-left-half-circle.png" t="Include" />
+                <e p="._white-lower-left.png" t="Include" />
+                <e p="._white-lower-right.png" t="Include" />
+                <e p="._white-right-half-circle.png" t="Include" />
+                <e p="._white-square.png" t="Include" />
+                <e p="._white-upper-left.png" t="Include" />
+                <e p="._white-upper-right.png" t="Include" />
+                <e p="._yellow-stick.png" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="EntityCreatorTests.cs" t="Include" />
+        <e p="FileReaderTests.cs" t="Include" />
+        <e p="IntegrationFileToLevel.cs" t="Include" />
+        <e p="Levels" t="Include">
+          <e p="short-n-sweet.txt" t="Include" />
+          <e p="the-beach.txt" t="Include" />
+        </e>
+        <e p="OpenTK.dll.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="Tests.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>

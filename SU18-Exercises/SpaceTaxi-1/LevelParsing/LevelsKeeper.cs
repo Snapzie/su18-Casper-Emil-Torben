@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SpaceTaxi_1.LevelParsing {
-    class LevelsKeeper {
+    public class LevelsKeeper {
         private static LevelsKeeper instance;
         private Dictionary<int, Level> levelDic;
         private int levelCounter;
