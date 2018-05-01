@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.26)  1 MAY 2018 11:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.26)  1 MAY 2018 11:54
 entering extended mode
 **./master.tex
 (master.tex
@@ -1907,12 +1907,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 
  []
 
-[6])
-runsystem(del _minted-master\default.pygstyle)...executed.
-
-runsystem(del _minted-master\default-pyg-prefix.pygstyle)...executed.
-
- 
+[6]) 
 AED: lastpage setting LastPage
 [7]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 21.
@@ -1924,9 +1919,9 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: D814BEDAD19234FE98709E227BABB0C4;141.
  ) 
 Here is how much of TeX's memory you used:
- 33646 strings out of 493305
- 628024 string characters out of 3146678
- 774312 words of memory out of 3000000
+ 33642 strings out of 493305
+ 627975 string characters out of 3146678
+ 774263 words of memory out of 3000000
  36616 multiletter control sequences out of 15000+200000
  554364 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
