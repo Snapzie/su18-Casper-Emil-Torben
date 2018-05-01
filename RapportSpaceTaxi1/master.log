@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.26)  1 MAY 2018 11:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.26)  1 MAY 2018 12:19
 entering extended mode
 **./master.tex
 (master.tex
@@ -1779,6 +1779,11 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 7.91925pt on input line 5.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 5.
+
+Overfull \hbox (11.7752pt too wide) in paragraph at lines 5--15
+ [][] 
+ []
+
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 15.
 
@@ -1807,107 +1812,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
  []
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 5.
-
-
-Overfull \hbox (189.15459pt too wide) in paragraph at lines 9--20
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--24
-
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
-! Undefined control sequence.
-<argument> Images\SequenceDiagram 
-                                  
-l.25 ...th=\linewidth]{Images\SequenceDiagram.png}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<write> ... Warning: File `Images\SequenceDiagram 
-                                                  .png' not found\on@line .
-l.25 ...th=\linewidth]{Images\SequenceDiagram.png}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: File `Images.png' not found on input line 25.
-
-
-! Package pdftex.def Error: File `Images.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.25 ...th=\linewidth]{Images\SequenceDiagram.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 25--26
-[][] 
- []
-
-) (latex/Implementation2.tex [4]
-! Undefined control sequence.
-<argument> Images\UML 
-                      
-l.2 ...egraphics[width=\linewidth]{Images\UML.png}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<write> 
-LaTeX Warning: File `Images\UML 
-                                         .png' not found\on@line .
-l.2 ...egraphics[width=\linewidth]{Images\UML.png}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: File `Images.png' not found on input line 2.
-
-
-! Package pdftex.def Error: File `Images.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2 ...egraphics[width=\linewidth]{Images\UML.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[5]
+<latex/Images/SequenceDiagram.png, id=64, 996.72375pt x 806.01125pt>
+File: latex/Images/SequenceDiagram.png Graphic file (type png)
+<use latex/Images/SequenceDiagram.png>
+Package pdftex.def Info: latex/Images/SequenceDiagram.png  used on input line 2
+7.
+(pdftex.def)             Requested size: 345.0pt x 278.98428pt.
+) (latex/Implementation2.tex
+<latex/Images/UML.png, id=66, 715.67375pt x 707.64375pt>
+File: latex/Images/UML.png Graphic file (type png)
+<use latex/Images/UML.png>
+Package pdftex.def Info: latex/Images/UML.png  used on input line 2.
+(pdftex.def)             Requested size: 345.0pt x 341.13364pt.
+ [4] [5 <./latex/Images/SequenceDiagram.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 
  []
 
-[6]) 
+[6 <./latex/Images/UML.png>]) 
 AED: lastpage setting LastPage
 [7]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 21.
@@ -1919,10 +1844,10 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: D814BEDAD19234FE98709E227BABB0C4;141.
  ) 
 Here is how much of TeX's memory you used:
- 33642 strings out of 493305
- 627975 string characters out of 3146678
- 774263 words of memory out of 3000000
- 36616 multiletter control sequences out of 15000+200000
+ 33653 strings out of 493305
+ 628278 string characters out of 3146678
+ 774333 words of memory out of 3000000
+ 36624 multiletter control sequences out of 15000+200000
  554364 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,86p,10381b,419s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1930,9 +1855,9 @@ Here is how much of TeX's memory you used:
 /2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Users/caspe/AppData/Roaming/M
 iKTeX/2.9/fonts/type1/public/cm-super/sftt1000.pfb><D:/MikTex/fonts/type1/urw/p
 alatino/uplb8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on master.pdf (7 pages, 92837 bytes).
+Output written on master.pdf (7 pages, 176669 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 
