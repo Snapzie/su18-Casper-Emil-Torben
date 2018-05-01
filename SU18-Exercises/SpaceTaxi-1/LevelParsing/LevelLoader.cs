@@ -25,7 +25,7 @@ namespace SpaceTaxi_1.LevelParsing {
             }
 
             for (int i = 1; i < 3; i++) {
-                Debug.WriteLine("\n" + "Name of level " + i + ": " + keeper.GetLevel(i).Name);
+                Debug.WriteLine("\n" + "Name of level " + i + ": " + keeper[i].Name);
             }
         }
     }

@@ -10,6 +10,12 @@ namespace SpaceTaxi_1.LevelParsing {
         private Dictionary<int, Level> levelDic;
         private int levelCounter;
 
+        public Level this[int i] {
+            get {
+                return this.levelDic[i];
+            }
+        }
+
         /// <summary>
         /// Constructs the LevelsKeeper singleton and instatiates its fields
         /// </summary>
@@ -39,16 +45,6 @@ namespace SpaceTaxi_1.LevelParsing {
         public void SaveLevel(Level level) {
             this.levelDic.Add(this.levelCounter, level);
             this.levelCounter++;
-        }
-
-        /// <summary>
-        /// Gets a level object from levelDic specified from the level parameter
-        /// </summary>
-        /// <param name="level">The level number</param>
-        /// <returns>Returns the specified level object</returns>
-        /// <remarks>Maybe this could be indexer method instead?</remarks>
-        public Level GetLevel(int level) {
-            return this.levelDic[level];
         }
     }
 }
