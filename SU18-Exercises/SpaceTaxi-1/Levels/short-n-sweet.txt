@@ -1,0 +1,55 @@
+%#%#%#%#%#%#%#%#%#^^^^^^%#%#%#%#%#%#%#%#
+#               JW      JW             %
+%      h2g                             #
+#      222                     >       %
+%      H2G                        o    #
+#       3                           o  %
+%       3                              #
+#       3                           o  %
+%       3                       j%i    #
+#       3                       W Xi   %
+%       3                          %   #
+#                                 xI   %
+%    o                           xI    #
+#                               xI     %
+%                              xI      #
+#  o   o                      xI       %
+%                            xI        #
+#    o                      xI         %
+%      o                   xI          #
+#  o                      xI           %
+%       o                 I            #
+#         m1111111111111n              %
+%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#
+
+Name: SHORT -N- SWEET
+Platforms: 1
+
+%) white-square.png
+#) ironstone-square.png
+1) neptune-square.png
+2) green-square.png
+3) yellow-stick.png
+o) purple-circle.png
+
+G) green-upper-left.png
+H) green-upper-right.png
+g) green-lower-left.png
+h) green-lower-right.png
+
+I) ironstone-upper-left.png
+J) ironstone-upper-right.png
+i) ironstone-lower-left.png
+j) ironstone-lower-right.png
+
+N) neptune-upper-left.png
+M) neptune-upper-right.png
+n) neptune-lower-left.png
+m) neptune-lower-right.png
+
+W) white-upper-left.png
+X) white-upper-right.png
+w) white-lower-left.png
+x) white-lower-right.png
+
+Customer: Alice 10 1 ^J 10 100

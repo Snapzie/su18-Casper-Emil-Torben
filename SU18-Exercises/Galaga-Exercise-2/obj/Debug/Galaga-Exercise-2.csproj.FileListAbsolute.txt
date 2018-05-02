@@ -8,3 +8,14 @@
 /Users/Casper/Uni/SU/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/obj/Debug/Galaga-Exercise-2.csproj.CoreCompileInputs.cache
 /Users/Casper/Uni/SU/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.exe
 /Users/Casper/Uni/SU/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.pdb
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\obj\Debug\Galaga-Exercise-2.csprojResolveAssemblyReference.cache
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\obj\Debug\Galaga-Exercise-2.csproj.CoreCompileInputs.cache
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\obj\Debug\Galaga_Exercise_2.exe
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\obj\Debug\Galaga_Exercise_2.pdb
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\bin\Debug\Galaga_Exercise_2.exe
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\bin\Debug\Galaga_Exercise_2.pdb
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\bin\Debug\DIKUArcade.dll
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\bin\Debug\OpenTK.dll
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\bin\Debug\DIKUArcade.pdb
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\bin\Debug\OpenTK.xml
+D:\Uni\su18-Casper-Emil-Torben\SU18-Exercises\Galaga-Exercise-2\obj\Debug\Galaga-Exercise-2.csproj.CopyComplete

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SpaceTaxi_1</RootNamespace>
+    <AssemblyName>SpaceTaxi-1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
+      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LevelParsing\EntityCreator.cs" />
+    <Compile Include="LevelParsing\FileReader.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="LevelParsing\Level.cs" />
+    <Compile Include="LevelParsing\LevelCreator.cs" />
+    <Compile Include="LevelParsing\LevelLoader.cs" />
+    <Compile Include="LevelParsing\LevelsKeeper.cs" />
+    <Compile Include="Orientation.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Assets\Images\BlueMonster.png" />
+    <Content Include="..\Assets\Images\BombPickUp.png" />
+    <Content Include="..\Assets\Images\BulletRed2.png" />
+    <Content Include="..\Assets\Images\DamagePickUp.png" />
+    <Content Include="..\Assets\Images\Explosion.png" />
+    <Content Include="..\Assets\Images\GreenMonster.png" />
+    <Content Include="..\Assets\Images\LifePickUp.png" />
+    <Content Include="..\Assets\Images\Player.png" />
+    <Content Include="..\Assets\Images\PlayerBooster.png" />
+    <Content Include="..\Assets\Images\PuffOfSmoke.png" />
+    <Content Include="..\Assets\Images\RedMonster.png" />
+    <Content Include="..\Assets\Images\Rocket.png" />
+    <Content Include="..\Assets\Images\RocketPickUp.png" />
+    <Content Include="..\Assets\Images\ShieldPickUp.png" />
+    <Content Include="..\Assets\Images\SpaceBackground.png" />
+    <Content Include="..\Assets\Images\SpeedPickUp.png" />
+    <Content Include="..\Assets\Images\SpreadPickUp.png" />
+    <Content Include="..\Assets\Images\TitleImage.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

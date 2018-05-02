@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12F323AF-27B1-4716-B1BC-380664745C00}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
+      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityCreatorTests.cs" />
+    <Compile Include="FileReaderTests.cs" />
+    <Compile Include="IntegrationFileToLevel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpaceTaxi-1\SpaceTaxi-1.csproj">
+      <Project>{6b6b73fe-d105-4f0e-9b51-069b6fd6328f}</Project>
+      <Name>SpaceTaxi-1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\.DS_Store" />
+    <Content Include="Levels\short-n-sweet.txt" />
+    <Content Include="Levels\the-beach.txt" />
+    <EmbeddedResource Include="Assets\Images\aspargus-edge-bottom.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Assets\Images\aspargus-edge-left.png" />
+    <Content Include="Assets\Images\aspargus-edge-right.png" />
+    <Content Include="Assets\Images\aspargus-edge-top-left.png" />
+    <Content Include="Assets\Images\aspargus-edge-top-right.png" />
+    <Content Include="Assets\Images\aspargus-edge-top.png" />
+    <Content Include="Assets\Images\aspargus-passage.png" />
+    <Content Include="Assets\Images\aspargus-passage1.png" />
+    <Content Include="Assets\Images\aspargus-passage2.png" />
+    <Content Include="Assets\Images\CustomerStandLeft.png" />
+    <Content Include="Assets\Images\CustomerStandRight.png" />
+    <Content Include="Assets\Images\CustomerWalkLeft.png" />
+    <Content Include="Assets\Images\CustomerWalkRight.png" />
+    <Content Include="Assets\Images\deep-bronze-left-half-circle.png" />
+    <Content Include="Assets\Images\deep-bronze-right-half-circle.png" />
+    <Content Include="Assets\Images\deep-bronze-square.png" />
+    <Content Include="Assets\Images\emperor-lower-left.png" />
+    <Content Include="Assets\Images\emperor-lower-right.png" />
+    <Content Include="Assets\Images\emperor-square.png" />
+    <Content Include="Assets\Images\emperor-upper-left.png" />
+    <Content Include="Assets\Images\emperor-upper-right.png" />
+    <Content Include="Assets\Images\generate-images.sh" />
+    <Content Include="Assets\Images\green-lower-left.png" />
+    <Content Include="Assets\Images\green-lower-right.png" />
+    <Content Include="Assets\Images\green-square.png" />
+    <Content Include="Assets\Images\green-upper-left.png" />
+    <Content Include="Assets\Images\green-upper-right.png" />
+    <Content Include="Assets\Images\ironstone-lower-left.png" />
+    <Content Include="Assets\Images\ironstone-lower-right.png" />
+    <Content Include="Assets\Images\ironstone-square.png" />
+    <Content Include="Assets\Images\ironstone-upper-left.png" />
+    <Content Include="Assets\Images\ironstone-upper-right.png" />
+    <Content Include="Assets\Images\minsk-square.png" />
+    <Content Include="Assets\Images\nandor-square.png" />
+    <Content Include="Assets\Images\neptune-lower-left.png" />
+    <Content Include="Assets\Images\neptune-lower-right.png" />
+    <Content Include="Assets\Images\neptune-square.png" />
+    <Content Include="Assets\Images\neptune-upper-left.png" />
+    <Content Include="Assets\Images\neptune-upper-right.png" />
+    <Content Include="Assets\Images\obstacle.png" />
+    <Content Include="Assets\Images\olive-green-square.png" />
+    <Content Include="Assets\Images\platform.png" />
+    <Content Include="Assets\Images\purple-circle.png" />
+    <Content Include="Assets\Images\salt-box-square.png" />
+    <Content Include="Assets\Images\sanguine-brown-lower-left.png" />
+    <Content Include="Assets\Images\sanguine-brown-lower-right.png" />
+    <Content Include="Assets\Images\sanguine-brown-square.png" />
+    <Content Include="Assets\Images\sanguine-brown-upper-left.png" />
+    <Content Include="Assets\Images\sanguine-brown-upper-right.png" />
+    <Content Include="Assets\Images\sanguine_brown-lower-left.png" />
+    <Content Include="Assets\Images\sanguine_brown-lower-right.png" />
+    <Content Include="Assets\Images\sanguine_brown-square.png" />
+    <Content Include="Assets\Images\sanguine_brown-upper-left.png" />
+    <Content Include="Assets\Images\sanguine_brown-upper-right.png" />
+    <Content Include="Assets\Images\SpaceBackground.png" />
+    <Content Include="Assets\Images\studio-lower-left.png" />
+    <Content Include="Assets\Images\studio-lower-right.png" />
+    <Content Include="Assets\Images\studio-square.png" />
+    <Content Include="Assets\Images\studio-upper-left.png" />
+    <Content Include="Assets\Images\studio-upper-right.png" />
+    <Content Include="Assets\Images\tacha-square.png" />
+    <Content Include="Assets\Images\tacha-upper-right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Back.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Back_Right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom_Back.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom_Back_Right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom_Right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_None.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_None_Right.png" />
+    <Content Include="Assets\Images\white-left-half-circle.png" />
+    <Content Include="Assets\Images\white-lower-left.png" />
+    <Content Include="Assets\Images\white-lower-right.png" />
+    <Content Include="Assets\Images\white-right-half-circle.png" />
+    <Content Include="Assets\Images\white-square.png" />
+    <Content Include="Assets\Images\white-upper-left.png" />
+    <Content Include="Assets\Images\white-upper-right.png" />
+    <Content Include="Assets\Images\yellow-stick.png" />
+    <Content Include="Assets\__MACOSX\._Assets" />
+    <Content Include="Assets\__MACOSX\Assets\._.DS_Store" />
+    <Content Include="Assets\__MACOSX\Assets\._Images" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._.DS_Store" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-edge-bottom.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-edge-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-edge-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-edge-top-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-edge-top-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-edge-top.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-passage.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-passage1.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._aspargus-passage2.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._CustomerStandLeft.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._CustomerStandRight.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._CustomerWalkLeft.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._CustomerWalkRight.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._deep-bronze-left-half-circle.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._deep-bronze-right-half-circle.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._deep-bronze-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._emperor-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._emperor-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._emperor-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._emperor-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._emperor-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._generate-images.sh" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._green-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._green-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._green-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._green-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._green-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._ironstone-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._ironstone-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._ironstone-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._ironstone-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._ironstone-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._minsk-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._nandor-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._neptune-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._neptune-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._neptune-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._neptune-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._neptune-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._obstacle.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._olive-green-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._platform.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._purple-circle.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._salt-box-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine-brown-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine-brown-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine-brown-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine-brown-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine-brown-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine_brown-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine_brown-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine_brown-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine_brown-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._sanguine_brown-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._SpaceBackground.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._studio-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._studio-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._studio-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._studio-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._studio-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._tacha-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._tacha-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_Back.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_Back_Right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_Bottom.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_Bottom_Back.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_Bottom_Back_Right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_Bottom_Right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_None.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._Taxi_Thrust_None_Right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._white-left-half-circle.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._white-lower-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._white-lower-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._white-right-half-circle.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._white-square.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._white-upper-left.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._white-upper-right.png" />
+    <Content Include="Assets\__MACOSX\Assets\Images\._yellow-stick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>
