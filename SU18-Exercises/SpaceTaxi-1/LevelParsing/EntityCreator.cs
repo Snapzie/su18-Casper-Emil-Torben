@@ -8,7 +8,7 @@ namespace SpaceTaxi_1.LevelParsing {
     public static class EntityCreator {
         
         /// <summary>
-        /// 
+        /// Create new entity
         /// </summary>
         /// <param name="line">The line from which the image-char comes from</param>
         /// <param name="col">The column from which the image-char comes from</param>

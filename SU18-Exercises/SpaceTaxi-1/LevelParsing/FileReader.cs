@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-using System.Diagnostics;
-
 namespace SpaceTaxi_1.LevelParsing {
     public static class FileReader {
 
@@ -30,13 +28,6 @@ namespace SpaceTaxi_1.LevelParsing {
                 levelArray[i] = s.ToCharArray();
             }
 
-            for (int i = 0; i < levelArray.Length - 1; i++) {
-                for (int j = 0; j < levelArray[0].Length; j++) {
-                    Console.Write(levelArray[i][j]);
-                }
-                Console.WriteLine("");
-            }
-
             //name
             while (s == "") {
                 s = sr.ReadLine();
@@ -44,8 +35,6 @@ namespace SpaceTaxi_1.LevelParsing {
 
             int startIndex = s.IndexOf(" ");
             string name = s.Substring(startIndex + 1, (s.Length - 1) - startIndex);
-
-            Debug.WriteLine(name);
             
             //platformList
             s = sr.ReadLine();
@@ -56,12 +45,6 @@ namespace SpaceTaxi_1.LevelParsing {
             for (int i = 1; i < splitArray.Length; i++) {
                 platformList.Add(splitArray[i].ToCharArray()[0]);
             }
-
-            foreach (char c in platformList) {
-                Debug.Write(c + " ");
-            }
-
-            Debug.WriteLine("");
 
             //decoder
             Dictionary<char, string> decoder = new Dictionary<char, string>();
@@ -75,10 +58,6 @@ namespace SpaceTaxi_1.LevelParsing {
                 }
             }
 
-            foreach (KeyValuePair<char, string> kvp in decoder) {
-                Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
-            }
-
             //customerList
             List<string> customerList = new List<string>();
 
@@ -86,10 +65,6 @@ namespace SpaceTaxi_1.LevelParsing {
                 startIndex = s.IndexOf(" ");
                 customerList.Add(s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
                 s = sr.ReadLine();
-            }
-
-            foreach (string customer in customerList) {
-                Debug.WriteLine(customer);
             }
 
             return new Level(levelArray, name, platformList, decoder, customerList);
