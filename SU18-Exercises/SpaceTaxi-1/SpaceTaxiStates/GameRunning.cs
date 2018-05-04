@@ -7,6 +7,7 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
 using SpaceTaxi_1.LevelParsing;
+using SpaceTaxi_1.SpaceTaxiGame;
 
 namespace SpaceTaxi_1.SpaceTaxiStates {
     public class GameRunning : IGameState {
@@ -32,7 +33,10 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             //TODO:CHange game flow
             levelContainer = LevelCreator.CreateLevel(2);
             player = new Player();
-            
+            player.SetPosition(0.45f, 0.6f);
+            player.SetExtent(0.1f, 0.1f);
+            SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+
         }
 
         public void UpdateGameLogic() {
@@ -48,14 +52,20 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             //Keeping all the keys in so we have them for later
             if (keyAction == "KEY_PRESS") {
                 switch (keyValue) {
-                case "KEY_SPACE":
-                    
+                case "KEY_UP":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "BOOSTER_UPWARDS", "", ""));
                     break;
                 case "KEY_LEFT":
-                    
-                    break;   
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "BOOSTER_LEFT", "", ""));
+                    break;
                 case "KEY_RIGHT":
-                    
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "BOOSTER_RIGHT", "", ""));
                     break;
                 case "KEY_ESCAPE":
                     SpaceTaxiGame.SpaceBus.GetBus().RegisterEvent(
@@ -65,9 +75,20 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             } else {
                 switch (keyValue) {
-                case "KEY_LEFT":                    
+                case "KEY_LEFT":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "STOP_BOOSTER_LEFT", "", ""));
                     break;
                 case "KEY_RIGHT":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "STOP_BOOSTER_RIGHT", "", ""));
+                    break;
+                case "KEY_UP":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "STOP_BOOSTER_UPWARDS", "", ""));
                     break;
                 }
             }
