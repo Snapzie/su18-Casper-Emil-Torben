@@ -55,7 +55,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 switch (keyValue) {
                 case "KEY_ENTER" :
                     if (activeMenuButton == 0) {
-                        GalagaBus.GetBus().RegisterEvent(
+                        SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, 
                                 this, 
@@ -63,7 +63,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                                 "GameRunning", 
                                 ""));
                     } else {
-                        GalagaBus.GetBus().RegisterEvent(
+                        SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, 
                                 this, 
