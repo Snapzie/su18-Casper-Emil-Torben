@@ -6,11 +6,13 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
+using SpaceTaxi_1.LevelParsing;
 
 namespace SpaceTaxi_1.SpaceTaxiStates {
     public class GameRunning : IGameState {
         private static GameRunning instance = null;
         private Player player;
+        private EntityContainer levelContainer;
 
         private GameRunning() {
             InitializeGameState();
@@ -27,6 +29,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
 
 
         public void InitializeGameState() {
+            //TODO:CHange game flow
+            levelContainer = LevelCreator.CreateLevel(2);
             player = new Player();
             
         }
@@ -36,6 +40,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         public void RenderState() {
+            levelContainer.RenderEntities();
             player.RenderPlayer();
         }
 

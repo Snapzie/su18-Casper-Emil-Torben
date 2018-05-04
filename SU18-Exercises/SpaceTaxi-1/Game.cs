@@ -8,6 +8,8 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
 using SpaceTaxi_1.LevelParsing;
+using SpaceTaxi_1.SpaceTaxiGame;
+using SpaceTaxi_1.SpaceTaxiStates;
 
 
 namespace SpaceTaxi_1
@@ -21,7 +23,7 @@ namespace SpaceTaxi_1
         private Entity _backGroundImage;
         private Player _player;
 
-        private EntityContainer levelContainer;
+        private StateMachine stateMachine;
 
         public Game()
         {
@@ -29,13 +31,16 @@ namespace SpaceTaxi_1
             _win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
 
             // event bus
-            _eventBus = new GameEventBus<object>();
+            _eventBus = SpaceBus.GetBus();
             _eventBus.InitializeEventBus(new List<GameEventType>() {
+                GameEventType.GameStateEvent,
                 GameEventType.InputEvent,      // key press / key release
                 GameEventType.WindowEvent,     // messages to the window, e.g. CloseWindow()
                 GameEventType.PlayerEvent      // commands issued to the player object, e.g. move, destroy, receive health, etc.
             });
             _win.RegisterEventBus(_eventBus);
+            _eventBus.Subscribe(GameEventType.InputEvent, this);
+            _eventBus.Subscribe(GameEventType.WindowEvent, this);
 
             // game timer
             _gameTimer = new GameTimer(60); // 60 UPS, no FPS limit
@@ -56,8 +61,8 @@ namespace SpaceTaxi_1
             _eventBus.Subscribe(GameEventType.InputEvent, this);
             _eventBus.Subscribe(GameEventType.WindowEvent, this);
             _eventBus.Subscribe(GameEventType.PlayerEvent, _player);
-
-            levelContainer = LevelCreator.CreateLevel(2);
+            
+            stateMachine = new StateMachine();
         }
 
         public void GameLoop()
@@ -75,9 +80,7 @@ namespace SpaceTaxi_1
                 if (_gameTimer.ShouldRender())
                 {
                     _win.Clear();
-                    _backGroundImage.RenderEntity();
-                    _player.RenderPlayer();
-                    levelContainer.RenderEntities();
+                    stateMachine.ActiveState.GameLoop();
                     _win.SwapBuffers();
                 }
 

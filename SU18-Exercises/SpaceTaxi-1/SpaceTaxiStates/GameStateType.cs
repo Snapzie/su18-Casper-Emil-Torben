@@ -5,8 +5,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         GameRunning,
         GamePaused,
         MainMenu,
-        GameWon,
-        GameLost
     }
 
     public class StateTransformer {
@@ -18,10 +16,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 return GameStateType.GamePaused;
             case "MainMenu" :
                 return GameStateType.MainMenu;
-            case "GameWon" :
-                return GameStateType.GameWon;
-            case "GameLost" :
-                return GameStateType.GameLost;
             default:
                 throw new ArgumentException("Argument thrown in TransformStringToState");
             }
@@ -35,10 +29,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 return "GamePaused";
             case GameStateType.MainMenu :
                 return "MainMenu";
-            case GameStateType.GameWon :
-                return "GameWon";
-            case GameStateType.GameLost :
-                return "GameLost";
             default:
                 throw new ArgumentException("Argument thrown in TransformStateToString");
             }
