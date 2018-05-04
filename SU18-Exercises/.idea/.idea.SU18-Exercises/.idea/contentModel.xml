@@ -202,6 +202,16 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="SpaceTaxi-1.csproj" t="IncludeRecursive" />
+        <e p="SpaceTaxiGame" t="Include">
+          <e p="SpaceTaxiBus.cs" t="Include" />
+        </e>
+        <e p="SpaceTaxiStates" t="Include">
+          <e p="GamePaused.cs" t="Include" />
+          <e p="GameRunning.cs" t="Include" />
+          <e p="GameStateType.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+          <e p="StateMachine.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
