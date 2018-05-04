@@ -19,7 +19,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
 
         private MainMenu() {
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1, 1), 
-                new Image("Assets/Images/TitleImage.png"));
+                new Image("Assets/Images/SpaceBackground.png"));
             menuButtons = new Text[] {
                 new Text("New Game", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
                 new Text("Quit", new Vec2F(0.4f, 0.3f), new Vec2F(0.3f, 0.3f))
@@ -58,7 +58,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 switch (keyValue) {
                     case "KEY_ENTER" :
                         if (activeMenuButton == 0) {
-                            GalagaBus.GetBus().RegisterEvent(
+                            SpaceBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                     GameEventType.GameStateEvent, 
                                     this, 
@@ -66,7 +66,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                                     "GameRunning", 
                                     ""));
                         } else {
-                            GalagaBus.GetBus().RegisterEvent(
+                            SpaceBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                         }
