@@ -16,12 +16,16 @@ namespace SpaceTaxi_1.LevelParsing {
             }
         }
 
+        public int Count() {
+            return levelCounter;
+        }
+
         /// <summary>
         /// Constructs the LevelsKeeper singleton and instatiates its fields
         /// </summary>
         private LevelsKeeper() {
             levelDic = new Dictionary<int, Level>();
-            levelCounter = 1;
+            levelCounter = 0;
         }
 
         /// <summary>

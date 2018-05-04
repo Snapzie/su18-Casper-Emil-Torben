@@ -5,6 +5,7 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.State;
+using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiGame;
 using Image = DIKUArcade.Graphics.Image;
 
@@ -16,16 +17,23 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         private Text[] menuButtons;
         private int activeMenuButton;
         private int maxMenuButtons;
-
+        private int selectedLevel = 0;
+        private LevelsKeeper levelsKeeper = LevelsKeeper.Instance;
+        
         private MainMenu() {
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1, 1), 
                 new Image("Assets/Images/SpaceBackground.png"));
             menuButtons = new Text[] {
-                new Text("New Game", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
-                new Text("Quit", new Vec2F(0.4f, 0.3f), new Vec2F(0.3f, 0.3f))
+                new Text("New Game", new Vec2F(0.1f, 0.4f), new Vec2F(0.3f, 0.3f)),
+                new Text("Selected Level: \n" + levelsKeeper[selectedLevel].Name, new Vec2F(0.1f, 0.3f), new Vec2F(0.3f, 0.3f)),
+                new Text("Quit", new Vec2F(0.1f, 0.2f), new Vec2F(0.3f, 0.3f))
             };
+            menuButtons[0].SetFontSize(42);
+            menuButtons[1].SetFontSize(42);
+            menuButtons[2].SetFontSize(42);
             activeMenuButton = 0;
-            maxMenuButtons = 2;
+            maxMenuButtons = menuButtons.Length;
+            
         }
 
         public static MainMenu GetInstance() {
@@ -65,17 +73,24 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                                     "CHANGE_STATE", 
                                     "GameRunning", 
                                     ""));
+                        } else if (activeMenuButton == 1) {
+                            selectedLevel = (selectedLevel + 1) % levelsKeeper.Count();
+                            menuButtons[1].SetText("Selected Level: \n" + levelsKeeper[selectedLevel].Name);
                         } else {
                             SpaceBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+                                    GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                         }
                         break;
                     case "KEY_UP" :
-                        activeMenuButton = Math.Abs(activeMenuButton - 1);
+                        if (activeMenuButton - 1 >= 0) {
+                            activeMenuButton--;
+                        } else {
+                            activeMenuButton = maxMenuButtons - 1;
+                        }
                         break;
                     case "KEY_DOWN" :
-                        activeMenuButton = (activeMenuButton + 1) % 2;
+                        activeMenuButton = (activeMenuButton + 1) % maxMenuButtons;
                         break;
                 }   
             }

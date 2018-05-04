@@ -14,7 +14,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         private static GameRunning instance = null;
         private Player player;
         private EntityContainer levelContainer;
-
+        private int levelNumber = 0;
         private GameRunning() {
             InitializeGameState();
         }
@@ -26,12 +26,14 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public void GameLoop() {
             this.RenderState();
         }
-        
 
+        public void SetLevel(int newLevel) {
+            levelNumber = newLevel;
+        }
 
         public void InitializeGameState() {
             //TODO:CHange game flow
-            levelContainer = LevelCreator.CreateLevel(2);
+            levelContainer = LevelCreator.CreateLevel(levelNumber);
             player = new Player();
             player.SetPosition(0.45f, 0.6f);
             player.SetExtent(0.1f, 0.1f);
