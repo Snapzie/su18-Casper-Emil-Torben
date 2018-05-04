@@ -33,11 +33,14 @@ namespace SpaceTaxi_1
             // event bus
             _eventBus = SpaceBus.GetBus();
             _eventBus.InitializeEventBus(new List<GameEventType>() {
+                GameEventType.GameStateEvent,
                 GameEventType.InputEvent,      // key press / key release
                 GameEventType.WindowEvent,     // messages to the window, e.g. CloseWindow()
                 GameEventType.PlayerEvent      // commands issued to the player object, e.g. move, destroy, receive health, etc.
             });
             _win.RegisterEventBus(_eventBus);
+            _eventBus.Subscribe(GameEventType.InputEvent, this);
+            _eventBus.Subscribe(GameEventType.WindowEvent, this);
 
             // game timer
             _gameTimer = new GameTimer(60); // 60 UPS, no FPS limit

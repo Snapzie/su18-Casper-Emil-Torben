@@ -29,6 +29,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
 
 
         public void InitializeGameState() {
+            //TODO:CHange game flow
+            levelContainer = LevelCreator.CreateLevel(2);
             player = new Player();
             
         }
@@ -38,8 +40,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         public void RenderState() {
-            //TODO:CHange game flow
-            levelContainer = LevelCreator.CreateLevel(2);
             levelContainer.RenderEntities();
             player.RenderPlayer();
         }
