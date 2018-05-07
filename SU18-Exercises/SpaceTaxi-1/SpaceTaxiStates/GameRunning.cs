@@ -35,7 +35,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
 
         public void InitializeGameState() {
             //TODO:CHange game flow
-            levelContainer = LevelCreator.CreateLevel(levelNumber);
+            levelContainer = LevelCreator.CreateLevel(levelNumber % 2);
             player = new Player();
             player.SetPosition(0.45f, 0.6f);
             player.SetExtent(0.1f, 0.1f);
@@ -55,10 +55,12 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         public void IterateCollisions() {
+            bool collisionDetected = false;
             //Console.WriteLine("Dectection");
             foreach (Entity platform in levelContainer[0]) {
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape).Collision) {
                     Console.WriteLine("Platform");
+                    collisionDetected = true;
                     if (player.Velocity.Y < 0) {
                         Console.WriteLine("Collision");
                         
@@ -72,6 +74,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                                 GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
                     } else {
                         player.Velocity.Y = 0;
+                        
                     }
                 }
             }
@@ -79,8 +82,18 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             foreach (Entity block in levelContainer[1]) {
                 //Console.WriteLine(player.Entity.Shape.Position);
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape).Collision) {
+                    collisionDetected = true;
                     Console.WriteLine("Collision");
                     player.SetExtent(0, 0); //TODO: loose game
+                }
+            }
+
+            if (!collisionDetected) {
+                if (player.Entity.Shape.Position.Y > 1) {
+                    SpaceTaxiGame.SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameRunning",
+                            (levelNumber + 1).ToString()));
                 }
             }
         }

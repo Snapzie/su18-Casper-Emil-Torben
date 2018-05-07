@@ -21,9 +21,13 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     GameRunning.GetInstance().InitializeGameState();
                     ActiveState = GameRunning.GetInstance();
                     break;
+                } else if (ActiveState == GameRunning.GetInstance()) {
+                    SetLevel(int.Parse(gameEvent.Parameter2));
+                    GameRunning.GetInstance().InitializeGameState();
+                    break;   
                 } else {
                     ActiveState = GameRunning.GetInstance();
-                    break;   
+                    break;
                 }
             case GameStateType.GamePaused:
                 ActiveState = GamePaused.GetInstance();

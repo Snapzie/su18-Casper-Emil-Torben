@@ -19,11 +19,11 @@ namespace Tests {
             [Test]
             public void FileToLevelKeeperTest() {
                 LevelLoader.LoadLevels();
-                Level lvl = LevelsKeeper.Instance[1];
+                Level lvl = LevelsKeeper.Instance[0];
                 Assert.AreEqual("SHORT -N- SWEET", lvl.Name);
                 Assert.AreEqual(lvl.Platforms, new List<char> {'1'});
                 Assert.AreEqual(lvl.Customers, new List<string> {"Alice 10 1 ^J 10 100"});
-                lvl = LevelsKeeper.Instance[2];
+                lvl = LevelsKeeper.Instance[1];
                 Assert.AreEqual("THE BEACH", lvl.Name);
                 Assert.AreEqual(lvl.Platforms, new List<char> {'J', 'i', 'r'});
                 Assert.AreEqual(lvl.Customers, new List<string> {"Bob 10 J r 10 100", "Carol 30 r ^ 10 100"});
