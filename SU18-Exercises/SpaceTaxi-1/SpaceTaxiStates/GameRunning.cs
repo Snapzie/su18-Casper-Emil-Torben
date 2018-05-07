@@ -55,12 +55,24 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         public void IterateCollisions() {
-            Console.WriteLine("Dectection");
-//            foreach (Entity platform in levelContainer[0]) {
-//                
-//            }
-
+            //Console.WriteLine("Dectection");
+            foreach (Entity platform in levelContainer[0]) {
+                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape).Collision) {
+                    Console.WriteLine("Platform");
+                    if (player.Velocity.Y < 0) {
+                        //Loose Game
+                        Console.WriteLine("Collision");
+                    }else if (player.Velocity.Y > 2) {
+                        //Loose Game
+                        Console.WriteLine("Collision");
+                    } else {
+                        player.Velocity.Y = 0;
+                    }
+                }
+            }
+            
             foreach (Entity block in levelContainer[1]) {
+                //Console.WriteLine(player.Entity.Shape.Position);
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape).Collision) {
                     Console.WriteLine("Collision");
                     player.SetExtent(0, 0); //TODO: loose game
