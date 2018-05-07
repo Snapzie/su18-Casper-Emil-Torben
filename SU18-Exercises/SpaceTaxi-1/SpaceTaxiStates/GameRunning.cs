@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
@@ -13,7 +14,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
     public class GameRunning : IGameState {
         private static GameRunning instance = null;
         private Player player;
-        private EntityContainer levelContainer;
+        private EntityContainer[] levelContainer;
         private int levelNumber = 0;
         private GameRunning() {
             InitializeGameState();
@@ -24,6 +25,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
         
         public void GameLoop() {
+            this.IterateCollisions();
             this.RenderState();
         }
 
@@ -46,8 +48,24 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         public void RenderState() {
-            levelContainer.RenderEntities();
+            foreach (EntityContainer entityContainer in levelContainer) {
+                entityContainer.RenderEntities();
+            }
             player.RenderPlayer();
+        }
+
+        public void IterateCollisions() {
+            Console.WriteLine("Dectection");
+//            foreach (Entity platform in levelContainer[0]) {
+//                
+//            }
+
+            foreach (Entity block in levelContainer[1]) {
+                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape).Collision) {
+                    Console.WriteLine("Collision");
+                    player.SetExtent(0, 0); //TODO: loose game
+                }
+            }
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {

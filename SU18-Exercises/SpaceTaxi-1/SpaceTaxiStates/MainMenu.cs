@@ -66,13 +66,14 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 switch (keyValue) {
                     case "KEY_ENTER" :
                         if (activeMenuButton == 0) {
+                            
                             SpaceBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                     GameEventType.GameStateEvent, 
                                     this, 
                                     "CHANGE_STATE", 
                                     "GameRunning", 
-                                    ""));
+                                    selectedLevel.ToString()));
                         } else if (activeMenuButton == 1) {
                             selectedLevel = (selectedLevel + 1) % levelsKeeper.Count();
                             menuButtons[1].SetText("Selected Level: \n" + levelsKeeper[selectedLevel].Name);
