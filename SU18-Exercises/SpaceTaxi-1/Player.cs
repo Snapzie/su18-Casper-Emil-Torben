@@ -115,35 +115,33 @@ namespace SpaceTaxi_1
         {
             if (eventType == GameEventType.PlayerEvent)
             {
-                switch (gameEvent.Message)
-                {
-                    // in the future, we will be handling movement here
-                    case "BOOSTER_UPWARDS":
-                        force.Y = boosterForce * 1f;
-                        bottomBosterOn = true;
-                        break;
-                    case "STOP_BOOSTER_UPWARDS":
-                        force.Y = gravity;
-                        bottomBosterOn = false;
-                        break;
-                    case "BOOSTER_LEFT":
-                        force.X = -boosterForce;
-                        _taxiOrientation = Orientation.Left;
-                        backBoosterOn = true;
-                        break;
-                    case "STOP_BOOSTER_LEFT":
-                        force.X = 0;
-                        backBoosterOn = false;
-                        break;
-                    case "BOOSTER_RIGHT":
-                        force.X = boosterForce;
-                        _taxiOrientation = Orientation.Right;
-                        backBoosterOn = true;
-                        break;
-                    case "STOP_BOOSTER_RIGHT":
-                        force.X = 0;
-                        backBoosterOn = false;
-                        break;
+                switch (gameEvent.Message) {
+                case "BOOSTER_UPWARDS":
+                    force.Y = boosterForce * 1f;
+                    bottomBosterOn = true;
+                    break;
+                case "STOP_BOOSTER_UPWARDS":
+                    force.Y = gravity;
+                    bottomBosterOn = false;
+                    break;
+                case "BOOSTER_LEFT":
+                    force.X = -boosterForce;
+                    _taxiOrientation = Orientation.Left;
+                    backBoosterOn = true;
+                    break;
+                case "STOP_BOOSTER_LEFT":
+                    force.X = 0;
+                    backBoosterOn = false;
+                    break;
+                case "BOOSTER_RIGHT":
+                    force.X = boosterForce;
+                    _taxiOrientation = Orientation.Right;
+                    backBoosterOn = true;
+                    break;
+                case "STOP_BOOSTER_RIGHT":
+                    force.X = 0;
+                    backBoosterOn = false;
+                    break;
                 }
             }
         }
