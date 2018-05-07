@@ -5,6 +5,7 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
+using OpenTK.Graphics;
 using OpenTK.Platform.Windows;
 
 namespace SpaceTaxi_1
@@ -23,8 +24,8 @@ namespace SpaceTaxi_1
         private readonly ImageStride taxiBoosterOnImageLeftUp;
         private Orientation _taxiOrientation;
         private Vec2F force;
-        private float gravity = -0.5f;
-        private float boosterForce = 0.5f;
+        private float gravity = -0.01f;
+        private float boosterForce = 0.01f;
         private bool backBoosterOn = false;
         private bool bottomBosterOn = false;
 
@@ -54,6 +55,7 @@ namespace SpaceTaxi_1
 
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
             force = new Vec2F(0, gravity);
+            shape.Direction = new Vec2F(0, 0);
             Velocity = new Vec2F(0, 0);
         }
 
@@ -103,12 +105,16 @@ namespace SpaceTaxi_1
                         Entity.Image = taxiBoosterOffImageRight;
                     }
                 }
+
+                
             }
+            shape.Move();
             Entity.RenderEntity();
-            Velocity.X += 1.0f / Game.GameTimer.CapturedFrames * force.X;
-            Velocity.Y += 1.0f / Game.GameTimer.CapturedFrames * force.Y;
-            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * Velocity.X;
-            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * Velocity.Y;
+            shape.Direction.X += 1.0f / Game.GameTimer.CapturedFrames * force.X;
+            shape.Direction.Y += 1.0f / Game.GameTimer.CapturedFrames * force.Y;
+//            shape.Direction = Velocity * (1.0f / Game.GameTimer.CapturedFrames);
+//            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * Velocity.X;
+//            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * Velocity.Y;
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
