@@ -9,8 +9,8 @@ using OpenTK.Platform.Windows;
 
 namespace SpaceTaxi_1
 {
-    public class Player : IGameEventProcessor<object>
-    {
+    public class Player : IGameEventProcessor<object> {
+        public Vec2F Velocity;
         public Entity Entity { get; private set; }
         private readonly DynamicShape shape;
         private readonly Image taxiBoosterOffImageLeft;
@@ -23,7 +23,6 @@ namespace SpaceTaxi_1
         private readonly ImageStride taxiBoosterOnImageLeftUp;
         private Orientation _taxiOrientation;
         private Vec2F force;
-        private Vec2F velocity;
         private float gravity = -0.5f;
         private float boosterForce = 0.5f;
         private bool backBoosterOn = false;
@@ -55,7 +54,7 @@ namespace SpaceTaxi_1
 
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
             force = new Vec2F(0, gravity);
-            velocity = new Vec2F(0, 0);
+            Velocity = new Vec2F(0, 0);
         }
 
         public void SetPosition(float x, float y)
@@ -106,10 +105,10 @@ namespace SpaceTaxi_1
                 }
             }
             Entity.RenderEntity();
-            velocity.X += 1.0f / Game.GameTimer.CapturedFrames * force.X;
-            velocity.Y += 1.0f / Game.GameTimer.CapturedFrames * force.Y;
-            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * velocity.X;
-            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * velocity.Y;
+            Velocity.X += 1.0f / Game.GameTimer.CapturedFrames * force.X;
+            Velocity.Y += 1.0f / Game.GameTimer.CapturedFrames * force.Y;
+            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * Velocity.X;
+            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * Velocity.Y;
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
