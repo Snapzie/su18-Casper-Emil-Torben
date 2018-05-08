@@ -65,6 +65,11 @@ namespace SpaceTaxi_1
             shape.Position.Y = y;
         }
 
+        public void SetDirrection(float x, float y) {
+            shape.Direction.X = x;
+            shape.Direction.Y = y;
+        }
+
         public void SetExtent(float width, float height)
         {
             shape.Extent.X = width;

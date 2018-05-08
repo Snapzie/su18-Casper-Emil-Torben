@@ -61,16 +61,17 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape).Collision) {
                     Console.WriteLine("Platform" + (new Random().Next(500)));
                     collisionDetected = true;
-                    if (player.Velocity.Y < 0) {
+                    if (((DynamicShape) (player.Entity.Shape)).Direction.Y < 0) {
                         //Loose Game
                         //Console.WriteLine("Collision");
-                    }else if (player.Velocity.Y > 2) {
-                        //Loose Game
-                        //Console.WriteLine("Collision");
-                        
+                    }else if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 2) {
+                        Console.WriteLine("Collision");
+                        SpaceBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
                     } else {
-                        player.Velocity.Y = 0;
-                        
+                        ((DynamicShape) (player.Entity.Shape)).Direction.Y = 0;
+
                     }
                 }
             }
