@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using DIKUArcade.Entities;
+using DIKUArcade.Graphics;
 
 namespace SpaceTaxi_1.LevelParsing {
     public static class LevelCreator {
@@ -31,9 +33,10 @@ namespace SpaceTaxi_1.LevelParsing {
             for (int i = 0; i < level.LevelLayout.Length; i++) {
                 for (int j = 0; j < level.LevelLayout[i].Length; j++) {
                     if (level.Decoder.ContainsKey(level.LevelLayout[i][j])) {
+                        Image img = new Image(Path.Combine(Path.Combine("Assets", "Images",
+                            level.Decoder[level.LevelLayout[i][j]])));
                         Entity ent =
-                            EntityCreator.CreateEntity(i, j,
-                                level.Decoder[level.LevelLayout[i][j]]);
+                            EntityCreator.CreateEntity(i, j, img);
                         if (level.Platforms.Contains(level.LevelLayout[i][j])) {                            
                             objects[0].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
                         } else {

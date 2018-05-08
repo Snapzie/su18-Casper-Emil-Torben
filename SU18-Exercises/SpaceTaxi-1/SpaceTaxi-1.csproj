@@ -52,6 +52,7 @@
     <Compile Include="LevelParsing\LevelCreator.cs" />
     <Compile Include="LevelParsing\LevelLoader.cs" />
     <Compile Include="LevelParsing\LevelsKeeper.cs" />
+    <Compile Include="MockUps\MockUpImage.cs" />
     <Compile Include="Orientation.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

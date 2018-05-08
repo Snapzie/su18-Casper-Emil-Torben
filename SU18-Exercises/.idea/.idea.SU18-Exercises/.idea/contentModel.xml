@@ -184,6 +184,9 @@
           <e p="LevelLoader.cs" t="Include" />
           <e p="LevelsKeeper.cs" t="Include" />
         </e>
+        <e p="MockUps" t="Include">
+          <e p="MockUpImage.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="OpenTK.dll.config" t="Include" />
         <e p="Orientation.cs" t="Include" />
