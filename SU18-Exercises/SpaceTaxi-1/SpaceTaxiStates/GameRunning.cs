@@ -19,20 +19,34 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         private GameRunning() {
             InitializeGameState();
         }
-
+        
+        /// <summary>
+        /// Instantiates or returns a GameRunning object with the singleton pattern
+        /// </summary>
+        /// <returns>Returns a GameRunning object</returns>
         public static GameRunning GetInstance() {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
         }
         
+        /// <summary>
+        /// Called from Game every update and executes the methods needed for the state
+        /// </summary>
         public void GameLoop() {
             this.IterateCollisions();
             this.RenderState();
         }
-
+        
+        /// <summary>
+        /// Sets the field wich determine which level is loaded
+        /// </summary>
+        /// <param name="newLevel">The level to load</param>
         public void SetLevel(int newLevel) {
             levelNumber = newLevel;
         }
-
+        
+        /// <summary>
+        /// Setup method
+        /// </summary>
         public void InitializeGameState() {
             //TODO:CHange game flow
             levelContainer = LevelCreator.CreateLevel(levelNumber % LevelsKeeper.Instance.Count());
@@ -40,20 +54,25 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             player.SetPosition(0.45f, 0.6f);
             player.SetExtent(0.1f, 0.1f);
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-
         }
 
         public void UpdateGameLogic() {
             throw new System.NotImplementedException();
         }
-
+        
+        /// <summary>
+        /// Renders the state
+        /// </summary>
         public void RenderState() {
             foreach (EntityContainer entityContainer in levelContainer) {
                 entityContainer.RenderEntities();
             }
             player.RenderPlayer();
         }
-
+        
+        /// <summary>
+        /// Does collision detection by iterating all blocks
+        /// </summary>
         public void IterateCollisions() {
             bool collisionDetected = false;
             //Console.WriteLine("Dectection");
@@ -94,7 +113,12 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Processes keyevents
+        /// </summary>
+        /// <param name="keyValue">The action related to the keyevent</param>
+        /// <param name="keyAction">The key pressed related to the keyevent</param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
             //Keeping all the keys in so we have them for later
             if (keyAction == "KEY_PRESS") {
