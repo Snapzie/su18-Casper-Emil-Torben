@@ -108,10 +108,11 @@ namespace SpaceTaxi_1
 
                 
             }
-            shape.Move();
-            Entity.RenderEntity();
             shape.Direction.X += 1.0f / Game.GameTimer.CapturedFrames * force.X;
             shape.Direction.Y += 1.0f / Game.GameTimer.CapturedFrames * force.Y;
+            shape.Move();
+            Entity.RenderEntity();
+            
 //            shape.Direction = Velocity * (1.0f / Game.GameTimer.CapturedFrames);
 //            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * Velocity.X;
 //            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * Velocity.Y;

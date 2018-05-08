@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using DIKUArcade.EventBus;
+﻿using DIKUArcade.EventBus;
 using DIKUArcade.State;
 using SpaceTaxi_1.SpaceTaxiGame;
 
