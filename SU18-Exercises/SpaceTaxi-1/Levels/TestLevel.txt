@@ -1,0 +1,30 @@
+AAAAAAAAAAAAAAAAAA^^^^^^AAAAAAAAAAAAAAAA
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A              >                       A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+A                                      A
+AAAAAAAAAAAAAAABBBBBBBBBBBBAAAAAAAAAAAAA
+
+Name: TEST
+Platforms: B, A
+
+A) white-square.png
+B) deep-bronze-square.png
+
+Customer: Alice 10 1 ^J 10 100

@@ -26,7 +26,7 @@ namespace SpaceTaxi_1
         public Game()
         {
             // window
-            win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
+            win = new Window("Space Taxi Game v0.1", 700, AspectRatio.R1X1);
 
             // event bus
             eventBus = SpaceBus.GetBus();

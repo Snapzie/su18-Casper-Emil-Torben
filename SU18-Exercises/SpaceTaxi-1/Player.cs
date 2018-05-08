@@ -5,6 +5,7 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
+using OpenTK.Graphics;
 using OpenTK.Platform.Windows;
 
 namespace SpaceTaxi_1
@@ -23,8 +24,8 @@ namespace SpaceTaxi_1
         private readonly ImageStride taxiBoosterOnImageLeftUp;
         private Orientation _taxiOrientation;
         private Vec2F force;
-        private float gravity = -0.5f;
-        private float boosterForce = 0.5f;
+        private float gravity = -0.01f;
+        private float boosterForce = 0.01f;
         private bool backBoosterOn = false;
         private bool bottomBosterOn = false;
 
@@ -54,6 +55,7 @@ namespace SpaceTaxi_1
 
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
             force = new Vec2F(0, gravity);
+            shape.Direction = new Vec2F(0, 0);
             Velocity = new Vec2F(0, 0);
         }
 
@@ -61,6 +63,11 @@ namespace SpaceTaxi_1
         {
             shape.Position.X = x;
             shape.Position.Y = y;
+        }
+
+        public void SetDirrection(float x, float y) {
+            shape.Direction.X = x;
+            shape.Direction.Y = y;
         }
 
         public void SetExtent(float width, float height)
@@ -103,47 +110,50 @@ namespace SpaceTaxi_1
                         Entity.Image = taxiBoosterOffImageRight;
                     }
                 }
+
+                
             }
+            shape.Direction.X += 1.0f / Game.GameTimer.CapturedFrames * force.X;
+            shape.Direction.Y += 1.0f / Game.GameTimer.CapturedFrames * force.Y;
+            shape.Move();
             Entity.RenderEntity();
-            Velocity.X += 1.0f / Game.GameTimer.CapturedFrames * force.X;
-            Velocity.Y += 1.0f / Game.GameTimer.CapturedFrames * force.Y;
-            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * Velocity.X;
-            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * Velocity.Y;
+            
+//            shape.Direction = Velocity * (1.0f / Game.GameTimer.CapturedFrames);
+//            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * Velocity.X;
+//            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * Velocity.Y;
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
         {
             if (eventType == GameEventType.PlayerEvent)
             {
-                switch (gameEvent.Message)
-                {
-                    // in the future, we will be handling movement here
-                    case "BOOSTER_UPWARDS":
-                        force.Y = boosterForce * 1f;
-                        bottomBosterOn = true;
-                        break;
-                    case "STOP_BOOSTER_UPWARDS":
-                        force.Y = gravity;
-                        bottomBosterOn = false;
-                        break;
-                    case "BOOSTER_LEFT":
-                        force.X = -boosterForce;
-                        _taxiOrientation = Orientation.Left;
-                        backBoosterOn = true;
-                        break;
-                    case "STOP_BOOSTER_LEFT":
-                        force.X = 0;
-                        backBoosterOn = false;
-                        break;
-                    case "BOOSTER_RIGHT":
-                        force.X = boosterForce;
-                        _taxiOrientation = Orientation.Right;
-                        backBoosterOn = true;
-                        break;
-                    case "STOP_BOOSTER_RIGHT":
-                        force.X = 0;
-                        backBoosterOn = false;
-                        break;
+                switch (gameEvent.Message) {
+                case "BOOSTER_UPWARDS":
+                    force.Y = boosterForce * 1f;
+                    bottomBosterOn = true;
+                    break;
+                case "STOP_BOOSTER_UPWARDS":
+                    force.Y = gravity;
+                    bottomBosterOn = false;
+                    break;
+                case "BOOSTER_LEFT":
+                    force.X = -boosterForce;
+                    _taxiOrientation = Orientation.Left;
+                    backBoosterOn = true;
+                    break;
+                case "STOP_BOOSTER_LEFT":
+                    force.X = 0;
+                    backBoosterOn = false;
+                    break;
+                case "BOOSTER_RIGHT":
+                    force.X = boosterForce;
+                    _taxiOrientation = Orientation.Right;
+                    backBoosterOn = true;
+                    break;
+                case "STOP_BOOSTER_RIGHT":
+                    force.X = 0;
+                    backBoosterOn = false;
+                    break;
                 }
             }
         }
