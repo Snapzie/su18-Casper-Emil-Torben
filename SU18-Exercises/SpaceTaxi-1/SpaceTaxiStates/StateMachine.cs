@@ -11,6 +11,11 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, this);
             ActiveState = MainMenu.GetInstance();
         }
+        
+        /// <summary>
+        /// Changes states
+        /// </summary>
+        /// <param name="gameEvent">Which state to change to</param>
         private void SwitchState(GameEvent<object> gameEvent) {
             switch (transformer.TransformStringToState(gameEvent.Parameter1)) {
             case GameStateType.GameRunning:
@@ -38,7 +43,12 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 break;
             }
         }
-
+        
+        /// <summary>
+        /// Processes events by delegating InputEvents to ActiveState and GameStateEvents to SwithcState
+        /// </summary>
+        /// <param name="eventType">The type of event</param>
+        /// <param name="gameEvent">The GameEvent</param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.InputEvent) {
                 ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
@@ -46,7 +56,11 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 SwitchState(gameEvent);
             }
         }
-
+        
+        /// <summary>
+        /// Sets the level to be rendered
+        /// </summary>
+        /// <param name="levelNumber">The level</param>
         public void SetLevel(int levelNumber) {
             GameRunning.GetInstance().SetLevel(levelNumber);
         }

@@ -9,7 +9,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
     public class GameLost : IGameState {
         private static GameLost instance = null;
         private Text[] GameLostTexts;
-
+        
         private GameLost() {
             GameLostTexts = new Text[] {
                 new Text("Game Lost!", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
@@ -17,10 +17,17 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             };    
         }
         
+        /// <summary>
+        /// Instantiates or returns a GameLost object with the singleton pattern
+        /// </summary>
+        /// <returns>Returns a GameLost object</returns>
         public static GameLost GetInstance() {
             return GameLost.instance ?? (GameLost.instance = new GameLost());
         }
         
+        /// <summary>
+        /// Called from Game every update and executes the methods needed for the state
+        /// </summary>
         public void GameLoop() {
             this.RenderState();
         }
@@ -32,14 +39,22 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public void UpdateGameLogic() {
             throw new System.NotImplementedException();
         }
-
+        
+        /// <summary>
+        /// Renders the state
+        /// </summary>
         public void RenderState() {
             foreach (Text text in this.GameLostTexts) {
                 text.SetColor(Color.Red);
                 text.RenderText();
             }
         }
-
+        
+        /// <summary>
+        /// Processes keyevents
+        /// </summary>
+        /// <param name="keyValue">The action related to the keyevent</param>
+        /// <param name="keyAction">The key pressed related to the keyevent</param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
             if (keyAction == "KEY_RELEASE") {
                 if (keyValue == "KEY_ENTER") {
