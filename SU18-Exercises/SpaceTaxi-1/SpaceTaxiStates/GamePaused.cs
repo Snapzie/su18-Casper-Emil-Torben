@@ -8,16 +8,15 @@ using DIKUArcade.State;
 using SpaceTaxi_1.SpaceTaxiGame;
 
 namespace SpaceTaxi_1.SpaceTaxiStates {
-    public class GamePaused {
-        public class GamePause : IGameState {
-        private static GamePause instance = null;
+    public class GamePaused : IGameState {
+        private static GamePaused instance = null;
         
         private Text[] menuButtons;
         private int activeMenuButton;
         private int maxMenuButtons;
 
 
-        private GamePause() {
+        private GamePaused() {
             menuButtons = new Text[] {
                 new Text("Continue", new Vec2F(0.4f, 0.4f), new Vec2F(0.3f, 0.3f)),
                 new Text("Main Menu", new Vec2F(0.4f, 0.3f), new Vec2F(0.3f, 0.3f))
@@ -26,8 +25,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             maxMenuButtons = 2;
         }
         
-        public static GamePause GetInstance() {
-            return GamePause.instance ?? (GamePause.instance = new GamePause());
+        public static GamePaused GetInstance() {
+            return GamePaused.instance ?? (GamePaused.instance = new GamePaused());
         }
         
         public void GameLoop() {
@@ -81,6 +80,5 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }   
             }
         }
-    }
     }
 }

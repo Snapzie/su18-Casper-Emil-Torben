@@ -57,6 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpaceTaxiGame\SpaceTaxiBus.cs" />
+    <Compile Include="SpaceTaxiStates\GameLost.cs" />
     <Compile Include="SpaceTaxiStates\GamePaused.cs" />
     <Compile Include="SpaceTaxiStates\GameRunning.cs" />
     <Compile Include="SpaceTaxiStates\GameStateType.cs" />

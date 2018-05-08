@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
@@ -7,13 +8,14 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
 using SpaceTaxi_1.LevelParsing;
+using SpaceTaxi_1.SpaceTaxiGame;
 
 namespace SpaceTaxi_1.SpaceTaxiStates {
     public class GameRunning : IGameState {
         private static GameRunning instance = null;
         private Player player;
-        private EntityContainer levelContainer;
-
+        private EntityContainer[] levelContainer;
+        private int levelNumber = 0;
         private GameRunning() {
             InitializeGameState();
         }
@@ -23,16 +25,22 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
         
         public void GameLoop() {
+            this.IterateCollisions();
             this.RenderState();
         }
-        
 
+        public void SetLevel(int newLevel) {
+            levelNumber = newLevel;
+        }
 
         public void InitializeGameState() {
             //TODO:CHange game flow
-            levelContainer = LevelCreator.CreateLevel(2);
+            levelContainer = LevelCreator.CreateLevel(levelNumber % 2);
             player = new Player();
-            
+            player.SetPosition(0.45f, 0.6f);
+            player.SetExtent(0.1f, 0.1f);
+            SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+
         }
 
         public void UpdateGameLogic() {
@@ -40,22 +48,74 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         public void RenderState() {
-            levelContainer.RenderEntities();
+            foreach (EntityContainer entityContainer in levelContainer) {
+                entityContainer.RenderEntities();
+            }
             player.RenderPlayer();
+        }
+
+        public void IterateCollisions() {
+            bool collisionDetected = false;
+            //Console.WriteLine("Dectection");
+            foreach (Entity platform in levelContainer[0]) {
+                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape).Collision) {
+                    Console.WriteLine("Platform");
+                    collisionDetected = true;
+                    if (player.Velocity.Y < 0) {
+                        Console.WriteLine("Collision");
+                        
+                        SpaceBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+                    }else if (player.Velocity.Y > 2) {
+                        Console.WriteLine("Collision");
+                        SpaceBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+                    } else {
+                        player.Velocity.Y = 0;
+                        
+                    }
+                }
+            }
+            
+            foreach (Entity block in levelContainer[1]) {
+                //Console.WriteLine(player.Entity.Shape.Position);
+                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape).Collision) {
+                    collisionDetected = true;
+                    Console.WriteLine("Collision");
+                    player.SetExtent(0, 0); //TODO: loose game
+                }
+            }
+
+            if (!collisionDetected) {
+                if (player.Entity.Shape.Position.Y > 1) {
+                    SpaceTaxiGame.SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameRunning",
+                            (levelNumber + 1).ToString()));
+                }
+            }
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
             //Keeping all the keys in so we have them for later
             if (keyAction == "KEY_PRESS") {
                 switch (keyValue) {
-                case "KEY_SPACE":
-                    
+                case "KEY_UP":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "BOOSTER_UPWARDS", "", ""));
                     break;
                 case "KEY_LEFT":
-                    
-                    break;   
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "BOOSTER_LEFT", "", ""));
+                    break;
                 case "KEY_RIGHT":
-                    
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "BOOSTER_RIGHT", "", ""));
                     break;
                 case "KEY_ESCAPE":
                     SpaceTaxiGame.SpaceBus.GetBus().RegisterEvent(
@@ -65,9 +125,20 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             } else {
                 switch (keyValue) {
-                case "KEY_LEFT":                    
+                case "KEY_LEFT":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "STOP_BOOSTER_LEFT", "", ""));
                     break;
                 case "KEY_RIGHT":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "STOP_BOOSTER_RIGHT", "", ""));
+                    break;
+                case "KEY_UP":
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "STOP_BOOSTER_UPWARDS", "", ""));
                     break;
                 }
             }

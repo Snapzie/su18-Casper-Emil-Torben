@@ -206,6 +206,7 @@
           <e p="SpaceTaxiBus.cs" t="Include" />
         </e>
         <e p="SpaceTaxiStates" t="Include">
+          <e p="GameLost.cs" t="Include" />
           <e p="GamePaused.cs" t="Include" />
           <e p="GameRunning.cs" t="Include" />
           <e p="GameStateType.cs" t="Include" />
