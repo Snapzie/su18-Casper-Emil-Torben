@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
@@ -23,11 +24,13 @@ namespace SpaceTaxi_1
         private readonly ImageStride taxiBoosterOnImageRightUp;
         private readonly ImageStride taxiBoosterOnImageLeftUp;
         private Orientation _taxiOrientation;
-        private Vec2F force;
-        private float gravity = -0.01f;
+        public Vec2F force;
+        public float Gravity { get; private set; }
+        private int gravityOn = 1; //Set to zero to disable gravity
         private float boosterForce = 0.01f;
         private bool backBoosterOn = false;
         private bool bottomBosterOn = false;
+        
 
         public Player()
         {
@@ -52,11 +55,14 @@ namespace SpaceTaxi_1
             taxiBoosterOnImageLeftUp = new ImageStride(80,
                 ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom_Back.png")));
                         
-
+            Gravity = -0.01f;
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
-            force = new Vec2F(0, gravity);
+            force = new Vec2F(0, 0);
             shape.Direction = new Vec2F(0, 0);
             Velocity = new Vec2F(0, 0);
+            SetPosition(0.45f, 0.6f);
+            SetExtent(0.1f, 0.1f);
+            
         }
 
         public void SetPosition(float x, float y)
@@ -76,9 +82,22 @@ namespace SpaceTaxi_1
             shape.Extent.Y = height;
         }
 
-        public void RenderPlayer()
-        {
-            //TODO: Next version needs animation. Skipped for clarity.
+        public void SetForce(float x, float y) {
+            force.X = x;
+            force.Y = y;
+        }
+
+        public void SetGravity(bool on) {
+            if (on) {
+                gravityOn = 1;
+                //force.Y += Gravity;
+            } else {
+                gravityOn = 0;
+                //force.Y -= Gravity;
+            }
+        }
+
+        public void RenderPlayer() {
             Entity.Image = _taxiOrientation == Orientation.Left
                 ? taxiBoosterOffImageLeft
                 : taxiBoosterOffImageRight;
@@ -113,14 +132,11 @@ namespace SpaceTaxi_1
 
                 
             }
-            shape.Direction.X += 1.0f / Game.GameTimer.CapturedUpdates * force.X;
-            shape.Direction.Y += 1.0f / Game.GameTimer.CapturedUpdates * force.Y;
+            shape.Direction.X += (1.0f / Game.GameTimer.CapturedFrames) * force.X;
+            shape.Direction.Y += (1.0f / Game.GameTimer.CapturedFrames) * (force.Y + Gravity * gravityOn);
             shape.Move();
             Entity.RenderEntity();
             
-//            shape.Direction = Velocity * (1.0f / Game.GameTimer.CapturedFrames);
-//            shape.Position.X += 1.0f / Game.GameTimer.CapturedFrames * Velocity.X;
-//            shape.Position.Y += 1.0f / Game.GameTimer.CapturedFrames * Velocity.Y;
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
@@ -129,15 +145,18 @@ namespace SpaceTaxi_1
             {
                 switch (gameEvent.Message) {
                 case "BOOSTER_UPWARDS":
-                    force.Y = boosterForce * 1f;
+                    force.Y = -Gravity * 2;
+                    gravityOn = 1;
                     bottomBosterOn = true;
                     break;
                 case "STOP_BOOSTER_UPWARDS":
-                    force.Y = gravity;
+                    force.Y = 0;
+                    gravityOn = 1;
                     bottomBosterOn = false;
                     break;
                 case "BOOSTER_LEFT":
-                    force.X = -boosterForce;
+                    //ONly allowed to use booster when not landed
+                    force.X = -boosterForce * gravityOn;
                     _taxiOrientation = Orientation.Left;
                     backBoosterOn = true;
                     break;
@@ -146,7 +165,8 @@ namespace SpaceTaxi_1
                     backBoosterOn = false;
                     break;
                 case "BOOSTER_RIGHT":
-                    force.X = boosterForce;
+                    //ONly allowed to use booster when not landed
+                    force.X = boosterForce  * gravityOn;
                     _taxiOrientation = Orientation.Right;
                     backBoosterOn = true;
                     break;
