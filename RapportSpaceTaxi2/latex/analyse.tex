@@ -11,12 +11,15 @@ Singleton der skal indeholde en dictionary af Levels        & Levels keeper (LK)
 Sørger for alle levels loades før start på spil             & Level loader (LL)                     \\ \hline
 Laver en entity container til level baseret på Level objekt & Level creater (LCr)                     \\ \hline
 Returnerer en entity som repræsenterer blok i spillet       & Entity creater (EC)                    \\ \hline
+Sørger for at skifte mellem vores states & StateMachine \\ \hline
+Vores game states & GameState\\ \hline
+Sørger for at der kan subscribes til events & SpaceBus\\ \hline
 \end{tabular}
 \caption{Dele af vores løsning inddelt i responsibilities og koncepter}
 \label{responsibilities}
 \end{table}\\
-Vi har opdelt koncepterne efter koncepttyperne Know og Do, så hvert koncept har netop én type. Vores Do koncepter har hver ansvar for én opgave, eksempelvis file reader der kun skal lave et level ud fra informationen fra en fil. Vi har 6 koncepter hvoraf 5 er Do- og 1 er know-koncepter.\\
-Vores entity creator laver for nu kun firkanter der alle er lige store, og som har et billede, da vi antager vi ikke skal implementere collision detection i denne uge. På længere sigt skal der være forskel på størrelsen og formen på de forskellige objeker.\\
+Vi har opdelt koncepterne efter koncepttyperne Know og Do, så hvert koncept har netop én type. Vores Do koncepter har hver ansvar for én opgave, eksempelvis file reader der kun skal lave et level ud fra informationen fra en fil. Vi har 9 koncepter hvoraf 8 er Do- og 1 er know-koncepter.\\
+Vores GameState koncept omhandler flere klasser som er ens i struktur men variere i funktionalitet således at vi for eksempel kan pause og tabe.\\
 I tabel \ref{associations} herunder ses det hvordan de forskellige koncepter skal kommunikere med hinanden.
 \begin{table}[!h]
 \centering
@@ -28,6 +31,10 @@ File reader og level class      & Laver Level objekt                    & Genere
 Level loader og levels keeper   & Levels keeper gemmer Level fra loader & Gem data                  \\ \hline
 Level creator og levels keeper  & Får Level objekt fra Keeper           & Hent data                 \\ \hline
 Level creator og entity creator & Får entity med givne parameter        & Genererer                 \\ \hline
+GameStates til StateMachine & Anmoder om at skifte til en ny state & request \\ \hline
+StateMachine til GameStates & Giver inputevents videre & Kommunikerer information \\\hline
+SpaceBus og GameStates & GameStates registrerer events til SpaceBus & Kommunikerer information\\\hline
+SpaceBus og StateMachine & SpaceBus kommunikerer input events & Kommunikerer information\\\hline 
 \end{tabular}
 \caption{Associationer mellem forskellige concepter}
 \label{associations}
@@ -50,6 +57,9 @@ File reader                    & Ingen attributer   &                           
                                & Index              & Tæller der holder styr på hvor mange levels der er I levels \\ \hline
 Level creator                  & Levels             & Reference levels keepers                                    \\ \hline
 Entity creator                 & Ingen attributer   &                                                             \\ \hline
+StateMachine & ActiveState & Refference til den aktive state \\\hline
+GameState & Instance & Refference til sig selv (Singleton)\\\hline
+SpaceBus & Ingen attributer & \\\hline
 \end{tabular}
 \caption{Attributer for hvert koncept}
 \label{attributes}
