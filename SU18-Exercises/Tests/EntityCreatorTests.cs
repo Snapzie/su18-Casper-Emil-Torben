@@ -16,10 +16,6 @@ namespace Tests {
         public void SetUp() {
             var dir = Path.GetDirectoryName(typeof(LevelLoader).Assembly.Location);
             Environment.CurrentDirectory = dir;
-            //LevelLoader.LoadLevels();
-            //Nedenstående kode fejler i run time, når der i Game forsøges at oprette et vindue til Game
-            //Game g = new Game();
-            //g.GameLoop();
         }
         [Test]
         public void TestPosition() {
