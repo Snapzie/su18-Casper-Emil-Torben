@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
-using DIKUArcade.Timers;
-using OpenTK.Graphics;
-using OpenTK.Platform.Windows;
 
 namespace SpaceTaxi_1
 {

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using DIKUArcade;
-using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
-using DIKUArcade.Graphics;
-using DIKUArcade.Math;
 using DIKUArcade.Timers;
-using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiGame;
 using SpaceTaxi_1.SpaceTaxiStates;
 

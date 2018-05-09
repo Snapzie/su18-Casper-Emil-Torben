@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
-using DIKUArcade.Graphics;
-using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
 using SpaceTaxi_1.LevelParsing;
@@ -84,7 +80,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                         
                     } //Collision with platform too fast
                     else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.01f) {
-                        Console.WriteLine(((DynamicShape) (player.Entity.Shape)).Direction);
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));

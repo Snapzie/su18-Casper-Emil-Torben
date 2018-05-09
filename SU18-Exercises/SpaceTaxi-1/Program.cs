@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SpaceTaxi_1.LevelParsing;
-
-using System.IO;
+﻿using SpaceTaxi_1.LevelParsing;
 
 namespace SpaceTaxi_1
 {
