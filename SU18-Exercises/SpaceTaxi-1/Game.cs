@@ -42,14 +42,6 @@ namespace SpaceTaxi_1
 
             // game timer
             Game.GameTimer = new GameTimer(60); // 60 UPS, no FPS limit
-
-
-            
-
-            // event delegation
-//            _eventBus.Subscribe(GameEventType.InputEvent, this);
-//            _eventBus.Subscribe(GameEventType.WindowEvent, this);
-            //_eventBus.Subscribe(GameEventType.PlayerEvent, _player);
             
             stateMachine = new StateMachine();
         }

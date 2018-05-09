@@ -72,11 +72,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         /// </summary>
         public void IterateCollisions() {
             bool collisionDetected = false;
-            //Console.WriteLine(((DynamicShape) (player.Entity.Shape)).Direction);
-            //Console.WriteLine("Dectection");
             foreach (Entity platform in levelContainer[0]) {
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape).Collision) {
-                    //Console.WriteLine("Platform" + (new Random().Next(500)));
                     
                     collisionDetected = true;
                     //Collision with platform from bellow
@@ -87,16 +84,13 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                         
                     } //Collision with platform too fast
                     else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.01f) {
-                        Console.WriteLine("Collision");
                         Console.WriteLine(((DynamicShape) (player.Entity.Shape)).Direction);
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
                     } //Landed on platform 
                     else {
-                        Console.WriteLine("Landed");
                         player.SetDirrection(0, 0);
-                        //player.SetForce(player.force.X, 0);
                         player.SetGravity(false);
                     }
                 }
@@ -104,19 +98,17 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             
             
             foreach (Entity block in levelContainer[1]) {
-                //Console.WriteLine(player.Entity.Shape.Position);
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape).Collision) {
                     collisionDetected = true;
-                    Console.WriteLine("Collision" + (new Random().Next(500)));
-//                    SpaceBus.GetBus().RegisterEvent(
-//                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
                 }
             }
 
             if (!collisionDetected) {
                 if (player.Entity.Shape.Position.Y > 1) {
-                    SpaceTaxiGame.SpaceBus.GetBus().RegisterEvent(
+                    SpaceBus.GetBus().RegisterEvent(
                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                             GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameRunning",
                             (levelNumber + 1).ToString()));

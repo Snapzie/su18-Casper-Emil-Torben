@@ -61,7 +61,7 @@ namespace SpaceTaxi_1
             shape.Direction = new Vec2F(0, 0);
             Velocity = new Vec2F(0, 0);
             SetPosition(0.45f, 0.6f);
-            SetExtent(0.1f, 0.1f);
+            SetExtent(0.06f, 0.06f);
             
         }
 
@@ -90,10 +90,8 @@ namespace SpaceTaxi_1
         public void SetGravity(bool on) {
             if (on) {
                 gravityOn = 1;
-                //force.Y += Gravity;
             } else {
                 gravityOn = 0;
-                //force.Y -= Gravity;
             }
         }
 
@@ -146,6 +144,7 @@ namespace SpaceTaxi_1
                 switch (gameEvent.Message) {
                 case "BOOSTER_UPWARDS":
                     force.Y = -Gravity * 2;
+                    //Make sure gravity turns on, so it's on after takeof
                     gravityOn = 1;
                     bottomBosterOn = true;
                     break;
@@ -155,7 +154,7 @@ namespace SpaceTaxi_1
                     bottomBosterOn = false;
                     break;
                 case "BOOSTER_LEFT":
-                    //ONly allowed to use booster when not landed
+                    //Only allowed to use booster when not landed
                     force.X = -boosterForce * gravityOn;
                     _taxiOrientation = Orientation.Left;
                     backBoosterOn = true;
@@ -165,7 +164,7 @@ namespace SpaceTaxi_1
                     backBoosterOn = false;
                     break;
                 case "BOOSTER_RIGHT":
-                    //ONly allowed to use booster when not landed
+                    //Only allowed to use booster when not landed
                     force.X = boosterForce  * gravityOn;
                     _taxiOrientation = Orientation.Right;
                     backBoosterOn = true;
