@@ -35,11 +35,18 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             maxMenuButtons = menuButtons.Length;
             
         }
-
+        
+        /// <summary>
+        /// Instantiates or returns a GameLost object with the singleton pattern
+        /// </summary>
+        /// <returns>Returns a GameLost object</returns>
         public static MainMenu GetInstance() {
             return MainMenu.instance ?? (MainMenu.instance = new MainMenu());
         }
         
+        /// <summary>
+        /// Called from Game every update and executes the methods needed for the state
+        /// </summary>
         public void GameLoop() {
             this.RenderState();
         }
@@ -51,7 +58,10 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public void UpdateGameLogic() {
             throw new System.NotImplementedException();
         }
-
+        
+        /// <summary>
+        /// Renders the state
+        /// </summary>
         public void RenderState() {
             this.backGroundImage.RenderEntity();
             foreach (Text text in this.menuButtons) {
@@ -60,7 +70,12 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 text.RenderText();
             }
         }
-
+        
+        /// <summary>
+        /// Processes keyevents
+        /// </summary>
+        /// <param name="keyValue">The action related to the keyevent</param>
+        /// <param name="keyAction">The key pressed related to the keyevent</param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
             if (keyAction == "KEY_RELEASE") {
                 switch (keyValue) {

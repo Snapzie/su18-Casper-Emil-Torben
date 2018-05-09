@@ -19,68 +19,98 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         private GameRunning() {
             InitializeGameState();
         }
-
+        
+        /// <summary>
+        /// Instantiates or returns a GameRunning object with the singleton pattern
+        /// </summary>
+        /// <returns>Returns a GameRunning object</returns>
         public static GameRunning GetInstance() {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
         }
         
+        /// <summary>
+        /// Called from Game every update and executes the methods needed for the state
+        /// </summary>
         public void GameLoop() {
             this.IterateCollisions();
             this.RenderState();
         }
-
+        
+        /// <summary>
+        /// Sets the field wich determine which level is loaded
+        /// </summary>
+        /// <param name="newLevel">The level to load</param>
         public void SetLevel(int newLevel) {
             levelNumber = newLevel;
         }
-
+        
+        /// <summary>
+        /// Setup method
+        /// </summary>
         public void InitializeGameState() {
             levelContainer = LevelCreator.CreateLevel(levelNumber % LevelsKeeper.Instance.Count());
             player = new Player();
-            player.SetPosition(0.45f, 0.6f);
-            player.SetExtent(0.1f, 0.1f);
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-
         }
 
         public void UpdateGameLogic() {
             throw new System.NotImplementedException();
         }
-
+        
+        /// <summary>
+        /// Renders the state
+        /// </summary>
         public void RenderState() {
             foreach (EntityContainer entityContainer in levelContainer) {
                 entityContainer.RenderEntities();
             }
             player.RenderPlayer();
         }
-
+        
+        /// <summary>
+        /// Does collision detection by iterating all blocks
+        /// </summary>
         public void IterateCollisions() {
             bool collisionDetected = false;
+            //Console.WriteLine(((DynamicShape) (player.Entity.Shape)).Direction);
             //Console.WriteLine("Dectection");
             foreach (Entity platform in levelContainer[0]) {
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape).Collision) {
-                    Console.WriteLine("Platform" + (new Random().Next(500)));
+                    //Console.WriteLine("Platform" + (new Random().Next(500)));
+                    
                     collisionDetected = true;
-                    if (((DynamicShape) (player.Entity.Shape)).Direction.Y < 0) {
-                        //Loose Game
-                        //Console.WriteLine("Collision");
-                    }else if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 2) {
-                        Console.WriteLine("Collision");
+                    //Collision with platform from bellow
+                    if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 0) {
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
-                    } else {
-                        ((DynamicShape) (player.Entity.Shape)).Direction.Y = 0;
-
+                        
+                    } //Collision with platform too fast
+                    else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.01f) {
+                        Console.WriteLine("Collision");
+                        Console.WriteLine(((DynamicShape) (player.Entity.Shape)).Direction);
+                        SpaceBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+                    } //Landed on platform 
+                    else {
+                        Console.WriteLine("Landed");
+                        player.SetDirrection(0, 0);
+                        //player.SetForce(player.force.X, 0);
+                        player.SetGravity(false);
                     }
                 }
             }
+            
             
             foreach (Entity block in levelContainer[1]) {
                 //Console.WriteLine(player.Entity.Shape.Position);
                 if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape).Collision) {
                     collisionDetected = true;
                     Console.WriteLine("Collision" + (new Random().Next(500)));
-                    //player.SetExtent(0, 0); //TODO: loose game
+//                    SpaceBus.GetBus().RegisterEvent(
+//                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
                 }
             }
 
@@ -93,7 +123,12 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Processes keyevents
+        /// </summary>
+        /// <param name="keyValue">The action related to the keyevent</param>
+        /// <param name="keyAction">The key pressed related to the keyevent</param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
             //Keeping all the keys in so we have them for later
             if (keyAction == "KEY_PRESS") {

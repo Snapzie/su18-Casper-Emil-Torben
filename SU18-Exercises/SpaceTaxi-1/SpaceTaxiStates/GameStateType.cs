@@ -9,6 +9,12 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
     }
 
     public class StateTransformer {
+        /// <summary>
+        /// Translate a string to a state
+        /// </summary>
+        /// <param name="state">The string to be transformed</param>
+        /// <returns>Returns the translated state</returns>
+        /// <exception cref="ArgumentException"></exception>
         public GameStateType TransformStringToState(string state) {
             switch (state) {
             case "GameRunning" :
@@ -23,7 +29,13 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 throw new ArgumentException("Argument thrown in TransformStringToState");
             }
         }
-
+        
+        /// <summary>
+        /// Translates a state to a string
+        /// </summary>
+        /// <param name="state">The state to be translated</param>
+        /// <returns>Returns the translated string</returns>
+        /// <exception cref="ArgumentException"></exception>
         public string TransformStateToString(GameStateType state) {
             switch (state) {
             case GameStateType.GameRunning :
