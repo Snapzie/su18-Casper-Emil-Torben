@@ -34,7 +34,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         public void InitializeGameState() {
-            //TODO:CHange game flow
             levelContainer = LevelCreator.CreateLevel(levelNumber % LevelsKeeper.Instance.Count());
             player = new Player();
             player.SetPosition(0.45f, 0.6f);

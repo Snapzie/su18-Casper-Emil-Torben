@@ -6,6 +6,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
     public class StateMachine : IGameEventProcessor<object> {
         public IGameState ActiveState { get; private set; }
         private StateTransformer transformer = new StateTransformer();
+        
         public StateMachine() {
             SpaceBus.GetBus().Subscribe(GameEventType.GameStateEvent, this);
             SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, this);
