@@ -50,7 +50,7 @@ namespace SpaceTaxi_1
             taxiBoosterOnImageLeftUp = new ImageStride(80,
                 ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom_Back.png")));
                         
-            Gravity = -0.01f;
+            Gravity = -0.005f;
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
             force = new Vec2F(0, 0);
             shape.Direction = new Vec2F(0, 0);

@@ -86,6 +86,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     } //Landed on platform 
                     else {
                         player.SetDirrection(0, 0);
+                        player.SetForce(0, 0);
                         player.SetGravity(false);
                     }
                 }
