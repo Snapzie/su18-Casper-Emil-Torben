@@ -59,29 +59,53 @@ namespace SpaceTaxi_1
             SetExtent(0.06f, 0.06f);
             
         }
-
+        
+        /// <summary>
+        /// Sets the position
+        /// </summary>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
         public void SetPosition(float x, float y)
         {
             shape.Position.X = x;
             shape.Position.Y = y;
         }
-
+        
+        /// <summary>
+        /// Sets the direction
+        /// </summary>
+        /// <param name="x">x direction</param>
+        /// <param name="y">y direction</param>
         public void SetDirrection(float x, float y) {
             shape.Direction.X = x;
             shape.Direction.Y = y;
         }
-
+        
+        /// <summary>
+        /// Sets the extents
+        /// </summary>
+        /// <param name="width">x extent</param>
+        /// <param name="height">y extent</param>
         public void SetExtent(float width, float height)
         {
             shape.Extent.X = width;
             shape.Extent.Y = height;
         }
-
+        
+        /// <summary>
+        /// Sets the force
+        /// </summary>
+        /// <param name="x">x force</param>
+        /// <param name="y">y force</param>
         public void SetForce(float x, float y) {
             force.X = x;
             force.Y = y;
         }
-
+        
+        /// <summary>
+        /// Toggles the gravity
+        /// </summary>
+        /// <param name="on">Bool to determine if the gravity should be on</param>
         public void SetGravity(bool on) {
             if (on) {
                 gravityOn = 1;
@@ -89,7 +113,10 @@ namespace SpaceTaxi_1
                 gravityOn = 0;
             }
         }
-
+        
+        /// <summary>
+        /// Renders the player during the game
+        /// </summary>
         public void RenderPlayer() {
             Entity.Image = _taxiOrientation == Orientation.Left
                 ? taxiBoosterOffImageLeft
@@ -131,7 +158,12 @@ namespace SpaceTaxi_1
             Entity.RenderEntity();
             
         }
-
+        
+        /// <summary>
+        /// Handles the input events
+        /// </summary>
+        /// <param name="eventType">Eventype</param>
+        /// <param name="gameEvent">Game event</param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
         {
             if (eventType == GameEventType.PlayerEvent)

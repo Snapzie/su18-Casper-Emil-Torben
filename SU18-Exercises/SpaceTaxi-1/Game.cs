@@ -39,7 +39,10 @@ namespace SpaceTaxi_1
             
             stateMachine = new StateMachine();
         }
-
+        
+        /// <summary>
+        /// Main loop of the game. Runs untill the game has ended
+        /// </summary>
         public void GameLoop()
         {
             while (win.IsRunning())
@@ -68,7 +71,11 @@ namespace SpaceTaxi_1
             }
         }
 
-
+        /// <summary>
+        /// Processes events
+        /// </summary>
+        /// <param name="eventType">Event type</param>
+        /// <param name="gameEvent">Game event</param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
         {
             if (eventType == GameEventType.WindowEvent)
