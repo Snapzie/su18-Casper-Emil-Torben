@@ -39,10 +39,13 @@ Ud fra vores traceablity matrix ser vi at flere af vores koncepter håndterer in
 
 Selvom Liskov Substitution pricippet ligger Open/closed princippet nært, så ser vi alligevel at dette princip er fulgt. Idet vores GameStates er samlet under samme interface, så kan vi nemlig nemt skifte states. Selvom det er besværligt at indføre nye GameStates til spillet, så er det altså ligetil at skifte GameState.\\
 
-Desværre ser vi at IGameState interfacet er for bredt, idet flere af vores states ikke har en implementation for flere af de definerede metoder. Vi følger derfor ikke Interface segregation princippet. Da IGameState er defineret i DIKUArcade har vi valgt ikke at ændre interfacet selvom det ville være nemt og hurtigt derved at følge princippet.\\
+Desværre ser vi at IGameState interfacet er for bredt, idet flere af vores states ikke har en implementation for flere af de definerede metoder. Vi følger derfor ikke Interface segregation princippet. Da IGameState er defineret i DIKUArcade har vi valgt ikke at ændre interfacet selvom det ville være nemt og hurtigt derved at følge princippet.
 
-\begin{figure}[h!]
-  \includegraphics[width=\linewidth]{latex/Images/SequenceDiagram.png}
-  \caption{Sequence diagram}
-  \label{seqDig}
+\begin{figure}[l]
+	\hspace{-110pt}
+	\includegraphics[width=20cm]{latex/Images/SequenceDiagram.png}
+	\caption{Sequence diagram}
+	\label{seqDig}
 \end{figure}
+
+\newpage

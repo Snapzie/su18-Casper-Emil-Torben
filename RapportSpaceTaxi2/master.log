@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.8)  10 MAY 2018 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.8)  10 MAY 2018 12:25
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1870,29 +1870,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+! LaTeX Error: Unknown float option `l'.
 
- []
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.44 \begin{figure}[l]
+                      
+Option `l' ignored and `p' used.
 
-<latex/Images/SequenceDiagram.png, id=95, 996.72375pt x 806.01125pt>
+<latex/Images/SequenceDiagram.png, id=95, 2218.2875pt x 2371.86125pt>
 File: latex/Images/SequenceDiagram.png Graphic file (type png)
 
 <use latex/Images/SequenceDiagram.png>
-Package pdftex.def Info: latex/Images/SequenceDiagram.png used on input line 45
+Package pdftex.def Info: latex/Images/SequenceDiagram.png used on input line 46
 .
-(pdftex.def)             Requested size: 345.0pt x 278.98428pt.
+(pdftex.def)             Requested size: 569.05511pt x 608.45389pt.
+
+Overfull \hbox (115.95514pt too wide) in paragraph at lines 45--47
+[]  [] 
+ []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Float too large for page by 51.45389pt on input line 49.
 
-) (./latex/Implementation2.tex
-<latex/Images/UML.png, id=97, 732.7375pt x 713.66624pt>
+[6] [7 <./latex/Images/SequenceDiagram.png>]) (./latex/Implementation2.tex
+<latex/Images/UML.png, id=107, 732.7375pt x 713.66624pt>
 File: latex/Images/UML.png Graphic file (type png)
 
 <use latex/Images/UML.png>
 Package pdftex.def Info: latex/Images/UML.png used on input line 2.
 (pdftex.def)             Requested size: 345.0pt x 336.02211pt.
- [6] [7 <./latex/Images/SequenceDiagram.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 
  []
@@ -1927,15 +1937,19 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 22.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 22.
 Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: 421D19759324EB472BA238702EA03C6B;394.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  32569 strings out of 492995
  611685 string characters out of 6132705
- 748554 words of memory out of 5000000
+ 748555 words of memory out of 5000000
  35518 multiletter control sequences out of 15000+600000
  36989 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,86p,10379b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,86p,10379b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1944,7 +1958,7 @@ live/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texli
 ve/2017/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive
 /2017/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on master.pdf (10 pages, 176486 bytes).
+Output written on master.pdf (10 pages, 352890 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  109 compressed objects within 2 object streams
