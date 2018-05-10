@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using DIKUArcade;
-using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
-using DIKUArcade.Graphics;
-using DIKUArcade.Math;
 using DIKUArcade.Timers;
-using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiGame;
 using SpaceTaxi_1.SpaceTaxiStates;
 
@@ -42,18 +36,13 @@ namespace SpaceTaxi_1
 
             // game timer
             Game.GameTimer = new GameTimer(60); // 60 UPS, no FPS limit
-
-
-            
-
-            // event delegation
-//            _eventBus.Subscribe(GameEventType.InputEvent, this);
-//            _eventBus.Subscribe(GameEventType.WindowEvent, this);
-            //_eventBus.Subscribe(GameEventType.PlayerEvent, _player);
             
             stateMachine = new StateMachine();
         }
-
+        
+        /// <summary>
+        /// Main loop of the game. Runs untill the game has ended
+        /// </summary>
         public void GameLoop()
         {
             while (win.IsRunning())
@@ -82,7 +71,11 @@ namespace SpaceTaxi_1
             }
         }
 
-
+        /// <summary>
+        /// Processes events
+        /// </summary>
+        /// <param name="eventType">Event type</param>
+        /// <param name="gameEvent">Game event</param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
         {
             if (eventType == GameEventType.WindowEvent)

@@ -18,7 +18,9 @@ namespace Tests {
 
             [Test]
             public void FileToLevelKeeperTest() {
-                LevelLoader.LoadLevels();
+                LevelLoader ll = new LevelLoader();
+                
+                ll.LoadLevels();
                 Level lvl = LevelsKeeper.Instance[0];
                 Assert.AreEqual("SHORT -N- SWEET", lvl.Name);
                 Assert.AreEqual(lvl.Platforms, new List<char> {'1'});

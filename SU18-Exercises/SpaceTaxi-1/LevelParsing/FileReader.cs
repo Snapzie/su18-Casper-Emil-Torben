@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace SpaceTaxi_1.LevelParsing {
-    public static class FileReader {
+    public class FileReader {
 
         /// <summary>
         /// Reads a level file and creates a level object with the information
@@ -17,7 +13,7 @@ namespace SpaceTaxi_1.LevelParsing {
         /// </remarks>
         /// <param name="path">The file path to the level file</param>
         /// <returns>A level object containing the extracted information</returns>
-        public static Level ReadFile(string path) {
+        public Level ReadFile(string path) {
             StreamReader sr = File.OpenText(path);
 
             //levelArray

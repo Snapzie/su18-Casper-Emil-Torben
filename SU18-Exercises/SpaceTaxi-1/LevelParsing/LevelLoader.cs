@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace SpaceTaxi_1.LevelParsing {
-    public static class LevelLoader {
+    public class LevelLoader {
         private static List<string> levelList = new List<string> { Path.Combine("..", "..", "Levels", "short-n-sweet.txt"),
                                                                    Path.Combine("..", "..", "Levels", "the-beach.txt"),
                                                                    Path.Combine("..", "..", "Levels", "TestLevel.txt")};
@@ -14,12 +11,13 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <summary>
         /// Loads the levels specified in levelList
         /// </summary>
-        public static void LoadLevels() {
+        public void LoadLevels() {
             Level level;
             LevelsKeeper keeper = LevelsKeeper.Instance;
+            FileReader fr = new FileReader();
 
             foreach (String levelPath in levelList) {
-                level = FileReader.ReadFile(levelPath);
+                level = fr.ReadFile(levelPath);
                 keeper.SaveLevel(level);
             }
         }
