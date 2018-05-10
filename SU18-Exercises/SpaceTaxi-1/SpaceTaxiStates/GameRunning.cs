@@ -44,7 +44,9 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         /// Setup method
         /// </summary>
         public void InitializeGameState() {
-            levelContainer = LevelCreator.CreateLevel(levelNumber % LevelsKeeper.Instance.Count());
+            LevelCreator lc = new LevelCreator();
+            
+            levelContainer = lc.CreateLevel(levelNumber % LevelsKeeper.Instance.Count());
             player = new Player();
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
         }

@@ -6,7 +6,8 @@ namespace SpaceTaxi_1
     {
         public static void Main(string[] args)
         {
-            LevelLoader.LoadLevels();
+            LevelLoader ll = new LevelLoader();
+            ll.LoadLevels();
             var game = new Game();
             game.GameLoop();
         }

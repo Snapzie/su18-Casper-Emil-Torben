@@ -2,7 +2,7 @@
 using DIKUArcade.Graphics;
 
 namespace SpaceTaxi_1.LevelParsing {
-    public static class EntityCreator {
+    public class EntityCreator {
         
         /// <summary>
         /// Create new entity
@@ -11,7 +11,7 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <param name="col">The column from which the image-char comes from</param>
         /// <param name="img">The name of the image to attach to the entity</param>
         /// <returns>Returns new entity with given parameters</returns>
-        public static Entity CreateEntity(int line, int col, IBaseImage img) {
+        public Entity CreateEntity(int line, int col, IBaseImage img) {
             //All levels consist of 23 lines with 40 chars, so this converts coordinates to something
             //between 0 and 1
             float x = col / 40f;

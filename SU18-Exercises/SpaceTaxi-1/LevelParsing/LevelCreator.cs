@@ -3,7 +3,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 
 namespace SpaceTaxi_1.LevelParsing {
-    public static class LevelCreator {
+    public class LevelCreator {
         /// <summary>
         /// Instantiates levelsKeeper object
         /// </summary>
@@ -20,7 +20,8 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <returns> This method returns the EntityContainer named object, which has all 
         /// the different entities needed to create the given levell
         ///</returns>
-        public static EntityContainer[] CreateLevel(int levelNumber) {
+        public EntityContainer[] CreateLevel(int levelNumber) {
+            EntityCreator ec = new EntityCreator();
             Level level = levelKeeper[levelNumber];
             EntityContainer[] objects = new EntityContainer[2];
             objects[0] = new EntityContainer();
@@ -32,7 +33,7 @@ namespace SpaceTaxi_1.LevelParsing {
                         Image img = new Image(Path.Combine(Path.Combine("Assets", "Images",
                             level.Decoder[level.LevelLayout[i][j]])));
                         Entity ent =
-                            EntityCreator.CreateEntity(i, j, img);
+                            ec.CreateEntity(i, j, img);
                         if (level.Platforms.Contains(level.LevelLayout[i][j])) {                            
                             objects[0].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
                         } else {
