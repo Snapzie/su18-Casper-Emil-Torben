@@ -2,7 +2,7 @@
 
 \section{Design}
 I vores design har vi vægtet at hver class vi implementere har ét ansvar. Det vil sige at det ikke nødvendigvis er den class som indeholder informationen som bearbejder den. At følge dette princip har den svaghed at kommunikationskæden vil blive længere end den behøver hvilket ultimativt vil lede til at vores program vil køre langsommere. Tilgengæld vil vores kodebase være nemmere at maintain da det vil blive tydeligt hvor hvilken opgave bliver udført og det vil derfor også blive nemmere at identificere hvor bugs opstår. Vi har også fulgt princip om at hver klasse selv udfører sit arbejde og vi har derfor ikke klasser som er afhængige af andre klassers metoder, men vi har klasser som er afhængige af andre klasser.\\
-Vi kan bekræfte det ovenstående ud fra vores traceability matrix som mapper hvert af vores koncepter med use cases. Vores traceability matrix indikerer at hver af vores klasser kun har ét ansvar idet at få koncepter matcher flere use cases. Mængden af klasser kan være en indikation på at kommunikationskæden er lang, mens det at der ikke er mange koncepter som mapper til mere end et koncept fortæller os at arbejdsbyrden er jævnt fordelt.\\
+Vi kan bekræfte det ovenstående ud fra vores traceability matrix som mapper hvert af vores koncepter med use cases. Vores traceability matrix indikerer at hver af vores klasser kun har ét ansvar idet at få koncepter matcher flere use cases. Mængden af klasser kan være en indikation på at kommunikationskæden er lang, mens det at der ikke er mange koncepter som mapper til mere end en use case fortæller os at arbejdsbyrden er jævnt fordelt.\\
 
 \begin{table}[h!]
 \centering
