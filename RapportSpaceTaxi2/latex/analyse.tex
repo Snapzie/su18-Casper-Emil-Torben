@@ -22,7 +22,7 @@ Vi har opdelt koncepterne efter koncepttyperne Know og Do, så hvert koncept har
 Vores GameState koncept omhandler flere klasser som er ens i struktur men variere i funktionalitet således at vi for eksempel kan pause og tabe.\\
 I tabel \ref{associations} herunder ses det hvordan de forskellige koncepter skal kommunikere med hinanden.
 \begin{table}[!h]
-\centering
+\hspace{-60pt}
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{Concept pair}           & \textbf{Association description}      & \textbf{Association name} \\ \hline
@@ -42,7 +42,7 @@ SpaceBus og StateMachine & SpaceBus kommunikerer input events & Kommunikerer inf
 Det ses at vi har besluttet at Level loader skal kalde en funktion i file reader for at denne returnerer et Level som Level loader gemmer i levels keeper. I starten af planlægningsprocessen var det egentlig planen at file reader skulle sende Level-objektet til levels keeper, men da vi fik et bedre overblik over de forskellige ansvarsområder kunne vi se at det gav bedre mening at gøre det som beskrevet ovenfor. På denne måde får vi nemlig en klarere adskillelse mellem Level loaders og file readers ansvar, i og med at file readers eneste job er at læse og parse filen, hvorefter level loader behandler Level-objektet.\\
 I tabel \ref{attributes} ses det hvilke attributer vi tænker at hvert concept skal have.
 \begin{table}[!h]
-\centering
+\hspace{-50pt}
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{Concept}               & \textbf{Attribute} & \textbf{Attribute description}                              \\ \hline
