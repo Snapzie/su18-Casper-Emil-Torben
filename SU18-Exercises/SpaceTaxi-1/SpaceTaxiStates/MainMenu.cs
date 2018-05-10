@@ -21,7 +21,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         
         private MainMenu() {
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1, 1), 
-                new Image("Assets/Images/SpaceBackground.png"));
+                new Image("Assets/Images/SpaceBackground.png"));    
             menuButtons = new Text[] {
                 new Text("New Game", new Vec2F(0.1f, 0.4f), new Vec2F(0.3f, 0.3f)),
                 new Text("Selected Level: \n" + levelsKeeper[selectedLevel].Name, new Vec2F(0.1f, 0.3f), new Vec2F(0.3f, 0.3f)),

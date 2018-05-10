@@ -1,0 +1,70 @@
+title Sequence Diagram 
+participant Program
+participant LevelLoader
+participant FileReader
+participant Level
+participant Game
+participant LevelCreator
+participant EntityCreator
+participant LevelKeeper
+participant Spacebus
+participant Statemachine
+participant MainMenu
+participant GameRunning
+participant GameStateType
+
+Program->LevelLoader: LoadLevels()
+activate Program
+activate LevelLoader
+loop #ff00ff info 1234567890
+LevelLoader->FileReader:ReadFile()
+activate FileReader
+activate Level
+FileReader->Level: Level()
+Level-->FileReader: newLevel()
+deactivate Level
+FileReader-->LevelLoader: Level
+deactivate FileReader
+LevelLoader->LevelKeeper: LevelsKeeper.Instance()
+activate LevelKeeper
+LevelKeeper-->LevelLoader: LevelsKeeper
+deactivate LevelKeeper
+deactivate LevelLoader
+end
+Program ->Game: Game()
+Game ->Spacebus: GetBus()
+Spacebus -->Game: eventBus
+Game ->Statemachine: StateMachine()
+Statemachine-->Spacebus: SubScribe()
+Spacebus->Statemachine: GameEventBus
+Statemachine->MainMenu: GetInstance()
+MainMenu-->Statemachine: MainMenu Instance
+Statemachine--> Game: ActiveState 
+Game --> Program: game
+loop #ff00ff Until Game ends
+Program->Game: game.GameLoop()
+activate Game
+Game->Statemachine: Statemachine.ActiveState
+Statemachine->MainMenu: GetInstance()
+alt New Game
+MainMenu->Spacebus: Spacebus.GetBus.RegisterEvent()
+Spacebus->GameStateType: TransformStringToState
+GameStateType-->Spacebus: GameStateType.GameRunning
+
+else case 2
+A->B:info
+else case 3
+A->B:info
+end
+Game->LevelCreator:
+activate LevelCreator
+LevelCreator->LevelKeeper: EntityCreator()
+activate LevelKeeper
+LevelKeeper-->LevelCreator: Returns LevelsKeeper.Instance	
+deactivate LevelKeeper
+LevelCreator->EntityCreator: CreateLevel()	
+activate EntityCreator
+EntityCreator-->LevelCreator: Returns EntityContainer[]
+deactivate EntityCreator
+end
+
