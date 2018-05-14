@@ -19,10 +19,23 @@ namespace SpaceTaxi_1.Customers {
             string destination = substring.Substring(0, endIndex);
             substring = substring.Substring(endIndex + 1, (substring.Length - 1) - endIndex);
             endIndex = substring.IndexOf(" ");
-            string time = substring.Substring(0, endIndex);
+            int time = int.Parse(substring.Substring(0, endIndex));
             substring = substring.Substring(endIndex + 1, (substring.Length - 1) - endIndex);
-            string points = substring.Substring(0, substring.Length);
-            return new Customer("name", 2, 'j', "k", 2, 3);
+            int points = int.Parse(substring.Substring(0, substring.Length));
+
+            float platformX = 0f;
+            float platformY = 0f;
+            for (int i = 0; i < level.Length; i++) {
+                for (int j = 0; j < level[i].Length; j++) {
+                    if (level[i][j] == spawnPlatform) {
+                        //Formulas taken from entitycreator
+                        platformX = j / 40f;
+                        platformY = (23 - i) / 23f - (1.0f / 23);
+                    }
+                }
+            }
+            
+            return new Customer(name, spawnTime, spawnPlatform, destination, time, points, platformX, platformY);
         }
     }
 }

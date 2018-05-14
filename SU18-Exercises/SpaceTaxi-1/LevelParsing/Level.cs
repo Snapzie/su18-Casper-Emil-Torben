@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DIKUArcade.Entities;
+using SpaceTaxi_1.Customers;
 
 namespace SpaceTaxi_1.LevelParsing {
     public class Level {
@@ -10,7 +12,7 @@ namespace SpaceTaxi_1.LevelParsing {
         public string Name { get; }
         public List<char> Platforms { get; }
         public Dictionary<char, string> Decoder { get; }
-        public List<string> Customers { get; }
+        public EntityContainer Customers { get; }
 
         /// <summary>
         /// Constructor for a Level object which is used to hold information about the level
@@ -20,12 +22,31 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <param name="platforms">The chars in the level which represents platforms</param>
         /// <param name="decoder">A dictionary mapping the chars the level consists of with the name of the image file the char represents</param>
         /// <param name="customers">A list of customers in the level</param>
-        public Level(char[][] levelLayout, string name, List<char> platforms, Dictionary<char, string> decoder, List<string> customers) {
+        public Level(char[][] levelLayout, string name, List<char> platforms, Dictionary<char, string> decoder, EntityContainer customers) {
             LevelLayout = levelLayout;
             Name = name;
             Platforms = platforms;
             Decoder = decoder;
             Customers = customers;
+        }
+
+        public void AddCustomer(Customer customer) {
+            Customers.AddStationaryEntity((StationaryShape)customer.Entity.Shape, customer.Entity.Image);
+        }
+
+        public void RemoveCustomer(Customer customer) {
+            customer.Entity.DeleteEntity();
+            ///CustomerIterator kaldes for at iterere over Customers
+            /// for at fjerne den pågældende customers entity i Customers
+            Customers.Iterate(CustomerIterator);
+            
+        }
+        /// <summary>
+        /// Empty method to ensure iteration
+        /// </summary>
+        /// <param name="customer"></param>
+        private void CustomerIterator(Entity customer) {
+            
         }
     }
 }

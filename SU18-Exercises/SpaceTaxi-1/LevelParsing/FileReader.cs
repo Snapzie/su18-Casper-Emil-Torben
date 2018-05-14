@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using DIKUArcade.Entities;
+using DIKUArcade.Graphics;
 using SpaceTaxi_1.Customers;
 
 namespace SpaceTaxi_1.LevelParsing {
@@ -65,9 +67,10 @@ namespace SpaceTaxi_1.LevelParsing {
             }
             
             CustomerTranslator ct = new CustomerTranslator();
-            ct.MakeCustomer(customerList, levelArray);
+            EntityContainer ec = new EntityContainer();
             
-            return new Level(levelArray, name, platformList, decoder, customerList);
+            ec.AddStationaryEntity(ct.MakeCustomer(customerList, levelArray), IBaseImage);
+            return new Level(levelArray, name, platformList, decoder, ec);
         }
     }
 }
