@@ -10,7 +10,7 @@ namespace Tests {
     namespace Tests {
         [TestFixture]
         public class StateTests {
-            private StateMachine stateMachine;
+            //private StateMachine stateMachine;
             [SetUp]
             public void SetUp() {
                 //Sets working dirrectory in order to find assets

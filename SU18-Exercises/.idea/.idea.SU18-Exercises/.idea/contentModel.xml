@@ -185,6 +185,9 @@
       <e p="SU18-Exercises.sln" t="IncludeFlat" />
       <e p="SpaceTaxi-1" t="IncludeRecursive">
         <e p="App.config" t="Include" />
+        <e p="Customers" t="Include">
+          <e p="Customer.cs" t="Include" />
+        </e>
         <e p="Game.cs" t="Include" />
         <e p="LevelParsing" t="Include">
           <e p="EntityCreator.cs" t="Include" />
