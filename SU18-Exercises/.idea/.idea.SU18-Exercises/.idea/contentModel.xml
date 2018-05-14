@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercises.1238237404.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercises.1350551396.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$/../DIKUArcade/DIKUArcade" t="IncludeRecursive">
       <e p="DIKUArcade.csproj" t="IncludeRecursive" />
       <e p="Entities" t="Include">
@@ -187,6 +187,7 @@
         <e p="App.config" t="Include" />
         <e p="Customers" t="Include">
           <e p="Customer.cs" t="Include" />
+          <e p="ICustomer.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
         <e p="LevelParsing" t="Include">
