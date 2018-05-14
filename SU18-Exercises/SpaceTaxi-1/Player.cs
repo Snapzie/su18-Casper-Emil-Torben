@@ -7,7 +7,6 @@ using DIKUArcade.Math;
 namespace SpaceTaxi_1
 {
     public class Player : IGameEventProcessor<object> {
-        public Vec2F Velocity;
         public Entity Entity { get; private set; }
         private readonly DynamicShape shape;
         private readonly Image taxiBoosterOffImageLeft;
@@ -54,7 +53,6 @@ namespace SpaceTaxi_1
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
             force = new Vec2F(0, 0);
             shape.Direction = new Vec2F(0, 0);
-            Velocity = new Vec2F(0, 0);
             SetPosition(0.45f, 0.6f);
             SetExtent(0.06f, 0.06f);
             

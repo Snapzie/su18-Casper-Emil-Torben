@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customers\Customer.cs" />
+    <Compile Include="Customers\ICustomer.cs" />
     <Compile Include="LevelParsing\EntityCreator.cs" />
     <Compile Include="LevelParsing\FileReader.cs" />
     <Compile Include="Game.cs" />
