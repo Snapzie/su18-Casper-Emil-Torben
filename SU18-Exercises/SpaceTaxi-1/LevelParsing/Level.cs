@@ -41,7 +41,7 @@ namespace SpaceTaxi_1.LevelParsing {
             
         }
         /// <summary>
-        /// Empty method to ensure iteration
+        /// Empty method to ensure iteration over customer
         /// </summary>
         /// <param name="customer"></param>
         private void CustomerIterator(Entity customer) {
