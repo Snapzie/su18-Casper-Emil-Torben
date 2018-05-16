@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using DIKUArcade.Entities;
+using DIKUArcade.Graphics;
+using SpaceTaxi_1.Customers;
 
 namespace SpaceTaxi_1.LevelParsing {
     public class FileReader {
@@ -62,8 +65,11 @@ namespace SpaceTaxi_1.LevelParsing {
                 customerList.Add(s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
                 s = sr.ReadLine();
             }
+            
+            CustomerTranslator ct = new CustomerTranslator();
 
-            return new Level(levelArray, name, platformList, decoder, customerList);
+            ct.MakeCustomer(customerList, levelArray);
+            return new Level(levelArray, name, platformList, decoder);
         }
     }
 }

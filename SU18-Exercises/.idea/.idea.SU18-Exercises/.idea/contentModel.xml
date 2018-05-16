@@ -187,6 +187,7 @@
         <e p="App.config" t="Include" />
         <e p="Customers" t="Include">
           <e p="Customer.cs" t="Include" />
+          <e p="CustomerTranslator.cs" t="Include" />
           <e p="ICustomer.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
