@@ -12,15 +12,15 @@ namespace SpaceTaxi_1.Customers {
         private int timeToDropOff;
         private int points;
         private string imageString;
-        private int posX;
-        private int posY;
+        private float posX;
+        private float posY;
         public Entity Entity;
         public Level level;
         
         
     
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
-            int points, int posX, int posY) {
+            int points, float posX, float posY) {
             this.name = name;
             this.spawnTime = spawnTime;
             this.spawnPlatform = spawnPlatform;
