@@ -30,12 +30,12 @@ namespace SpaceTaxi_1.LevelParsing {
             Customers = customers;
         }
 
-        public void AddCustomer(Customer customer) {
-            Customers.AddStationaryEntity((StationaryShape)customer.Entity.Shape, customer.Entity.Image);
+        public void AddCustomer(Entity entity) {
+            Customers.AddStationaryEntity((StationaryShape)entity.Shape, entity.Image);
         }
 
-        public void RemoveCustomer(Customer customer) {
-            customer.Entity.DeleteEntity();
+        public void RemoveCustomer(Entity entity) {
+            entity.DeleteEntity();
             ///CustomerIterator kaldes for at iterere over Customers
             /// for at fjerne den pågældende customers entity i Customers
             Customers.Iterate(CustomerIterator);

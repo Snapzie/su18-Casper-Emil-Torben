@@ -4,23 +4,24 @@ using DIKUArcade.Graphics;
 using SpaceTaxi_1.LevelParsing;
 
 namespace SpaceTaxi_1.Customers {
-    public class Customer : ICustomer {
+    public class Customer : Entity, ICustomer {
         private string name;
         private int spawnTime;
         private char spawnPlatform;
         private string destinationPlatform;
         private int timeToDropOff;
         private int points;
-        private string imageString;
-        private float posX;
-        private float posY;
-        public Entity Entity;
+        private int posX;
+        private int posY;
         public Level level;
         
-        
+        private static EntityCreator entityCreator = new EntityCreator();
+            
     
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
-            int points, float posX, float posY) {
+            int points, int posX, int posY) : base( 
+            entityCreator.CreateEntity(posY, posX, new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"))).Shape,  
+            entityCreator.CreateEntity(posY, posX, new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"))).Image) {
             this.name = name;
             this.spawnTime = spawnTime;
             this.spawnPlatform = spawnPlatform;
@@ -29,25 +30,22 @@ namespace SpaceTaxi_1.Customers {
             this.points = points;
             this.posX = posX;
             this.posY = posY;
+            Spawn();
 
         }
 
-        public void Spawn(Customer customer) {
+        public void Spawn() {
 
-            EntityCreator entityCreator = new EntityCreator();
-            /// One is subtracted to ensure the customer lands upon the platform,
-            /// which is equal to subtracting 1 from it's y-coordinate, as the y-coordinate
-            /// is given at the base of the object. 
-            entityCreator.CreateEntity(posY - 1, posX, new Image(Path.Combine("Assets", "Images", imageString)));
-            level.AddCustomer(customer);
+            level.AddCustomer(this);
         }
 
-        public void Despawn(Customer customer) {
+        public void Despawn() {
             
-            level.RemoveCustomer(customer);
+            level.RemoveCustomer(this);
         }
 
         public void GivePoints() {
+            
             throw new System.NotImplementedException();
         }
     }
