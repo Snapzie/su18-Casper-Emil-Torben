@@ -12,7 +12,7 @@ namespace SpaceTaxi_1.LevelParsing {
         public string Name { get; }
         public List<char> Platforms { get; }
         public Dictionary<char, string> Decoder { get; }
-        public EntityContainer Customers { get; }
+        public EntityContainer Customers { get; set; }
 
         /// <summary>
         /// Constructor for a Level object which is used to hold information about the level
@@ -22,12 +22,11 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <param name="platforms">The chars in the level which represents platforms</param>
         /// <param name="decoder">A dictionary mapping the chars the level consists of with the name of the image file the char represents</param>
         /// <param name="customers">A list of customers in the level</param>
-        public Level(char[][] levelLayout, string name, List<char> platforms, Dictionary<char, string> decoder, EntityContainer customers) {
+        public Level(char[][] levelLayout, string name, List<char> platforms, Dictionary<char, string> decoder) {
             LevelLayout = levelLayout;
             Name = name;
             Platforms = platforms;
             Decoder = decoder;
-            Customers = customers;
         }
 
         public void AddCustomer(Entity entity) {
