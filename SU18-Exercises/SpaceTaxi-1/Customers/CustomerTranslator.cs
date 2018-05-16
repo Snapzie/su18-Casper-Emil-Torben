@@ -30,7 +30,6 @@ namespace SpaceTaxi_1.Customers {
                     if (level[i][j] == spawnPlatform) {
                         platformX = j;
                         platformY = i - 1;
-                        break;
                     }
                 }
             }

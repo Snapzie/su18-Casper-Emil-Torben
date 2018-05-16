@@ -114,6 +114,25 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             }
         }
         
+        public void AddCustomer(Entity entity) {
+            levelContainer[2].AddStationaryEntity((StationaryShape)entity.Shape, entity.Image);
+        }
+
+        public void RemoveCustomer(Entity entity) {
+            entity.DeleteEntity();
+            ///CustomerIterator kaldes for at iterere over Customers
+            /// for at fjerne den pågældende customers entity i Customers
+            levelContainer[2].Iterate(CustomerIterator);
+            
+        }
+        /// <summary>
+        /// Empty method to ensure iteration
+        /// </summary>
+        /// <param name="customer"></param>
+        private void CustomerIterator(Entity customer) {
+            
+        }
+        
         /// <summary>
         /// Processes keyevents
         /// </summary>
