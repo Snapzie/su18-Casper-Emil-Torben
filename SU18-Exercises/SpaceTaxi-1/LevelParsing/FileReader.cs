@@ -67,10 +67,9 @@ namespace SpaceTaxi_1.LevelParsing {
             }
             
             CustomerTranslator ct = new CustomerTranslator();
-            EntityContainer ec = new EntityContainer();
-            
-            ec.AddStationaryEntity(ct.MakeCustomer(customerList, levelArray), IBaseImage);
-            return new Level(levelArray, name, platformList, decoder, ec);
+
+            ct.MakeCustomer(customerList, levelArray);
+            return new Level(levelArray, name, platformList, decoder);
         }
     }
 }

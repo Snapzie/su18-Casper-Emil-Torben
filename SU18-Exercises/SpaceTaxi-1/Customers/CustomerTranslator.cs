@@ -23,14 +23,14 @@ namespace SpaceTaxi_1.Customers {
             substring = substring.Substring(endIndex + 1, (substring.Length - 1) - endIndex);
             int points = int.Parse(substring.Substring(0, substring.Length));
 
-            float platformX = 0f;
-            float platformY = 0f;
+            int platformX = 0;
+            int platformY = 0;
             for (int i = 0; i < level.Length; i++) {
                 for (int j = 0; j < level[i].Length; j++) {
                     if (level[i][j] == spawnPlatform) {
-                        //Formulas taken from entitycreator
-                        platformX = j / 40f;
-                        platformY = (23 - i) / 23f - (1.0f / 23);
+                        platformX = j;
+                        platformY = i - 1;
+                        break;
                     }
                 }
             }
