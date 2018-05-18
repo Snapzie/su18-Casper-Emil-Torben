@@ -10,7 +10,7 @@ namespace Tests {
     namespace Tests {
         [TestFixture]
         public class StateTests {
-            //private StateMachine stateMachine;
+            private StateMachine stateMachine;
             [SetUp]
             public void SetUp() {
                 //Sets working dirrectory in order to find assets
@@ -18,12 +18,12 @@ namespace Tests {
                 Environment.CurrentDirectory = dir;
                 LevelLoader ll = new LevelLoader();
                 ll.LoadLevels();
-                //stateMachine = new StateMachine();
+                stateMachine = new StateMachine();
             }
 
             [Test]
             public void MainMenuTest() {
-                //Assert.AreEqual(stateMachine.ActiveState, GameStateType.MainMenu);
+                Assert.AreEqual(stateMachine.ActiveState, GameStateType.MainMenu);
             }
         }
     }
