@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
+using SpaceTaxi_1.Customers;
 
 namespace SpaceTaxi_1.LevelParsing {
     public class LevelCreator {
@@ -23,9 +24,10 @@ namespace SpaceTaxi_1.LevelParsing {
         public EntityContainer[] CreateLevel(int levelNumber) {
             EntityCreator ec = new EntityCreator();
             Level level = levelKeeper[levelNumber];
-            EntityContainer[] objects = new EntityContainer[2];
-            objects[0] = new EntityContainer();
-            objects[1] = new EntityContainer();
+            EntityContainer[] renderItems = new EntityContainer[3];
+            renderItems[0] = new EntityContainer();
+            renderItems[1] = new EntityContainer();
+            renderItems[2] = new EntityContainer();
             
             for (int i = 0; i < level.LevelLayout.Length; i++) {
                 for (int j = 0; j < level.LevelLayout[i].Length; j++) {
@@ -35,16 +37,19 @@ namespace SpaceTaxi_1.LevelParsing {
                         Entity ent =
                             ec.CreateEntity(i, j, img);
                         if (level.Platforms.Contains(level.LevelLayout[i][j])) {                            
-                            objects[0].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
+                            renderItems[0].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
                         } else {
-                            objects[1].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
+                            renderItems[1].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
                         }
                         
                     }
                 }
             }
+            
+            CustomerTranslator ct = new CustomerTranslator();
+            ct.MakeCustomer(level.Customers, level.LevelLayout);
 
-            return objects;
+            return renderItems;
         }
     }
    
