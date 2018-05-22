@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DIKUArcade.Graphics;
+using DIKUArcade.Entities;
+using SpaceTaxi_1.LevelParsing;
 
 namespace SpaceTaxi_1.Customers {
     public class CustomerTranslator {
-        public Customer MakeCustomer(List<string> customer, char[][] level) {
+        public Customer MakeCustomer(List<string> customer, char[][] level, IBaseImage customerImage) {
             int endIndex = customer[0].IndexOf(" ");
             string name = customer[0].Substring(0, endIndex);
             string substring = customer[0].Substring(endIndex + 1, (customer[0].Length - 1) - endIndex);
@@ -33,8 +36,9 @@ namespace SpaceTaxi_1.Customers {
                     }
                 }
             }
-            
-            return new Customer(name, spawnTime, spawnPlatform, destination, time, points, platformX, platformY);
+            EntityCreator ec = new EntityCreator();
+            Entity entity = ec.CreateEntity(platformY, platformX, customerImage);
+            return new Customer(name, spawnTime, spawnPlatform, destination, time, points, entity);
         }
     }
 }

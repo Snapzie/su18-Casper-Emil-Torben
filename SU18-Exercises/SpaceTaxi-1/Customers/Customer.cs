@@ -21,26 +21,35 @@ namespace SpaceTaxi_1.Customers {
             
     
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
-            int points, int posX, int posY) : base( 
-            entityCreator.CreateEntity(posY, posX, new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"))).Shape,  
-            entityCreator.CreateEntity(posY, posX, new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"))).Image) {
+            int points, Entity entity) : base(entity.Shape, entity.Image) {
             this.name = name;
             this.spawnTime = spawnTime;
             this.spawnPlatform = spawnPlatform;
             this.destinationPlatform = destinationPlatform;
             this.timeToDropOff = timeToDropOff;
             this.points = points;
-            this.posX = posX;
-            this.posY = posY;
             //Spawn();
 
         }
-
+        
+        /// <summary>
+        /// Spawns the customer in current level
+        /// </summary>
+        /// <remarks>
+        /// Should only be called when game is running, else the cast will fail
+        /// </remarks>
         public void Spawn() {
             IGameState game = new StateMachine().ActiveState;
-            ((GameRunning) game).AddCustomer(this);
+            ((GameRunning) game).AddCustomer(this); 
         }
 
+        
+        /// <summary>
+        /// Despawns the customer from current level
+        /// </summary>
+        /// <remarks>
+        /// Should only be called when game is running, else the cast will fail
+        /// </remarks>
         public void Despawn() {
             IGameState game = new StateMachine().ActiveState;
             ((GameRunning) game).RemoveCustomer(this);
