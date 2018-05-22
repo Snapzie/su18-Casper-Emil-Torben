@@ -2,17 +2,18 @@
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.State;
+using OpenTK.Graphics;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiStates;
 
 namespace SpaceTaxi_1.Customers {
     public class Customer : Entity, ICustomer {
-        private string name;
-        private int spawnTime;
-        private char spawnPlatform;
-        private string destinationPlatform;
-        private int timeToDropOff;
-        private int points;
+        public string Name { get; private set; }
+        public int SpawnTime { get; private set; }
+        public char SpawnPlatform { get; private set; } //Skal nok ændres til en platform class
+        private string destinationPlatform; //Skal nok ændres til en platform class
+        public int TimeToDropOff { get; private set; }
+        public int Points { get; private set; }
         private int posX;
         private int posY;
         public Level level;
@@ -22,12 +23,12 @@ namespace SpaceTaxi_1.Customers {
     
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
             int points, Entity entity) : base(entity.Shape, entity.Image) {
-            this.name = name;
-            this.spawnTime = spawnTime;
-            this.spawnPlatform = spawnPlatform;
+            this.Name = name;
+            this.SpawnTime = spawnTime;
+            this.SpawnPlatform = spawnPlatform;
             this.destinationPlatform = destinationPlatform;
-            this.timeToDropOff = timeToDropOff;
-            this.points = points;
+            this.TimeToDropOff = timeToDropOff;
+            this.Points = points;
             //Spawn();
 
         }

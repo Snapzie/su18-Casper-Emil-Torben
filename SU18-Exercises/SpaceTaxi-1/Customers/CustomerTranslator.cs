@@ -8,7 +8,7 @@ using SpaceTaxi_1.LevelParsing;
 
 namespace SpaceTaxi_1.Customers {
     public class CustomerTranslator {
-        public Customer[] MakeCustomer(List<string> customers, char[][] level,
+        public Customer[] MakeCustomers(List<string> customers, char[][] level,
             IBaseImage customerImage) {
             Customer[] result = new Customer[customers.Count];
             for (int k = 0; k < result.Length; k++) {
