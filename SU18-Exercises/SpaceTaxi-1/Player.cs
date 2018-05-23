@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
@@ -55,7 +56,6 @@ namespace SpaceTaxi_1
             shape.Direction = new Vec2F(0, 0);
             SetPosition(0.45f, 0.6f);
             SetExtent(0.06f, 0.06f);
-            
         }
         
         /// <summary>
@@ -150,11 +150,11 @@ namespace SpaceTaxi_1
 
                 
             }
-            shape.Direction.X += (1.0f / Game.GameTimer.CapturedFrames) * force.X;
-            shape.Direction.Y += (1.0f / Game.GameTimer.CapturedFrames) * (force.Y + Gravity * gravityOn);
+            shape.Direction.X += (1.0f / Game.GameTimer.CapturedUpdates) * force.X;
+            shape.Direction.Y += (1.0f / Game.GameTimer.CapturedUpdates) * (force.Y + Gravity * gravityOn);
             shape.Move();
             Entity.RenderEntity();
-            
+            Console.WriteLine(Entity.Shape.Position);
         }
         
         /// <summary>

@@ -2,17 +2,18 @@
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.State;
+using OpenTK.Graphics;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiStates;
 
 namespace SpaceTaxi_1.Customers {
     public class Customer : Entity, ICustomer {
-        private string name;
-        private int spawnTime;
-        private char spawnPlatform;
-        private string destinationPlatform;
-        private int timeToDropOff;
-        private int points;
+        public string Name { get; private set; }
+        public int SpawnTime { get; private set; }
+        public char SpawnPlatform { get; private set; } //Skal nok ændres til en platform class
+        private string destinationPlatform; //Skal nok ændres til en platform class
+        public int TimeToDropOff { get; private set; }
+        public int Points { get; private set; }
         private int posX;
         private int posY;
         public Level level;
@@ -34,31 +35,34 @@ namespace SpaceTaxi_1.Customers {
         
         
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
-            int points, int posX, int posY) : base( 
-            entityCreator.CreateEntity(posY, posX, new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"))).Shape,  
-            entityCreator.CreateEntity(posY, posX, new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"))).Image) {
-            this.name = name;
-            this.spawnTime = spawnTime;
-            this.spawnPlatform = spawnPlatform;
+            int points, Entity entity) : base(entity.Shape, entity.Image) {
+            this.Name = name;
+            this.SpawnTime = spawnTime;
+            this.SpawnPlatform = spawnPlatform;
             this.destinationPlatform = destinationPlatform;
-            this.timeToDropOff = timeToDropOff;
-            this.points = points;
-            this.posX = posX;
-            this.posY = posY;
-            Spawn();    
+            this.TimeToDropOff = timeToDropOff;
+            this.Points = points;
+            //Spawn();
 
         }
-        
-        /// <summary>
-        ///  The instance of Customer is added to an EntityContainer
+       
+        /// Spawns the customer in current level
         /// </summary>
+        /// <remarks>
+        /// Should only be called when game is running, else the cast will fail
+        /// </remarks>
         public void Spawn() {
             IGameState game = new StateMachine().ActiveState;
-            ((GameRunning) game).AddCustomer(this);
+            ((GameRunning) game).AddCustomer(this); 
         }
+
+        
         /// <summary>
-        /// The instance of customer is removed from the EntityContainer
+        /// Despawns the customer from current level
         /// </summary>
+        /// <remarks>
+        /// Should only be called when game is running, else the cast will fail
+        /// </remarks>
         public void Despawn() {
             IGameState game = new StateMachine().ActiveState;
             ((GameRunning) game).RemoveCustomer(this);

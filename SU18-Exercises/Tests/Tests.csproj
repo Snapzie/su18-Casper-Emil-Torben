@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tests</RootNamespace>
     <AssemblyName>Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,6 +48,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerTests.cs" />
     <Compile Include="EntityCreatorTests.cs" />
     <Compile Include="FileReaderTests.cs" />
     <Compile Include="IntegrationFileToLevel.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="StateTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade.csproj">
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>

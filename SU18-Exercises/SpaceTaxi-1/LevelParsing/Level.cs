@@ -22,34 +22,13 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <param name="platforms">The chars in the level which represents platforms</param>
         /// <param name="decoder">A dictionary mapping the chars the level consists of with the name of the image file the char represents</param>
         /// <param name="customers">A list of customers in the level</param>
-        public Level(char[][] levelLayout, string name, List<char> platforms, Dictionary<char, string> decoder, List<string> customers) {
+        public Level(char[][] levelLayout, string name, List<char> platforms, Dictionary<char, string> decoder,
+            List<string> customers) {
             LevelLayout = levelLayout;
             Name = name;
             Platforms = platforms;
             Decoder = decoder;
-<<<<<<< HEAD
-        }
-
-        public void AddCustomer(Entity entity) {
-            Customers.AddStationaryEntity((StationaryShape)entity.Shape, entity.Image);
-        }
-
-        public void RemoveCustomer(Entity entity) {
-            entity.DeleteEntity();
-            ///CustomerIterator kaldes for at iterere over Customers
-            /// for at fjerne den pågældende customers entity i Customers
-            Customers.Iterate(CustomerIterator);
-            
-        }
-        /// <summary>
-        /// Empty method to ensure iteration over customer
-        /// </summary>
-        /// <param name="customer"></param>
-        private void CustomerIterator(Entity customer) {
-            
-=======
             Customers = customers;
->>>>>>> 126d0cc6f657a5449a9cba8e66b450ac07dbaaea
         }
     }
 }
