@@ -74,16 +74,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
-      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
-      <Name>DIKUArcade</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
-      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
-      <Name>DIKUArcade</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="..\Assets\Images\BlueMonster.png" />
     <Content Include="..\Assets\Images\BombPickUp.png" />
     <Content Include="..\Assets\Images\BulletRed2.png" />
@@ -102,6 +92,12 @@
     <Content Include="..\Assets\Images\SpeedPickUp.png" />
     <Content Include="..\Assets\Images\SpreadPickUp.png" />
     <Content Include="..\Assets\Images\TitleImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DIKUArcade-master\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

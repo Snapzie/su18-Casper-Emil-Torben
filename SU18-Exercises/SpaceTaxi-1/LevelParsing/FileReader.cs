@@ -65,11 +65,7 @@ namespace SpaceTaxi_1.LevelParsing {
                 customerList.Add(s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
                 s = sr.ReadLine();
             }
-            
-            CustomerTranslator ct = new CustomerTranslator();
-
-            ct.MakeCustomer(customerList, levelArray);
-            return new Level(levelArray, name, platformList, decoder);
+            return new Level(levelArray, name, platformList, decoder, customerList);
         }
     }
 }

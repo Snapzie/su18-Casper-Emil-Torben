@@ -1,7 +1,9 @@
 ﻿using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
+using DIKUArcade.State;
 using SpaceTaxi_1.LevelParsing;
+using SpaceTaxi_1.SpaceTaxiStates;
 
 namespace SpaceTaxi_1.Customers {
     public class Customer : Entity, ICustomer {
@@ -51,15 +53,15 @@ namespace SpaceTaxi_1.Customers {
         ///  The instance of Customer is added to an EntityContainer
         /// </summary>
         public void Spawn() {
-
-            level.AddCustomer(this);
+            IGameState game = new StateMachine().ActiveState;
+            ((GameRunning) game).AddCustomer(this);
         }
         /// <summary>
         /// The instance of customer is removed from the EntityContainer
         /// </summary>
         public void Despawn() {
-            
-            level.RemoveCustomer(this);
+            IGameState game = new StateMachine().ActiveState;
+            ((GameRunning) game).RemoveCustomer(this);
         }
 
         public void GivePoints() {
