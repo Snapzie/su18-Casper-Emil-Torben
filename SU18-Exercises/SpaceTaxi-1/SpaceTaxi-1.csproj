@@ -49,6 +49,7 @@
     <Compile Include="Customers\CustomerTranslator.cs" />
     <Compile Include="Customers\ICustomer.cs" />
     <Compile Include="Entities\Platform.cs" />
+    <Compile Include="Entities\SmartEntityContainer.cs" />
     <Compile Include="LevelParsing\EntityCreator.cs" />
     <Compile Include="LevelParsing\FileReader.cs" />
     <Compile Include="Game.cs" />

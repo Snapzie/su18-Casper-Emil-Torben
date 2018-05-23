@@ -24,6 +24,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             case GameStateType.GameRunning:
                 if (ActiveState == MainMenu.GetInstance()) {
                     SetLevel(int.Parse(gameEvent.Parameter2));
+                    GameRunning.GetInstance().NewGame();
                     GameRunning.GetInstance().InitializeGameState();
                     ActiveState = GameRunning.GetInstance();
                     break;

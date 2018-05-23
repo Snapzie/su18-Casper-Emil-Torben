@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.State;
+using DIKUArcade.Timers;
 using OpenTK.Graphics;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiStates;
@@ -18,6 +20,7 @@ namespace SpaceTaxi_1.Customers {
         private int posX;
         private int posY;
         public Level level;
+        public double pickUpTime;
         
         private static EntityCreator entityCreator = new EntityCreator();
             
@@ -59,7 +62,13 @@ namespace SpaceTaxi_1.Customers {
         }
 
         public void CalculatePoints() {
+            double dropOffDelta = StaticTimer.GetElapsedSeconds() - pickUpTime;
+            if (dropOffDelta > TimeToDropOff) {
+                double frac = (dropOffDelta - TimeToDropOff) / TimeToDropOff;
+                double penaltyPoints = frac * Points;
+                Points = Points - (int) penaltyPoints;
+            }
             GameRunning.GetInstance().GivePoints(Points);
-        }
+            }
     }
 }

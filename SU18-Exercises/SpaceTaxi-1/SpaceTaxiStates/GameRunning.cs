@@ -18,7 +18,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
     public class GameRunning : IGameState {
         private static GameRunning instance = null;
         private Player player;
-        private List<Entity>[] levelContainer;
+        private EntityContainer<Entity>[] levelContainer;
         private int levelNumber = 0;
         private Customer currentCustomer;
         private Customer[] customers;
@@ -27,16 +27,9 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         private int points;
         private Text pointsText;
         public TimedEventContainer TimedEventContainer;
-         
+        
         private GameRunning() {
-            levelContainer = new List<Entity>[3];
-            TimedEventContainer = new TimedEventContainer(3); //Assuming maximun of 3 customers pr. level
-            TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
-            customerImage =
-                new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"));
-            ct = new CustomerTranslator();
-            pointsText = new Text("Points: 0", new Vec2F(0.06f,-0.12f), new Vec2F(0.2f,0.2f));
-            pointsText.SetColor(Color.White);
+           NewGame();
         }
         
         /// <summary>
@@ -46,6 +39,19 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public static GameRunning GetInstance() {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
         }
+
+        public void NewGame() {
+            currentCustomer = null;
+            points = 0;
+            levelContainer = new EntityContainer<Entity>[3];
+            TimedEventContainer = new TimedEventContainer(3); //Assuming maximun of 3 customers pr. level
+            TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
+            customerImage =
+                new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"));
+            ct = new CustomerTranslator();
+            pointsText = new Text("Points: 0", new Vec2F(0.06f,-0.12f), new Vec2F(0.2f,0.2f));
+            pointsText.SetColor(Color.White);
+       }
         
         /// <summary>
         /// Called from Game every update and executes the methods needed for the state
@@ -88,10 +94,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         /// Renders the state
         /// </summary>
         public void RenderState() {
-            foreach (List<Entity> entityList in levelContainer) {
-                foreach (Entity entity in entityList) {
-                    entity.RenderEntity();
-                }
+            foreach (EntityContainer<Entity> entityContainer in levelContainer) {
+                entityContainer.RenderEntities();
             }
             player.RenderPlayer();
             pointsText.RenderText();
@@ -126,9 +130,15 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                             currentCustomer.destinationPlatform.Contains("^") ==
                             currentCustomer.CrossedBorder) { //We are in correct level
                             if (currentCustomer.destinationPlatform.Length == 1) {
-                                currentCustomer.CalculatePoints();
-                                currentCustomer = null;
-                            } else if (currentCustomer.destinationPlatform[1] ==
+                                if (currentCustomer.destinationPlatform[0] == '^') {
+                                    currentCustomer.CalculatePoints();
+                                    currentCustomer = null;
+                                } else if (currentCustomer.destinationPlatform[0] == platform.Identifier) {
+                                    currentCustomer.CalculatePoints();
+                                    currentCustomer = null;
+                                }
+                                
+                             } else if (currentCustomer.destinationPlatform[1] ==
                                        platform.Identifier) {
                                 currentCustomer.CalculatePoints();
                                 currentCustomer = null;
@@ -154,6 +164,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                         collisionDetected = true;
                         currentCustomer = customer;
                         Console.WriteLine(customer.Name);
+                        customer.pickUpTime = StaticTimer.GetElapsedSeconds();
                         RemoveCustomer(customer);
                     }
                 }
@@ -173,13 +184,13 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
         
         public void AddCustomer(Entity customer) {
-            levelContainer[2].Add(customer);
+            levelContainer[2].AddStationaryEntity(customer);
         }
 
         public void RemoveCustomer(Entity entity) {
             entity.DeleteEntity();
             //CustomerIterator kaldes for at fjerne slettede customers
-            levelContainer[2] = CustomerIterator(levelContainer[2]);
+            levelContainer[2].Iterate(CustomerIterator);
             
         }
 
@@ -191,15 +202,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         /// <summary>
         /// Empty method to ensure iteration
         /// </summary>
-        private List<Entity> CustomerIterator(List<Entity> entityList) {
-            List<Entity> newList = new List<Entity>();
-            foreach (Entity entity in entityList) {
-                if (!entity.IsDeleted()) {
-                   newList.Add(entity);
-                } 
-            }
-
-            return newList;
+        private void CustomerIterator(Entity entity) {
         }
         
         /// <summary>

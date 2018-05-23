@@ -22,13 +22,13 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <returns> This method returns the EntityContainer named object, which has all 
         /// the different entities needed to create the given levell
         ///</returns>
-        public List<Entity>[] CreateLevel(int levelNumber) {
+        public EntityContainer<Entity>[] CreateLevel(int levelNumber) {
             EntityCreator ec = new EntityCreator();
             Level level = levelKeeper[levelNumber];
-            List<Entity>[] renderItems = new List<Entity>[3];
-            renderItems[0] = new List<Entity>();
-            renderItems[1] = new List<Entity>();
-            renderItems[2] = new List<Entity>(); //empty container to add customers later
+            EntityContainer<Entity>[] renderItems = new EntityContainer<Entity>[3];
+            renderItems[0] = new EntityContainer<Entity>();
+            renderItems[1] = new EntityContainer<Entity>();
+            renderItems[2] = new EntityContainer<Entity>(); //empty container to add customers later
             
             for (int i = 0; i < level.LevelLayout.Length; i++) {
                 for (int j = 0; j < level.LevelLayout[i].Length; j++) {
@@ -39,11 +39,11 @@ namespace SpaceTaxi_1.LevelParsing {
                         if (level.Platforms.Contains(level.LevelLayout[i][j])) {
                             Platform platform = new Platform(ec.CreateEntity(i, j, img),
                                 level.LevelLayout[i][j]);
-                            renderItems[0].Add(platform);
+                            renderItems[0].AddStationaryEntity(platform);
                         } else {
                             Entity ent =
                                 ec.CreateEntity(i, j, img);
-                            renderItems[1].Add(ent);
+                            renderItems[1].AddStationaryEntity(ent);
                         }
                         
                     }
