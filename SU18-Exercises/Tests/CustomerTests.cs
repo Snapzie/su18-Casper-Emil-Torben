@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using NUnit.Framework;
-using DIKUArcade;
-using DIKUArcade.Entities;
-using DIKUArcade.Graphics;
-using DIKUArcade.Math;
-using SpaceTaxi_1;
 using SpaceTaxi_1.Customers;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.MockUps;
@@ -24,7 +19,7 @@ namespace Tests {
             customerTranslator = new CustomerTranslator();
             FileReader fr = new FileReader();
             levelChars =
-                fr.ReadFile(Path.Combine("..", "..", "Levels", "short-n-sweet.txt")).LevelLayout;
+                fr.ReadFile(new FileStream(Path.Combine("..", "..", "Levels", "short-n-sweet.txt"), FileMode.Open)).LevelLayout;
             customerList = new List<string>() {
                 "Alice 10 1 ^J 10 100",
                 "Bob 10 J r 105 100",
@@ -35,19 +30,22 @@ namespace Tests {
         
         [Test]
         public void TestWithEmptyList() {
-            Customer[] customers = customerTranslator.MakeCustomers(customerList.GetRange(0,0), levelChars, new MockUpImage());
+            Customer[] customers = 
+                customerTranslator.MakeCustomers(customerList.GetRange(0,0), levelChars, new MockUpImage());
             Assert.AreEqual(customers.Length, 0);
         }
         
         [Test]
         public void TestWithOneElement() {
-            Customer[] customers = customerTranslator.MakeCustomers(customerList.GetRange(0,1), levelChars, new MockUpImage());
+            Customer[] customers = 
+                customerTranslator.MakeCustomers(customerList.GetRange(0,1), levelChars, new MockUpImage());
             Assert.AreEqual(customers.Length, 1);
         }
         
         [Test]
         public void TestWithMultipleElements() {
-            Customer[] customers = customerTranslator.MakeCustomers(customerList, levelChars, new MockUpImage());
+            Customer[] customers = 
+                customerTranslator.MakeCustomers(customerList, levelChars, new MockUpImage());
             Assert.AreEqual(customers.Length, customerList.Count);
         }
 

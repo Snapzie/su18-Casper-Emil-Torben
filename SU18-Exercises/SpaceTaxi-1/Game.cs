@@ -28,14 +28,15 @@ namespace SpaceTaxi_1
                 GameEventType.GameStateEvent,
                 GameEventType.InputEvent,      // key press / key release
                 GameEventType.WindowEvent,     // messages to the window, e.g. CloseWindow()
-                GameEventType.PlayerEvent      // commands issued to the player object, e.g. move, destroy, receive health, etc.
+                GameEventType.PlayerEvent,      // commands issued to the player object, e.g. move, destroy, receive health, etc.
+                GameEventType.TimedEvent
             });
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
 
             // game timer
-            Game.GameTimer = new GameTimer(60); // 60 UPS, no FPS limit
+            Game.GameTimer = new GameTimer(60, 60); // 60 UPS and FPS
             
             stateMachine = new StateMachine();
         }
