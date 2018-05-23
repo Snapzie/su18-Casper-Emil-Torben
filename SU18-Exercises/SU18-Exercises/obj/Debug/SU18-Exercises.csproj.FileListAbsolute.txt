@@ -27,3 +27,5 @@ D:/Uni/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18-Exer
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18-Exercises.csproj.CoreCompileInputs.cache
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.exe
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.pdb
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/OpenTK.dll
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/OpenTK.xml

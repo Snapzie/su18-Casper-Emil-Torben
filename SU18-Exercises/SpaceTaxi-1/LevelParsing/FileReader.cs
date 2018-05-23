@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using DIKUArcade.Entities;
-using DIKUArcade.Graphics;
-using SpaceTaxi_1.Customers;
 
 namespace SpaceTaxi_1.LevelParsing {
     public class FileReader {
-
         /// <summary>
         /// Reads a level file and creates a level object with the information
         /// </summary>
@@ -14,10 +10,10 @@ namespace SpaceTaxi_1.LevelParsing {
         /// Assumes the file given consists of a level layout, name, a list of platform chars,
         /// a list of chars which correspond to an image, and one or more customers
         /// </remarks>
-        /// <param name="path">The file path to the level file</param>
+        /// <param name="stream">Stream to read level from</param>
         /// <returns>A level object containing the extracted information</returns>
-        public Level ReadFile(string path) {
-            StreamReader sr = File.OpenText(path);
+        public Level ReadFile(Stream stream) {
+            StreamReader sr = new StreamReader(stream);
 
             //levelArray
             char[][] levelArray = new char[24][];
@@ -65,6 +61,7 @@ namespace SpaceTaxi_1.LevelParsing {
                 customerList.Add(s.Substring(startIndex + 1, (s.Length - 1) - startIndex));
                 s = sr.ReadLine();
             }
+            stream.Close();
             return new Level(levelArray, name, platformList, decoder, customerList);
         }
     }

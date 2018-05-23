@@ -35,3 +35,8 @@ D:/Uni/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga-Exercise-1.csproj.CoreCompileInputs.cache
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.exe
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.pdb
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/bin/Debug/DIKUArcade.dll
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/bin/Debug/OpenTK.dll
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/bin/Debug/DIKUArcade.pdb
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/bin/Debug/DIKUArcade.dll.mdb
+/home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/Galaga-Exercise-1/bin/Debug/OpenTK.xml

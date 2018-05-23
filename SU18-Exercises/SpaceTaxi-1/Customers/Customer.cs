@@ -1,22 +1,26 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.State;
+using DIKUArcade.Timers;
 using OpenTK.Graphics;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiStates;
 
 namespace SpaceTaxi_1.Customers {
-    public class Customer : Entity, ICustomer {
+    public class Customer : Entity {
         public string Name { get; private set; }
         public int SpawnTime { get; private set; }
-        public char SpawnPlatform { get; private set; } //Skal nok ændres til en platform class
-        private string destinationPlatform; //Skal nok ændres til en platform class
+        public char SpawnPlatform { get; private set; }
+        public string DestinationPlatform { get; private set; }
         public int TimeToDropOff { get; private set; }
         public int Points { get; private set; }
+        public bool CrossedBorder;
         private int posX;
         private int posY;
         public Level level;
+        public double pickUpTime;
         
         private static EntityCreator entityCreator = new EntityCreator();
             
@@ -26,39 +30,21 @@ namespace SpaceTaxi_1.Customers {
             this.Name = name;
             this.SpawnTime = spawnTime;
             this.SpawnPlatform = spawnPlatform;
-            this.destinationPlatform = destinationPlatform;
+            this.DestinationPlatform = destinationPlatform;
             this.TimeToDropOff = timeToDropOff;
             this.Points = points;
-            //Spawn();
-
+            CrossedBorder = false;
         }
-        
-        /// <summary>
-        /// Spawns the customer in current level
-        /// </summary>
-        /// <remarks>
-        /// Should only be called when game is running, else the cast will fail
-        /// </remarks>
-        public void Spawn() {
-            IGameState game = new StateMachine().ActiveState;
-            ((GameRunning) game).AddCustomer(this); 
-        }
+       
 
-        
-        /// <summary>
-        /// Despawns the customer from current level
-        /// </summary>
-        /// <remarks>
-        /// Should only be called when game is running, else the cast will fail
-        /// </remarks>
-        public void Despawn() {
-            IGameState game = new StateMachine().ActiveState;
-            ((GameRunning) game).RemoveCustomer(this);
-        }
-
-        public void GivePoints() {
-            
-            throw new System.NotImplementedException();
+        public void CalculatePoints() {
+            double dropOffDelta = StaticTimer.GetElapsedSeconds() - pickUpTime;
+            if (dropOffDelta > TimeToDropOff) {
+                double frac = (dropOffDelta - TimeToDropOff) / TimeToDropOff;
+                double penaltyPoints = frac * Points;
+                Points = Points - (int) penaltyPoints;
+            }
+            GameRunning.GetInstance().GivePoints(Points);
         }
     }
 }

@@ -15,8 +15,8 @@ namespace SpaceTaxi_1.LevelParsing {
             LevelsKeeper keeper = LevelsKeeper.Instance;
             FileReader fr = new FileReader();
 
-            foreach (String levelPath in levelList) {
-                level = fr.ReadFile(levelPath);
+            foreach (string levelPath in levelList) {
+                level = fr.ReadFile(new FileStream(levelPath, FileMode.Open));
                 keeper.SaveLevel(level);
             }
         }

@@ -47,7 +47,8 @@
   <ItemGroup>
     <Compile Include="Customers\Customer.cs" />
     <Compile Include="Customers\CustomerTranslator.cs" />
-    <Compile Include="Customers\ICustomer.cs" />
+    <Compile Include="Entities\Platform.cs" />
+    <Compile Include="Entities\SmartEntityContainer.cs" />
     <Compile Include="LevelParsing\EntityCreator.cs" />
     <Compile Include="LevelParsing\FileReader.cs" />
     <Compile Include="Game.cs" />
@@ -95,6 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DIKUArcade-master\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade.csproj">
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>
