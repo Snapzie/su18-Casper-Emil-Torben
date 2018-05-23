@@ -2,6 +2,6 @@
     public interface ICustomer {
         void Spawn();
         void Despawn();
-        void GivePoints();
+        void CalculatePoints();
     }
 }

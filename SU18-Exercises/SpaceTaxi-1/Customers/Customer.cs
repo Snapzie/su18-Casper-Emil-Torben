@@ -10,10 +10,11 @@ namespace SpaceTaxi_1.Customers {
     public class Customer : Entity, ICustomer {
         public string Name { get; private set; }
         public int SpawnTime { get; private set; }
-        public char SpawnPlatform { get; private set; } //Skal nok ændres til en platform class
-        private string destinationPlatform; //Skal nok ændres til en platform class
+        public char SpawnPlatform { get; private set; }
+        public string destinationPlatform { get; private set; }
         public int TimeToDropOff { get; private set; }
         public int Points { get; private set; }
+        public bool CrossedBorder;
         private int posX;
         private int posY;
         public Level level;
@@ -29,6 +30,7 @@ namespace SpaceTaxi_1.Customers {
             this.destinationPlatform = destinationPlatform;
             this.TimeToDropOff = timeToDropOff;
             this.Points = points;
+            CrossedBorder = false;
             //Spawn();
 
         }
@@ -56,9 +58,8 @@ namespace SpaceTaxi_1.Customers {
             ((GameRunning) game).RemoveCustomer(this);
         }
 
-        public void GivePoints() {
-            
-            throw new System.NotImplementedException();
+        public void CalculatePoints() {
+            GameRunning.GetInstance().GivePoints(Points);
         }
     }
 }
