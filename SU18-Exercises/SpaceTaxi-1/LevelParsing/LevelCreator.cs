@@ -1,4 +1,5 @@
-﻿
+
+using System.Collections.Generic;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
@@ -22,25 +23,28 @@ namespace SpaceTaxi_1.LevelParsing {
         /// <returns> This method returns the EntityContainer named object, which has all 
         /// the different entities needed to create the given levell
         ///</returns>
-        public EntityContainer[] CreateLevel(int levelNumber) {
+        public EntityContainer<Entity>[] CreateLevel(int levelNumber) {
             EntityCreator ec = new EntityCreator();
             Level level = levelKeeper[levelNumber];
-            EntityContainer[] renderItems = new EntityContainer[3];
-            renderItems[0] = new EntityContainer();
-            renderItems[1] = new EntityContainer();
-            renderItems[2] = new EntityContainer(); //empty container to add customers later
+            EntityContainer<Entity>[] renderItems = new EntityContainer<Entity>[3];
+            renderItems[0] = new EntityContainer<Entity>();
+            renderItems[1] = new EntityContainer<Entity>();
+            renderItems[2] = new EntityContainer<Entity>(); //empty container to add customers later
             
             for (int i = 0; i < level.LevelLayout.Length; i++) {
                 for (int j = 0; j < level.LevelLayout[i].Length; j++) {
                     if (level.Decoder.ContainsKey(level.LevelLayout[i][j])) {
                         Image img = new Image(Path.Combine(Path.Combine("Assets", "Images",
                             level.Decoder[level.LevelLayout[i][j]])));
-                        Entity ent =
-                            ec.CreateEntity(i, j, img);
-                        if (level.Platforms.Contains(level.LevelLayout[i][j])) {                            
-                            renderItems[0].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
+                        
+                        if (level.Platforms.Contains(level.LevelLayout[i][j])) {
+                            Platform platform = new Platform(ec.CreateEntity(i, j, img),
+                                level.LevelLayout[i][j]);
+                            renderItems[0].AddStationaryEntity(platform);
                         } else {
-                            renderItems[1].AddStationaryEntity((StationaryShape) ent.Shape, ent.Image);
+                            Entity ent =
+                                ec.CreateEntity(i, j, img);
+                            renderItems[1].AddStationaryEntity(ent);
                         }
                         
                     }
