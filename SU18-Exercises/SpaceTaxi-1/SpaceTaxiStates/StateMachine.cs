@@ -1,4 +1,5 @@
-﻿using DIKUArcade.EventBus;
+﻿using System;
+using DIKUArcade.EventBus;
 using DIKUArcade.State;
 using SpaceTaxi_1.SpaceTaxiGame;
 
@@ -10,6 +11,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public StateMachine() {
             SpaceBus.GetBus().Subscribe(GameEventType.GameStateEvent, this);
             SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, this);
+            SpaceBus.GetBus().Subscribe(GameEventType.TimedEvent, this);
             ActiveState = MainMenu.GetInstance();
         }
         
@@ -55,6 +57,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
             } else if (eventType == GameEventType.GameStateEvent) {
                 SwitchState(gameEvent);
+            } else if (eventType == GameEventType.TimedEvent) {
+                GameRunning.GetInstance().HandleCustomerEvents(gameEvent.Parameter1);
             }
         }
         

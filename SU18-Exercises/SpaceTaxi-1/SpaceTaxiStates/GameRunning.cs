@@ -1,8 +1,12 @@
 ﻿using System;
+using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
+using DIKUArcade.Graphics;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
+using DIKUArcade.Timers;
+using SpaceTaxi_1.Customers;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiGame;
 
@@ -12,8 +16,19 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         private Player player;
         private EntityContainer[] levelContainer;
         private int levelNumber = 0;
+        private Customer currentCustomer;
+        private Customer[] customers;
+        private IBaseImage customerImage;
+        private CustomerTranslator ct;
+        public TimedEventContainer TimedEventContainer;
+         
         private GameRunning() {
-            InitializeGameState();
+            levelContainer = new EntityContainer[3];
+            TimedEventContainer = new TimedEventContainer(3); //Assuming maximun of 3 customers pr. level
+            TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
+            customerImage =
+                new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"));
+            ct = new CustomerTranslator();
         }
         
         /// <summary>
@@ -30,6 +45,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public void GameLoop() {
             this.IterateCollisions();
             this.RenderState();
+            TimedEventContainer.ProcessTimedEvents();
         }
         
         /// <summary>
@@ -39,14 +55,18 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public void SetLevel(int newLevel) {
             levelNumber = newLevel;
         }
-        
+
         /// <summary>
         /// Setup method
         /// </summary>
         public void InitializeGameState() {
+            TimedEventContainer.ResetContainer();
             LevelCreator lc = new LevelCreator();
-            
             levelContainer = lc.CreateLevel(levelNumber % LevelsKeeper.Instance.Count());
+
+            Level level = LevelsKeeper.Instance[levelNumber % LevelsKeeper.Instance.Count()];
+            customers = ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);;         
+            TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
             player = new Player();
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
         }
@@ -114,14 +134,14 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             }
         }
         
-        public void AddCustomer(Entity entity) {
-            levelContainer[2].AddStationaryEntity((StationaryShape)entity.Shape, entity.Image);
+        public void AddCustomer(Entity customer) {
+            levelContainer[2].AddStationaryEntity((StationaryShape)customer.Shape, customer.Image);
         }
 
         public void RemoveCustomer(Entity entity) {
             entity.DeleteEntity();
-            ///CustomerIterator kaldes for at iterere over Customers
-            /// for at fjerne den pågældende customers entity i Customers
+            //CustomerIterator kaldes for at iterere over Customers
+            //for at fjerne den pågældende customers entity i Customers
             levelContainer[2].Iterate(CustomerIterator);
             
         }
@@ -139,7 +159,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         /// <param name="keyValue">The action related to the keyevent</param>
         /// <param name="keyAction">The key pressed related to the keyevent</param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
-            //Keeping all the keys in so we have them for later
             if (keyAction == "KEY_PRESS") {
                 switch (keyValue) {
                 case "KEY_UP":
@@ -182,6 +201,10 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     break;
                 }
             }
+        }
+
+        public void HandleCustomerEvents(string parameter) {
+            AddCustomer(customers[int.Parse(parameter)]);
         }
     }
 }

@@ -154,7 +154,6 @@ namespace SpaceTaxi_1
             shape.Direction.Y += (1.0f / Game.GameTimer.CapturedUpdates) * (force.Y + Gravity * gravityOn);
             shape.Move();
             Entity.RenderEntity();
-            Console.WriteLine(Entity.Shape.Position);
         }
         
         /// <summary>

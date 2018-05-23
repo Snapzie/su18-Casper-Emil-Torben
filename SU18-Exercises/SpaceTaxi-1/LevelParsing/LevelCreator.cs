@@ -28,7 +28,7 @@ namespace SpaceTaxi_1.LevelParsing {
             EntityContainer[] renderItems = new EntityContainer[3];
             renderItems[0] = new EntityContainer();
             renderItems[1] = new EntityContainer();
-            renderItems[2] = new EntityContainer();
+            renderItems[2] = new EntityContainer(); //empty container to add customers later
             
             for (int i = 0; i < level.LevelLayout.Length; i++) {
                 for (int j = 0; j < level.LevelLayout[i].Length; j++) {
@@ -47,11 +47,7 @@ namespace SpaceTaxi_1.LevelParsing {
                 }
             }
             
-            CustomerTranslator ct = new CustomerTranslator();
-            IBaseImage customerImage =
-                new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"));
-            ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);
-
+            
             return renderItems;
         }
     }

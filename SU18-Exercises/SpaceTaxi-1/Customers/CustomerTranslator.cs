@@ -4,14 +4,16 @@ using System.Linq;
 using System.Runtime.ExceptionServices;
 using DIKUArcade.Graphics;
 using DIKUArcade.Entities;
+using DIKUArcade.Timers;
 using SpaceTaxi_1.LevelParsing;
+using SpaceTaxi_1.SpaceTaxiStates;
 
 namespace SpaceTaxi_1.Customers {
     public class CustomerTranslator {
         public Customer[] MakeCustomers(List<string> customers, char[][] level,
             IBaseImage customerImage) {
             Customer[] result = new Customer[customers.Count];
-            for (int k = 0; k < result.Length; k++) {
+            for (int k = 0; k < result.Length; k++) { 
                 int endIndex = customers[k].IndexOf(" ");
                 string name = customers[k].Substring(0, endIndex);
                 string substring = customers[k].Substring(endIndex + 1, (customers[k].Length - 1) - endIndex);
@@ -43,9 +45,16 @@ namespace SpaceTaxi_1.Customers {
                 EntityCreator ec = new EntityCreator();
                 Entity entity = ec.CreateEntity(platformY, platformX, customerImage);
                 result[k] = new Customer(name, spawnTime, spawnPlatform, destination, time, points, entity);
+                CreateEvent(result[k], k);
             }
 
             return result;
+        }
+
+        private void CreateEvent(Customer customer, int index) {
+            TimedEventContainer timedEventContainer = GameRunning.GetInstance().TimedEventContainer;
+            timedEventContainer.AddTimedEvent(TimeSpanType.Seconds, customer.SpawnTime, "CUSTOMER",
+                index.ToString(), "");
         }
     }
 }
