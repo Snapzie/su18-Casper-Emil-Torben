@@ -52,8 +52,4 @@ X) white-upper-right.png
 w) white-lower-left.png
 x) white-lower-right.png
 
-<<<<<<< HEAD
 Customer: Alice 10 1 ^J 10 100
-=======
-Customer: Alice 2 1 ^r 10 100
->>>>>>> 0d42aa2c49aec4465dafc8854f21f46b24d3724a
