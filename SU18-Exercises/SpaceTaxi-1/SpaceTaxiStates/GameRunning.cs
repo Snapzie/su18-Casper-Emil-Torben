@@ -127,18 +127,18 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                         player.SetForce(0, 0);
                         player.SetGravity(false);
                         if (currentCustomer != null &&
-                            currentCustomer.destinationPlatform.Contains("^") ==
+                            currentCustomer.DestinationPlatform.Contains("^") ==
                             currentCustomer.CrossedBorder) { //We are in correct level
-                            if (currentCustomer.destinationPlatform.Length == 1) {
-                                if (currentCustomer.destinationPlatform[0] == '^') {
+                            if (currentCustomer.DestinationPlatform.Length == 1) {
+                                if (currentCustomer.DestinationPlatform[0] == '^') {
                                     currentCustomer.CalculatePoints();
                                     currentCustomer = null;
-                                } else if (currentCustomer.destinationPlatform[0] == platform.Identifier) {
+                                } else if (currentCustomer.DestinationPlatform[0] == platform.Identifier) {
                                     currentCustomer.CalculatePoints();
                                     currentCustomer = null;
                                 }
                                 
-                             } else if (currentCustomer.destinationPlatform[1] ==
+                             } else if (currentCustomer.DestinationPlatform[1] ==
                                        platform.Identifier) {
                                 currentCustomer.CalculatePoints();
                                 currentCustomer = null;

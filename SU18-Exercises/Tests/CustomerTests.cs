@@ -73,14 +73,20 @@ namespace Tests {
         public void TestSpawPlatform() {
             Customer[] customers =
                 customerTranslator.MakeCustomers(customerList, levelChars, new MockUpImage());
-            //Coming soon
+            Assert.AreEqual(customers[0].SpawnPlatform, '1');
+            Assert.AreEqual(customers[1].SpawnPlatform, 'J');
+            Assert.AreEqual(customers[2].SpawnPlatform, 'r');
+            Assert.AreEqual(customers[3].SpawnPlatform, 'r');
         }
         
         [Test]
         public void TestDestinationPlatform() {
             Customer[] customers =
                 customerTranslator.MakeCustomers(customerList, levelChars, new MockUpImage());
-            //Coming soon
+            Assert.AreEqual(customers[0].DestinationPlatform, "^J");
+            Assert.AreEqual(customers[1].DestinationPlatform, "r");
+            Assert.AreEqual(customers[2].DestinationPlatform, "^");
+            Assert.AreEqual(customers[3].DestinationPlatform, "^1");
         }
         
         [Test]

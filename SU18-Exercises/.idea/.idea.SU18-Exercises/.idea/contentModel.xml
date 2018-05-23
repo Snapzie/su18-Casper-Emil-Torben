@@ -192,7 +192,6 @@
         <e p="Customers" t="Include">
           <e p="Customer.cs" t="Include" />
           <e p="CustomerTranslator.cs" t="Include" />
-          <e p="ICustomer.cs" t="Include" />
         </e>
         <e p="Entities" t="Include">
           <e p="Platform.cs" t="Include" />
