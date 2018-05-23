@@ -49,7 +49,7 @@ namespace SpaceTaxi_1.LevelParsing {
             CustomerTranslator ct = new CustomerTranslator();
             IBaseImage customerImage =
                 new Image(Path.Combine("Assets", "Images", "CustomerStandLeft.png"));
-            ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);
+            renderItems[2] = ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);
 
             return renderItems;
         }
