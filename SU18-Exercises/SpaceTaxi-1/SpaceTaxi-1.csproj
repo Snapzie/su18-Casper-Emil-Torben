@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="Customers\Customer.cs" />
     <Compile Include="Customers\CustomerTranslator.cs" />
-    <Compile Include="Customers\ICustomer.cs" />
     <Compile Include="Entities\Platform.cs" />
     <Compile Include="Entities\SmartEntityContainer.cs" />
     <Compile Include="LevelParsing\EntityCreator.cs" />

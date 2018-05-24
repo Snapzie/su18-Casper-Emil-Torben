@@ -50,8 +50,7 @@ namespace SpaceTaxi_1.LevelParsing {
                     }
                 }
             }
-            
-            
+
             return renderItems;
         }
     }

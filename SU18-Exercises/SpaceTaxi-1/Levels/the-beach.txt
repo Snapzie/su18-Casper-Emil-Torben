@@ -64,4 +64,4 @@ t) tacha-square.png
 s) tacha-upper-right.png
 
 Customer: Bob 10 J r 10 100
-Customer: Carol 2 r i 10 100
+Customer: Carol 30 r ^ 10 100

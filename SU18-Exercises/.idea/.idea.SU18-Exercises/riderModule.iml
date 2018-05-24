@@ -2,10 +2,14 @@
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <content url="file://$MODULE_DIR$/../../../DIKUArcade/DIKUArcade" />
 =======
     <content url="file://$MODULE_DIR$/../../../DIKUArcade" />
 >>>>>>> b128e3ed70a055d9a6f79df3bf30b60de14ee044
+=======
+    <content url="file://$MODULE_DIR$/../../../DIKUArcade-master/DIKUArcade" />
+>>>>>>> d21c1ac695a164a07be4ebf863438c880c9a0ea5
     <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

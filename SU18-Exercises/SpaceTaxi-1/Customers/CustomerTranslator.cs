@@ -21,7 +21,6 @@ namespace SpaceTaxi_1.Customers {
                 int spawnTime = int.Parse(substring.Substring(0, endIndex));
                 substring = substring.Substring(endIndex + 1, (substring.Length - 1) - endIndex);
                 endIndex = substring.IndexOf(" ");
-                //Make string?
                 char spawnPlatform = char.Parse(substring.Substring(0, endIndex));
                 substring = substring.Substring(endIndex + 1, (substring.Length - 1) - endIndex);
                 endIndex = substring.IndexOf(" ");

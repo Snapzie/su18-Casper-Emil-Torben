@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using DIKUArcade.Entities;
-using DIKUArcade.Graphics;
-using SpaceTaxi_1.Customers;
 
 namespace SpaceTaxi_1.LevelParsing {
     public class FileReader {
