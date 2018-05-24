@@ -10,14 +10,14 @@ namespace SpaceTaxi_1
     public class Player : IGameEventProcessor<object> {
         public Entity Entity { get; private set; }
         private readonly DynamicShape shape;
-        private readonly Image taxiBoosterOffImageLeft;
-        private readonly Image taxiBoosterOffImageRight;
-        private readonly ImageStride taxiBoosterOnImageRight;
-        private readonly ImageStride taxiBoosterOnImageLeft;
-        private readonly ImageStride taxiBoosterOnImageUpLeft;
-        private readonly ImageStride taxiBoosterOnImageUpRight;
-        private readonly ImageStride taxiBoosterOnImageRightUp;
-        private readonly ImageStride taxiBoosterOnImageLeftUp;
+        private Image taxiBoosterOffImageLeft;
+        private Image taxiBoosterOffImageRight;
+        private ImageStride taxiBoosterOnImageRight;
+        private ImageStride taxiBoosterOnImageLeft;
+        private ImageStride taxiBoosterOnImageUpLeft;
+        private ImageStride taxiBoosterOnImageUpRight;
+        private ImageStride taxiBoosterOnImageRightUp;
+        private ImageStride taxiBoosterOnImageLeftUp;
         private Orientation _taxiOrientation;
         public Vec2F force;
         public float Gravity { get; private set; }
@@ -30,6 +30,17 @@ namespace SpaceTaxi_1
         public Player()
         {
             shape = new DynamicShape(new Vec2F(), new Vec2F());
+            
+                        
+            Gravity = -0.005f;
+            Entity = new Entity(shape, taxiBoosterOffImageLeft);
+            force = new Vec2F(0, 0);
+            shape.Direction = new Vec2F(0, 0);
+            SetPosition(0.45f, 0.6f);
+            SetExtent(0.06f, 0.06f);
+        }
+
+        public void SetImages() {
             taxiBoosterOffImageLeft = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
             taxiBoosterOffImageRight = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None_Right.png"));
             taxiBoosterOnImageLeft = new ImageStride(80,
@@ -49,13 +60,6 @@ namespace SpaceTaxi_1
             
             taxiBoosterOnImageLeftUp = new ImageStride(80,
                 ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom_Back.png")));
-                        
-            Gravity = -0.005f;
-            Entity = new Entity(shape, taxiBoosterOffImageLeft);
-            force = new Vec2F(0, 0);
-            shape.Direction = new Vec2F(0, 0);
-            SetPosition(0.45f, 0.6f);
-            SetExtent(0.06f, 0.06f);
         }
         
         /// <summary>

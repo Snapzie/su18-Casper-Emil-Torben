@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+<<<<<<< HEAD
     <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercises.1238237404.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$/../DIKUArcade-master/DIKUArcade" t="IncludeRecursive">
+=======
+    <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercises.1350551396.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$/../DIKUArcade" t="IncludeRecursive">
+>>>>>>> 68bab5ad6d6252737ba11ab1aafe3f493c16380b
       <e p="DIKUArcade.csproj" t="IncludeRecursive" />
       <e p="Entities" t="Include">
         <e p="DynamicShape.cs" t="Include" />
@@ -73,6 +78,7 @@
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages.config" t="Include" />
     </e>
+    <e p="$PROJECT_DIR$/../DIKUArcade-master/DIKUArcade/DIKUArcade.csproj" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Assets/Images" t="Include">
         <e p="BlueMonster.png" t="Include" />
@@ -403,7 +409,11 @@
             </e>
           </e>
         </e>
+<<<<<<< HEAD
         <e p="CustomerTests.cs" t="Include" />
+=======
+        <e p="CustomerTranslatorTests.cs" t="Include" />
+>>>>>>> 68bab5ad6d6252737ba11ab1aafe3f493c16380b
         <e p="EntityCreatorTests.cs" t="Include" />
         <e p="FileReaderTests.cs" t="Include" />
         <e p="IntegrationFileToLevel.cs" t="Include" />

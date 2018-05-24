@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <content url="file://$MODULE_DIR$/../../../DIKUArcade/DIKUArcade" />
 =======
     <content url="file://$MODULE_DIR$/../../../DIKUArcade" />
@@ -10,6 +11,10 @@
 =======
     <content url="file://$MODULE_DIR$/../../../DIKUArcade-master/DIKUArcade" />
 >>>>>>> d21c1ac695a164a07be4ebf863438c880c9a0ea5
+=======
+    <content url="file://$MODULE_DIR$/../../../DIKUArcade" />
+    <content url="file://$MODULE_DIR$/../../../DIKUArcade-master/DIKUArcade/DIKUArcade.csproj" />
+>>>>>>> 68bab5ad6d6252737ba11ab1aafe3f493c16380b
     <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

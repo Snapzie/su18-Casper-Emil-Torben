@@ -17,7 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcade", "..\DIKUArcade-master\DIKUArcade\DIKUArcade.csproj", "{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcade", "..\DIKUArcade-master\DIKUArcade\DIKUArcade.csproj", "{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcade", "..\DIKUArcade\DIKUArcade.csproj", "{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}"
+>>>>>>> 68bab5ad6d6252737ba11ab1aafe3f493c16380b
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
