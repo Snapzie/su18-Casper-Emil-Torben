@@ -83,6 +83,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             customers = ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);;         
             TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
             player = new Player();
+            player.SetImages(); 
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
         }
 
@@ -112,38 +113,13 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     collisionDetected = true;
                     //Collision with platform from bellow
                     if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 0) {
-                        SpaceBus.GetBus().RegisterEvent(
-                            GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
-                        
+                        BelowPlatform();
                     } //Collision with platform too fast
                     else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.004f) {
-                        SpaceBus.GetBus().RegisterEvent(
-                            GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+                        CrashingPlatform();
                     } //Landed on platform 
                     else {
-                        player.SetDirrection(0, 0);
-                        player.SetForce(0, 0);
-                        player.SetGravity(false);
-                        if (currentCustomer != null &&
-                            currentCustomer.DestinationPlatform.Contains("^") ==
-                            currentCustomer.CrossedBorder) { //We are in correct level
-                            if (currentCustomer.DestinationPlatform.Length == 1) {
-                                if (currentCustomer.DestinationPlatform[0] == '^') {
-                                    currentCustomer.CalculatePoints();
-                                    currentCustomer = null;
-                                } else if (currentCustomer.DestinationPlatform[0] == platform.Identifier) {
-                                    currentCustomer.CalculatePoints();
-                                    currentCustomer = null;
-                                }
-                                
-                             } else if (currentCustomer.DestinationPlatform[1] ==
-                                       platform.Identifier) {
-                                currentCustomer.CalculatePoints();
-                                currentCustomer = null;
-                            }
-                        }
+                        LandingPlatform(platform);
                     }
                 }
             }
@@ -182,7 +158,43 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             }
         }
-        
+
+        private void BelowPlatform() {
+            SpaceBus.GetBus().RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+        }
+
+        private void CrashingPlatform() {
+            SpaceBus.GetBus().RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+        }
+
+        private void LandingPlatform(Platform platform) {
+            player.SetDirrection(0, 0);
+            player.SetForce(0, 0);
+            player.SetGravity(false);
+            if (currentCustomer != null &&
+                currentCustomer.DestinationPlatform.Contains("^") ==
+                currentCustomer.CrossedBorder) {
+                //We are in correct level
+                if (currentCustomer.DestinationPlatform.Length == 1) {
+                    if (currentCustomer.DestinationPlatform[0] == '^') {
+                        currentCustomer.CalculatePoints();
+                        currentCustomer = null;
+                    } else if (currentCustomer.DestinationPlatform[0] == platform.Identifier) {
+                        currentCustomer.CalculatePoints();
+                        currentCustomer = null;
+                    }
+                } else if (currentCustomer.DestinationPlatform[1] ==
+                           platform.Identifier) {
+                    currentCustomer.CalculatePoints();
+                    currentCustomer = null;
+                }
+            }
+        }
+
         public void AddCustomer(Entity customer) {
             levelContainer[2].AddStationaryEntity(customer);
         }
