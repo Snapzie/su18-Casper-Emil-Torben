@@ -2,14 +2,14 @@
    Vi har til dette projekt lavet tests løbende for at sikre os at koden har den intenderede funktion. Disse tests består af unit tests og integration tests. Vores unit test består i at teste at File Reader kan læse en fil og konvertere denne til et objekt af typen Level. Dette testes på to forskellige filer der har forskelligt antal platforme, kunder og forhindringer, i og med denne passer uden fejl regner vi med at fil til Level objekt fungerer som den skal.\\
    Vores integration test består i at teste hele kommunikationskæden fra LevelLoader til LevelsKeeper. Testen starter med at kalde LevelLoader og få denne til at loade alle levels og derefter tjekker vi LevelsKeeper for at se om denne indeholder de forventede Level-objekter. Testen indeholder på den måde både LevelLoader, FileReader, Level klassen, og LevelsKeeper. Da denne test også passer kan vi regne med at hele denne kæde fungerer som den skal.\\
    I første aflevering i blok 4 havde vi et problem som gjorde det umuligt at teste vores implementationer hvori der indgik Images fra DIKU-arcade. I denne aflevering har vi fundet en løsning til nogle af disse problemer, vi har nemlig lavet en Mock up af IBaseImage. Det der gjorde vi ikke kunne teste implementationen sidst var at Image havde en Render-method som krævede at der var et Game-window åbent, hvilket vi gerne vil undgå til vores tests. Vi har derfor lavet metoden CreateEntity om så denne tager et objekt der implementerer IBaseImage og da bruger den dette til at sætte på den entity den returnerer. Det betyder at vi i vores tests kan give den et MockUpImage, som implementerer IBaseImage, som argument, mens vi i selve spillet giver den et rigtigt Image. Dette betyder også at klassen EntityCreator ikke længere er dirrekte afhængig af Image. Vi har på den måde lavet vores kode mere abstrakt. Det betyder at hvis vi eksempelvis ville have nogle blokke der brugte ImageStrides i stedet for blot images, kunne vi gøre dette uden at skulle ændre i klassen EntityCreator.\\
-   Det har dog ikke været ikke været muligt at bruge denne strategi alle steder, eksempelvis i Player-klassen. Denne loader en masse billeder som den kan vise, og denne kan derfor heller ikke instansieres i tests. Vi kunne godt lave Player-klassen om, så den tog et array af IBaseImage som argument, og da brugte disse, men dette ville kræve større ændringer i implementationen af både GameRunning og Player. Inden Exercise 9 fik vi at vide at der ville blive udarbejdet en måde at lave et vindue der kan bruges til tests. Dette har vi også fået at vide er lavet, men vi har ikke kunnet få dette til at virke. Når vi kalder metoden ''DIKUArcade.Window.CreateOpenGLContext'' får vi en NullRefrenceException inde i OpenGL-frameworket. Det har derfor ikke været multigt at lave udtømmene tests af Player, states og CustomerTranslator. Vi har dog alligevel udarbejdet en testplan hvor alle disse indgår, denne kan læses herunder. Vi har valgt at ændre lidt i Player i forhold til sidste aflevering for at kunne teste blot nogle af dennes funktioner. Det vi har gjort er at sørge for at billederne der er funbundne Player ikke loades når contructoren kaldes, de loades derimod i en seperat metode kaldet ''SetImages''. Det vil sige at vi i tests kan instansiere en Player uden at loade images i tests, hvorimod vi i implementationen af spillet kan kalde contructoren og da SetImages. Det er selvfølgelig suboptimalt at der skal kaldes 2 metoder for at instansiere Player, men til gengæld kan klassen testses. 
+   Det har dog ikke været ikke været muligt at bruge denne strategi alle steder eksempelvis i Player-klassen. Inden Exercise 9 fik vi at vide at der ville blive udarbejdet en måde at lave et vindue der kan bruges til tests. Dette har vi også fået at vide er lavet, men vi har ikke kunnet få dette til at virke. Når vi kalder metoden ''DIKUArcade.Window.CreateOpenGLContext'' får vi en NullRefrenceException inde i OpenGL-frameworket. Det har derfor ikke været multigt at lave udtømmene tests af Player, states og CustomerTranslator. Vi har valgt at ændre lidt i Player i forhold til sidste aflevering for at kunne teste blot nogle af dennes funktioner. Det vi har gjort er at sørge for at billederne der er funbundne Player ikke loades når contructoren kaldes, de loades derimod i en seperat metode i Player kaldet ''SetImages''. Det vil sige at vi i tests kan instansiere en Player uden at loade images i tests, hvorimod vi i implementationen af spillet kan kalde contructoren og da SetImages. Det er selvfølgelig suboptimalt at der skal kaldes 2 metoder for at instansiere Player, men til gengæld kan klassen testses. 
 \subsection{Testplan}
    Det vil fremgå ved de tests det ikke har været muligt at lave at disse ikke har været mulige.
    \subsubsection{Player}
       \begin{enumerate}
          \item Test at tyngdekraften får Player til at skifte hastighed. For at kunne gøre dette skal der instansieres et player objekt hvorefter der skal berenges én frame, og da testes det om hastigheden i y-retningen er mindre end 0, og at hastigheden i x-retningen er lig med 0.\\
          Det har ikke været muligt for os at teste dette da vi ikke kan beregne en frame da Player refererer til Game's GameTimer, og Game instansierer et vindue, hvilket vi ikke kan i tests.
-         \item Test at kraften på Player er 0 ved instansiering. Dette testes ved at instansiere en Player og tester om kraften i x- og y-retningen begge er 0.
+         \item Test at kraften på Player er 0 i begge retninger ved instansiering. 
          \item Test at Players boostere starter ved korekte events. Denne skal oprette en PlayerEvent der siger at Player skal tænde en bestemt booster, hvorefter Players ProcessEvent bliver kaldt med dette event som argument. Derefter tjekkes det at Players force er som forventet i begge retninger. Så sendes et event til Player om at slukke for den pågældende motor, og det tjekkes at force nu er 0 i begge retninger.
          \item Tjek at Player bevæger sig når force ikke er 0. Her sættes Players force til noget bestemt hvorefter det testses om spilleren har rykket sig i den forventede retning. \\
          Det har ikke været muligt at lave denne test af samme oversag som den førstnævnte.       
@@ -18,20 +18,20 @@
       \begin{enumerate}
          \item Test at position er som forventet for den returnerede Entity. Data til denne test er at man giver EntityCreator et linjenummer og kolonnenummer og tjekker at den returnerede Entity har position som forventet. Det er som nævnt lykkes os at lave denne ved at give den et MockUpImage. 
       \end{enumerate}
-   \subsection{FileReader}
+   \subsubsection{FileReader}
       \begin{enumerate}
          \item Test at et kald til FileReader returnerer et level-objekt med de forventede attributer. Hver attribut testes i en test for sig, for at det er nemt at se hvilken del der fejler.
       \end{enumerate}
-   \subsection{LevelCreator}
+   \subsubsection{LevelCreator}
       \begin{enumerate}
          \item En test der givet et level-nummer tjekker at de EntityContainers der returnerer indeholder de rigtige elementer. Dette har ikke været muligt for os at lave, da LevelCreator laver images.
       \end{enumerate}
-   \subsection{StateMachine}
+   \subsubsection{StateMachine}
       \begin{enumerate}
          \item Test at det aktive state er MainMenu, ved instansiering af StateMachine.
          \item Test at ved processering af GameStateEvent skiftes der til det korrekte GameState.
       \end{enumerate}
-      Det har ikke været muligt at lave tests med StateMachine da den instansiere MainMenu som benytter sig af Text der skal renders. Dette gælder alle states da de alle renderer et eller andet.
+      Det har ikke været muligt at lave tests med StateMachine da den instansierer MainMenu som benytter sig af Text der skal renders. Dette gælder alle states da de alle renderer et eller andet.
    \subsubsection{MainMenu}
       \begin{enumerate}
          \item Test at der startes et spil med det rigtige level ved tryk på enter når den aktive knap er ''New Game''
@@ -47,5 +47,9 @@
       \begin{enumerate}
          \item Test at der skiftes til det rigtige GameState baseret på hvad der vælges fra Pause-menuen.
       \end{enumerate}
-
+   \subsubsection{Integrationstests}
+      \begin{enumerate}
+         \item Test kommunikationskæden fra LevelLoader til LevelsKeeper, ved at få LevelLoader til at indlæse levels, og tjek derefter om der er de korrekte levels i LevelsKeeper.
+      \end{enumerate}
+      Hvis alle disse tests kunne implementeres ville vi have en meget god idé om at den kode vi har skrevet fungerer som den skal, da vi på den måde får testet de ting der kan gå galt. Med de tests vi har implementeret får vi dog et mindre overblik over om alt fungerer som det skal. Vi kan derfor konkludere på vores testafsnit at de tests vi har implementeret ikke er tilstrækkelige til at få et helhedsoverblik, men at vi med vores testplan har et overblik over hvilke tests der burde laves af vores program.
       
