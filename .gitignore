@@ -1,7 +1,7 @@
 .idea/
 DIKUArcade/
 DIKUArcade-master/
-.DS_STORE
+.DS_Store
 obj/
 packages/OpenTK2.0.0/
 /SU18-Exercises/.vs/SU18-Exercises/v15/Server/sqlite3/db.lock

@@ -2,6 +2,9 @@
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
 <<<<<<< HEAD
+    <content url="file://$MODULE_DIR$/../../../DIKUArcade-master/DIKUArcade" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <content url="file://$MODULE_DIR$/../../../DIKUArcade/DIKUArcade" />
@@ -15,6 +18,7 @@
     <content url="file://$MODULE_DIR$/../../../DIKUArcade" />
     <content url="file://$MODULE_DIR$/../../../DIKUArcade-master/DIKUArcade/DIKUArcade.csproj" />
 >>>>>>> 68bab5ad6d6252737ba11ab1aafe3f493c16380b
+>>>>>>> 8824cb54937a16cfe6539b5f9ffa302660a06cef
     <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

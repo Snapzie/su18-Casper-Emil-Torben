@@ -48,15 +48,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerTests.cs" />
     <Compile Include="CustomerTranslatorTests.cs" />
     <Compile Include="EntityCreatorTests.cs" />
     <Compile Include="FileReaderTests.cs" />
     <Compile Include="IntegrationFileToLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateTests.cs" />
+    <Compile Include="PlayerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade.csproj">
+    <ProjectReference Include="..\..\DIKUArcade-master\DIKUArcade\DIKUArcade.csproj">
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>

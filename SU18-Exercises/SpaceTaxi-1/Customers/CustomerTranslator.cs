@@ -10,6 +10,13 @@ using SpaceTaxi_1.SpaceTaxiStates;
 
 namespace SpaceTaxi_1.Customers {
     public class CustomerTranslator {
+        /// <summary>
+        /// Parses the information from Levelskeeper to create customers
+        /// </summary>
+        /// <param name="customers">A list of customers to be created</param>
+        /// <param name="level">The level layout of the level the customer will be spawned in</param>
+        /// <param name="customerImage">The image to be used for the customer</param>
+        /// <returns>An array of customer objects</returns>
         public Customer[] MakeCustomers(List<string> customers, char[][] level,
             IBaseImage customerImage) {
             Customer[] result = new Customer[customers.Count];
@@ -49,7 +56,12 @@ namespace SpaceTaxi_1.Customers {
 
             return result;
         }
-
+        
+        /// <summary>
+        /// Creates the timed event needed to spawn the customer
+        /// </summary>
+        /// <param name="customer">The customer for which the timed event should be made</param>
+        /// <param name="index">An identifier for the customer</param>
         private void CreateEvent(Customer customer, int index) {
             TimedEventContainer timedEventContainer = GameRunning.GetInstance().TimedEventContainer;
             timedEventContainer.AddTimedEvent(TimeSpanType.Seconds, customer.SpawnTime, "CUSTOMER",

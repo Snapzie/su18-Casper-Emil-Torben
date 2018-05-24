@@ -24,20 +24,6 @@ namespace SpaceTaxi_1.Customers {
         
         private static EntityCreator entityCreator = new EntityCreator();
             
-        /// <summary>
-        /// The constructor from base (Entity) is called to make Customer an entity
-        /// </summary>
-        /// <param name="name">The name of the customer</param>
-        /// <param name="spawnTime">The time required from when game is started until the cusotmer shall spawn</param>
-        /// <param name="spawnPlatform">The platform on which the customer shall spawn</param>
-        /// <param name="destinationPlatform">The platform on which the customer shall be dropped off</param>
-        /// <param name="timeToDropOff">The time-span in which the customer must be dropped off after having been picked up</param>
-        /// <param name="points">The amount of points given by the customer upon sucessfull drop-off</param>
-        /// <param name="posX">The x-coordinate of the customers spawn-position</param>
-        /// <param name="posY">The y-coordinate of the customers spawn-position</param>
-        
-        
-        
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
             int points, Entity entity) : base(entity.Shape, entity.Image) {
             this.Name = name;
@@ -49,7 +35,10 @@ namespace SpaceTaxi_1.Customers {
             CrossedBorder = false;
         }
        
-
+        /// <summary>
+        /// Calculates the points scored for delivering the customer
+        /// </summary>
+        /// <returns>The total amount of points earned</returns>
         public int CalculatePoints() {
             double dropOffDelta = StaticTimer.GetElapsedSeconds() - pickUpTime;
             if (dropOffDelta > TimeToDropOff) {

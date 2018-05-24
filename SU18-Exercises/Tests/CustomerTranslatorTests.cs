@@ -109,5 +109,6 @@ namespace Tests {
             Assert.AreEqual(customers[3].Points, 200);
         }
         
+        
     }
 }
