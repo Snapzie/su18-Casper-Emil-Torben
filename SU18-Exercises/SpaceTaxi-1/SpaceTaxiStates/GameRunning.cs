@@ -117,7 +117,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                                 GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
                         
                     } //Collision with platform too fast
-                    else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.01f) {
+                    else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.004f) {
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
