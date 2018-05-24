@@ -50,5 +50,27 @@ namespace Tests {
             Assert.AreEqual(lvl.Customers, new List<string> {"Bob 10 J r 10 100", "Carol 30 r ^ 10 100"});
         }
         
+        [Test]
+        public void TestLevelChars() {
+            Level lvl =
+                fileReader.ReadFile(shortNSweetStream);
+            Assert.AreEqual(lvl.LevelLayout[0][0], '%');
+            Assert.AreEqual(lvl.LevelLayout[0][39], '#');
+            lvl = fileReader.ReadFile(beachStream);
+            Assert.AreEqual(lvl.LevelLayout[16][28], 'a');
+            Assert.AreEqual(lvl.LevelLayout[22][39], 'O');
+        }
+        
+        [Test]
+        public void TestLevelDecoder() {
+            Level lvl =
+                fileReader.ReadFile(shortNSweetStream);
+            Assert.AreEqual("neptune-upper-left.png", lvl.Decoder['N']);
+            Assert.AreEqual("white-square.png", lvl.Decoder['%']);
+            lvl = fileReader.ReadFile(beachStream);
+            Assert.AreEqual("aspargus-edge-left.png", lvl.Decoder['A']);
+            Assert.AreEqual("emperor-lower-left.png", lvl.Decoder['c']);
+        }
+        
     }
 }

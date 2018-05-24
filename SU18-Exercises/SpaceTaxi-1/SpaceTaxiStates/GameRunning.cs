@@ -228,7 +228,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         /// <summary>
-        /// Empty method to ensure iteration
+        /// Empty method to ensure deletion of customer from its Container
         /// </summary>
         private void CustomerIterator(Entity entity) {
         }
