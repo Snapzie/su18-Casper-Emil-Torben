@@ -5,26 +5,6 @@ I vores design har vi vægtet at hver class vi implementere har ét ansvar. Det 
 Vi kan bekræfte det ovenstående ud fra vores traceability matrix som mapper hvert af vores koncepter med use cases. Vores traceability matrix indikerer at hver af vores klasser kun har ét ansvar idet at få koncepter matcher flere use cases. Mængden af klasser kan være en indikation på at kommunikationskæden er lang, mens det at der ikke er mange koncepter som mapper til mere end en use case fortæller os at arbejdsbyrden er jævnt fordelt.\\
 
 \begin{table}[h!]
-<<<<<<< HEAD
-\centering
-\label{my-label}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
-\hline
-               & LL & FR & LCl & LCr & EC & LK & GameState & StateMachine & SpaceBus \\\hline
-
-Load Levels   &          x           &            &       &      &              &       &       &       &      \\\hline
-Læs filer    &         &              x          &       &      &              &       &       &       &       \\\hline
-Level class        &         &             &             x    &      &              &      &       &          &     \\\hline
-Lav et level  &         &             &            &       x&                   &       &       &       &       \\\hline
-Lav en entity &         &             &            &       &     x &                      &       &       &     \\\hline
-Hold Levels   &         &             &            &       &      &x            &            &       & \\\hline
-Pause Game &         &             &            &       &      &                      &x       &       &     \\\hline
-Menu &         &             &            &       &      &                      &x       &       &     \\\hline
-Tab spil &         &             &            &       &      &                      &x       &       &     \\\hline
-Kør spil &         &             &            &       &      &                      &x       &       &     \\\hline
-Skift state &         &             &            &       &      &                      &       &x       &     \\\hline
-Inputs &         &             &            &       &      &                      & x           & x   & x  \\\hline
-=======
 \hspace{-95pt}
 \label{my-label}
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
@@ -45,7 +25,6 @@ Skift state &         &             &            &       &      &               
 Inputs &         &             &            &       &      &                      & x           & x   & x  &&\\\hline
 Tid &         &             &            &       &      &                      & x           &    &   &&\\\hline
 Customer information &         &             &            &       &      &                      &            &    &   &x&x\\\hline
->>>>>>> 110563374d3f2be9fa0f1550d16720945c762a91
 \end{tabular}
 \end{table}
 
@@ -54,11 +33,8 @@ Dernæst bliver Game instantiatet hvilket resulterer i instantiationen af SpaceB
 Herefter køres GameLoop i Game hvilket begynder spillet. Når der trykkes 'New Game' fra menuen så skifter StateMachine den aktive state til GameRunning ved hjælp af StateTransformer. Når GameRunning bliver kørt bedes LevelCreator om en liste af EntityContainers for de blokke som skal udgøre det level som skal tegnes. LevelCreator indeholder også en instans af LevelsKeeper som nu benyttes til at hente et specifikt level som er blevet gemt. LevelCreator benytter oplysningerne i det hentede level objekt til at bede EntityCreator om at lave en ny entity som skal udgøre en blok i et level. LevelCreator gemmer denne entity i en EntityContainer, og når alle blokke er blevet bygget returneres listen af EntityContainere og GameRunning kan derefter render dem.\\
 Da alle vores GameStates er meget ens, så er de samlet under det samme interface. Dette bevirker at StateMachine skal holde en instans af en 'IGameState'. Vores StateMachine er indført ved principperne om en statemachine, men da vi ikke har lørt om dette design pattern kan vi kun beskrive det som en form for implementation af et Mediator pattern som sørger for kommunikationen mellem vores game states.\\
 
-<<<<<<< HEAD
-=======
 Vi har valgt at lade spillet løbe i cirkler indtil spilleren selv lukker det. Dette har vi gjort da det gør det nemmere at spille spillet igennem og fordi der ikke er noget formelt krav om at implementere en måde at vinde på. Dette betyder dog også at hvis en customer skal fra et level og over i det næste, og man i stedet for at sætte customeren af i dette level, flyver tilbage til det oprindelige, så kan man ikke længere samle nye customers op, og man kan ikke længere sætte den gamle customer af. Vi mener ikke at denne bug er et reelt problem idet at hvis der stilles et formelt krav om at afslutte spillet, så ville man ikke længere kunne flyve tilbage til det oprindelige level, og man ville kunne implementere et tjek for om spilleren 'glemmer' sin customer.
 
->>>>>>> 110563374d3f2be9fa0f1550d16720945c762a91
 \subsection{Design principper}
 Som tidligere beskrevet har vi lagt stor vægt på Single Responsibility Princippet og vi ser at dette princip i høj grad bliver opfyldt. Hver klasse har en enkelt opgave som den selv løser. Det kan diskuteres om StateMachine og StateTransformer bør være én klasse, men vi har valgt at se StateMachines ansvar som den klasse der skifter states og StateTransformers som værende at oversætte events. Vi har således to ansvar til to klasser men de arbejder sammen om at udføre et fælles mål.\\
 Ud fra vores traceablity matrix ser vi at flere af vores koncepter håndterer input. Dette er muligvis en smule misledende idet at alle koncepterne får hjælp af SpaceBus til dette. Da SpaceBus fungerer som en observer så er det ikke underligt at de klasser som benytter SpaceBus alle vil håndtere inputs.\\

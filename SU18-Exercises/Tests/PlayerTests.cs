@@ -16,6 +16,7 @@ namespace Tests {
             [SetUp]
             public void SetUp() {
                 p = new Player();
+                
             }
 
             [Test]
@@ -24,15 +25,15 @@ namespace Tests {
                 Assert.AreEqual(p.force.Y, 0);
             }
 
-//            [Test]
-//            public void GravityTest() {
-//                //Render player to calculate gravity, this fails 
-                  //since we don't have and can't make a game or gameTimer
+            [Test]
+            public void GravityTest() {
+                //Render player to calculate gravity, this fails 
+                // since we don't have and can't make a game or gameTimer
 //                p.RenderPlayer();
 //                Assert.AreEqual(p.Entity.Shape.AsDynamicShape().Direction.X, 0);
 //                Assert.Less(p.Entity.Shape.AsDynamicShape().Direction.Y, 0);
-//
-//            }
+
+            }
 
             [Test]
             public void BoosterUpTest() {
