@@ -5,24 +5,25 @@ I vores design har vi vægtet at hver class vi implementere har ét ansvar. Det 
 Vi kan bekræfte det ovenstående ud fra vores traceability matrix som mapper hvert af vores koncepter med use cases. Vores traceability matrix indikerer at hver af vores klasser kun har ét ansvar idet at få koncepter matcher flere use cases. Mængden af klasser kan være en indikation på at kommunikationskæden er lang, mens det at der ikke er mange koncepter som mapper til mere end en use case fortæller os at arbejdsbyrden er jævnt fordelt.\\
 
 \begin{table}[h!]
-\centering
+\hspace{-95pt}
 \label{my-label}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
-               & LL & FR & LCl & LCr & EC & LK & GameState & StateMachine & SpaceBus \\\hline
+               & LL & FR & LCl & LCr & EC & LK & GameState & StateMachine & SpaceBus &Customer & CT\\\hline
 
-Load Levels   &          x           &            &       &      &              &       &       &       &      \\\hline
-Læs filer    &         &              x          &       &      &              &       &       &       &       \\\hline
-Level class        &         &             &             x    &      &              &      &       &          &     \\\hline
-Lav et level  &         &             &            &       x&                   &       &       &       &       \\\hline
-Lav en entity &         &             &            &       &     x &                      &       &       &     \\\hline
-Hold Levels   &         &             &            &       &      &x            &            &       & \\\hline
-Pause Game &         &             &            &       &      &                      &x       &       &     \\\hline
-Menu &         &             &            &       &      &                      &x       &       &     \\\hline
-Tab spil &         &             &            &       &      &                      &x       &       &     \\\hline
-Kør spil &         &             &            &       &      &                      &x       &       &     \\\hline
-Skift state &         &             &            &       &      &                      &       &x       &     \\\hline
-Inputs &         &             &            &       &      &                      & x           & x   & x  \\\hline
+Load Levels   &          x           &            &       &      &              &       &       &       &      &&\\\hline
+Læs filer    &         &              x          &       &      &              &       &       &       &       &&\\\hline
+Level class        &         &             &             x    &      &              &      &       &          &     &&\\\hline
+Lav et level  &         &             &            &       x&                   &       &       &       &       &&\\\hline
+Lav en entity &         &             &            &       &     x &                      &       &       &     &&\\\hline
+Hold Levels   &         &             &            &       &      &x            &            &       & &&\\\hline
+Pause Game &         &             &            &       &      &                      &x       &       &     &&\\\hline
+Menu &         &             &            &       &      &                      &x       &       &     &&\\\hline
+Tab spil &         &             &            &       &      &                      &x       &       &     &&\\\hline
+Kør spil &         &             &            &       &      &                      &x       &       &     &&\\\hline
+Skift state &         &             &            &       &      &                      &       &x       &     &&\\\hline
+Inputs &         &             &            &       &      &                      & x           & x   & x  &&\\\hline
+Customer information &         &             &            &       &      &                      &            &    &   &x&x\\\hline
 \end{tabular}
 \end{table}
 

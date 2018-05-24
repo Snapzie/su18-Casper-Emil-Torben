@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.8)  24 MAY 2018 12:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.8)  24 MAY 2018 13:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1762,131 +1762,126 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 3.
 ) (./latex/baggrund.tex) (./latex/analyse.tex
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 5.
+Overfull \hbox (11.52567pt too wide) in paragraph at lines 2--1
+\T1/ppl/m/n/10 mange funk-tioner som har hjulpet os med im-ple-menterin-gen i a
+lle aflev-eringerne.
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--3
+
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 6.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 5.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 6.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 5.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 6.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 5.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 6.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 5.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 6.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 5.
+(Font)              scaled to size 10.42007pt on input line 6.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 5.
+(Font)              scaled to size 7.91925pt on input line 6.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 5.
+(Font)              scaled to size 6.25204pt on input line 6.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 5.
+(Font)              scaled to size 10.42007pt on input line 6.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 5.
+(Font)              scaled to size 7.91925pt on input line 6.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 5.
+(Font)              scaled to size 6.25204pt on input line 6.
 
-Overfull \hbox (11.7752pt too wide) in paragraph at lines 5--18
+Overfull \hbox (16.83531pt too wide) in paragraph at lines 6--22
  [][] 
  []
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 18.
-
-Overfull \hbox (33.0752pt too wide) in paragraph at lines 25--39
-[]  [] 
- []
-
-
-Overfull \hbox (44.53497pt too wide) in paragraph at lines 45--64
-[]  [] 
- []
-
-) (./latex/design.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--1
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 22.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <8> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 1.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 26.
 [2]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (60.36539pt too wide) in paragraph at lines 33--48
+[]  [] 
+ []
 
 [3]
+Overfull \hbox (72.12486pt too wide) in paragraph at lines 57--82
+[]  [] 
+ []
+
+) (./latex/design.tex
+Underfull \hbox (badness 10000) in paragraph at lines 86--1
+
+ []
+
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
 
-Overfull \hbox (66.73703pt too wide) in paragraph at lines 10--27
- [][] 
+Overfull \hbox (95.43599pt too wide) in paragraph at lines 8--28
+[]  [][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--33
-
- []
-
-[4]
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 34.
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
+Underfull \hbox (badness 10000) in paragraph at lines 30--34
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 35.
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
-<latex/Images/SequenceDiagram.png, id=95, 2218.2875pt x 2371.86125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+ []
+
+[6] <latex/Images/SequenceDiagram.png, id=99, 2218.2875pt x 2371.86125pt>
 File: latex/Images/SequenceDiagram.png Graphic file (type png)
 
 <use latex/Images/SequenceDiagram.png>
-Package pdftex.def Info: latex/Images/SequenceDiagram.png used on input line 45
+Package pdftex.def Info: latex/Images/SequenceDiagram.png used on input line 46
 .
 (pdftex.def)             Requested size: 345.0pt x 368.86522pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 ) (./latex/Implementation2.tex
-<latex/Images/UML_SU9.png, id=97, 1335.99126pt x 1917.1625pt>
+<latex/Images/UML_SU9.png, id=101, 1335.99126pt x 1917.1625pt>
 File: latex/Images/UML_SU9.png Graphic file (type png)
 
 <use latex/Images/UML_SU9.png>
@@ -1897,7 +1892,7 @@ Overfull \hbox (37.6777pt too wide) in paragraph at lines 2--3
 [] 
  []
 
-[6] [7 <./latex/Images/SequenceDiagram.png>]
+[7 <./latex/Images/SequenceDiagram.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 
  []
@@ -1916,13 +1911,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) (./latex/evaluering.tex
-Overfull \hbox (5.0058pt too wide) in paragraph at lines 11--1
+
+Overfull \hbox (5.0058pt too wide) in paragraph at lines 11--13
 \T1/ppl/m/n/10 skal falde igen-nem plat-for-men. Der-for slukker vi for tyn-gde
 kraften og spillerens
  []
 
-[9]) (./latex/konklusion.tex [10]) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+
+ []
+
+[9]) (./latex/evaluering.tex) (./latex/konklusion.tex [10])
+
 AED: lastpage setting LastPage
 [11]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 22.
@@ -1936,11 +1937,11 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 Here is how much of TeX's memory you used:
  32570 strings out of 492995
  611712 string characters out of 6132705
- 748554 words of memory out of 5000000
+ 746565 words of memory out of 5000000
  35518 multiletter control sequences out of 15000+600000
  36989 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,86p,10379b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,86p,10379b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1949,7 +1950,7 @@ live/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texli
 ve/2017/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive
 /2017/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on master.pdf (11 pages, 460023 bytes).
+Output written on master.pdf (11 pages, 462216 bytes).
 PDF statistics:
  150 PDF objects out of 1000 (max. 8388607)
  112 compressed objects within 2 object streams
