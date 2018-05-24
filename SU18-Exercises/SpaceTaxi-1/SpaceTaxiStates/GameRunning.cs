@@ -181,15 +181,15 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 //We are in correct level
                 if (currentCustomer.DestinationPlatform.Length == 1) {
                     if (currentCustomer.DestinationPlatform[0] == '^') {
-                        currentCustomer.CalculatePoints();
+                        points += currentCustomer.CalculatePoints();
                         currentCustomer = null;
                     } else if (currentCustomer.DestinationPlatform[0] == platform.Identifier) {
-                        currentCustomer.CalculatePoints();
+                        points += currentCustomer.CalculatePoints();
                         currentCustomer = null;
                     }
                 } else if (currentCustomer.DestinationPlatform[1] ==
                            platform.Identifier) {
-                    currentCustomer.CalculatePoints();
+                    points += currentCustomer.CalculatePoints();
                     currentCustomer = null;
                 }
             }
@@ -203,11 +203,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             entity.DeleteEntity();
             //CustomerIterator kaldes for at fjerne slettede customers
             levelContainer[2].Iterate(CustomerIterator);
-            
-        }
-
-        public void GivePoints(int n) {
-            points += n;
             
         }
 

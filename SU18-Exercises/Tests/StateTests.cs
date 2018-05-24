@@ -17,8 +17,8 @@ namespace Tests {
                 //Sets working dirrectory in order to find assets
                 var dir = Path.GetDirectoryName(typeof(LevelLoader).Assembly.Location);
                 Environment.CurrentDirectory = dir;
-                LevelLoader ll = new LevelLoader();
-                ll.LoadLevels();
+//                LevelLoader ll = new LevelLoader();
+//                ll.LoadLevels();
                 p = new Player();
             }
 
