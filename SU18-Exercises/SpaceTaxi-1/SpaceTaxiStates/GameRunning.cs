@@ -83,6 +83,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             customers = ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);;         
             TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
             player = new Player();
+            player.SetImages(); 
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
         }
 
@@ -114,7 +115,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 0) {
                         BelowPlatform();
                     } //Collision with platform too fast
-                    else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.01f) {
+                    else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.004f) {
                         CrashingPlatform();
                     } //Landed on platform 
                     else {
@@ -180,15 +181,15 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 //We are in correct level
                 if (currentCustomer.DestinationPlatform.Length == 1) {
                     if (currentCustomer.DestinationPlatform[0] == '^') {
-                        currentCustomer.CalculatePoints();
+                        points += currentCustomer.CalculatePoints();
                         currentCustomer = null;
                     } else if (currentCustomer.DestinationPlatform[0] == platform.Identifier) {
-                        currentCustomer.CalculatePoints();
+                        points += currentCustomer.CalculatePoints();
                         currentCustomer = null;
                     }
                 } else if (currentCustomer.DestinationPlatform[1] ==
                            platform.Identifier) {
-                    currentCustomer.CalculatePoints();
+                    points += currentCustomer.CalculatePoints();
                     currentCustomer = null;
                 }
             }
@@ -202,11 +203,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             entity.DeleteEntity();
             //CustomerIterator kaldes for at fjerne slettede customers
             levelContainer[2].Iterate(CustomerIterator);
-            
-        }
-
-        public void GivePoints(int n) {
-            points += n;
             
         }
 

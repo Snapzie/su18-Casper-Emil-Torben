@@ -35,14 +35,15 @@ namespace SpaceTaxi_1.Customers {
             CrossedBorder = false;
         }
        
-        public void CalculatePoints() {
+        public int CalculatePoints() {
             double dropOffDelta = StaticTimer.GetElapsedSeconds() - pickUpTime;
             if (dropOffDelta > TimeToDropOff) {
                 double frac = (dropOffDelta - TimeToDropOff) / TimeToDropOff;
                 double penaltyPoints = frac * Points;
                 Points = Points - (int) penaltyPoints;
             }
-            GameRunning.GetInstance().GivePoints(Points);
+
+            return Points;
         }
     }
 }
