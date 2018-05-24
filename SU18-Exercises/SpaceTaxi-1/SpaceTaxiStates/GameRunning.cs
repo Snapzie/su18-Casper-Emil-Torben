@@ -39,11 +39,14 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         public static GameRunning GetInstance() {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
         }
-
+        
+        /// <summary>
+        /// Resets the game
+        /// </summary>
         public void NewGame() {
             currentCustomer = null;
             points = 0;
-            levelContainer = new EntityContainer<Entity>[3];
+            levelContainer = new EntityContainer<Entity>[3]; //Assuming maximun of 3 customers pr. level
             TimedEventContainer = new TimedEventContainer(3); //Assuming maximun of 3 customers pr. level
             TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
             customerImage =
@@ -103,7 +106,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
         
         /// <summary>
-        /// Does collision detection by iterating all blocks
+        /// Does collision detection by iterating all blocks, platforms and customers
         /// </summary>
         public void IterateCollisions() {
             bool collisionDetected = false;
@@ -158,19 +161,29 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Handles the what happens when the player hits a block from below
+        /// </summary>
         private void BelowPlatform() {
             SpaceBus.GetBus().RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                     GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
         }
-
+        
+        /// <summary>
+        /// Handles the what happens when the player hits a block too fast
+        /// </summary>
         private void CrashingPlatform() {
             SpaceBus.GetBus().RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                     GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
         }
-
+        
+        /// <summary>
+        /// Handles the what happens when the player will land on a platform
+        /// </summary>
+        /// <param name="platform">The platform to collide with</param>
         private void LandingPlatform(Platform platform) {
             player.SetDirrection(0, 0);
             player.SetForce(0, 0);
@@ -194,11 +207,19 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Adds the customer to the rendering EntityContainer
+        /// </summary>
+        /// <param name="customer">The customer to add</param>
         public void AddCustomer(Entity customer) {
             levelContainer[2].AddStationaryEntity(customer);
         }
-
+        
+        /// <summary>
+        /// Removes a customer from the rendering EntityContainer
+        /// </summary>
+        /// <param name="entity">The customer to remove</param>
         public void RemoveCustomer(Entity entity) {
             entity.DeleteEntity();
             //CustomerIterator kaldes for at fjerne slettede customers
@@ -261,7 +282,11 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Handles the timed event call to add a customer to the rendering EntityContainer
+        /// </summary>
+        /// <param name="parameter">The identifier of a customer</param>
         public void HandleCustomerEvents(string parameter) {
             AddCustomer(customers[int.Parse(parameter)]);
         }

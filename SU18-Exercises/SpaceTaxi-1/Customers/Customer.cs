@@ -35,6 +35,10 @@ namespace SpaceTaxi_1.Customers {
             CrossedBorder = false;
         }
        
+        /// <summary>
+        /// Calculates the points scored for delivering the customer
+        /// </summary>
+        /// <returns>The total amount of points earned</returns>
         public int CalculatePoints() {
             double dropOffDelta = StaticTimer.GetElapsedSeconds() - pickUpTime;
             if (dropOffDelta > TimeToDropOff) {
