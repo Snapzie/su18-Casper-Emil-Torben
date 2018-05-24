@@ -24,7 +24,6 @@ namespace SpaceTaxi_1.Customers {
         
         private static EntityCreator entityCreator = new EntityCreator();
             
-    
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
             int points, Entity entity) : base(entity.Shape, entity.Image) {
             this.Name = name;
@@ -36,7 +35,6 @@ namespace SpaceTaxi_1.Customers {
             CrossedBorder = false;
         }
        
-
         public void CalculatePoints() {
             double dropOffDelta = StaticTimer.GetElapsedSeconds() - pickUpTime;
             if (dropOffDelta > TimeToDropOff) {
