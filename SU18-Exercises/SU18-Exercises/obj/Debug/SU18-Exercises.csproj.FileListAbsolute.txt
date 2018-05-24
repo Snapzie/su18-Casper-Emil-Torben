@@ -27,5 +27,16 @@ D:/Uni/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18-Exer
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18-Exercises.csproj.CoreCompileInputs.cache
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.exe
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.pdb
+<<<<<<< HEAD
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/SU18_Exercises.exe
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/SU18_Exercises.pdb
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/OpenTK.dll
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/OpenTK.xml
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18-Exercises.csprojResolveAssemblyReference.cache
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18-Exercises.csproj.CoreCompileInputs.cache
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.exe
+/home/torben/Downloads/Datalogi/SU/SU_4/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/obj/Debug/SU18_Exercises.pdb
+=======
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/OpenTK.dll
 /home/emil/CloudStation/Universitet/su/su18-Casper-Emil-Torben/SU18-Exercises/SU18-Exercises/bin/Debug/OpenTK.xml
+>>>>>>> d167f592d747473a6ab89c1c0cf4d9d7f0c351ff

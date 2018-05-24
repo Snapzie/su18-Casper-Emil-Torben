@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+
+using System.Collections.Generic;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
