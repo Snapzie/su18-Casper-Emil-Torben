@@ -10,7 +10,7 @@ namespace Tests {
     //All these tests pass if CustomerTranslator is run without assigning events, 
     //but since GameRunning is refrenced when assigning events it fails
     [TestFixture]
-    public class CustomerTests {
+    public class CustomerTranslatorTests {
 //        private CustomerTranslator customerTranslator;
 //        private char[][] levelChars;
 //        private List<string> customerList;

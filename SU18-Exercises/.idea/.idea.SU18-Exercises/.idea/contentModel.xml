@@ -402,6 +402,7 @@
             </e>
           </e>
         </e>
+        <e p="CustomerTests.cs" t="Include" />
         <e p="CustomerTranslatorTests.cs" t="Include" />
         <e p="EntityCreatorTests.cs" t="Include" />
         <e p="FileReaderTests.cs" t="Include" />
