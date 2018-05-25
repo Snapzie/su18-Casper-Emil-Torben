@@ -44,17 +44,7 @@ namespace Tests {
             while((nowTime = StaticTimer.GetElapsedSeconds()) - startTime < 5) {}
             Assert.Less(customer.CalculatePoints(), maxPoints);
         }
-
-        [Test]
-        // Seeing as how we don't allow for bonus points, dropping off the customer 
-        // early will not result in an extra amount of points given.
-        // This is tested by setting pickUpTime to an arbitary larger value
-        // than the amount of time elapsed. 
-        public void FiveSecondsEarly() {
-            var Points = 100;
-            customer.pickUpTime = 20;
-            Assert.AreEqual(customer.CalculatePoints(), Points);
-        }
+        
     }
         
     
