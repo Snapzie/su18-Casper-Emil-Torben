@@ -1,5 +1,4 @@
-﻿using System;
-using DIKUArcade.EventBus;
+﻿using DIKUArcade.EventBus;
 using DIKUArcade.State;
 using SpaceTaxi_1.SpaceTaxiGame;
 
