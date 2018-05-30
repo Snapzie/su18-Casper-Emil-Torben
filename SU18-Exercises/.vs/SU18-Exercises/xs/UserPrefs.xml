@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{119E4892-9FDB-4A6A-BC63-F1F63F23141C}|Default">
+  <MonoDevelop.Ide.ItemProperties.SU18-Exercises PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Tests/CustomerTranslatorTests.cs">
+    <Files>
+      <File FileName="Galaga-Exercise-3.1/Game.cs" Line="15" Column="1" />
+      <File FileName="Tests/CustomerTranslatorTests.cs" Line="19" Column="56" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="SU18-Exercises" expanded="True">
+            <Node name="Tests" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="CustomerTests" expanded="True" />
+                <Node name="CustomerTranslatorTests" expanded="True" />
+                <Node name="EntityCreatorTests" expanded="True" />
+                <Node name="FileReaderTests" expanded="True">
+                  <Node name="TestLevelPlatforms" selected="True" />
+                </Node>
+                <Node name="IntegrationFileToLevel" expanded="True" />
+                <Node name="Tests" expanded="True">
+                  <Node name="StateTests" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
