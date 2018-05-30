@@ -143,7 +143,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     if (currentCustomer == null) {
                         collisionDetected = true;
                         currentCustomer = customer;
-                        Console.WriteLine(customer.Name);
                         customer.PickUpTime = StaticTimer.GetElapsedSeconds();
                         RemoveCustomer(customer);
                     }
