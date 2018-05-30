@@ -4,6 +4,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
+using DIKUArcade.Timers;
 
 namespace SpaceTaxi_1
 {
@@ -25,9 +26,10 @@ namespace SpaceTaxi_1
         private float boosterForce = 0.01f;
         private bool backBoosterOn = false;
         private bool bottomBoosterOn = false;
+        private GameTimer gameTimer;
         
 
-        public Player()
+        public Player(GameTimer gameTimer)
         {
             shape = new DynamicShape(new Vec2F(), new Vec2F());
                
@@ -37,6 +39,8 @@ namespace SpaceTaxi_1
             shape.Direction = new Vec2F(0, 0);
             SetPosition(0.45f, 0.6f);
             SetExtent(0.06f, 0.06f);
+            SetImages();
+            this.gameTimer = gameTimer;
         }
 
         public void SetImages() {
@@ -61,7 +65,7 @@ namespace SpaceTaxi_1
                 ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom_Back.png")));
         }
         
-        /// <summary>
+        /// <summary>lic Entity Entity 
         /// Sets the position
         /// </summary>
         /// <param name="x">x position</param>
@@ -136,8 +140,8 @@ namespace SpaceTaxi_1
                     }
                 }
             }
-            shape.Direction.X += (1.0f / Game.GameTimer.CapturedUpdates) * Force.X;
-            shape.Direction.Y += (1.0f / Game.GameTimer.CapturedUpdates) * (Force.Y + Gravity * gravityOn);
+            shape.Direction.X += (1.0f / gameTimer.CapturedUpdates) * Force.X;
+            shape.Direction.Y += (1.0f / gameTimer.CapturedUpdates) * (Force.Y + Gravity * gravityOn);
             shape.Move();
             Entity.RenderEntity();
         }

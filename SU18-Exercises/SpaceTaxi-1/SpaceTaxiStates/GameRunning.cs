@@ -181,7 +181,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             Level level = LevelsKeeper.Instance[levelNumber % LevelsKeeper.Instance.Count()];
             customers = ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);;         
             TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
-            player = new Player();
+            player = new Player(Game.GameTimer);
             player.SetImages(); 
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
         }

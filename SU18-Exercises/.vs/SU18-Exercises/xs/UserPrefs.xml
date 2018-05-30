@@ -1,10 +1,20 @@
-﻿<Properties StartupConfiguration="{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}|Default">
+﻿<Properties StartupConfiguration="{12F323AF-27B1-4716-B1BC-380664745C00}|Unit Tests">
   <MonoDevelop.Ide.ItemProperties.SU18-Exercises PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Tests/CustomerTranslatorTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SpaceTaxi-1/LevelParsing/LevelCreator.cs">
     <Files>
-      <File FileName="Tests/CustomerTranslatorTests.cs" Line="1" Column="1" />
+      <File FileName="Tests/GameRunningTests.cs" Line="53" Column="2" />
+      <File FileName="Tests/MainMenuTests.cs" Line="29" Column="65" />
+      <File FileName="SpaceTaxi-1/SpaceTaxiStates/MainMenu.cs" Line="92" Column="53" />
+      <File FileName="SpaceTaxi-1/SpaceTaxiGame/SpaceTaxiBus.cs" Line="1" Column="1" />
+      <File FileName="SpaceTaxi-1/Player.cs" Line="41" Column="37" />
+      <File FileName="../DIKUArcade-master/DIKUArcade/Entities/EntityContainerT.cs" Line="73" Column="23" />
+      <File FileName="../DIKUArcade-master/DIKUArcade/Entities/Entity.cs" Line="12" Column="27" />
+      <File FileName="Tests/LevelCreator.cs" Line="25" Column="72" />
+      <File FileName="SpaceTaxi-1/LevelParsing/LevelCreator.cs" Line="27" Column="41" />
+      <File FileName="SpaceTaxi-1/LevelParsing/LevelLoader.cs" Line="15" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Tests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
