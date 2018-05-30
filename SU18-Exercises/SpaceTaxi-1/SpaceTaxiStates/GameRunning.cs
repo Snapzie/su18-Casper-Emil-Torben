@@ -16,11 +16,11 @@ using SpaceTaxi_1.SpaceTaxiGame;
 using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1.SpaceTaxiStates {
-    public class GameRunning : IGameState {
+    public partial class GameRunning : IGameState {
         public TimedEventContainer TimedEventContainer;
+        private EntityContainer<Entity>[] levelContainer;
         private static GameRunning instance = null;
         private Player player;
-        private EntityContainer<Entity>[] levelContainer;
         private int levelNumber = 0;
         private Customer currentCustomer;
         private Customer[] customers;
@@ -68,6 +68,101 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
         
         /// <summary>
+        /// Does collision detection by iterating all blocks, platforms and customers
+        /// </summary>
+        public void IterateCollisions() {
+            bool collisionDetected = false;
+            foreach (Platform platform in levelContainer[0]) {
+                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape)
+                    .Collision) {
+                    collisionDetected = true;
+                    //Collision with platform from bellow
+                    if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 0) {
+                        CollisionPlatform();
+                    } //Collision with platform too fast
+                    else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.004f) {
+                        CollisionPlatform();
+                    } //Landed on platform 
+                    else {
+                        LandingPlatform(platform);
+                    }
+                }
+            }
+
+            foreach (Entity block in levelContainer[1]) {
+                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape)
+                    .Collision) {
+                    collisionDetected = true;
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+                }
+            }
+
+            foreach (Customer customer in levelContainer[2]) {
+                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, customer.Shape)
+                    .Collision) {
+                    if (currentCustomer == null) {
+                        collisionDetected = true;
+                        currentCustomer = customer;
+                        customer.PickUpTime = StaticTimer.GetElapsedSeconds();
+                        RemoveCustomer(customer);
+                    }
+                }
+            }
+
+            if (!collisionDetected) {
+                if (player.Entity.Shape.Position.Y > 1) {
+                    SpaceBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameRunning",
+                            (levelNumber + 1).ToString()));
+                    if (currentCustomer != null) {
+                        currentCustomer.CrossedBorder = true;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the what happens when the player hits a platform from below,
+        /// to hard or hits a block
+        /// </summary>
+        private void CollisionPlatform() {
+            SpaceBus.GetBus().RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
+        }
+
+        /// <summary>
+        /// Handles the what happens when the player will land on a platform
+        /// </summary>
+        /// <param name="platform">The platform to collide with</param>
+        private void LandingPlatform(Platform platform) {
+            player.SetDirrection(0, 0);
+            player.SetForce(0, 0);
+            player.SetGravity(false);
+            if (currentCustomer != null &&
+                currentCustomer.DestinationPlatform.Contains("^") ==
+                currentCustomer.CrossedBorder) {
+                //We are in correct level
+                if (currentCustomer.DestinationPlatform.Length == 1) {
+                    if (currentCustomer.DestinationPlatform[0] == '^') {
+                        points += currentCustomer.CalculatePoints();
+                        currentCustomer = null;
+                    } else if (currentCustomer.DestinationPlatform[0] == platform.Identifier) {
+                        points += currentCustomer.CalculatePoints();
+                        currentCustomer = null;
+                    }
+                } else if (currentCustomer.DestinationPlatform[1] ==
+                           platform.Identifier) {
+                    points += currentCustomer.CalculatePoints();
+                    currentCustomer = null;
+                }
+            }
+        }
+        
+        /// <summary>
         /// Sets the field wich determine which level is loaded
         /// </summary>
         /// <param name="newLevel">The level to load</param>
@@ -105,102 +200,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             player.RenderPlayer();
             pointsText.RenderText();
         }
-        
-        /// <summary>
-        /// Does collision detection by iterating all blocks, platforms and customers
-        /// </summary>
-        public void IterateCollisions() {
-            bool collisionDetected = false;
-            foreach (Platform platform in levelContainer[0]) {
-                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, platform.Shape).Collision) {
-                    
-                    collisionDetected = true;
-                    //Collision with platform from bellow
-                    if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 0) {
-                        CollisionPlatform();
-                    } //Collision with platform too fast
-                    else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.004f) {
-                        CollisionPlatform();
-                    } //Landed on platform 
-                    else {
-                        LandingPlatform(platform);
-                    }
-                }
-            }
-            
-            
-            foreach (Entity block in levelContainer[1]) {
-                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, block.Shape).Collision) {
-                    collisionDetected = true;
-                    SpaceBus.GetBus().RegisterEvent(
-                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
-                }
-            }
 
-            foreach (Customer customer in levelContainer[2]) {
-                if (CollisionDetection.Aabb((DynamicShape) player.Entity.Shape, customer.Shape).Collision) {
-                    if (currentCustomer == null) {
-                        collisionDetected = true;
-                        currentCustomer = customer;
-                        customer.PickUpTime = StaticTimer.GetElapsedSeconds();
-                        RemoveCustomer(customer);
-                    }
-                }
-            }
-
-            if (!collisionDetected) {
-                if (player.Entity.Shape.Position.Y > 1) {
-                    SpaceBus.GetBus().RegisterEvent(
-                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-                            GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameRunning",
-                            (levelNumber + 1).ToString()));
-                    if (currentCustomer != null) {
-                        currentCustomer.CrossedBorder = true;
-                    }
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Handles the what happens when the player hits a platform from below,
-        /// to hard or hits a block
-        /// </summary>
-        private void CollisionPlatform() {
-            SpaceBus.GetBus().RegisterEvent(
-                GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
-        }
-        
-        
-        /// <summary>
-        /// Handles the what happens when the player will land on a platform
-        /// </summary>
-        /// <param name="platform">The platform to collide with</param>
-        private void LandingPlatform(Platform platform) {
-            player.SetDirrection(0, 0);
-            player.SetForce(0, 0);
-            player.SetGravity(false);
-            if (currentCustomer != null &&
-                currentCustomer.DestinationPlatform.Contains("^") ==
-                currentCustomer.CrossedBorder) {
-                //We are in correct level
-                if (currentCustomer.DestinationPlatform.Length == 1) {
-                    if (currentCustomer.DestinationPlatform[0] == '^') {
-                        points += currentCustomer.CalculatePoints();
-                        currentCustomer = null;
-                    } else if (currentCustomer.DestinationPlatform[0] == platform.Identifier) {
-                        points += currentCustomer.CalculatePoints();
-                        currentCustomer = null;
-                    }
-                } else if (currentCustomer.DestinationPlatform[1] ==
-                           platform.Identifier) {
-                    points += currentCustomer.CalculatePoints();
-                    currentCustomer = null;
-                }
-            }
-        }
-        
         /// <summary>
         /// Adds the customer to the rendering EntityContainer
         /// </summary>
