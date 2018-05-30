@@ -10,17 +10,15 @@ using SpaceTaxi_1.SpaceTaxiStates;
 
 namespace SpaceTaxi_1.Customers {
     public class Customer : Entity {
-        public string Name { get; private set; }
-        public int SpawnTime { get; private set; }
-        public char SpawnPlatform { get; private set; }
-        public string DestinationPlatform { get; private set; }
-        public int TimeToDropOff { get; private set; }
+        public string Name { get;}
+        public int SpawnTime { get;}
+        public char SpawnPlatform { get;}
+        public string DestinationPlatform { get;}
+        public int TimeToDropOff { get;}
         public int Points { get; private set; }
         public bool CrossedBorder;
-        private int posX;
-        private int posY;
-        public Level level;
-        public double pickUpTime;
+        public double PickUpTime;
+        public Level Level;
         
         private static EntityCreator entityCreator = new EntityCreator();
             
@@ -40,7 +38,7 @@ namespace SpaceTaxi_1.Customers {
         /// </summary>
         /// <returns>The total amount of points earned</returns>
         public int CalculatePoints() {
-            double dropOffDelta = StaticTimer.GetElapsedSeconds() - pickUpTime;
+            double dropOffDelta = StaticTimer.GetElapsedSeconds() - PickUpTime;
             if (dropOffDelta > TimeToDropOff) {
                 double frac = (dropOffDelta - TimeToDropOff) / TimeToDropOff;
                 double penaltyPoints = frac * Points;
