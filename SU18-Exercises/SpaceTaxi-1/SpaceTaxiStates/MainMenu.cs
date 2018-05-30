@@ -79,8 +79,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             if (keyAction == "KEY_RELEASE") {
                 switch (keyValue) {
                     case "KEY_ENTER" :
-                        if (activeMenuButton == 0) {
-                            
+                        if (activeMenuButton == 0) {   
                             SpaceBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                     GameEventType.GameStateEvent, 
