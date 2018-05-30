@@ -1,0 +1,43 @@
+title Sequence Diagram 
+participant Program
+participant LevelLoader
+participant FileReader
+participant Level
+participant Game
+participant LevelCreator
+participant EntityCreator
+participant LevelKeeper
+
+
+Program->LevelLoader: LoadLevels()
+activate Program
+activate LevelLoader
+loop #ff00ff info 1234567890
+LevelLoader->FileReader:ReadFile()
+activate FileReader
+activate Level
+FileReader->Level: Level()
+Level-->FileReader: newLevel()
+deactivate Level
+FileReader-->LevelLoader: Level
+deactivate FileReader
+LevelLoader->LevelKeeper: LevelsKeeper.Instance()
+activate LevelKeeper
+LevelKeeper-->LevelLoader: LevelsKeeper
+deactivate LevelKeeper
+deactivate LevelLoader
+end
+Program->Game: GameLoop()
+activate Game
+Game->LevelCreator:
+activate LevelCreator
+LevelCreator->LevelKeeper: EntityCreator
+activate LevelKeeper
+LevelKeeper-->LevelCreator: GetLevel()
+deactivate LevelKeeper
+LevelCreator->EntityCreator: CreateLevel()	
+activate EntityCreator
+EntityCreator-->LevelCreator: Returns entity
+deactivate EntityCreator
+LevelCreator-->Game:
+
