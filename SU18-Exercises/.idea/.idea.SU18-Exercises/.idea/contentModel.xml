@@ -215,7 +215,6 @@
           <e p="GameLost.cs" t="Include" />
           <e p="GamePaused.cs" t="Include" />
           <e p="GameRunning.cs" t="Include" />
-          <e p="GameRunningCollision.cs" t="Include" />
           <e p="GameStateType.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="StateMachine.cs" t="Include" />
