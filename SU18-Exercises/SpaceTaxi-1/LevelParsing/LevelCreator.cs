@@ -4,6 +4,7 @@ using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using SpaceTaxi_1.Customers;
+using SpaceTaxi_1.Entities;
 
 namespace SpaceTaxi_1.LevelParsing {
     public class LevelCreator {

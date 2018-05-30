@@ -12,7 +12,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         
         private Text[] menuButtons;
         private int activeMenuButton;
-        private int maxMenuButtons;
 
 
         private GamePaused() {
@@ -21,7 +20,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 new Text("Main Menu", new Vec2F(0.4f, 0.3f), new Vec2F(0.3f, 0.3f))
             };
             activeMenuButton = 0;
-            maxMenuButtons = 2;
         }
         
         /// <summary>
