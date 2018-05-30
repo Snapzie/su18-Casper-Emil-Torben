@@ -30,7 +30,7 @@ namespace Tests {
         // Because no time passes, the full amount of points will be given, which in this
         // case is equal to 100 points
         public void TestOnTime() {
-            customer.pickUpTime = StaticTimer.GetElapsedSeconds();
+            customer.PickUpTime = StaticTimer.GetElapsedSeconds();
             Assert.AreEqual(customer.CalculatePoints(), maxPoints);
         }
 
@@ -40,21 +40,11 @@ namespace Tests {
         // amount of points given by this costumer (100).
         public void FiveSecondsLate() {
             startTime = StaticTimer.GetElapsedSeconds();
-            customer.pickUpTime = startTime;
+            customer.PickUpTime = startTime;
             while((nowTime = StaticTimer.GetElapsedSeconds()) - startTime < 5) {}
             Assert.Less(customer.CalculatePoints(), maxPoints);
         }
-
-        [Test]
-        // Seeing as how we don't allow for bonus points, dropping off the customer 
-        // early will not result in an extra amount of points given.
-        // This is tested by setting pickUpTime to an arbitary larger value
-        // than the amount of time elapsed. 
-        public void FiveSecondsEarly() {
-            var Points = 100;
-            customer.pickUpTime = 20;
-            Assert.AreEqual(customer.CalculatePoints(), Points);
-        }
+        
     }
         
     

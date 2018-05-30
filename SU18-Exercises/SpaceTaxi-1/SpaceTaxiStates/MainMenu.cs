@@ -24,7 +24,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                 new Image("Assets/Images/SpaceBackground.png"));    
             menuButtons = new Text[] {
                 new Text("New Game", new Vec2F(0.1f, 0.4f), new Vec2F(0.3f, 0.3f)),
-                new Text("Selected Level: \n" + levelsKeeper[selectedLevel].Name, new Vec2F(0.1f, 0.3f), new Vec2F(0.3f, 0.3f)),
+                new Text("Selected Level: \n" + levelsKeeper[selectedLevel].Name, 
+                    new Vec2F(0.1f, 0.3f), new Vec2F(0.3f, 0.3f)),
                 new Text("Quit", new Vec2F(0.1f, 0.2f), new Vec2F(0.3f, 0.3f))
             };
             menuButtons[0].SetFontSize(42);

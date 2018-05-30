@@ -21,8 +21,8 @@ namespace Tests {
 
             [Test]
             public void ForceTest() {
-                Assert.AreEqual(p.force.X, 0);
-                Assert.AreEqual(p.force.Y, 0);
+                Assert.AreEqual(p.Force.X, 0);
+                Assert.AreEqual(p.Force.Y, 0);
             }
 
             [Test]
@@ -42,15 +42,15 @@ namespace Tests {
                     Message = "BOOSTER_UPWARDS"
                 };
                 p.ProcessEvent(GameEventType.PlayerEvent, gameEvent);
-                Assert.AreEqual(p.force.X, 0);
-                Assert.AreEqual(p.force.Y, -p.Gravity * 2);
+                Assert.AreEqual(p.Force.X, 0);
+                Assert.AreEqual(p.Force.Y, -p.Gravity * 2);
                 gameEvent = new GameEvent<object>() {
                     EventType = GameEventType.PlayerEvent,
                     Message = "STOP_BOOSTER_UPWARDS"
                 };
                 p.ProcessEvent(GameEventType.PlayerEvent, gameEvent);
-                Assert.AreEqual(p.force.X, 0);
-                Assert.AreEqual(p.force.Y, 0);
+                Assert.AreEqual(p.Force.X, 0);
+                Assert.AreEqual(p.Force.Y, 0);
             }
             
             
@@ -61,14 +61,14 @@ namespace Tests {
                     Message = "BOOSTER_LEFT"
                 };
                 p.ProcessEvent(GameEventType.PlayerEvent, gameEvent);
-                Assert.AreEqual(p.force.X, -0.01f);
+                Assert.AreEqual(p.Force.X, -0.01f);
                 
                 gameEvent = new GameEvent<object>() {
                     EventType = GameEventType.PlayerEvent,
                     Message = "STOP_BOOSTER_LEFT"
                 };
                 p.ProcessEvent(GameEventType.PlayerEvent, gameEvent);
-                Assert.AreEqual(p.force.X, 0);
+                Assert.AreEqual(p.Force.X, 0);
             } 
             
             [Test]
@@ -78,14 +78,14 @@ namespace Tests {
                     Message = "BOOSTER_RIGHT"
                 };
                 p.ProcessEvent(GameEventType.PlayerEvent, gameEvent);
-                Assert.AreEqual(p.force.X, 0.01f);
+                Assert.AreEqual(p.Force.X, 0.01f);
                 
                 gameEvent = new GameEvent<object>() {
                     EventType = GameEventType.PlayerEvent,
                     Message = "STOP_BOOSTER_RIGHT"
                 };
                 p.ProcessEvent(GameEventType.PlayerEvent, gameEvent);
-                Assert.AreEqual(p.force.X, 0);
+                Assert.AreEqual(p.Force.X, 0);
             }
         }
     }

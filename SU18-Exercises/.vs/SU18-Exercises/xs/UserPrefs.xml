@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.SU18-Exercises PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Tests/CustomerTranslatorTests.cs">
     <Files>
-      <File FileName="Tests/CustomerTranslatorTests.cs" Line="31" Column="1" />
+      <File FileName="Tests/CustomerTranslatorTests.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

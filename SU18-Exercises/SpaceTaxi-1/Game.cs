@@ -5,7 +5,6 @@ using DIKUArcade.Timers;
 using SpaceTaxi_1.SpaceTaxiGame;
 using SpaceTaxi_1.SpaceTaxiStates;
 
-
 namespace SpaceTaxi_1
 {
     public class Game : IGameEventProcessor<object>
@@ -85,8 +84,6 @@ namespace SpaceTaxi_1
                 {
                     case "CLOSE_WINDOW":
                         win.CloseWindow();
-                        break;
-                    default:
                         break;
                 }
             }

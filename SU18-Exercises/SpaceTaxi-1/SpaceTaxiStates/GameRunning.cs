@@ -10,12 +10,14 @@ using DIKUArcade.Physics;
 using DIKUArcade.State;
 using DIKUArcade.Timers;
 using SpaceTaxi_1.Customers;
+using SpaceTaxi_1.Entities;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiGame;
 using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1.SpaceTaxiStates {
     public class GameRunning : IGameState {
+        public TimedEventContainer TimedEventContainer;
         private static GameRunning instance = null;
         private Player player;
         private EntityContainer<Entity>[] levelContainer;
@@ -26,7 +28,6 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         private CustomerTranslator ct;
         private int points;
         private Text pointsText;
-        public TimedEventContainer TimedEventContainer;
         
         private GameRunning() {
            NewGame();
@@ -142,8 +143,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     if (currentCustomer == null) {
                         collisionDetected = true;
                         currentCustomer = customer;
-                        Console.WriteLine(customer.Name);
-                        customer.pickUpTime = StaticTimer.GetElapsedSeconds();
+                        customer.PickUpTime = StaticTimer.GetElapsedSeconds();
                         RemoveCustomer(customer);
                     }
                 }

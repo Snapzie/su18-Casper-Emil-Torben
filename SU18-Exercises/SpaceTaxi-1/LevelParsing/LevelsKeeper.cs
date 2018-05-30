@@ -6,11 +6,7 @@ namespace SpaceTaxi_1.LevelParsing {
         private Dictionary<int, Level> levelDic;
         private int levelCounter;
 
-        public Level this[int i] {
-            get {
-                return this.levelDic[i];
-            }
-        }
+        public Level this[int i] => this.levelDic[i];
 
         public int Count() {
             return levelCounter;
@@ -28,15 +24,8 @@ namespace SpaceTaxi_1.LevelParsing {
         /// Instatiates a LevelsKeeper singleton and returns it
         /// </summary>
         /// <returns>Returns the LevelsKeeper singleton</returns>
-        public static LevelsKeeper Instance {
-            get {
-                if (LevelsKeeper.instance == null) {
-                    LevelsKeeper.instance = new LevelsKeeper();
-                }
-
-                return LevelsKeeper.instance;
-            }
-        }
+        public static LevelsKeeper Instance => 
+            LevelsKeeper.instance ?? (LevelsKeeper.instance = new LevelsKeeper());
 
         /// <summary>
         /// Saves the level from the parameter in levelDic

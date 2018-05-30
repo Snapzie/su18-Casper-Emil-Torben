@@ -1,12 +1,15 @@
-﻿<Properties StartupItem="SU18-Exercises/SU18-Exercises.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Galaga-Exercise-3.1/Game.cs">
+﻿<Properties StartupConfiguration="{119E4892-9FDB-4A6A-BC63-F1F63F23141C}|Default">
+  <MonoDevelop.Ide.ItemProperties.SU18-Exercises PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Tests/CustomerTests.cs">
     <Files>
       <File FileName="Galaga-Exercise-3.1/Game.cs" Line="15" Column="1" />
+      <File FileName="Tests/CustomerTests.cs" Line="8" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

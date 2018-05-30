@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-3.1", "Gala
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-2", "Galaga-Exercise-2\Galaga-Exercise-2.csproj", "{AE4812E7-F0D1-44E0-ADD1-2E57AA0A6830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTaxi-1", "SpaceTaxi-1\SpaceTaxi-1.csproj", "{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{12F323AF-27B1-4716-B1BC-380664745C00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcade", "..\DIKUArcade-master\DIKUArcade\DIKUArcade.csproj", "{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}"
+EndProject
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SpaceTaxi-1", "SpaceTaxi-1\SpaceTaxi-1.csproj", "{2978C4EC-A367-4F30-B08F-6205DAEA116E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		{AE4812E7-F0D1-44E0-ADD1-2E57AA0A6830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE4812E7-F0D1-44E0-ADD1-2E57AA0A6830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE4812E7-F0D1-44E0-ADD1-2E57AA0A6830}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12F323AF-27B1-4716-B1BC-380664745C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12F323AF-27B1-4716-B1BC-380664745C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12F323AF-27B1-4716-B1BC-380664745C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2978C4EC-A367-4F30-B08F-6205DAEA116E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2978C4EC-A367-4F30-B08F-6205DAEA116E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2978C4EC-A367-4F30-B08F-6205DAEA116E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2978C4EC-A367-4F30-B08F-6205DAEA116E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
