@@ -64,6 +64,7 @@
     <Compile Include="SpaceTaxiStates\GameLost.cs" />
     <Compile Include="SpaceTaxiStates\GamePaused.cs" />
     <Compile Include="SpaceTaxiStates\GameRunning.cs" />
+    <Compile Include="SpaceTaxiStates\GameRunningCollision.cs" />
     <Compile Include="SpaceTaxiStates\GameStateType.cs" />
     <Compile Include="SpaceTaxiStates\MainMenu.cs" />
     <Compile Include="SpaceTaxiStates\StateMachine.cs" />
