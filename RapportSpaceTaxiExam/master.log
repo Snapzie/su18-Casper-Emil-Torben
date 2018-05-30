@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.8)  30 MAY 2018 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.8)  30 MAY 2018 11:42
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1868,7 +1868,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-[7] <latex/Images/SequenceDiagram.png, id=168, 2218.2875pt x 2371.86125pt>
+[7] <latex/Images/SequenceDiagram.png, id=172, 2218.2875pt x 2371.86125pt>
 File: latex/Images/SequenceDiagram.png Graphic file (type png)
 
 <use latex/Images/SequenceDiagram.png>
@@ -1881,7 +1881,7 @@ Overfull \hbox (83.35916pt too wide) in paragraph at lines 51--53
  []
 
 ) (./latex/Implementation2.tex
-<latex/Images/UML_SU10.jpg, id=170, 1697.34125pt x 2145.01375pt>
+<latex/Images/UML_SU10.jpg, id=174, 1697.34125pt x 2145.01375pt>
 File: latex/Images/UML_SU10.jpg Graphic file (type jpg)
 
 <use latex/Images/UML_SU10.jpg>
@@ -1928,31 +1928,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
-[11]) (./latex/evaluering.tex [12]
+[11]) (./latex/vejledning.tex) (./latex/evaluering.tex [12] [13]
 Overfull \hbox (4.53618pt too wide) in paragraph at lines 13--14
 \T1/ppl/m/n/10 Play-ers Pro-ces-sEv-ent bliver kaldt med dette event som ar-gu-
 ment. Derefter
  []
 
-[13] [14]) (./latex/konklusion.tex) 
+[14]) (./latex/konklusion.tex [15]) 
 AED: lastpage setting LastPage
-[15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 22.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 22.
+[16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 23.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 23.
  (./master.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 22.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 22.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 23.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 23.
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: C211FCA09D2B579463C0D993B96A8470;1549.
+(rerunfilecheck)             Checksum: DB7EB246C3F067AC968C4C25A84BB89B;1597.
  ) 
 Here is how much of TeX's memory you used:
- 32631 strings out of 492995
- 612536 string characters out of 6132705
+ 32637 strings out of 492995
+ 612615 string characters out of 6132705
  746565 words of memory out of 5000000
- 35540 multiletter control sequences out of 15000+600000
+ 35541 multiletter control sequences out of 15000+600000
  36989 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,86p,10379b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,86p,10379b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1961,10 +1961,10 @@ live/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texli
 ve/2017/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive
 /2017/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on master.pdf (15 pages, 703647 bytes).
+Output written on master.pdf (16 pages, 705274 bytes).
 PDF statistics:
- 257 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 265 PDF objects out of 1000 (max. 8388607)
+ 222 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 319 words of extra memory for PDF output out of 10000 (max. 10000000)
 
