@@ -1,19 +1,10 @@
 ﻿<Properties StartupConfiguration="{119E4892-9FDB-4A6A-BC63-F1F63F23141C}|Default">
   <MonoDevelop.Ide.ItemProperties.SU18-Exercises PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Tests/CustomerTranslatorTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Tests/CustomerTests.cs">
     <Files>
       <File FileName="Galaga-Exercise-3.1/Game.cs" Line="15" Column="1" />
-      <File FileName="Tests/CustomerTranslatorTests.cs" Line="14" Column="4" />
-      <File FileName="Tests/PlayerTests.cs" Line="1" Column="1" />
-      <File FileName="Tests/EntityCreatorTests.cs" Line="40" Column="2" />
+      <File FileName="Tests/CustomerTests.cs" Line="8" Column="7" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="SU18-Exercises" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
