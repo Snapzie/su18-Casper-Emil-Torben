@@ -16,6 +16,7 @@ namespace Tests {
         private List<string> customerList;
         [SetUp]
         public void SetUp() {
+            DIKUArcade.Window.CreateOpenGLContext();
             var dir = Path.GetDirectoryName(typeof(LevelLoader).Assembly.Location);
             Environment.CurrentDirectory = dir;
             customerTranslator = new CustomerTranslator();
@@ -109,7 +110,6 @@ namespace Tests {
             Assert.AreEqual(customers[1].Points, 100);
             Assert.AreEqual(customers[2].Points, 100);
             Assert.AreEqual(customers[3].Points, 200);
-        }
-        
+        }       
     }
 }
