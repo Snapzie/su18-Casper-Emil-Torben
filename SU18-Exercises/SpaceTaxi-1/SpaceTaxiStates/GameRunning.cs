@@ -35,7 +35,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         
         /// <summary>
         /// Instantiates or returns a GameRunning object with the singleton pattern
-        /// </summary>
+        /// </summary    >
         /// <returns>Returns a GameRunning object</returns>
         public static GameRunning GetInstance() {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
