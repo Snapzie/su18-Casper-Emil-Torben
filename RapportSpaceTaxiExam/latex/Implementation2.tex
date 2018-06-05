@@ -1,6 +1,10 @@
 
 \section{Implementation}
-\includegraphics[width=\linewidth]{UML_Samlet.png}
+\begin{figure}[!h]
+   \includegraphics[height=18cm]{latex/Images/UML_SU10} 
+   \label{uml}
+   \caption{Class UML diagram. Mindre, og mere fokuserede, dele af dette kan ses i bilag.}
+\end{figure}
 
 \subsection{Level Parsing}
 Selvom flere af vores klasser kun benyttes en gang i programmet har vi valgt at lade dem være konkrete klasser. Da Vi ikke ser nogen grund til at indføre et singleton pattern hos alle klasserne da der ikke sker noget ved at have flere objekter af for eksempel FileReader, så har vi valgt kun at benytte det på udvalgte klasser såsom LevelsKeeper.\\
@@ -29,9 +33,3 @@ Vi har lavet collision detection i denne opgave, her har det været nødvendigt 
    Denne method er essentielt set et matematisk udtryk, som beregner den procentmæssige forskel mellem den tid, det tager for spilleren at transportere kunden og den mængde tid, spilleren har for at få maksimalt point. Denne procentmæssige forskel fratrækkes så fra de antal point, der er at vinde ved at sætte kunden af i tide.
    Dette antal point, hvad end positivt eller negativt bliver så af metoden ''CalculatePoints()'' returneret og field'et ''points'' indeni GameRunning bliver dermed inkrimeret med denne værdi.
    
-<<<<<<< HEAD
-=======
-
-\subsection{GamePaused}
-   Vi har lavet en funktion der gør man kan pause spillet, men det har ikke været muligt at pause den timer der holder øje med hvornår Customers skal spawne og hvor længe de har været i taxien. Dette skyldes at den timer der er er statisk, og den bruges både til at holde styr på timed events og til at holde øje med hvornår der skal tegnes en ny frame. Det vil sige at man ikke kan sætte timed events på pause uden at stoppe hele flowet i programmet,og det vil derfor ikke være muligt at starte spillet igen. Så hvis man pauser spillet vil tiden stadig gå i spillet og kunderne kan derfor stadig blive ''utålmodige'' mens spillet er pauset. Vi processerer dog kun timed events så længe at spillet kører, det betyder at hvis man har spillet pauset på det tidspunkt hvor kunden burde spawnes, vil denne blot spawne idet man starter spillet igen.  
->>>>>>> e59f612e85d148144ea7d3bdc3ab391caa60d0f6
