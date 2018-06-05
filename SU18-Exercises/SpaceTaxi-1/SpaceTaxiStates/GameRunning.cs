@@ -253,6 +253,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     SpaceTaxiGame.SpaceBus.GetBus().RegisterEvent(
                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                             GameEventType.GameStateEvent, this, "CHANGE_STATE", "GamePaused", ""));
+                            DIKUArcade.Timers.StaticTimer.PauseTimer();
                     break;
                 }
             } else {
