@@ -4,12 +4,12 @@
 \BOOKMARK [1][-]{section.4}{4 Design}{}% 4
 \BOOKMARK [2][-]{subsection.4.1}{4.1 Design principper}{section.4}% 5
 \BOOKMARK [1][-]{section.5}{5 Implementation}{}% 6
-\BOOKMARK [2][-]{subsection.5.1}{5.1 States og StateMachine}{section.5}% 7
-\BOOKMARK [2][-]{subsection.5.2}{5.2 Kollision}{section.5}% 8
-\BOOKMARK [2][-]{subsection.5.3}{5.3 Fysik}{section.5}% 9
-\BOOKMARK [2][-]{subsection.5.4}{5.4 Customers}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.5}{5.5 Point}{section.5}% 11
-\BOOKMARK [2][-]{subsection.5.6}{5.6 GamePaused}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.1}{5.1 Level Parsing}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{5.2 States og StateMachine}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.3}{5.3 Kollision}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.4}{5.4 Fysik}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.5}{5.5 Customers}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.6}{5.6 Point}{section.5}% 12
 \BOOKMARK [1][-]{section.6}{6 Vejledning}{}% 13
 \BOOKMARK [1][-]{section.7}{7 Evaluering}{}% 14
 \BOOKMARK [2][-]{subsection.7.1}{7.1 Testplan}{section.7}% 15
@@ -24,3 +24,10 @@
 \BOOKMARK [3][-]{subsubsection.7.1.9}{7.1.9 Customer}{subsection.7.1}% 24
 \BOOKMARK [3][-]{subsubsection.7.1.10}{7.1.10 Integrationstests}{subsection.7.1}% 25
 \BOOKMARK [1][-]{section.8}{8 Konklusion}{}% 26
+\BOOKMARK [1][-]{section.9}{9 Billag}{}% 27
+\BOOKMARK [2][-]{subsection.9.1}{9.1 Billag 1 - Sequence Diagram 1}{section.9}% 28
+\BOOKMARK [2][-]{subsection.9.2}{9.2 Billag 2 - Sequence Diagram 2 }{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.3}{9.3 Billag 3 - Level Parsing}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.4}{9.4 Billag 4 - Customer}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.5}{9.5 Billag 5 - States}{section.9}% 32
+\BOOKMARK [2][-]{subsection.9.6}{9.6 Billag 5 - Game}{section.9}% 33

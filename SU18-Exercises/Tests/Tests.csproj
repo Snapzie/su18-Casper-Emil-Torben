@@ -65,6 +65,10 @@
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpaceTaxi-1\SpaceTaxi-1.csproj">
       <Project>{6b6b73fe-d105-4f0e-9b51-069b6fd6328f}</Project>
       <Name>SpaceTaxi-1</Name>

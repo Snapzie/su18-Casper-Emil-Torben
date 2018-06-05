@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.13)  4 JUN 2018 13:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.13)  5 JUN 2018 13:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1487,27 +1487,27 @@ See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.9 \begin{document}
-                    
+l.10 \begin{document}
+                     
 ? 
 (./master.aux)
 \openout1 = `master.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 10.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -1524,8 +1524,8 @@ See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.9 \begin{document}
-                    ^^M
+l.10 \begin{document}
+                     ^^M
 ? 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1556,7 +1556,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box65
-Package hyperref Info: Link coloring OFF on input line 9.
+Package hyperref Info: Link coloring OFF on input line 10.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1566,9 +1566,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count199
 )
-LaTeX Info: Redefining \ref on input line 9.
-LaTeX Info: Redefining \pageref on input line 9.
-LaTeX Info: Redefining \nameref on input line 9.
+LaTeX Info: Redefining \ref on input line 10.
+LaTeX Info: Redefining \pageref on input line 10.
+LaTeX Info: Redefining \nameref on input line 10.
 
 (./master.out) (./master.out)
 \@outlinefile=\write7
@@ -1576,12 +1576,12 @@ LaTeX Info: Redefining \nameref on input line 9.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 9.
+(lastpage)             ! on input line 10.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 11.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 12.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./latex/indledning.tex
@@ -1695,7 +1695,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-[7] <latex/Images/SequenceDiagram.png, id=172, 2218.2875pt x 2371.86125pt>
+[7] <latex/Images/SequenceDiagram.png, id=205, 2218.2875pt x 2371.86125pt>
 File: latex/Images/SequenceDiagram.png Graphic file (type png)
 
 <use latex/Images/SequenceDiagram.png>
@@ -1708,50 +1708,45 @@ Overfull \hbox (83.35916pt too wide) in paragraph at lines 51--53
  []
 
 ) (./latex/Implementation2.tex
-<latex/Images/UML_SU10.jpg, id=174, 1697.34125pt x 2145.01375pt>
-File: latex/Images/UML_SU10.jpg Graphic file (type jpg)
+<UML_Samlet.png, id=207, 1697.34125pt x 2145.01375pt>
+File: UML_Samlet.png Graphic file (type png)
+ <use UML_Samlet.png>
+Package pdftex.def Info: UML_Samlet.png used on input line 2.
+(pdftex.def)             Requested size: 345.0pt x 435.99942pt.
 
-<use latex/Images/UML_SU10.jpg>
-Package pdftex.def Info: latex/Images/UML_SU10.jpg used on input line 2.
-(pdftex.def)             Requested size: 434.5127pt x 549.13828pt.
-
-Overfull \hbox (89.5127pt too wide) in paragraph at lines 2--3
-[] 
- []
-
-[8 <./latex/Images/SequenceDiagram.png>] [9 <./latex/Images/UML_SU10.jpg>]
-Overfull \hbox (23.72562pt too wide) in paragraph at lines 10--11
+[8 <./latex/Images/SequenceDiagram.png>] [9 <./UML_Samlet.png>]
+Overfull \hbox (23.72562pt too wide) in paragraph at lines 11--12
 \T1/ppl/m/n/10 skiftet mellem vores states ko-r-rekt. Vores im-ple-menterede st
 ates består af GameRun-
  []
 
 
-Overfull \hbox (29.56613pt too wide) in paragraph at lines 10--11
+Overfull \hbox (29.56613pt too wide) in paragraph at lines 11--12
 \T1/ppl/m/n/10 ning som håndterer selve spillet, Main-Menu som håndterer vores 
 menu, GamePaused
  []
 
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 13.
+(Font)              scaled to size 8.33606pt on input line 14.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 13.
+(Font)              scaled to size 5.21004pt on input line 14.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 13.
+(Font)              scaled to size 8.33606pt on input line 14.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 13.
+(Font)              scaled to size 5.21004pt on input line 14.
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
 [10]
-Overfull \hbox (5.0058pt too wide) in paragraph at lines 16--18
+Overfull \hbox (5.0058pt too wide) in paragraph at lines 17--19
 \T1/ppl/m/n/10 skal falde igen-nem plat-for-men. Der-for slukker vi for tyn-gde
 kraften og spillerens
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--22
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
 
  []
 
@@ -1761,32 +1756,71 @@ Overfull \hbox (4.53618pt too wide) in paragraph at lines 13--14
 ment. Derefter
  []
 
-[14] [15]) (./latex/konklusion.tex) 
+[14]) (./latex/konklusion.tex [15]) (./latex/billag.tex
+<Sequence_Oevre.png, id=263, 1816.7875pt x 703.62875pt>
+File: Sequence_Oevre.png Graphic file (type png)
+
+<use Sequence_Oevre.png>
+Package pdftex.def Info: Sequence_Oevre.png used on input line 7.
+(pdftex.def)             Requested size: 682.86613pt x 264.4721pt.
+
+Overfull \hbox (225.95514pt too wide) in paragraph at lines 6--8
+[]  [] 
+ []
+
+<UML_Nedre.png, id=264, 1493.58pt x 997.7275pt>
+File: UML_Nedre.png Graphic file (type png)
+ <use UML_Nedre.png>
+Package pdftex.def Info: UML_Nedre.png used on input line 13.
+(pdftex.def)             Requested size: 569.05511pt x 380.12994pt.
+
+Overfull \hbox (112.14412pt too wide) in paragraph at lines 12--14
+[]  [] 
+ []
+
+[16 <./Sequence_Oevre.png>]
+<Level_Parsing.png, id=270, 458.71375pt x 621.32124pt>
+File: Level_Parsing.png Graphic file (type png)
+ <use Level_Parsing.png>
+Package pdftex.def Info: Level_Parsing.png used on input line 18.
+(pdftex.def)             Requested size: 345.0pt x 467.31708pt.
+
+[17 <./UML_Nedre.png>] <Customer.png, id=276, 465.74pt x 767.86874pt>
+File: Customer.png Graphic file (type png)
+
+<use Customer.png>
+Package pdftex.def Info: Customer.png used on input line 23.
+(pdftex.def)             Requested size: 316.54726pt x 521.9095pt.
+ [18 <./Level_Parsing.png>]
+<State.png, id=282, 921.4425pt x 1010.77625pt>
+File: State.png Graphic file (type png)
+ <use State.png>
+Package pdftex.def Info: State.png used on input line 28.
+(pdftex.def)             Requested size: 345.0pt x 378.43866pt.
+ [19 <./Customer.png>] <Game.png, id=289, 772.8875pt x 336.25626pt>
+File: Game.png Graphic file (type png)
+ <use Game.png>
+Package pdftex.def Info: Game.png used on input line 32.
+(pdftex.def)             Requested size: 345.0pt x 150.0979pt.
+ [20 <./State.png>]) 
 AED: lastpage setting LastPage
-[16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 23.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 23.
+[21 <./Game.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 25.
  (./master.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 23.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 23.
-
-
-Package rerunfilecheck Warning: File `master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `master.out':
-(rerunfilecheck)             Before: DB7EB246C3F067AC968C4C25A84BB89B;1597
-(rerunfilecheck)             After:  C3C3CB02E0F410A88C34F3603647BA6B;1656.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 25.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 25.
+Package rerunfilecheck Info: File `master.out' has not changed.
+(rerunfilecheck)             Checksum: B47F0912466DFE00945D950BF1FE52C5;2161.
  ) 
 Here is how much of TeX's memory you used:
- 31157 strings out of 493029
- 581431 string characters out of 6136234
- 703559 words of memory out of 5000000
- 34069 multiletter control sequences out of 15000+600000
+ 31215 strings out of 493029
+ 582279 string characters out of 6136234
+ 703608 words of memory out of 5000000
+ 34102 multiletter control sequences out of 15000+600000
  36989 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,86p,10379b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,86p,10379b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1794,10 +1828,10 @@ st, replaced by a fixed one
 nts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-
 super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on master.pdf (16 pages, 711182 bytes).
+Output written on master.pdf (21 pages, 1155177 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
- 319 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 336 PDF objects out of 1000 (max. 8388607)
+ 281 compressed objects within 3 object streams
+ 85 named destinations out of 1000 (max. 500000)
+ 413 words of extra memory for PDF output out of 10000 (max. 10000000)
 

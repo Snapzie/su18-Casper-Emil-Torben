@@ -65,6 +65,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             if (keyAction == "KEY_RELEASE") {
                 switch (keyValue) {
                 case "KEY_ENTER" :
+                    DIKUArcade.Timers.StaticTimer.ResumeTimer();
                     if (activeMenuButton == 0) {
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
