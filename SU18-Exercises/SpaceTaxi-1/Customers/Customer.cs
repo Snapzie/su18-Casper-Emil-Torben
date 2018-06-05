@@ -18,9 +18,6 @@ namespace SpaceTaxi_1.Customers {
         public int Points { get; private set; }
         public bool CrossedBorder;
         public double PickUpTime;
-        public Level Level;
-        
-        private static EntityCreator entityCreator = new EntityCreator();
             
         public Customer(string name, int spawnTime, char spawnPlatform, string destinationPlatform, int timeToDropOff,
             int points, Entity entity) : base(entity.Shape, entity.Image) {

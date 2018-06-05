@@ -85,4 +85,8 @@ CustomerTranslator & Ingen atributter \\ \hline
 \label{attributes}
 \end{table}
 
-Det ses at det ikke er alle vores koncepter der har attributer, dette skyldes at det ikke er dem alle der skal gemme informationer. Eksempelvis skal file reader blot læse filen og generere objekter på baggrund af dette, den behøver altså ikke gemme informationen til senere brug. I modsætning til dette skal hvert Level objekt gemme informationen om den selv.\\
+Det ses at det ikke er alle vores koncepter der har attributer, dette skyldes at det ikke er dem alle der skal gemme informationer. Eksempelvis skal file reader blot læse filen og generere objekter på baggrund af dette, den behøver altså ikke gemme informationen til senere brug. I modsætning til dette skal hvert Level objekt gemme informationen om den selv.
+
+\subsection{Mål}
+   Vores indfaldsvinkel på vores design vil være at sørge for at hver class i vores program kun vil have \textbf{et ansvar} (SRP), og at klassen selv kan udføre opgaverne som skal til for at klare ansvaret. Vi vil også skrive kode som \textbf{let kan udvides} (OCP), og som let kan \textbf{bygges videre på} (LSP), samtidigt med at det vil være nemt at finde bugs og maintaine i fremtiden. Da vi laver objekt-orienteret programmering bestræber vi os efter at lave så \textbf{specifikke abstraktioner} som muligt (ISP).\\
+   Vi har vurderet at projektet ikke er stort nok til at der behøves at tage højde for dependency inversion princippet, da det vil være begrænset hvor mange interfaces vi skal lave, og det derfor ikke vil være så nødvendigt at fordele interfaces og implementationer i to projekter. 
