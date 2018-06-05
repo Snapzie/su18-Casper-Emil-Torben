@@ -52,7 +52,6 @@
     <Compile Include="CustomerTranslatorTests.cs" />
     <Compile Include="EntityCreatorTests.cs" />
     <Compile Include="FileReaderTests.cs" />
-    <Compile Include="GameRunningTests.cs" />
     <Compile Include="IntegrationFileToLevel.cs" />
     <Compile Include="MainMenuTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
