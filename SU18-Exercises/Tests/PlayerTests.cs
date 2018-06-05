@@ -6,6 +6,7 @@ using NUnit.Framework;
 using SpaceTaxi_1;
 using SpaceTaxi_1.LevelParsing;
 using SpaceTaxi_1.SpaceTaxiStates;
+using DIKUArcade.Timers;
 
 namespace Tests {
     namespace Tests {
@@ -13,9 +14,19 @@ namespace Tests {
         public class StateTests {
             private StateMachine stateMachine;
             private Player p;
+            private GameTimer gameTimer;
             [SetUp]
             public void SetUp() {
-                p = new Player();
+                gameTimer = new GameTimer(60, 60);
+                p = new Player(gameTimer);
+                
+                stateMachine = new StateMachine();
+                GameEvent<object> gameEvent = new GameEvent<object>() {
+                    EventType = GameEventType.GameStateEvent,
+                    Parameter1 = "GameRunning",
+                    Parameter2 = "0"
+                };
+                stateMachine.ProcessEvent(GameEventType.GameStateEvent, gameEvent);
                 
             }
 
@@ -27,11 +38,18 @@ namespace Tests {
 
             [Test]
             public void GravityTest() {
-                //Render player to calculate gravity, this fails 
-                // since we don't have and can't make a game or gameTimer
-//                p.RenderPlayer();
-//                Assert.AreEqual(p.Entity.Shape.AsDynamicShape().Direction.X, 0);
-//                Assert.Less(p.Entity.Shape.AsDynamicShape().Direction.Y, 0);
+                double startTime = StaticTimer.GetElapsedSeconds();
+                double nowTime;
+                //Let game run for a bit more than a second so gameTimer will update fps
+                while((nowTime = StaticTimer.GetElapsedSeconds()) - startTime < 1.2) {
+                    gameTimer.MeasureTime();
+                    gameTimer.ShouldRender();
+                    gameTimer.ShouldReset();
+                    gameTimer.ShouldUpdate();
+                }
+                p.RenderPlayer();
+                Assert.AreEqual(0, p.Entity.Shape.AsDynamicShape().Direction.X);
+                Assert.Less(p.Entity.Shape.AsDynamicShape().Direction.Y, 0);
 
             }
 
@@ -86,6 +104,23 @@ namespace Tests {
                 };
                 p.ProcessEvent(GameEventType.PlayerEvent, gameEvent);
                 Assert.AreEqual(p.Force.X, 0);
+            }
+            [Test]
+            public void NonZeroForce() {
+            double startTime = StaticTimer.GetElapsedSeconds();
+                double nowTime;
+                //Let game run for a bit more than a second so gameTimer will update fps
+                while((nowTime = StaticTimer.GetElapsedSeconds()) - startTime < 1.2) {
+                    gameTimer.MeasureTime();
+                    gameTimer.ShouldRender();
+                    gameTimer.ShouldReset();
+                    gameTimer.ShouldUpdate();
+                }
+                p.SetForce(1, 1);
+                p.RenderPlayer();
+                Assert.GreaterOrEqual(p.Entity.Shape.Position.X, 0.45f);
+                Assert.GreaterOrEqual(p.Entity.Shape.Position.Y, 0.60f);
+                
             }
         }
     }

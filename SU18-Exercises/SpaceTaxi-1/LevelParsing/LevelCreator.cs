@@ -22,14 +22,14 @@ namespace SpaceTaxi_1.LevelParsing {
         /// through the Decoder dictionary, which is made as an entity to be added to object
         /// </remarks>
         /// <returns> This method returns the EntityContainer named object, which has all 
-        /// the different entities needed to create the given levell
+        /// the different entities needed to create the given level
         ///</returns>
         public EntityContainer<Entity>[] CreateLevel(int levelNumber) {
             EntityCreator ec = new EntityCreator();
             Level level = levelKeeper[levelNumber];
             EntityContainer<Entity>[] renderItems = new EntityContainer<Entity>[3];
-            renderItems[0] = new EntityContainer<Entity>();
-            renderItems[1] = new EntityContainer<Entity>();
+            renderItems[0] = new EntityContainer<Entity>(); //Platforms
+            renderItems[1] = new EntityContainer<Entity>(); //Blocks
             renderItems[2] = new EntityContainer<Entity>(); //empty container to add customers later
             
             for (int i = 0; i < level.LevelLayout.Length; i++) {

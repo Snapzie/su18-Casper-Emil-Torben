@@ -10,13 +10,13 @@ using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1.SpaceTaxiStates {
     public class MainMenu : IGameState {
+        public int selectedLevel { get; private set; }
         private static MainMenu instance = null;
         
         private Entity backGroundImage;
         private Text[] menuButtons;
         private int activeMenuButton;
         private int maxMenuButtons;
-        private int selectedLevel = 0;
         private LevelsKeeper levelsKeeper = LevelsKeeper.Instance;
         
         private MainMenu() {
@@ -33,6 +33,8 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             menuButtons[2].SetFontSize(42);
             activeMenuButton = 0;
             maxMenuButtons = menuButtons.Length;
+            selectedLevel = 0;
+            
             
         }
         
@@ -80,8 +82,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             if (keyAction == "KEY_RELEASE") {
                 switch (keyValue) {
                     case "KEY_ENTER" :
-                        if (activeMenuButton == 0) {
-                            
+                        if (activeMenuButton == 0) {   
                             SpaceBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                     GameEventType.GameStateEvent, 

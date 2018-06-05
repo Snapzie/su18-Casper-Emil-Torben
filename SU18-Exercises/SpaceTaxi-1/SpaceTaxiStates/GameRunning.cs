@@ -78,10 +78,10 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
                     collisionDetected = true;
                     //Collision with platform from bellow
                     if (((DynamicShape) (player.Entity.Shape)).Direction.Y > 0) {
-                        BelowPlatform();
+                        CollisionPlatform();
                     } //Collision with platform too fast
                     else if (((DynamicShape) (player.Entity.Shape)).Direction.Y < -0.004f) {
-                        CrashingPlatform();
+                        CollisionPlatform();
                     } //Landed on platform 
                     else {
                         LandingPlatform(platform);
@@ -125,18 +125,10 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
         }
 
         /// <summary>
-        /// Handles the what happens when the player hits a block from below
+        /// Handles the what happens when the player hits a platform from below,
+        /// to hard or hits a block
         /// </summary>
-        private void BelowPlatform() {
-            SpaceBus.GetBus().RegisterEvent(
-                GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
-        }
-
-        /// <summary>
-        /// Handles the what happens when the player hits a block too fast
-        /// </summary>
-        private void CrashingPlatform() {
+        private void CollisionPlatform() {
             SpaceBus.GetBus().RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                     GameEventType.GameStateEvent, this, "CHANGE_STATE", "GameLost", ""));
@@ -189,7 +181,7 @@ namespace SpaceTaxi_1.SpaceTaxiStates {
             Level level = LevelsKeeper.Instance[levelNumber % LevelsKeeper.Instance.Count()];
             customers = ct.MakeCustomers(level.Customers, level.LevelLayout, customerImage);;         
             TimedEventContainer.AttachEventBus(SpaceBus.GetBus());
-            player = new Player();
+            player = new Player(Game.GameTimer);
             player.SetImages(); 
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
         }
