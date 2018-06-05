@@ -1,15 +1,8 @@
 
 \section{Implementation}
-<<<<<<< HEAD
 \includegraphics[width=\linewidth]{UML_Samlet.png}
 
 \subsection{Level Parsing}
-=======
-
-\includegraphics[height=19.3cm]{latex/Images/UML_SU10.jpg}
-
-
->>>>>>> e59f612e85d148144ea7d3bdc3ab391caa60d0f6
 Selvom flere af vores klasser kun benyttes en gang i programmet har vi valgt at lade dem være konkrete klasser. Da Vi ikke ser nogen grund til at indføre et singleton pattern hos alle klasserne da der ikke sker noget ved at have flere objekter af for eksempel FileReader, så har vi valgt kun at benytte det på udvalgte klasser såsom LevelsKeeper.\\
 Da vi ønsker at benytte vores Level objekter som en måde at lagre information om vores levels, har vi valgt kun at implementere en konstruktor til dem og ellers gemme alle informationer i public properties uden setters. Dette garanterer at når Level først er blevet instantieret kan dens informationer ikke overskrives, men informationerne kan til enhver tid læses.\\
 LevelsKeeper fungerer som en database for vores levels, og indeholder en dictionary af level numre som keys og Level objekter som values. LevelsKeeper er implementeret som en singleton. Dette er gjort da vi ikke ønsker at have flere 'halve' databaser med kun en delmængde af vores levels. Vi vil dog have et problem hvis der skrives og læses til det samme sted i hukommelsen samtidigt da vi arbejder med referencer. Men som det fremgik af vores sequence diagram vil dette ikke kunne lade sig gøre med den nuværende implementation, men skulle det blive nødvendigt at udvide vores model med endnu en klasse som skriver til LevelsKeeper samtidigt med at spillet kører, så så skal der implementeres en form for sikkerhed imod dette.\\
