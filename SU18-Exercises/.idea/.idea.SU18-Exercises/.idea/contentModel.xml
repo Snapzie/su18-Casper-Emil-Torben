@@ -408,7 +408,6 @@
         <e p="CustomerTranslatorTests.cs" t="Include" />
         <e p="EntityCreatorTests.cs" t="Include" />
         <e p="FileReaderTests.cs" t="Include" />
-        <e p="GameRunningTests.cs" t="Include" />
         <e p="IntegrationFileToLevel.cs" t="Include" />
         <e p="LevelCreatorTests.cs" t="Include" />
         <e p="Levels" t="Include">

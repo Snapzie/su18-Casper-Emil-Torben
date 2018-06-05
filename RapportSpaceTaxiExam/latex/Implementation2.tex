@@ -1,6 +1,10 @@
 
 \section{Implementation}
-\includegraphics[width=18cm]{UML_Samlet.png}
+\begin{figure}[!h]
+   \includegraphics[height=18cm]{latex/Images/UML_SU10} 
+   \label{uml}
+   \caption{Class UML diagram. Mindre, og mere fokuserede, dele af dette kan ses i bilag.}
+\end{figure}
 
 \subsection{Level Parsing}
 Selvom flere af vores klasser kun benyttes en gang i programmet har vi valgt at lade dem være konkrete klasser. Da Vi ikke ser nogen grund til at indføre et singleton pattern hos alle klasserne da der ikke sker noget ved at have flere objekter af for eksempel FileReader, så har vi valgt kun at benytte det på udvalgte klasser såsom LevelsKeeper.\\
